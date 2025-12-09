@@ -6,7 +6,19 @@ export default function HomePage() {
   return (
     <div>
       <h1>{t("title")}</h1>
-      <Link href="/about">{t("about")}</Link>
+      <nav>
+        <ul>
+          <li>
+            <Link href="/about">{t("about")}</Link>
+          </li>
+          <li>
+            <Link href="/projects">{t("projects")}</Link>
+          </li>
+          <li>
+            <Link href="/contact">{t("contact")}</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }

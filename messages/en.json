@@ -1,6 +1,23 @@
 {
   "HomePage": {
     "title": "Hello world!",
-    "about": "Go to the about page"
+    "about": "Go to the about page",
+    "projects": "See projects",
+    "contact": "Contact me"
+  },
+  "AboutPage": {
+    "title": "About",
+    "description": "This is the about page.",
+    "back": "Back to home"
+  },
+  "ProjectsPage": {
+    "title": "Projects",
+    "description": "A list of projects will go here.",
+    "back": "Back to home"
+  },
+  "ContactPage": {
+    "title": "Contact",
+    "description": "How to reach me.",
+    "back": "Back to home"
   }
 }

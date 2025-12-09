@@ -1,6 +1,23 @@
 {
   "HomePage": {
     "title": "Bonjour",
-    "about": "Aller à la page à propos"
+    "about": "Aller à la page à propos",
+    "projects": "Voir les projets",
+    "contact": "Contactez-moi"
+  },
+  "AboutPage": {
+    "title": "À propos",
+    "description": "Ceci est la page à propos.",
+    "back": "Retour à l'accueil"
+  },
+  "ProjectsPage": {
+    "title": "Projets",
+    "description": "Une liste de projets sera affichée ici.",
+    "back": "Retour à l'accueil"
+  },
+  "ContactPage": {
+    "title": "Contact",
+    "description": "Comment me contacter.",
+    "back": "Retour à l'accueil"
   }
 }
