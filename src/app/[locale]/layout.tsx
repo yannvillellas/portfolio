@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Portfolio",
+    template: "%s | Portfolio",
+  },
+  description: "Personal portfolio website",
+};
 
 const inter = Inter({
   subsets: ["latin"],
