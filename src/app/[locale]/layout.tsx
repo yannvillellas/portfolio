@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getTranslations, getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+
+import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
   title: {
@@ -13,16 +16,15 @@ export const metadata: Metadata = {
   description: "Personal portfolio website",
 };
 
-const inter = Inter({
+const defaultFont = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const poppins = Poppins({
+const headingFont = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-heading",
   display: "swap",
 });
 
@@ -33,16 +35,30 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  // Ensure that the incoming `locale` is valid
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
+  const t = await getTranslations({ locale, namespace: "Navigation" });
+  const messages = await getMessages();
+
+  const menuItems = [
+    { label: t("home"), link: "/" },
+    { label: t("about"), link: "/about" },
+    { label: t("projects"), link: "/projects" },
+    { label: t("contact"), link: "/contact" },
+  ];
+
   return (
     <html lang={locale}>
-      <body className={`${inter.variable} ${poppins.variable}`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      <body
+        className={`${defaultFont.variable} ${headingFont.variable} relative`}
+      >
+        <NextIntlClientProvider messages={messages}>
+          <Navigation items={menuItems} />
+          <main>{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,15 +1,13 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 
 export default function AboutPage() {
   const t = useTranslations("AboutPage");
+
   return (
-    <div>
-      <h1>{t("title")}</h1>
-      <p>{t("description")}</p>
-      <p>
-        <Link href="/">{t("back")}</Link>
-      </p>
+    <div className="h-dvh w-full flex items-center justify-center">
+      <h1 className="text-6xl md:text-9xl font-black tracking-tighter text-foreground">
+        {t("title")}
+      </h1>
     </div>
   );
 }
