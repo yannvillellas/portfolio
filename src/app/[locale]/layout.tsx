@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
-import Navigation from "@/components/Navigation";
+import { Navigation } from "@/components/navigation";
 
 export const metadata: Metadata = {
   title: {
