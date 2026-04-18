@@ -1,23 +1,23 @@
 import React from "react";
 import Logo from "../Logo";
-import BurgerMenu from "./BurgerMenu";
+import MenuToggle from "./MenuToggle";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import { NavigationItem } from "./NavigationContainer";
 
-interface NavigationUIProps {
+interface NavigationProps {
   items: NavigationItem[];
   isOpen: boolean;
   toggleMenu: () => void;
   closeMenu: () => void;
 }
 
-export default function NavigationUI({
+export default function Navigation({
   items,
   isOpen,
   toggleMenu,
   closeMenu,
-}: NavigationUIProps) {
+}: NavigationProps) {
   return (
     <header className="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50">
       <div
@@ -29,7 +29,7 @@ export default function NavigationUI({
           <Logo />
           <DesktopMenu items={items} />
           <div className="md:hidden">
-            <BurgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+            <MenuToggle isOpen={isOpen} toggleMenu={toggleMenu} />
           </div>
         </div>
         <MobileMenu items={items} isOpen={isOpen} closeMenu={closeMenu} />

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import NavigationUI from "./NavigationUI";
+import Navigation from "./Navigation";
 
 export interface NavigationItem {
   label: string;
@@ -24,7 +24,7 @@ export default function NavigationContainer({ items }: NavigationProps) {
   }, []);
 
   return (
-    <NavigationUI
+    <Navigation
       items={items}
       isOpen={isOpen}
       toggleMenu={() => setIsOpen(!isOpen)}

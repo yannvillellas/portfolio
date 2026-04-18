@@ -2,12 +2,12 @@
 
 import React from "react";
 
-export interface BurgerMenuProps {
+export interface MenuToggleProps {
   isOpen: boolean;
   toggleMenu: () => void;
 }
 
-export default function BurgerMenu({ isOpen, toggleMenu }: BurgerMenuProps) {
+export default function MenuToggle({ isOpen, toggleMenu }: MenuToggleProps) {
   return (
     <button
       onClick={toggleMenu}
