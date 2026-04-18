@@ -21,7 +21,7 @@ export default function Navigation({
   return (
     <header className="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50">
       <div
-        className={`flex flex-col bg-background/80 backdrop-blur-xl border border-foreground/10 shadow-2xl rounded-2xl overflow-hidden transition-[max-height] duration-500 ease-in-out ${
+        className={`flex flex-col bg-background/20 backdrop-blur-md rounded-2xl overflow-hidden transition-[max-height] duration-500 ease-in-out ${
           isOpen ? "max-h-[400px]" : "max-h-[72px]"
         }`}
       >
