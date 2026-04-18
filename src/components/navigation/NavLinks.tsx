@@ -22,11 +22,11 @@ export default function NavLinks({
           key={idx}
           href={item.link}
           onClick={onItemClick}
-          className={
+          className={`text-foreground no-underline transition-colors hover:text-(--accent) ${
             isMobile
-              ? "flex justify-between items-center text-2xl font-bold font-heading tracking-tight text-foreground no-underline transition-colors hover:text-(--accent)"
-              : "text-base font-medium tracking-wider text-foreground no-underline transition-colors duration-300 hover:text-(--accent)"
-          }
+              ? "flex justify-between items-center text-2xl font-bold font-heading tracking-tight"
+              : "text-base font-medium tracking-wider duration-300"
+          }`}
         >
           <span>{item.label}</span>
           {isMobile && (
