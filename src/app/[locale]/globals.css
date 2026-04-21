@@ -1,32 +1,33 @@
 @import "tailwindcss";
+@import "../../styles/background.css";
 
 :root {
-  --background: #eff2f0;
-  --background-secondary: #f7fbf9;
-  --background-tertiary: #fdfffe;
-  --foreground: #0f1a13;
-  --accent: #4ade80;
-  --accent-secondary: #22c55e;
-  --accent-tertiary: #86efac;
+  --background: #e9f0eb;
+  --background-secondary: #dae6de;
+  --foreground: #1a191b;
+  --accent: #ad32b8;
+  --accent-hover: #7c2a9f;
+  --highlight: #0f6f43;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #050a07;
-    --background-secondary: #0f1612;
-    --background-tertiary: #18211c;
-    --foreground: #eefcf6;
-    --accent: #4ade80;
-    --accent-secondary: #15803d;
-    --accent-tertiary: #14532d;
+    --background: #0b100d;
+    --background-secondary: #131a15;
+    --foreground: #f7edf5;
+    --accent: #f08fc0;
+    --accent-hover: #e578b1;
+    --highlight: #4ade80;
   }
 }
 
 @theme {
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
-  --color-background-tertiary: var(--background-tertiary);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-highlight: var(--highlight);
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
 }
