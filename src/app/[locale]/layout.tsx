@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
-import { Navigation } from "@/components/navigation";
+import NavigationContainer from "@/components/navigation/NavigationContainer";
 
 export const metadata: Metadata = {
   title: {
@@ -56,7 +56,7 @@ export default async function LocaleLayout({
         className={`${defaultFont.variable} ${headingFont.variable} relative`}
       >
         <NextIntlClientProvider messages={messages}>
-          <Navigation items={menuItems} />
+          <NavigationContainer items={menuItems} />
           <main>{children}</main>
         </NextIntlClientProvider>
       </body>

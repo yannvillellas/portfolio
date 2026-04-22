@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import Background from "./Background";
+import Background from "@/components/hero/Background";
 
 export default function Hero() {
   const t = useTranslations("HomePage");

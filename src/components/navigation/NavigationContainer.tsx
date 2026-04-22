@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Navigation from "./Navigation";
+import { useEffect, useState } from "react";
+import Navigation from "@/components/navigation/Navigation";
 
 export interface NavigationItem {
   label: string;
@@ -27,7 +27,7 @@ export default function NavigationContainer({ items }: NavigationProps) {
     <Navigation
       items={items}
       isOpen={isOpen}
-      toggleMenu={() => setIsOpen(!isOpen)}
+      toggleMenu={() => setIsOpen((prev) => !prev)}
       closeMenu={() => setIsOpen(false)}
     />
   );

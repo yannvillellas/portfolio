@@ -1,9 +1,8 @@
-import React from "react";
-import Logo from "../Logo";
-import MenuToggle from "./MenuToggle";
-import DesktopMenu from "./DesktopMenu";
-import MobileMenu from "./MobileMenu";
-import { NavigationItem } from "./NavigationContainer";
+import Logo from "@/components/Logo";
+import DesktopMenu from "@/components/navigation/DesktopMenu";
+import MenuToggle from "@/components/navigation/MenuToggle";
+import MobileMenu from "@/components/navigation/MobileMenu";
+import type { NavigationItem } from "@/components/navigation/NavigationContainer";
 
 interface NavigationProps {
   items: NavigationItem[];

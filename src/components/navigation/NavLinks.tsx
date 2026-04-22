@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "@/i18n/navigation";
-import { NavigationItem } from "./NavigationContainer";
+import type { NavigationItem } from "@/components/navigation/NavigationContainer";
 
 interface NavLinksProps {
   items: NavigationItem[];
@@ -17,9 +16,9 @@ export default function NavLinks({
 
   return (
     <>
-      {items.map((item, idx) => (
+      {items.map((item) => (
         <Link
-          key={idx}
+          key={item.link}
           href={item.link}
           onClick={onItemClick}
           className={`text-foreground font-medium font-heading no-underline transition-colors hover:text-(--accent) ${

@@ -1,6 +1,5 @@
-import React from "react";
-import NavLinks from "./NavLinks";
-import { NavigationItem } from "./NavigationContainer";
+import NavLinks from "@/components/navigation/NavLinks";
+import type { NavigationItem } from "@/components/navigation/NavigationContainer";
 
 interface DesktopMenuProps {
   items: NavigationItem[];
