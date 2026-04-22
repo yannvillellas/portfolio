@@ -7,23 +7,21 @@
   },
   "HomePage": {
     "title": "Hello world!",
-    "about": "Go to the about page",
-    "projects": "See projects",
-    "contact": "Contact me"
+    "aboutPreviewDescription": "A quick overview of who I am, how I approach product thinking, and what drives my work day to day.",
+    "projectsPreviewDescription": "A curated selection of recent builds, design experiments, and end-to-end implementations with measurable outcomes.",
+    "contactPreviewDescription": "Ways to connect, discuss new opportunities, or start a collaboration around web, design, and product ideas.",
+    "seeMore": "See more"
   },
   "AboutPage": {
     "title": "About",
-    "description": "This is the about page.",
-    "back": "Back to home"
+    "description": "This is the about page."
   },
   "ProjectsPage": {
     "title": "Projects",
-    "description": "A list of projects will go here.",
-    "back": "Back to home"
+    "description": "A list of projects will go here."
   },
   "ContactPage": {
     "title": "Contact",
-    "description": "How to reach me.",
-    "back": "Back to home"
+    "description": "How to reach me."
   }
 }

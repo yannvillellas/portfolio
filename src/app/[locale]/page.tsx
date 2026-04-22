@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Hero from "@/components/hero/Hero";
+import HomeSectionsPreview from "@/components/home/HomeSectionsPreview";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -19,8 +20,9 @@ export async function generateMetadata({
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="relative bg-background text-foreground">
       <Hero />
+      <HomeSectionsPreview />
     </main>
   );
 }

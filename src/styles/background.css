@@ -2,6 +2,7 @@
   --ambient-ink: color-mix(in srgb, var(--background) 92%, var(--highlight) 8%);
   --ambient-glow: color-mix(in srgb, var(--highlight) 14%, transparent);
   --ambient-breathe-cycle: 3.33s;
+  --ambient-transition-height: clamp(7.5rem, 20vh, 14rem);
 
   --ambient-layer-opacity: 0.42;
   --ambient-orb-opacity: 0.3;
@@ -41,6 +42,18 @@
     62% 56% at 20% 22%,
     var(--ambient-glow) 0%,
     transparent 76%
+  );
+}
+
+.ambient-hero-fade {
+  z-index: 2;
+  height: var(--ambient-transition-height);
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--background) 72%, transparent) 56%,
+    var(--background) 100%
   );
 }
 

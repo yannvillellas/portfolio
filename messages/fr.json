@@ -7,23 +7,21 @@
   },
   "HomePage": {
     "title": "Bonjour",
-    "about": "Aller à la page à propos",
-    "projects": "Voir les projets",
-    "contact": "Contactez-moi"
+    "aboutPreviewDescription": "Un apercu rapide de mon profil, de ma facon d'aborder les produits, et de ce qui guide mon travail au quotidien.",
+    "projectsPreviewDescription": "Une selection de projets recents, d'experiences design et de realisations de bout en bout avec des resultats concrets.",
+    "contactPreviewDescription": "Plusieurs facons de me contacter pour echanger, parler d'opportunites ou lancer une collaboration.",
+    "seeMore": "Voir plus"
   },
   "AboutPage": {
     "title": "À propos",
-    "description": "Ceci est la page à propos.",
-    "back": "Retour à l'accueil"
+    "description": "Ceci est la page à propos."
   },
   "ProjectsPage": {
     "title": "Projets",
-    "description": "Une liste de projets sera affichée ici.",
-    "back": "Retour à l'accueil"
+    "description": "Une liste de projets sera affichée ici."
   },
   "ContactPage": {
     "title": "Contact",
-    "description": "Comment me contacter.",
-    "back": "Retour à l'accueil"
+    "description": "Comment me contacter."
   }
 }
