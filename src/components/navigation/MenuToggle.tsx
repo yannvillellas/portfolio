@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 export interface MenuToggleProps {
   isOpen: boolean;
   toggleMenu: () => void;
@@ -10,6 +8,7 @@ export interface MenuToggleProps {
 export default function MenuToggle({ isOpen, toggleMenu }: MenuToggleProps) {
   return (
     <button
+      type="button"
       onClick={toggleMenu}
       className="relative flex items-center justify-center w-10 h-10 cursor-pointer focus:outline-none text-foreground"
       aria-label={isOpen ? "Close menu" : "Open menu"}
