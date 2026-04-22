@@ -6,7 +6,10 @@
     "contact": "Contact"
   },
   "HomePage": {
-    "title": "Bonjour",
+    "title": "Ingenieur logiciel",
+    "heroSubtitle": "Je construis des applications web et mobiles fiables et de haute qualite.",
+    "primaryCta": "Me contacter",
+    "secondaryCta": "Voir les projets",
     "aboutPreviewDescription": "Un apercu rapide de mon profil, de ma facon d'aborder les produits, et de ce qui guide mon travail au quotidien.",
     "projectsPreviewDescription": "Une selection de projets recents, d'experiences design et de realisations de bout en bout avec des resultats concrets.",
     "contactPreviewDescription": "Plusieurs facons de me contacter pour echanger, parler d'opportunites ou lancer une collaboration.",
