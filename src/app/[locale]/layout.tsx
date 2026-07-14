@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Home, User, Folder, Mail } from "lucide-react";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -44,10 +45,10 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   const menuItems = [
-    { label: t("home"), link: "/" },
-    { label: t("about"), link: "/about" },
-    { label: t("projects"), link: "/projects" },
-    { label: t("contact"), link: "/contact" },
+    { label: t("home"), link: "/", mobileIcon: <Home size={18} /> },
+    { label: t("about"), link: "/about", mobileIcon: <User size={18} /> },
+    { label: t("projects"), link: "/projects", mobileIcon: <Folder size={18} /> },
+    { label: t("contact"), link: "/contact", mobileIcon: <Mail size={18} /> },
   ];
 
   return (
@@ -57,7 +58,7 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <NavigationContainer items={menuItems} />
-          <main>{children}</main>
+          <main className="pb-20 md:pb-0">{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

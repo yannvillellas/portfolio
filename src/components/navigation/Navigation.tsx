@@ -1,38 +1,22 @@
 import Logo from "@/components/Logo";
 import DesktopMenu from "@/components/navigation/DesktopMenu";
-import MenuToggle from "@/components/navigation/MenuToggle";
-import MobileMenu from "@/components/navigation/MobileMenu";
+import MobileNav from "@/components/navigation/MobileNav";
 import type { NavigationItem } from "@/components/navigation/NavigationContainer";
 
 interface NavigationProps {
   items: NavigationItem[];
-  isOpen: boolean;
-  toggleMenu: () => void;
-  closeMenu: () => void;
 }
 
-export default function Navigation({
-  items,
-  isOpen,
-  toggleMenu,
-  closeMenu,
-}: NavigationProps) {
+export default function Navigation({ items }: NavigationProps) {
   return (
-    <header className="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50">
-      <div
-        className={`flex flex-col bg-background/20 backdrop-blur-md rounded-2xl overflow-hidden transition-[max-height] duration-500 ease-in-out ${
-          isOpen ? "max-h-[400px]" : "max-h-[72px]"
-        }`}
-      >
-        <div className="flex justify-between items-center h-[72px] px-6 shrink-0">
+    <>
+      <header className="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50">
+        <div className="flex justify-between items-center h-18 px-6 nav-glass">
           <Logo />
           <DesktopMenu items={items} />
-          <div className="md:hidden">
-            <MenuToggle isOpen={isOpen} toggleMenu={toggleMenu} />
-          </div>
         </div>
-        <MobileMenu items={items} isOpen={isOpen} closeMenu={closeMenu} />
-      </div>
-    </header>
+      </header>
+      <MobileNav items={items} />
+    </>
   );
 }
