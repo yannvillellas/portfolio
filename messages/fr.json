@@ -6,13 +6,13 @@
     "contact": "Contact"
   },
   "HomePage": {
-    "title": "Ingenieur logiciel",
-    "heroSubtitle": "Je construis des applications web et mobiles fiables et de haute qualite.",
+    "title": "Ingénieur logiciel",
+    "heroSubtitle": "Je construis des applications web et mobiles fiables et de haute qualité.",
     "primaryCta": "Me contacter",
     "secondaryCta": "Voir les projets",
-    "aboutPreviewDescription": "Un apercu rapide de mon profil, de ma facon d'aborder les produits, et de ce qui guide mon travail au quotidien.",
-    "projectsPreviewDescription": "Une selection de projets recents, d'experiences design et de realisations de bout en bout avec des resultats concrets.",
-    "contactPreviewDescription": "Plusieurs facons de me contacter pour echanger, parler d'opportunites ou lancer une collaboration.",
+    "aboutPreviewDescription": "Un aperçu rapide de mon profil, de ma façon d'aborder les produits, et de ce qui guide mon travail au quotidien.",
+    "projectsPreviewDescription": "Une sélection de projets récents, d'expériences design et de réalisations de bout en bout avec des résultats concrets.",
+    "contactPreviewDescription": "Plusieurs façons de me contacter pour échanger, parler d'opportunités ou lancer une collaboration.",
     "seeMore": "Voir plus"
   },
   "AboutPage": {
