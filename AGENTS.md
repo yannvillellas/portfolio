@@ -2,7 +2,7 @@
 
 ## Architecture Overview
 
-This is a **Next.js 15 App Router** portfolio site with **internationalization (i18n)** using `next-intl`. The project uses:
+This is a **Next.js 16 App Router** portfolio site with **internationalization (i18n)** using `next-intl`. The project uses:
 
 - **React 19** with Server Components by default
 - **Tailwind CSS v4** (inline theme configuration in CSS)
@@ -11,13 +11,14 @@ This is a **Next.js 15 App Router** portfolio site with **internationalization (
 
 ### Key Architectural Pattern: Locale-First Routing
 
-All pages are nested under `src/app/[locale]/` dynamic segment. Middleware (`src/middleware.ts`) handles locale detection/redirection for routes matching `/((?!api|trpc|_next|_vercel|.*\\..*).*)`
+All pages are nested under `src/app/[locale]/` dynamic segment. Locale routing proxy (`src/proxy.ts`) handles locale detection/redirection for routes matching `/((?!api|trpc|_next|_vercel|.*\\..*).*)`
 
 ## Internationalization (i18n) Setup
 
 **Configuration files:**
 
 - `src/i18n/routing.ts` - defines supported locales (`en`, `fr`) and default locale
+- `src/proxy.ts` - locale routing proxy (was `middleware.ts` before Next.js 16)
 - `src/i18n/request.ts` - configures how messages are loaded per request
 - `src/i18n/navigation.ts` - exports locale-aware navigation wrappers (`Link`, `redirect`, `useRouter`, etc.)
 - `messages/[locale].json` - translation files organized by page namespaces (e.g., `HomePage`, `AboutPage`)
@@ -43,8 +44,8 @@ if (!hasLocale(routing.locales, locale)) {
 
 **Important differences from Tailwind v3:**
 
-- Configuration is in `src/app/[locale]/globals.css` using `@theme inline` directive
-- Custom fonts defined via CSS variables: `--font-inter` (body), `--font-poppins` (headings)
+- Configuration is in `src/app/[locale]/globals.css` using `@theme` directive
+- Custom fonts defined via CSS variables: `--font-sans` (body), `--font-heading` (headings)
 - Dark mode uses native CSS `@media (prefers-color-scheme: dark)` in globals.css
 - PostCSS configured with `@tailwindcss/postcss` plugin only
 
@@ -52,9 +53,10 @@ if (!hasLocale(routing.locales, locale)) {
 
 ```tsx
 // In layout.tsx: Import fonts and set as CSS variables
-import { Inter, Poppins } from "next/font/google";
-const inter = Inter({ variable: "--font-inter", ... });
-<body className={`${inter.variable} ${poppins.variable}`}>
+import { Inter, Montserrat } from "next/font/google";
+const inter = Inter({ variable: "--font-sans", ... });
+const montserrat = Montserrat({ variable: "--font-heading", ... });
+<body className={`${inter.variable} ${montserrat.variable}`}>
 ```
 
 ## Path Aliases
@@ -90,7 +92,7 @@ import { routing } from "@/i18n/routing";
 
 ## Component Organization
 
-- `src/components/` - Shared components (currently empty)
+- `src/components/` - Shared components organized by feature (hero, home, navigation)
 - `src/app/[locale]/` - Page components
 - Server Components by default; add `"use client"` only when needed for client interactivity
 
@@ -125,5 +127,5 @@ export async function generateMetadata({
 ## Key Files Reference
 
 - `next.config.ts` - Wraps config with `createNextIntlPlugin()`
-- `src/middleware.ts` - Locale routing middleware (excludes API routes, static files)
+- `src/proxy.ts` - Locale routing proxy (excludes API routes, static files)
 - `src/types/css.d.ts` - TypeScript declarations for CSS custom properties
