@@ -15,18 +15,20 @@ export default function NavLinks({ items, variant }: NavLinksProps) {
   return (
     <>
       {items.map((item) => {
-        const isActive = isMobile && pathname === item.link;
+        const isActive = pathname === item.link;
 
         return (
           <Link
             key={item.link}
             href={item.link}
-            className={`font-medium font-heading no-underline transition-colors ${
+            className={`font-heading no-underline transition-colors ${
               isMobile
-                ? `flex flex-col items-center gap-1 text-xs px-2 py-1 ${
+                ? `flex flex-col items-center gap-1 font-medium text-xs px-2 py-1 ${
                     isActive ? "text-(--accent)" : "text-foreground"
                   }`
-                : "text-foreground text-base duration-300 hover:text-(--accent)"
+                : `text-foreground text-base duration-300 hover:text-(--accent)${
+                    isActive ? " font-bold" : " font-medium"
+                  }`
             }`}
           >
             {isMobile && item.mobileIcon ? (
