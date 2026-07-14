@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, usePathname } from "@/i18n/navigation";
-import type { NavigationItem } from "@/components/navigation/NavigationContainer";
+import type { NavigationItem } from "@/components/navigation/Navigation";
 
 interface NavLinksProps {
   items: NavigationItem[];

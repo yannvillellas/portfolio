@@ -81,10 +81,6 @@
     ambient-breathe-a var(--ambient-breathe-cycle) ease-in-out infinite;
 }
 
-.ambient-content-reveal {
-  animation: ambient-content-reveal 920ms cubic-bezier(0.21, 1, 0.26, 1) both;
-}
-
 @keyframes ambient-orb-a {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
@@ -107,19 +103,6 @@
   }
 }
 
-@keyframes ambient-content-reveal {
-  0% {
-    opacity: 0;
-    transform: translateY(18px);
-    filter: blur(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
 @media (max-width: 768px) {
   .ambient-orb {
     filter: blur(42px);
@@ -134,10 +117,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ambient-orb-a,
-  .ambient-content-reveal {
+  .ambient-orb-a {
     animation: none !important;
     transform: none !important;
-    filter: none !important;
   }
 }

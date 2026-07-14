@@ -1,5 +1,5 @@
 import NavLinks from "@/components/navigation/NavLinks";
-import type { NavigationItem } from "@/components/navigation/NavigationContainer";
+import type { NavigationItem } from "@/components/navigation/Navigation";
 
 interface MobileNavProps {
   items: NavigationItem[];

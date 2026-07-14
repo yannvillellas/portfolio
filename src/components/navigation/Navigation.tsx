@@ -1,7 +1,12 @@
 import Logo from "@/components/Logo";
 import DesktopMenu from "@/components/navigation/DesktopMenu";
 import MobileNav from "@/components/navigation/MobileNav";
-import type { NavigationItem } from "@/components/navigation/NavigationContainer";
+
+export interface NavigationItem {
+  label: string;
+  link: string;
+  mobileIcon?: React.ReactNode;
+}
 
 interface NavigationProps {
   items: NavigationItem[];

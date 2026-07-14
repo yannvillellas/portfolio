@@ -7,7 +7,7 @@ import { routing } from "@/i18n/routing";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
-import NavigationContainer from "@/components/navigation/NavigationContainer";
+import Navigation from "@/components/navigation/Navigation";
 
 export const metadata: Metadata = {
   title: {
@@ -47,7 +47,11 @@ export default async function LocaleLayout({
   const menuItems = [
     { label: t("home"), link: "/", mobileIcon: <Home size={18} /> },
     { label: t("about"), link: "/about", mobileIcon: <User size={18} /> },
-    { label: t("projects"), link: "/projects", mobileIcon: <Folder size={18} /> },
+    {
+      label: t("projects"),
+      link: "/projects",
+      mobileIcon: <Folder size={18} />,
+    },
     { label: t("contact"), link: "/contact", mobileIcon: <Mail size={18} /> },
   ];
 
@@ -57,8 +61,8 @@ export default async function LocaleLayout({
         className={`${defaultFont.variable} ${headingFont.variable} relative`}
       >
         <NextIntlClientProvider messages={messages}>
-          <NavigationContainer items={menuItems} />
-          <main className="pb-20 md:pb-0">{children}</main>
+          <Navigation items={menuItems} />
+          <main className="min-h-svh pb-20 md:pb-0">{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>
