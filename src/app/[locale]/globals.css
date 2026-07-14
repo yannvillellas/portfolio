@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../../styles/background.css";
+@import "../../styles/navigation.css";
 
 :root {
   --background: #e9f0eb;
@@ -45,10 +46,4 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading), sans-serif;
-}
-
-@layer components {
-  .nav-glass {
-    @apply bg-background/20 backdrop-blur-md rounded-2xl;
-  }
 }
