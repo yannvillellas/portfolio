@@ -8,6 +8,7 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 
 import Navigation from "@/components/navigation/Navigation";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -56,13 +57,21 @@ export default async function LocaleLayout({
   ];
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-theme="light" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(!t||t==="system")document.documentElement.setAttribute("data-theme",window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");else document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body
         className={`${defaultFont.variable} ${headingFont.variable} relative`}
       >
         <NextIntlClientProvider messages={messages}>
           <Navigation items={menuItems} />
           <main className="min-h-svh pb-20 md:pb-0">{children}</main>
+          <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>

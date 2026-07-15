@@ -2,7 +2,7 @@
 @import "../../styles/background.css";
 @import "../../styles/navigation.css";
 
-:root {
+[data-theme="light"] {
   --background: #e9f0eb;
   --background-secondary: #dae6de;
   --foreground: #1a191b;
@@ -11,15 +11,13 @@
   --highlight: #0f6f43;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b100d;
-    --background-secondary: #131a15;
-    --foreground: #f7edf5;
-    --accent: #f08fc0;
-    --accent-hover: #e578b1;
-    --highlight: #4ade80;
-  }
+[data-theme="dark"] {
+  --background: #0b100d;
+  --background-secondary: #131a15;
+  --foreground: #f7edf5;
+  --accent: #f08fc0;
+  --accent-hover: #e578b1;
+  --highlight: #4ade80;
 }
 
 @theme {

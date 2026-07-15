@@ -26,5 +26,11 @@
   "ContactPage": {
     "title": "Contact",
     "description": "Comment me contacter."
+  },
+  "Footer": {
+    "copyright": "© 2026 Yann Villellas. Tous droits réservés.",
+    "themeLight": "Clair",
+    "themeDark": "Sombre",
+    "themeSystem": "Système"
   }
 }
