@@ -9,11 +9,12 @@ import "./globals.css";
 
 import Navigation from "@/components/navigation/Navigation";
 import Footer from "@/components/Footer";
+import { InlineScript } from "@/components/InlineScript";
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio",
-    template: "%s | Portfolio",
+    default: "Yann Villellas",
+    template: "%s - Yann Villellas",
   },
   description: "Personal portfolio website",
 };
@@ -59,10 +60,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} data-theme="light" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(!t||t==="system")document.documentElement.setAttribute("data-theme",window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");else document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`,
-          }}
+        <InlineScript
+          html={`(function(){try{var t=localStorage.getItem("theme");if(!t||t==="system")document.documentElement.setAttribute("data-theme",window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");else document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`}
         />
       </head>
       <body
