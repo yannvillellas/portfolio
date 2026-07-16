@@ -19,13 +19,11 @@ export default async function Footer({ locale }: FooterProps) {
     <footer className="border-t border-foreground/10 bg-background-secondary/30">
       <div className="mx-auto max-w-7xl px-6 py-8">
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-          <p className="text-sm text-foreground/60">
-            {t("copyright")}
-          </p>
+          <p className="text-sm text-foreground/60">{t("copyright")}</p>
 
           <div className="flex items-center gap-3">
-            <LocaleSwitcher />
             <ThemeToggle labels={themeLabels} />
+            <LocaleSwitcher />
           </div>
         </div>
       </div>

@@ -61,7 +61,7 @@ export default async function LocaleLayout({
     <html lang={locale} data-theme="light" suppressHydrationWarning>
       <head>
         <InlineScript
-          html={`(function(){try{var t=localStorage.getItem("theme");if(!t||t==="system")document.documentElement.setAttribute("data-theme",window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");else document.documentElement.setAttribute("data-theme",t)}catch(e){}})()`}
+          html={`(function(){try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");else if(t==="light")document.documentElement.setAttribute("data-theme","light");else if(window.matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()`}
         />
       </head>
       <body

@@ -1,33 +1,33 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Sun, Monitor, Moon } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
-type Theme = "light" | "dark" | "system";
+type Theme = "light" | "dark";
+type Mode = Theme | "system";
 
 const THEME_KEY = "theme";
 const ATTR = "data-theme";
 
-function getStoredTheme(): Theme {
+function getStoredMode(): Mode {
   if (typeof window === "undefined") return "system";
   const stored = localStorage.getItem(THEME_KEY);
-  if (stored === "light" || stored === "dark" || stored === "system") return stored;
+  if (stored === "light" || stored === "dark") return stored;
   return "system";
 }
 
-function getResolvedTheme(): "light" | "dark" {
+function getSystemTheme(): Theme {
   return window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
 }
 
-function applyTheme(theme: Theme) {
-  const root = document.documentElement;
-  if (theme === "system") {
-    root.setAttribute(ATTR, getResolvedTheme());
-  } else {
-    root.setAttribute(ATTR, theme);
-  }
+function getResolved(mode: Mode): Theme {
+  return mode === "system" ? getSystemTheme() : mode;
+}
+
+function applyTheme(t: Theme) {
+  document.documentElement.setAttribute(ATTR, t);
 }
 
 interface ThemeToggleProps {
@@ -39,66 +39,87 @@ interface ThemeToggleProps {
 }
 
 export default function ThemeToggle({ labels }: ThemeToggleProps) {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [mode, setMode] = useState<Mode>("system");
+  const [resolved, setResolved] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
+  const isManual = mode !== "system";
+
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- reading persisted theme from localStorage on mount
-    setTheme(getStoredTheme());
+    const stored = getStoredMode();
+    /* eslint-disable react-hooks/set-state-in-effect -- reading persisted theme from localStorage on mount */
+    setMode(stored);
+    setResolved(getResolved(stored));
     setMounted(true);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   useEffect(() => {
     if (!mounted) return;
-    localStorage.setItem(THEME_KEY, theme);
-    applyTheme(theme);
-  }, [theme, mounted]);
+    applyTheme(resolved);
+  }, [resolved, mounted]);
 
   useEffect(() => {
-    if (theme !== "system") return;
+    if (isManual) return;
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
-    const handler = () => applyTheme("system");
+    const handler = () => {
+      const sys = getSystemTheme();
+      setResolved(sys);
+    };
     mql.addEventListener("change", handler);
     return () => mql.removeEventListener("change", handler);
-  }, [theme]);
+  }, [isManual]);
 
-  const set = useCallback((next: Theme) => {
-    if (next === "system") localStorage.removeItem(THEME_KEY);
-    setTheme(next);
+  const toggle = useCallback((newTheme: Theme) => {
+    localStorage.setItem(THEME_KEY, newTheme);
+    setMode(newTheme);
+    setResolved(newTheme);
+  }, []);
+
+  const reset = useCallback(() => {
+    localStorage.removeItem(THEME_KEY);
+    const sys = getSystemTheme();
+    setMode("system");
+    setResolved(sys);
   }, []);
 
   if (!mounted) return null;
 
-  const segmentClass = (value: Theme) =>
+  const buttonClass = (t: Theme) =>
     `rounded-md p-1.5 transition-colors ${
-      theme === value
+      resolved === t
         ? "bg-background text-accent shadow-sm"
         : "text-foreground/50 hover:text-foreground/80"
     }`;
 
   return (
-    <div className="flex items-center rounded-lg border border-foreground/20 bg-foreground/5 p-0.5 h-9">
+    <div className="flex items-center gap-1">
       <button
-        onClick={() => set("light")}
-        className={segmentClass("light")}
-        aria-label={labels.light}
-      >
-        <Sun size={16} />
-      </button>
-      <button
-        onClick={() => set("system")}
-        className={segmentClass("system")}
+        onClick={reset}
+        className={`h-9 rounded-lg border border-foreground/20 px-2 text-xs font-medium transition-colors cursor-pointer ${
+          isManual ? "text-foreground/50 hover:text-foreground/80" : "invisible"
+        }`}
         aria-label={labels.system}
+        title={labels.system}
       >
-        <Monitor size={16} />
+        auto
       </button>
-      <button
-        onClick={() => set("dark")}
-        className={segmentClass("dark")}
-        aria-label={labels.dark}
-      >
-        <Moon size={16} />
-      </button>
+      <div className="flex items-center rounded-lg border border-foreground/20 bg-foreground/5 p-0.5 h-9">
+        <button
+          onClick={() => toggle("light")}
+          className={buttonClass("light")}
+          aria-label={labels.light}
+        >
+          <Sun size={16} />
+        </button>
+        <button
+          onClick={() => toggle("dark")}
+          className={buttonClass("dark")}
+          aria-label={labels.dark}
+        >
+          <Moon size={16} />
+        </button>
+      </div>
     </div>
   );
 }
