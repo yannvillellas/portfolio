@@ -15,8 +15,8 @@ interface NavigationProps {
 export default function Navigation({ items }: NavigationProps) {
   return (
     <>
-      <header className="fixed top-4 left-4 right-4 md:left-8 md:right-8 z-50">
-        <div className="flex justify-between items-center h-18 px-6 nav-glass">
+      <header className="fixed top-(--chrome-inset-y) left-(--chrome-inset-x) right-(--chrome-inset-x) z-50">
+        <div className="flex justify-between items-center h-(--header-height) px-6 nav-glass">
           <Logo />
           <DesktopMenu items={items} />
         </div>

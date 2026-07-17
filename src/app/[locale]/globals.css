@@ -20,7 +20,27 @@
   --highlight: #4ade80;
 }
 
-@theme {
+:root {
+  --chrome-inset-x: --spacing(4);
+  --chrome-inset-y: --spacing(4);
+  --header-height: --spacing(18);
+  --mobile-nav-height: --spacing(18);
+  --header-clearance: calc(
+    var(--chrome-inset-y) + var(--header-height) + --spacing(6)
+  );
+  --mobile-nav-clearance: calc(
+    env(safe-area-inset-bottom, 0px) + var(--chrome-inset-y) +
+      var(--mobile-nav-height) + --spacing(4)
+  );
+
+  @variant md {
+    --chrome-inset-x: --spacing(8);
+    --mobile-nav-clearance: 0px;
+  }
+}
+
+@theme inline {
+  --container-page: var(--container-7xl);
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);

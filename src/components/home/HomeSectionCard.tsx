@@ -21,7 +21,7 @@ export default function HomeSectionCard({
   return (
     <section className="flex min-h-svh w-full items-center px-[clamp(24px,7vw,120px)] py-[clamp(56px,8vw,120px)]">
       <div
-        className={`mx-auto flex w-full max-w-7xl flex-col items-stretch gap-10 md:gap-12 lg:gap-14 ${
+        className={`mx-auto flex w-full max-w-page flex-col items-stretch gap-10 md:gap-12 lg:gap-14 ${
           reverseOnDesktop ? "md:flex-row-reverse" : "md:flex-row"
         }`}
       >

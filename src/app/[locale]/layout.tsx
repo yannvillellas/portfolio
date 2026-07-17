@@ -69,7 +69,7 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <Navigation items={menuItems} />
-          <main className="min-h-svh pb-20 md:pb-0">{children}</main>
+          <main className="min-h-svh">{children}</main>
           <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>
