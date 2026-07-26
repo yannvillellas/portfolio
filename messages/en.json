@@ -17,7 +17,57 @@
   },
   "AboutPage": {
     "title": "About",
-    "description": "This is the about page."
+    "description": "Professional background and skills. Double Master's in Computer Software Engineering from ESILV (Paris) and PoliTo (Turin).",
+    "intro": "Software engineer with a double Master's degree from ESILV (Paris) and Politecnico di Torino (Turin). I build across mobile, web, and backend infrastructure — always with the same baseline: clean architecture, testable code, and no technical debt left behind.",
+    "experience": {
+      "title": "Experience",
+      "entries": [
+        {
+          "role": "Software Engineer",
+          "company": "Endurance Lab",
+          "period": "2026",
+          "description": "Built a Flutter mobile application for endurance athletes, visualizing physiological data collected from wearable devices. Integrated a microservices backend and set up automated CI/CD pipelines. Maintained a strong focus on test coverage and clean architecture — the codebase was handed off to a PhD student with zero onboarding friction."
+        },
+        {
+          "role": "Full-stack Engineer & Scrum Master",
+          "company": "Microservices Car Rental Platform",
+          "period": "2025",
+          "description": "Designed and developed a distributed car rental system using Spring Boot microservices and React. Implemented fleet management, reservations, and PayPal payments with transactional consistency via Kafka and the Outbox pattern. Secured the architecture with Keycloak (OAuth2/OIDC) and an API Gateway. Led a distributed international team as Scrum Master, running two-week iterations and improving estimation accuracy."
+        },
+        {
+          "role": "Software Engineer Intern",
+          "company": "Athabasca University",
+          "location": "Edmonton, Canada",
+          "period": "Summer 2024",
+          "description": "Developed a Flutter mobile app for self-guided geography field trips, integrating Firebase Authentication, Cloud Firestore, and interactive maps. Worked in a fully English-speaking, multinational team. The defining lesson: understanding the user's real workflow matters more than technical optimization — professors needed to stay inside QGIS, their existing tool, not learn a new interface."
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "entries": [
+        {
+          "school": "Politecnico di Torino",
+          "degree": "Master of Science, Computer Software Engineering",
+          "location": "Turin, Italy",
+          "period": "2024 – 2026"
+        },
+        {
+          "school": "ESILV (École Supérieure d'Ingénieurs Léonard de Vinci)",
+          "degree": "Master of Science, Cybersecurity and Cloud Computing",
+          "location": "Paris, France",
+          "period": "2020 – 2025"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "languages": "TypeScript, Dart, Java, Kotlin, Python, C++, SQL",
+      "mobile": "Flutter",
+      "web": "Next.js, React, HTML, CSS",
+      "backend": "Spring Boot, Node.js, Kafka, PostgreSQL, MongoDB, Firebase",
+      "devops": "Docker, CI/CD, Linux, Nginx, WireGuard"
+    }
   },
   "ProjectsPage": {
     "title": "Projects",

@@ -6,22 +6,72 @@
     "contact": "Contact"
   },
   "HomePage": {
-    "title": "Ingénieur logiciel",
-    "heroSubtitle": "Je construis des applications web et mobiles fiables et de haute qualité.",
+    "title": "Ingénieur Logiciel",
+    "heroSubtitle": "Je construis des applications web et mobile fiables et de haute qualité.",
     "primaryCta": "Me contacter",
     "secondaryCta": "Voir les projets",
-    "aboutPreviewDescription": "Un aperçu rapide de mon profil, de ma façon d'aborder les produits, et de ce qui guide mon travail au quotidien.",
-    "projectsPreviewDescription": "Une sélection de projets récents, d'expériences design et de réalisations de bout en bout avec des résultats concrets.",
-    "contactPreviewDescription": "Plusieurs façons de me contacter pour échanger, parler d'opportunités ou lancer une collaboration.",
+    "aboutPreviewDescription": "Un aperçu de qui je suis, comment j'aborde la réflexion produit et ce qui motive mon travail au quotidien.",
+    "projectsPreviewDescription": "Une sélection de projets récents, d'expérimentations et de réalisations complètes avec des résultats mesurables.",
+    "contactPreviewDescription": "Les moyens de me contacter, d'échanger sur de nouvelles opportunités ou de collaborer autour du web, du design et des idées.",
     "seeMore": "Voir plus"
   },
   "AboutPage": {
     "title": "À propos",
-    "description": "Ceci est la page à propos."
+    "description": "Parcours professionnel et compétences. Double diplôme d'ingénieur en informatique à l'ESILV (Paris) et PoliTo (Turin).",
+    "intro": "Ingénieur logiciel avec un double diplôme de l'ESILV (Paris) et du Politecnico di Torino (Turin). Je construis des applications mobiles, web et des infrastructures backend — toujours avec la même base : architecture propre, code testable et aucune dette technique laissée derrière.",
+    "experience": {
+      "title": "Expérience",
+      "entries": [
+        {
+          "role": "Ingénieur Logiciel",
+          "company": "Endurance Lab",
+          "period": "2026",
+          "description": "Développement d'une application mobile Flutter pour les sports d'endurance, permettant la visualisation de données physiologiques issues d'objets connectés. Intégration à un backend microservices et mise en place de pipelines CI/CD automatisés. Focalisation sur la couverture de tests et l'architecture propre — la base de code a été transmise à un doctorant sans aucune friction."
+        },
+        {
+          "role": "Ingénieur Full-stack & Scrum Master",
+          "company": "Plateforme de location de véhicules",
+          "period": "2025",
+          "description": "Conception et développement d'un système distribué de location de voitures avec des microservices Spring Boot et React. Implémentation de la gestion de flotte, des réservations et des paiements PayPal avec cohérence transactionnelle via Kafka et le pattern Outbox. Sécurisation de l'architecture avec Keycloak (OAuth2/OIDC) et une API Gateway. Pilotage d'une équipe internationale en tant que Scrum Master, avec des itérations de deux semaines."
+        },
+        {
+          "role": "Stagiaire Ingénieur Logiciel",
+          "company": "Athabasca University",
+          "location": "Edmonton, Canada",
+          "period": "Été 2024",
+          "description": "Développement d'une application mobile Flutter pour des excursions de terrain en géographie, intégrant Firebase Authentication, Cloud Firestore et des cartes interactives. Travail dans une équipe multinationale entièrement anglophone. La leçon marquante : comprendre le flux de travail réel des utilisateurs est plus important que l'optimisation technique — les professeurs devaient rester dans QGIS, leur outil existant, pas apprendre une nouvelle interface."
+        }
+      ]
+    },
+    "education": {
+      "title": "Formation",
+      "entries": [
+        {
+          "school": "Politecnico di Torino",
+          "degree": "Master of Science, Computer Software Engineering",
+          "location": "Turin, Italie",
+          "period": "2024 – 2026"
+        },
+        {
+          "school": "ESILV (École Supérieure d'Ingénieurs Léonard de Vinci)",
+          "degree": "École d'Ingénieurs, Cybersecurity et Cloud Computing",
+          "location": "Paris, France",
+          "period": "2020 – 2025"
+        }
+      ]
+    },
+    "skills": {
+      "title": "Compétences",
+      "languages": "TypeScript, Dart, Java, Kotlin, Python, C++, SQL",
+      "mobile": "Flutter",
+      "web": "Next.js, React, HTML, CSS",
+      "backend": "Spring Boot, Node.js, Kafka, PostgreSQL, MongoDB, Firebase",
+      "devops": "Docker, CI/CD, Linux, Nginx, WireGuard"
+    }
   },
   "ProjectsPage": {
     "title": "Projets",
-    "description": "Une liste de projets sera affichée ici."
+    "description": "Une liste de projets sera ajoutée ici."
   },
   "ContactPage": {
     "title": "Contact",
