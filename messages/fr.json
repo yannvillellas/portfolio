@@ -18,28 +18,23 @@
   "AboutPage": {
     "title": "À propos",
     "description": "Parcours professionnel et compétences. Double diplôme d'ingénieur en informatique à l'ESILV (Paris) et PoliTo (Turin).",
-    "intro": "Ingénieur logiciel avec un double diplôme de l'ESILV (Paris) et du Politecnico di Torino (Turin). Je construis des applications mobiles, web et des infrastructures backend — toujours avec la même base : architecture propre, code testable et aucune dette technique laissée derrière.",
+    "intro": "Ingénieur logiciel avec un double diplôme de l'ESILV (Paris) et du Politecnico di Torino (Turin). Je construis des applications mobiles, web et des infrastructures backend, toujours avec la même base : architecture propre, code testable et aucune dette technique laissée derrière.",
     "experience": {
       "title": "Expérience",
       "entries": [
         {
-          "role": "Ingénieur Logiciel",
+          "role": "Mémoire d'ingénierie au Politecnico di Torino",
           "company": "Endurance Lab",
-          "period": "2026",
-          "description": "Développement d'une application mobile Flutter pour les sports d'endurance, permettant la visualisation de données physiologiques issues d'objets connectés. Intégration à un backend microservices et mise en place de pipelines CI/CD automatisés. Focalisation sur la couverture de tests et l'architecture propre — la base de code a été transmise à un doctorant sans aucune friction."
-        },
-        {
-          "role": "Ingénieur Full-stack & Scrum Master",
-          "company": "Plateforme de location de véhicules",
-          "period": "2025",
-          "description": "Conception et développement d'un système distribué de location de voitures avec des microservices Spring Boot et React. Implémentation de la gestion de flotte, des réservations et des paiements PayPal avec cohérence transactionnelle via Kafka et le pattern Outbox. Sécurisation de l'architecture avec Keycloak (OAuth2/OIDC) et une API Gateway. Pilotage d'une équipe internationale en tant que Scrum Master, avec des itérations de deux semaines."
+          "location": "Turin, Italie",
+          "period": "Octobre 2025 – Mars 2026",
+          "description": "Conception et développement d'Endurance Lab, une application mobile cross-platform qui centralise et normalise les données d'entraînement issues d'écosystèmes de montres connectées hétérogènes (Garmin, Polar) pour résoudre le problème d'enfermement propriétaire et fournir une infrastructure de collecte standardisée pour la recherche en sciences du sport. Mise en œuvre d'une architecture MVVM avec des graphiques interactifs (fl_chart), une cartographie GPS (flutter_map), une authentification Firebase JWT et l'intégration de flux OAuth 2.0 via deep-linking. Automatisation complète du cycle de vie (CI/CD via GitHub Actions et Fastlane) jusqu'au déploiement Google Play. Traitement en temps réel validé en bêta fermée : plus de 1 000 activités, 2,7 millions de points GPS et 1,6 million d'échantillons physiologiques."
         },
         {
           "role": "Stagiaire Ingénieur Logiciel",
           "company": "Athabasca University",
           "location": "Edmonton, Canada",
-          "period": "Été 2024",
-          "description": "Développement d'une application mobile Flutter pour des excursions de terrain en géographie, intégrant Firebase Authentication, Cloud Firestore et des cartes interactives. Travail dans une équipe multinationale entièrement anglophone. La leçon marquante : comprendre le flux de travail réel des utilisateurs est plus important que l'optimisation technique — les professeurs devaient rester dans QGIS, leur outil existant, pas apprendre une nouvelle interface."
+          "period": "Avril 2024 – Juillet 2024",
+          "description": "Développement de mFieldTrip, une application mobile cross-platform développée à l'Athabasca University, destinée aux études de terrain pour l'enseignement de la géographie à distance. Prototypage de l'interface sur Figma et développement cross-platform (Android, Web). Intégration de cartes interactives (flutter_map, exports QGIS2Web via WebView) et implémentation d'un algorithme de tri géospatial basé sur le calcul de la distance euclidienne. Sécurisation via Firebase Authentication et Cloud Firestore avec contrôle d'accès selon quatre rôles utilisateurs distincts et modération des contenus."
         }
       ]
     },
@@ -62,11 +57,28 @@
     },
     "skills": {
       "title": "Compétences",
-      "languages": "TypeScript, Dart, Java, Kotlin, Python, C++, SQL",
-      "mobile": "Flutter",
-      "web": "Next.js, React, HTML, CSS",
-      "backend": "Spring Boot, Node.js, Kafka, PostgreSQL, MongoDB, Firebase",
-      "devops": "Docker, CI/CD, Linux, Nginx, WireGuard"
+      "categories": {
+        "languages": "Langages",
+        "mobile": "Mobile",
+        "web": "Web",
+        "backend": "Backend",
+        "databases": "Bases de données",
+        "testing": "Tests",
+        "infrastructure": "Infrastructure",
+        "practices": "Pratiques"
+      },
+      "languages": "TypeScript, JavaScript, Dart, Python, Kotlin, Java, C#, C++",
+      "mobile": "Flutter, Android, React Native",
+      "web": "React, Next.js, Express.js, Vue.js, Angular, HTML, CSS",
+      "backend": "Node.js, Spring Boot, Django, .NET, OAuth2/OIDC",
+      "databases": "PostgreSQL, MySQL, SQLite, Firebase, MongoDB",
+      "testing": "Jest, JUnit, SonarQube",
+      "infrastructure": "Docker, Kubernetes, Linux, Nginx, CI/CD",
+      "practices": "Scrum, TDD, Pair Programming, Agile"
+    },
+    "interests": {
+      "title": "Centres d'intérêt",
+      "entries": "Sports (ski, rugby, cyclisme, kayak), veille technologique"
     }
   },
   "ProjectsPage": {

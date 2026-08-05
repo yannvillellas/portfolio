@@ -63,20 +63,12 @@ export default function AboutPage() {
                 key={exp.company}
                 className="border-l-2 border-foreground/15 pl-6"
               >
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="text-lg font-bold text-foreground">
-                    {exp.role}
-                  </h3>
-                  <span className="text-sm font-medium text-accent">
-                    {exp.company}
-                  </span>
-                  {exp.location && (
-                    <span className="text-sm text-foreground/50">
-                      {exp.location}
-                    </span>
-                  )}
-                </div>
-                <p className="mt-1 text-sm text-foreground/50">{exp.period}</p>
+                <h3 className="text-lg font-bold text-foreground">
+                  {exp.company}
+                </h3>
+                <p className="text-sm text-foreground/50">
+                  {exp.role} · {exp.location} · {exp.period}
+                </p>
                 <p className="mt-3 leading-relaxed text-foreground/75">
                   {exp.description}
                 </p>
@@ -113,23 +105,71 @@ export default function AboutPage() {
             {t("skills.title")}
           </h2>
 
-          <div className="mt-8 space-y-5">
-            <SkillGroup label={t("skills.languages")} />
-            <SkillGroup label={t("skills.mobile")} />
-            <SkillGroup label={t("skills.web")} />
-            <SkillGroup label={t("skills.backend")} />
-            <SkillGroup label={t("skills.devops")} />
+          <div className="mt-8 space-y-6">
+            <SkillCategory
+              label={t("skills.categories.languages")}
+              items={t("skills.languages")}
+            />
+            <SkillCategory
+              label={t("skills.categories.mobile")}
+              items={t("skills.mobile")}
+            />
+            <SkillCategory
+              label={t("skills.categories.web")}
+              items={t("skills.web")}
+            />
+            <SkillCategory
+              label={t("skills.categories.backend")}
+              items={t("skills.backend")}
+            />
+            <SkillCategory
+              label={t("skills.categories.databases")}
+              items={t("skills.databases")}
+            />
+            <SkillCategory
+              label={t("skills.categories.testing")}
+              items={t("skills.testing")}
+            />
+            <SkillCategory
+              label={t("skills.categories.infrastructure")}
+              items={t("skills.infrastructure")}
+            />
+            <SkillCategory
+              label={t("skills.categories.practices")}
+              items={t("skills.practices")}
+            />
           </div>
+        </section>
+
+        <section className="mt-16">
+          <h2 className="text-2xl font-black tracking-tight md:text-3xl">
+            {t("interests.title")}
+          </h2>
+          <p className="mt-6 leading-relaxed text-foreground/75">
+            {t("interests.entries")}
+          </p>
         </section>
       </PageContainer>
     </div>
   );
 }
 
-function SkillGroup({ label }: { label: string }) {
+function SkillCategory({ label, items }: { label: string; items: string }) {
+  const skills = items.split(", ");
+
   return (
-    <span className="inline-block rounded-full border border-foreground/15 bg-background-secondary/40 px-4 py-1.5 text-sm text-foreground/80">
-      {label}
-    </span>
+    <div>
+      <span className="text-lg font-bold text-foreground">{label}</span>
+      <div className="mt-2 flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <span
+            key={skill}
+            className="inline-block rounded-full border border-foreground/15 bg-background-secondary/40 px-3 py-1 text-sm text-foreground/80"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
   );
 }
