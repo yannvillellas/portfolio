@@ -87,7 +87,12 @@
   },
   "ContactPage": {
     "title": "Contact",
-    "description": "How to reach me."
+    "description": "How to reach me.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "chatComingSoon": "Chat with me — coming soon",
+    "chatDescription": "An AI assistant that answers questions about my background and experience, coming to this page in the future."
   },
   "Footer": {
     "copyright": "© 2026 Yann Villellas. All rights reserved.",
