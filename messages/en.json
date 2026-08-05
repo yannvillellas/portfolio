@@ -83,7 +83,37 @@
   },
   "ProjectsPage": {
     "title": "Projects",
-    "description": "A list of projects will go here."
+    "description": "A selection of projects I have built.",
+    "source": "Source",
+    "live": "Live",
+    "projects": [
+      {
+        "id": "endurance-lab",
+        "title": "Endurance Lab",
+        "description": "Cross-platform mobile app normalizing training data from heterogeneous wearable ecosystems for sports science research.",
+        "tags": ["Flutter", "Dart", "Firebase", "GitHub Actions", "Fastlane"],
+        "liveUrl": "https://endurance.veebor.net/index_en.html"
+      },
+      {
+        "id": "microservices-car-rental",
+        "title": "Car Rental Platform",
+        "description": "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
+        "tags": ["Spring Boot", "React", "Kafka", "Keycloak", "PostgreSQL"]
+      },
+      {
+        "id": "mfield-trip",
+        "title": "mField Trip",
+        "description": "Cross-platform mobile app replacing traditional geography field studies with interactive, self-guided GIS excursions.",
+        "tags": ["Flutter", "Firebase", "flutter_map", "QGIS"]
+      },
+      {
+        "id": "portfolio",
+        "title": "This Portfolio",
+        "description": "Next.js 16 portfolio built with Tailwind CSS v4, i18n via next-intl, and a design token system for layout spacing.",
+        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
+        "repoUrl": "https://github.com/yannvillellas/portfolio"
+      }
+    ]
   },
   "ContactPage": {
     "title": "Contact",

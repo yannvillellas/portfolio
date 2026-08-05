@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import PageContainer from "@/components/PageContainer";
+import ProjectCard, { type Project } from "@/components/projects/ProjectCard";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -21,13 +22,20 @@ export async function generateMetadata({
 
 export default function ProjectsPage() {
   const t = useTranslations("ProjectsPage");
+  const projects = t.raw("projects") as unknown as Project[];
 
   return (
-    <div className="flex min-h-svh items-center justify-center pt-(--header-clearance) pb-(--mobile-nav-clearance)">
-      <PageContainer>
-        <h1 className="text-center text-6xl md:text-9xl font-black tracking-tighter text-foreground">
+    <div className="pt-(--header-clearance) pb-(--mobile-nav-clearance)">
+      <PageContainer className="py-16 md:py-24">
+        <h1 className="text-4xl font-black tracking-tight md:text-6xl">
           {t("title")}
         </h1>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </PageContainer>
     </div>
   );
