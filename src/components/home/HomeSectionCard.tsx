@@ -28,7 +28,7 @@ export default function HomeSectionCard({
           }`}
         >
           <div className="flex md:basis-2/5">
-            <div className="flex w-full flex-col justify-center gap-5 rounded-4xl border border-foreground/20 bg-background/45 p-7 backdrop-blur-[14px] md:p-10 lg:p-12">
+            <div className="flex w-full flex-col justify-center gap-5 p-7 md:p-10 lg:p-12">
               <h2 className="text-4xl font-black tracking-tight md:text-6xl">
                 {section.title}
               </h2>
@@ -41,7 +41,7 @@ export default function HomeSectionCard({
 
           <div className="flex md:basis-3/5">
             <div
-              className={`relative flex w-full overflow-hidden rounded-[1.75rem] border border-foreground/20 shadow-[0_24px_80px_rgba(0,0,0,0.18)] ${section.imageToneClassName} aspect-[608/463.233] md:aspect-[531.4/423.583] lg:aspect-[793.4/608]`}
+              className={`relative flex w-full overflow-hidden rounded-2xl border border-foreground/20 shadow-[0_24px_80px_rgba(0,0,0,0.18)] ${section.imageToneClassName} aspect-[608/463.233] md:aspect-[531.4/423.583] lg:aspect-[793.4/608]`}
               role="img"
               aria-label={`${section.title} preview image`}
             >

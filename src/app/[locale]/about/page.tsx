@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import PageContainer from "@/components/PageContainer";
+import Pill from "@/components/Pill";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -162,12 +163,9 @@ function SkillCategory({ label, items }: { label: string; items: string }) {
       <span className="text-lg font-bold text-foreground">{label}</span>
       <div className="mt-2 flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <span
-            key={skill}
-            className="inline-block rounded-full border border-foreground/15 bg-background-secondary/40 px-3 py-1 text-sm text-foreground/80"
-          >
+          <Pill key={skill} size="sm">
             {skill}
-          </span>
+          </Pill>
         ))}
       </div>
     </div>

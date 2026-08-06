@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import PageContainer from "@/components/PageContainer";
+import Pill from "@/components/Pill";
 import type { Project } from "@/components/projects/ProjectCard";
 
 interface PageProps {
@@ -93,12 +94,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
         <div className="mt-8 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-block rounded-full border border-foreground/15 bg-background-secondary/40 px-3 py-1 text-xs text-foreground/80"
-            >
+            <Pill key={tag} size="sm">
               {tag}
-            </span>
+            </Pill>
           ))}
         </div>
 
@@ -108,7 +106,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-2xl border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
             >
               <GitHubIcon />
               {t("source")}
@@ -119,7 +117,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-2xl border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
             >
               <ExternalLinkIcon />
               {t("live")}

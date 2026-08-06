@@ -22,14 +22,14 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center rounded-full bg-accent px-6 py-3 font-heading text-base font-bold text-background no-underline transition-colors duration-200 hover:bg-accent-hover"
+                className="inline-flex items-center rounded-2xl bg-accent px-6 py-3 font-heading text-base font-bold text-background no-underline transition-colors hover:bg-accent-hover"
               >
                 {t("primaryCta")}
               </Link>
 
               <Link
                 href="/projects"
-                className="inline-flex items-center rounded-full border border-foreground/25 bg-background/55 px-6 py-3 font-heading text-base font-bold text-foreground no-underline backdrop-blur-sm transition-colors duration-200 hover:border-foreground/45 hover:bg-background/75"
+                className="inline-flex items-center rounded-2xl border border-foreground/25 bg-background/55 px-6 py-3 font-heading text-base font-bold text-foreground no-underline backdrop-blur-sm transition-colors hover:border-foreground/45 hover:bg-background/75"
               >
                 {t("secondaryCta")}
               </Link>

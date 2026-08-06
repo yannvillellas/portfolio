@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import PageContainer from "@/components/PageContainer";
+import CardLink from "@/components/CardLink";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -50,7 +51,7 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="mt-16 rounded-2xl border border-foreground/10 bg-background-secondary/20 p-8">
+        <div className="mt-16 border-t border-foreground/10 pt-8">
           <div className="flex items-center gap-3">
             <SparkleIcon />
             <h2 className="text-lg font-bold text-foreground">
@@ -78,11 +79,11 @@ function ContactLink({
   icon: React.ReactNode;
 }) {
   return (
-    <a
+    <CardLink
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex flex-col justify-between rounded-2xl border border-foreground/10 bg-background-secondary/20 p-6 transition-colors hover:border-foreground/20 hover:bg-background-secondary/30"
+      external
+      bgHover
+      className="relative flex flex-col justify-between p-6"
     >
       <span className="absolute top-5 right-5 text-foreground/25 transition-colors group-hover:text-foreground/50">
         <ExternalLinkIcon />
@@ -94,7 +95,7 @@ function ContactLink({
       <span className="mt-2 block text-base font-semibold text-foreground">
         {value}
       </span>
-    </a>
+    </CardLink>
   );
 }
 
