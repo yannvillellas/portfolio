@@ -86,32 +86,50 @@
     "description": "Une sélection de projets que j'ai réalisés.",
     "source": "Code source",
     "live": "En ligne",
+    "back": "Retour",
     "projects": [
       {
         "id": "endurance-lab",
         "title": "Endurance Lab",
         "description": "Application mobile cross-platform qui normalise les données d'entraînement issues d'écosystèmes de montres connectées hétérogènes pour la recherche en sciences du sport.",
-        "tags": ["Flutter", "Dart", "Firebase", "GitHub Actions", "Fastlane"],
-        "liveUrl": "https://endurance.veebor.net/index_en.html"
+        "tags": ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
+        "liveUrl": "https://endurance.veebor.net/index_en.html",
+        "detail": "Endurance Lab est une application mobile cross-platform qui résout le problème d\u2019enfermement propriétaire en centralisant et normalisant les données d\u2019entraînement issues d\u2019écosystèmes de montres connectées hétérogènes comme Garmin et Polar. Le projet a été développé dans le cadre d\u2019un mémoire d\u2019ingénierie au Politecnico di Torino, en collaboration avec des chercheurs en sciences du sport ayant besoin d\u2019une infrastructure de collecte de données standardisée.\n\nL\u2019application a été construite avec une architecture MVVM en Flutter, intégrant des graphiques interactifs via fl_chart et une cartographie GPS via flutter_map. L\u2019authentification utilise des jetons Firebase JWT, et l\u2019intégration d\u2019API tierces est gérée par OAuth 2.0 avec deep-linking. Le cycle de développement complet a été automatisé via des pipelines CI/CD avec GitHub Actions et Fastlane, jusqu\u2019au déploiement sur Google Play.\n\nLe déploiement en bêta fermée a validé le pipeline de traitement en temps réel : plus de 1 000 activités, 2,7 millions de points GPS et 1,6 million d\u2019échantillons physiologiques ont été ingérés et normalisés. L\u2019application est aujourd\u2019hui utilisée comme plateforme de collecte de données pour des études en sciences du sport.",
+        "screenshots": [
+          "/images/projects/endurance-lab/1",
+          "/images/projects/endurance-lab/2"
+        ]
       },
       {
         "id": "microservices-car-rental",
         "title": "Plateforme de location de véhicules",
         "description": "Système distribué en microservices avec cohérence transactionnelle via Kafka et le pattern Outbox. Développé avec Spring Boot, React et Keycloak.",
-        "tags": ["Spring Boot", "React", "Kafka", "Keycloak", "PostgreSQL"]
+        "tags": ["Spring Boot", "React", "Kafka", "Keycloak", "PostgreSQL"],
+        "detail": "Cette plateforme de location de véhicules a été conçue comme un projet d\u2019ingénierie appliquant une méthodologie de développement piloté par les tests \u00e0 une architecture microservices. Le syst\u00e8me g\u00e8re la gestion de flotte, les r\u00e9servations et le traitement des paiements avec une coh\u00e9rence transactionnelle garantie entre services.\n\nLes services backend ont \u00e9t\u00e9 d\u00e9velopp\u00e9s avec Spring Boot et PostgreSQL, valid\u00e9s en continu via JUnit et des environnements \u00e9ph\u00e9m\u00e8res Testcontainers. Le module de paiement int\u00e8gre PayPal via un pipeline r\u00e9silient utilisant Kafka pour le streaming d\u2019\u00e9v\u00e9nements, le CDC pour la synchronisation des bases de donn\u00e9es et le pattern Outbox pour garantir une s\u00e9mantique de traitement exactly-once entre les services. La s\u00e9curit\u00e9 est centralis\u00e9e avec Keycloak (OAuth 2.0, OIDC) et le routage dynamique est assur\u00e9 par Spring Cloud Gateway. L\u2019interface utilisateur a \u00e9t\u00e9 construite avec React.\n\nLe r\u00e9sultat : z\u00e9ro perte de transaction lors des processus de paiement distribu\u00e9s et \u00e9limination des r\u00e9gressions critiques avant d\u00e9ploiement. La couverture de test exhaustive a produit une base de code hautement maintenable.",
+        "screenshots": [
+          "/images/projects/car-rental/1",
+          "/images/projects/car-rental/2"
+        ]
       },
       {
-        "id": "mfield-trip",
-        "title": "mField Trip",
+        "id": "mfieldtrip",
+        "title": "mFieldTrip",
         "description": "Application mobile cross-platform remplaçant les études de terrain traditionnelles par des excursions interactives exploitant des données SIG open-source.",
-        "tags": ["Flutter", "Firebase", "flutter_map", "QGIS"]
+        "tags": ["Flutter", "Firebase", "flutter_map", "QGIS"],
+        "detail": "mFieldTrip permet de r\u00e9aliser des \u00e9tudes de terrain en g\u00e9ographie \u00e0 distance via des excursions interactives exploitant des donn\u00e9es SIG open-source. D\u00e9velopp\u00e9e lors d\u2019un stage \u00e0 l\u2019Athabasca University, sp\u00e9cialis\u00e9e dans l\u2019enseignement ouvert et \u00e0 distance, l\u2019application r\u00e9pond au besoin des \u00e9tudiants de r\u00e9aliser leurs travaux de terrain sans se d\u00e9placer sur le campus.\n\nL\u2019interface a \u00e9t\u00e9 prototyp\u00e9e sur Figma et d\u00e9velopp\u00e9e en Flutter pour Android et Web. Les cartes interactives combinent flutter_map avec les exports QGIS2Web rendus via WebView, et un algorithme g\u00e9ospatial classe les excursions disponibles par proximit\u00e9. Quatre r\u00f4les utilisateurs sont g\u00e9r\u00e9s via Firebase Authentication et Cloud Firestore : \u00e9tudiants, professeurs, administrateurs et visiteurs, avec des contr\u00f4les de visibilit\u00e9 publique pour les utilisateurs non authentifi\u00e9s.\n\nLe projet a livr\u00e9 une solution mobile compl\u00e8te pour l\u2019enseignement de la g\u00e9ographie \u00e0 distance.",
+        "screenshots": [
+          "/images/projects/mfieldtrip/1",
+          "/images/projects/mfieldtrip/2"
+        ]
       },
       {
         "id": "portfolio",
         "title": "Ce portfolio",
         "description": "Portfolio développé avec Next.js 16, Tailwind CSS v4 et un système de tokens de design pour la mise en page. Internationalisation avec next-intl.",
         "tags": ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
-        "repoUrl": "https://github.com/yannvillellas/portfolio"
+        "repoUrl": "https://github.com/yannvillellas/portfolio",
+        "detail": "Ce site est un portfolio d\u2019ing\u00e9nierie personnel con\u00e7u pour pr\u00e9senter des projets, des comp\u00e9tences et un parcours professionnel. Il a \u00e9t\u00e9 d\u00e9velopp\u00e9 int\u00e9gralement avec une attention port\u00e9e \u00e0 l\u2019architecture propre, au support bilingue et \u00e0 la g\u00e9n\u00e9ration statique rapide.\n\nLe site est construit avec Next.js 16 (App Router) et Tailwind CSS v4. Un syst\u00e8me de tokens de design g\u00e8re tous les espacements de mise en page de mani\u00e8re coh\u00e9rente sur chaque page, des marges de la barre de navigation aux d\u00e9gagements du pied de page pour la navigation mobile. L\u2019internationalisation est assur\u00e9e par next-intl, avec l\u2019ensemble du contenu provenant des fichiers de traduction plut\u00f4t que d\u2019un CMS ou d\u2019une base de donn\u00e9es, permettant une g\u00e9n\u00e9ration statique compl\u00e8te. La section d\u2019accueil pr\u00e9sente des orbes \u00e0 d\u00e9grad\u00e9 ambiant anim\u00e9s par keyframes CSS, cr\u00e9ant de la profondeur sans JavaScript.\n\nL\u2019int\u00e9gralit\u00e9 du site est g\u00e9n\u00e9r\u00e9e statiquement au moment du build, offrant des chargements de page instantan\u00e9s sans JavaScript c\u00f4t\u00e9 client pour le rendu du contenu. Chaque d\u00e9cision de conception a \u00e9t\u00e9 prise dans une optique de maintenabilit\u00e9 \u00e0 long terme.",
+        "screenshots": ["/images/projects/portfolio/1"]
       }
     ]
   },

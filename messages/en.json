@@ -86,32 +86,50 @@
     "description": "A selection of projects I have built.",
     "source": "Source",
     "live": "Live",
+    "back": "Back",
     "projects": [
       {
         "id": "endurance-lab",
         "title": "Endurance Lab",
         "description": "Cross-platform mobile app normalizing training data from heterogeneous wearable ecosystems for sports science research.",
-        "tags": ["Flutter", "Dart", "Firebase", "GitHub Actions", "Fastlane"],
-        "liveUrl": "https://endurance.veebor.net/index_en.html"
+        "tags": ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
+        "liveUrl": "https://endurance.veebor.net/index_en.html",
+        "detail": "Endurance Lab is a cross-platform mobile app that solves vendor lock-in for athletes by centralizing and normalizing training data from heterogeneous wearable ecosystems including Garmin and Polar watches. The project was developed as a master\u2019s thesis at Politecnico di Torino in collaboration with sports science researchers who needed standardized data collection infrastructure.\n\nThe app was built with an MVVM architecture in Flutter, integrating interactive charts via fl_chart and GPS mapping through flutter_map. Authentication uses Firebase JWT tokens, and third-party API integration is handled through OAuth 2.0 deep-linking. The full development lifecycle was automated through CI/CD pipelines using GitHub Actions and Fastlane, deploying directly to Google Play.\n\nThe closed beta deployment validated the real-time data processing pipeline: over 1,000 activities, 2.7 million GPS points, and 1.6 million physiological samples were ingested and normalized. The application is now used as a data collection platform for ongoing sports science studies.",
+        "screenshots": [
+          "/images/projects/endurance-lab/1",
+          "/images/projects/endurance-lab/2"
+        ]
       },
       {
         "id": "microservices-car-rental",
         "title": "Car Rental Platform",
         "description": "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
-        "tags": ["Spring Boot", "React", "Kafka", "Keycloak", "PostgreSQL"]
+        "tags": ["Spring Boot", "React", "Kafka", "Keycloak", "PostgreSQL"],
+        "detail": "This distributed car rental platform was built as an engineering project applying strict test-driven development practices to a microservices architecture. The system handles fleet management, reservations, and payment processing with guaranteed transactional consistency across services.\n\nBackend services were developed with Spring Boot and PostgreSQL, continuously validated through JUnit and ephemeral Testcontainers environments. The payment module integrates PayPal through a resilient pipeline using Kafka for event streaming, change data capture for database synchronization, and the Outbox pattern to ensure exactly-once processing semantics across service boundaries. Security is centralized through Keycloak with OAuth 2.0 and OIDC, with dynamic request routing handled by Spring Cloud Gateway. The user interface was built with React.\n\nThe result was zero transaction loss across distributed payment processes and elimination of critical regressions before deployment. The exhaustive test coverage produced a highly maintainable codebase.",
+        "screenshots": [
+          "/images/projects/car-rental/1",
+          "/images/projects/car-rental/2"
+        ]
       },
       {
-        "id": "mfield-trip",
-        "title": "mField Trip",
+        "id": "mfieldtrip",
+        "title": "mFieldTrip",
         "description": "Cross-platform mobile app replacing traditional geography field studies with interactive, self-guided GIS excursions.",
-        "tags": ["Flutter", "Firebase", "flutter_map", "QGIS"]
+        "tags": ["Flutter", "Firebase", "flutter_map", "QGIS"],
+        "detail": "mFieldTrip enables remote geography field studies through interactive, self-guided excursions powered by open-source GIS data. Built during an internship at Athabasca University, which specializes in open and online learning, the app addresses the need for distance education students to complete field assignments without traveling to campus.\n\nThe interface was prototyped in Figma and developed as a cross-platform Flutter application for Android and Web. Interactive maps combine flutter_map with QGIS2Web exports rendered through WebView, and a geospatial algorithm orders available field trips by proximity. Four user roles are secured through Firebase Authentication and Cloud Firestore: students, professors, administrators, and guests, with public visibility controls for unauthenticated visitors.\n\nThe project delivered an end-to-end mobile solution for remote geography education at Athabasca University.",
+        "screenshots": [
+          "/images/projects/mfieldtrip/1",
+          "/images/projects/mfieldtrip/2"
+        ]
       },
       {
         "id": "portfolio",
         "title": "This Portfolio",
         "description": "Next.js 16 portfolio built with Tailwind CSS v4, i18n via next-intl, and a design token system for layout spacing.",
         "tags": ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
-        "repoUrl": "https://github.com/yannvillellas/portfolio"
+        "repoUrl": "https://github.com/yannvillellas/portfolio",
+        "detail": "This website is a personal engineering portfolio built to showcase projects, skills, and professional background. It was developed from scratch with a focus on clean architecture, bilingual support, and fast static generation.\n\nThe site is built with Next.js 16 using the App Router and Tailwind CSS v4. A design token system manages all layout spacing consistently across every page, from the navbar\u2019s chrome insets to the footer\u2019s mobile navigation clearance. Internationalization is handled through next-intl, with all content sourced from translation files rather than a CMS or database, enabling full static generation. The hero section features animated ambient gradient orbs built with CSS keyframes that create depth without JavaScript.\n\nThe entire site is statically generated at build time, serving instant page loads with zero client-side JavaScript for content rendering. Every design decision was made with long-term maintainability in mind.",
+        "screenshots": ["/images/projects/portfolio/1"]
       }
     ]
   },
