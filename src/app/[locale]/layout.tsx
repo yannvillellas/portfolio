@@ -65,11 +65,11 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${defaultFont.variable} ${headingFont.variable} relative`}
+        className={`${defaultFont.variable} ${headingFont.variable} relative flex min-h-svh flex-col`}
       >
         <NextIntlClientProvider messages={messages}>
           <Navigation items={menuItems} />
-          <main className="min-h-svh">{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>

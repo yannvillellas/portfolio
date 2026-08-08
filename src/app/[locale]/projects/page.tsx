@@ -25,18 +25,16 @@ export default function ProjectsPage() {
   const projects = t.raw("projects") as unknown as Project[];
 
   return (
-    <div className="pt-(--header-clearance) pb-(--mobile-nav-clearance)">
-      <PageContainer className="py-16 md:py-24">
-        <h1 className="text-4xl font-black tracking-tight md:text-6xl">
-          {t("title")}
-        </h1>
+    <PageContainer>
+      <h1 className="text-4xl font-black tracking-tight md:text-6xl">
+        {t("title")}
+      </h1>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      </PageContainer>
-    </div>
+      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    </PageContainer>
   );
 }

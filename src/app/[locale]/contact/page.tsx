@@ -24,46 +24,44 @@ export default function ContactPage() {
   const t = useTranslations("ContactPage");
 
   return (
-    <div className="pt-(--header-clearance) pb-(--mobile-nav-clearance)">
-      <PageContainer className="py-16 md:py-24">
-        <h1 className="text-4xl font-black tracking-tight md:text-6xl">
-          {t("title")}
-        </h1>
+    <PageContainer>
+      <h1 className="text-4xl font-black tracking-tight md:text-6xl">
+        {t("title")}
+      </h1>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <ContactLink
-            href="mailto:hi@yann.app"
-            label={t("email")}
-            value="hi@yann.app"
-            icon={<EmailIcon />}
-          />
-          <ContactLink
-            href="https://www.linkedin.com/in/yannvillellas/"
-            label={t("linkedin")}
-            value="yannvillellas"
-            icon={<LinkedInIcon />}
-          />
-          <ContactLink
-            href="https://github.com/yannvillellas"
-            label={t("github")}
-            value="yannvillellas"
-            icon={<GitHubIcon />}
-          />
-        </div>
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <ContactLink
+          href="mailto:hi@yann.app"
+          label={t("email")}
+          value="hi@yann.app"
+          icon={<EmailIcon />}
+        />
+        <ContactLink
+          href="https://www.linkedin.com/in/yannvillellas/"
+          label={t("linkedin")}
+          value="yannvillellas"
+          icon={<LinkedInIcon />}
+        />
+        <ContactLink
+          href="https://github.com/yannvillellas"
+          label={t("github")}
+          value="yannvillellas"
+          icon={<GitHubIcon />}
+        />
+      </div>
 
-        <div className="mt-16 border-t border-foreground/10 pt-8">
-          <div className="flex items-center gap-3">
-            <SparkleIcon />
-            <h2 className="text-lg font-bold text-foreground">
-              {t("chatComingSoon")}
-            </h2>
-          </div>
-          <p className="mt-2 leading-relaxed text-foreground/75">
-            {t("chatDescription")}
-          </p>
+      <div className="mt-16 border-t border-foreground/10 pt-8">
+        <div className="flex items-center gap-3">
+          <SparkleIcon />
+          <h2 className="text-lg font-bold text-foreground">
+            {t("chatComingSoon")}
+          </h2>
         </div>
-      </PageContainer>
-    </div>
+        <p className="mt-2 leading-relaxed text-foreground/75">
+          {t("chatDescription")}
+        </p>
+      </div>
+    </PageContainer>
   );
 }
 

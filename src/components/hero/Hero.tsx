@@ -8,8 +8,8 @@ export default function Hero() {
 
   return (
     <Background>
-      <div className="relative z-10 flex min-h-svh items-center justify-center pb-16 pt-(--header-clearance)">
-        <PageContainer>
+      <div className="relative z-10 flex min-h-svh items-center justify-center pb-16 pt-(--header-offset)">
+        <PageContainer vertical={false}>
           <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
             <h1 className="text-5xl font-black tracking-tight text-foreground md:text-7xl lg:text-8xl">
               {t("title")}

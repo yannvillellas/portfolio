@@ -48,84 +48,82 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const { detail, screenshots } = project;
 
   return (
-    <div className="pt-(--header-clearance) pb-(--mobile-nav-clearance)">
-      <PageContainer className="py-16 md:py-24">
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-2 text-sm text-foreground/50 transition-colors hover:text-foreground"
-        >
-          <ArrowLeftIcon />
-          {t("back")}
-        </Link>
+    <PageContainer>
+      <Link
+        href="/projects"
+        className="inline-flex items-center gap-2 text-sm text-foreground/50 transition-colors hover:text-foreground"
+      >
+        <ArrowLeftIcon />
+        {t("back")}
+      </Link>
 
-        <h1 className="mt-6 text-4xl font-black tracking-tight md:text-6xl">
-          {project.title}
-        </h1>
+      <h1 className="mt-6 text-4xl font-black tracking-tight md:text-6xl">
+        {project.title}
+      </h1>
 
-        <p className="mt-6 leading-relaxed text-foreground/75">
-          {project.description}
-        </p>
+      <p className="mt-6 leading-relaxed text-foreground/75">
+        {project.description}
+      </p>
 
-        {screenshots && screenshots.length > 0 && (
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {screenshots.map((src) => (
-              <div
-                key={src}
-                className="flex aspect-16/10 items-center justify-center rounded-2xl bg-linear-to-br from-foreground/5 to-foreground/10"
-              >
-                <span className="text-sm text-foreground/20">{src}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {detail && (
-          <div className="mt-12 space-y-5">
-            {detail.split("\n\n").map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 40)}
-                className="leading-relaxed text-foreground/75"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        )}
-
-        <div className="mt-8 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <Pill key={tag} size="sm">
-              {tag}
-            </Pill>
+      {screenshots && screenshots.length > 0 && (
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {screenshots.map((src) => (
+            <div
+              key={src}
+              className="flex aspect-16/10 items-center justify-center rounded-2xl bg-linear-to-br from-foreground/5 to-foreground/10"
+            >
+              <span className="text-sm text-foreground/20">{src}</span>
+            </div>
           ))}
         </div>
+      )}
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          {project.repoUrl && (
-            <a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
+      {detail && (
+        <div className="mt-12 space-y-5">
+          {detail.split("\n\n").map((paragraph) => (
+            <p
+              key={paragraph.slice(0, 40)}
+              className="leading-relaxed text-foreground/75"
             >
-              <GitHubIcon />
-              {t("source")}
-            </a>
-          )}
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
-            >
-              <ExternalLinkIcon />
-              {t("live")}
-            </a>
-          )}
+              {paragraph}
+            </p>
+          ))}
         </div>
-      </PageContainer>
-    </div>
+      )}
+
+      <div className="mt-8 flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <Pill key={tag} size="sm">
+            {tag}
+          </Pill>
+        ))}
+      </div>
+
+      <div className="mt-10 flex flex-wrap gap-4">
+        {project.repoUrl && (
+          <a
+            href={project.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-2xl border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
+          >
+            <GitHubIcon />
+            {t("source")}
+          </a>
+        )}
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-2xl border border-foreground/15 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
+          >
+            <ExternalLinkIcon />
+            {t("live")}
+          </a>
+        )}
+      </div>
+    </PageContainer>
   );
 }
 

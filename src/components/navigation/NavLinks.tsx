@@ -26,7 +26,7 @@ export default function NavLinks({ items, variant }: NavLinksProps) {
                 ? `flex flex-col items-center gap-1 font-medium text-xs px-2 py-1 ${
                     isActive ? "text-accent" : "text-foreground"
                   }`
-                : `text-foreground text-base transition-colors hover:text-(--accent)${
+                : `text-foreground text-sm transition-colors hover:text-(--accent)${
                     isActive ? " font-bold" : " font-medium"
                   }`
             }`}

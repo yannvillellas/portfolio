@@ -45,113 +45,111 @@ export default function AboutPage() {
   ) as unknown as EducationEntry[];
 
   return (
-    <div className="pt-(--header-clearance) pb-(--mobile-nav-clearance)">
-      <PageContainer className="py-16 md:py-24">
-        <h1 className="text-4xl font-black tracking-tight md:text-6xl">
-          {t("title")}
-        </h1>
+    <PageContainer>
+      <h1 className="text-4xl font-black tracking-tight md:text-6xl">
+        {t("title")}
+      </h1>
 
-        <p className="mt-6 leading-relaxed text-foreground/75">{t("intro")}</p>
+      <p className="mt-6 leading-relaxed text-foreground/75">{t("intro")}</p>
 
-        <section className="mt-16">
-          <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-            {t("experience.title")}
-          </h2>
+      <section className="mt-16">
+        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
+          {t("experience.title")}
+        </h2>
 
-          <div className="mt-8 space-y-10">
-            {experiences.map((exp) => (
-              <div
-                key={exp.company}
-                className="border-l-2 border-foreground/15 pl-6"
-              >
+        <div className="mt-8 space-y-10">
+          {experiences.map((exp) => (
+            <div
+              key={exp.company}
+              className="border-l-2 border-foreground/15 pl-6"
+            >
+              <h3 className="text-lg font-bold text-foreground">
+                {exp.company}
+              </h3>
+              <p className="text-sm text-foreground/50">
+                {exp.role} · {exp.location} · {exp.period}
+              </p>
+              <p className="mt-3 leading-relaxed text-foreground/75">
+                {exp.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
+          {t("education.title")}
+        </h2>
+
+        <div className="mt-8 space-y-6">
+          {educationEntries.map((edu) => (
+            <div key={edu.school}>
+              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <h3 className="text-lg font-bold text-foreground">
-                  {exp.company}
+                  {edu.school}
                 </h3>
-                <p className="text-sm text-foreground/50">
-                  {exp.role} · {exp.location} · {exp.period}
-                </p>
-                <p className="mt-3 leading-relaxed text-foreground/75">
-                  {exp.description}
-                </p>
+                <span className="text-sm text-foreground/50">
+                  {edu.location}
+                </span>
               </div>
-            ))}
-          </div>
-        </section>
+              <p className="text-foreground/75">{edu.degree}</p>
+              <p className="text-sm text-foreground/50">{edu.period}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <section className="mt-16">
-          <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-            {t("education.title")}
-          </h2>
+      <section className="mt-16">
+        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
+          {t("skills.title")}
+        </h2>
 
-          <div className="mt-8 space-y-6">
-            {educationEntries.map((edu) => (
-              <div key={edu.school}>
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h3 className="text-lg font-bold text-foreground">
-                    {edu.school}
-                  </h3>
-                  <span className="text-sm text-foreground/50">
-                    {edu.location}
-                  </span>
-                </div>
-                <p className="text-foreground/75">{edu.degree}</p>
-                <p className="text-sm text-foreground/50">{edu.period}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <div className="mt-8 space-y-6">
+          <SkillCategory
+            label={t("skills.categories.languages")}
+            items={t("skills.languages")}
+          />
+          <SkillCategory
+            label={t("skills.categories.mobile")}
+            items={t("skills.mobile")}
+          />
+          <SkillCategory
+            label={t("skills.categories.web")}
+            items={t("skills.web")}
+          />
+          <SkillCategory
+            label={t("skills.categories.backend")}
+            items={t("skills.backend")}
+          />
+          <SkillCategory
+            label={t("skills.categories.databases")}
+            items={t("skills.databases")}
+          />
+          <SkillCategory
+            label={t("skills.categories.testing")}
+            items={t("skills.testing")}
+          />
+          <SkillCategory
+            label={t("skills.categories.infrastructure")}
+            items={t("skills.infrastructure")}
+          />
+          <SkillCategory
+            label={t("skills.categories.practices")}
+            items={t("skills.practices")}
+          />
+        </div>
+      </section>
 
-        <section className="mt-16">
-          <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-            {t("skills.title")}
-          </h2>
-
-          <div className="mt-8 space-y-6">
-            <SkillCategory
-              label={t("skills.categories.languages")}
-              items={t("skills.languages")}
-            />
-            <SkillCategory
-              label={t("skills.categories.mobile")}
-              items={t("skills.mobile")}
-            />
-            <SkillCategory
-              label={t("skills.categories.web")}
-              items={t("skills.web")}
-            />
-            <SkillCategory
-              label={t("skills.categories.backend")}
-              items={t("skills.backend")}
-            />
-            <SkillCategory
-              label={t("skills.categories.databases")}
-              items={t("skills.databases")}
-            />
-            <SkillCategory
-              label={t("skills.categories.testing")}
-              items={t("skills.testing")}
-            />
-            <SkillCategory
-              label={t("skills.categories.infrastructure")}
-              items={t("skills.infrastructure")}
-            />
-            <SkillCategory
-              label={t("skills.categories.practices")}
-              items={t("skills.practices")}
-            />
-          </div>
-        </section>
-
-        <section className="mt-16">
-          <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-            {t("interests.title")}
-          </h2>
-          <p className="mt-6 leading-relaxed text-foreground/75">
-            {t("interests.entries")}
-          </p>
-        </section>
-      </PageContainer>
-    </div>
+      <section className="mt-16">
+        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
+          {t("interests.title")}
+        </h2>
+        <p className="mt-6 leading-relaxed text-foreground/75">
+          {t("interests.entries")}
+        </p>
+      </section>
+    </PageContainer>
   );
 }
 

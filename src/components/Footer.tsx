@@ -17,7 +17,7 @@ export default async function Footer({ locale }: FooterProps) {
 
   return (
     <footer className="border-t border-foreground/10 bg-background-secondary/30 pb-(--mobile-nav-clearance)">
-      <div className="mx-(--chrome-inset-x) px-6 py-8">
+      <div className="mx-(--chrome-inset-x) px-6 py-2">
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
           <p className="text-sm text-foreground/60">{t("copyright")}</p>
 

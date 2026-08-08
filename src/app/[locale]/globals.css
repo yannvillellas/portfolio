@@ -21,18 +21,18 @@
 }
 
 :root {
-  --chrome-inset-x: --spacing(4);
-  --chrome-inset-y: --spacing(4);
-  --header-height: --spacing(18);
-  --mobile-nav-height: --spacing(18);
-  --header-clearance: calc(
-    var(--chrome-inset-y) + var(--header-height) + --spacing(6)
-  );
+  --chrome-inset-x: --spacing(2);
+  --chrome-inset-y: --spacing(2);
+  --header-height: --spacing(14);
+  --mobile-nav-height: --spacing(14);
+  --header-clearance: calc(var(--chrome-inset-y) + var(--header-height));
+  --header-content-gap: --spacing(6);
+  --content-footer-gap: --spacing(6);
+  --header-offset: calc(var(--header-clearance) + var(--header-content-gap));
   --mobile-nav-clearance: calc(
     env(safe-area-inset-bottom, 0px) + var(--chrome-inset-y) +
-      var(--mobile-nav-height) + --spacing(4)
+      var(--mobile-nav-height)
   );
-
   @variant md {
     --chrome-inset-x: --spacing(8);
     --mobile-nav-clearance: 0px;

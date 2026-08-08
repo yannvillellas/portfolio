@@ -21,7 +21,7 @@ export default function HomeSectionCard({
 }: HomeSectionCardProps) {
   return (
     <section className="flex min-h-svh w-full items-center py-[clamp(56px,8vw,120px)]">
-      <PageContainer>
+      <PageContainer vertical={false}>
         <div
           className={`flex flex-col items-stretch gap-10 md:gap-12 lg:gap-14 ${
             reverseOnDesktop ? "md:flex-row-reverse" : "md:flex-row"
