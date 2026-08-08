@@ -8,7 +8,6 @@
   --ambient-breathe-cycle: 3.33s;
   --ambient-breathe-cycle-b: 5.2s;
   --ambient-breathe-cycle-c: 4.1s;
-  --ambient-transition-height: clamp(7.5rem, 20vh, 14rem);
 
   --ambient-layer-opacity: 0.78;
   --ambient-orb-opacity: 0.65;
@@ -67,16 +66,15 @@
   );
 }
 
-.ambient-hero-fade {
-  z-index: 2;
-  height: var(--ambient-transition-height);
+.ambient-section-overlay {
+  position: absolute;
+  top: calc(100svh - clamp(8rem, 15vh, 12rem));
+  left: 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    color-mix(in srgb, var(--background) 72%, transparent) 56%,
-    var(--background) 100%
-  );
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 0%, var(--background) 100%);
 }
 
 .ambient-orb {
