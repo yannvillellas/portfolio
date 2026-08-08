@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yann Villellas — Portfolio
 
-## Getting Started
+Software engineering portfolio built with Next.js 16 (App Router), Tailwind CSS v4, and next-intl for bilingual content (English/French).
 
-First, run the development server:
+## Stack
+
+- **Framework:** Next.js 16 with Turbopack
+- **Styling:** Tailwind CSS v4 (inline theme, design tokens)
+- **Internationalization:** next-intl (SSG-compatible, `Link` from `@/i18n/navigation`)
+- **Fonts:** Inter (body) and Montserrat (headings) via `next/font`
+- **Deployment:** Static generation (SSG) — all pages pre-rendered at build time
+
+## Architecture
+
+- **`PageContainer`** — single source of truth for page layout (horizontal constraints, optional vertical spacing)
+- **`CardLink` / `Pill`** — shared interactive primitives, all hover/transition behavior unified
+- **Design tokens** — `--chrome-inset-x/y`, `--header-height`, `--mobile-nav-height`, `--header-offset`, `--content-footer-gap` in `globals.css`. All values on an 8px grid.
+- **i18n** — all user-facing content in `messages/en.json` and `messages/fr.json`. `useTranslations` with namespace per page.
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # Dev server with Turbopack
+npm run build    # Production build
+npm run lint     # ESLint validation
+npm start        # Production server
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+src/
+  app/[locale]/      # Routes (about, contact, projects, [id])
+  components/        # Shared components (hero, navigation, home, projects, icons)
+  styles/            # Background, navigation CSS modules
+  i18n/              # routing.ts, request.ts, navigation.ts
+  types/             # TypeScript declarations
+messages/            # en.json, fr.json translation files
+```

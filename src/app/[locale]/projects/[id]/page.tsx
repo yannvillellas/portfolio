@@ -21,6 +21,8 @@ export async function generateStaticParams() {
   return ["en", "fr"].flatMap((locale) => ids.map((id) => ({ locale, id })));
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
