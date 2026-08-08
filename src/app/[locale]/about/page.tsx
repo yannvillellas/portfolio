@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
+import { getExperiences } from "@/data/experience";
+import { getEducation } from "@/data/education";
+import { skillCategories } from "@/data/skills";
+import { getInterests } from "@/data/interests";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,29 +23,12 @@ export async function generateMetadata({
   };
 }
 
-interface ExperienceEntry {
-  role: string;
-  company: string;
-  location?: string;
-  period: string;
-  description: string;
-}
-
-interface EducationEntry {
-  school: string;
-  degree: string;
-  location: string;
-  period: string;
-}
-
-export default function AboutPage() {
-  const t = useTranslations("AboutPage");
-  const experiences = t.raw(
-    "experience.entries",
-  ) as unknown as ExperienceEntry[];
-  const educationEntries = t.raw(
-    "education.entries",
-  ) as unknown as EducationEntry[];
+export default async function AboutPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "AboutPage" });
+  const experiences = getExperiences(locale as "en" | "fr");
+  const educationEntries = getEducation(locale as "en" | "fr");
+  const interests = getInterests(locale as "en" | "fr");
 
   return (
     <PageContainer>
@@ -106,38 +92,13 @@ export default function AboutPage() {
         </h2>
 
         <div className="mt-8 space-y-6">
-          <SkillCategory
-            label={t("skills.categories.languages")}
-            items={t("skills.languages")}
-          />
-          <SkillCategory
-            label={t("skills.categories.mobile")}
-            items={t("skills.mobile")}
-          />
-          <SkillCategory
-            label={t("skills.categories.web")}
-            items={t("skills.web")}
-          />
-          <SkillCategory
-            label={t("skills.categories.backend")}
-            items={t("skills.backend")}
-          />
-          <SkillCategory
-            label={t("skills.categories.databases")}
-            items={t("skills.databases")}
-          />
-          <SkillCategory
-            label={t("skills.categories.testing")}
-            items={t("skills.testing")}
-          />
-          <SkillCategory
-            label={t("skills.categories.infrastructure")}
-            items={t("skills.infrastructure")}
-          />
-          <SkillCategory
-            label={t("skills.categories.practices")}
-            items={t("skills.practices")}
-          />
+          {skillCategories.map((cat) => (
+            <SkillCategory
+              key={cat.key}
+              label={cat.label[locale as "en" | "fr"]}
+              items={cat.items}
+            />
+          ))}
         </div>
       </section>
 
@@ -145,9 +106,7 @@ export default function AboutPage() {
         <h2 className="text-2xl font-black tracking-tight md:text-3xl">
           {t("interests.title")}
         </h2>
-        <p className="mt-6 leading-relaxed text-foreground/75">
-          {t("interests.entries")}
-        </p>
+        <p className="mt-6 leading-relaxed text-foreground/75">{interests}</p>
       </section>
     </PageContainer>
   );

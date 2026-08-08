@@ -17,68 +17,19 @@
   },
   "AboutPage": {
     "title": "About",
-    "description": "Professional background and skills. Double Master's in Computer Software Engineering from ESILV (Paris) and PoliTo (Turin).",
+    "description": "Professional background and skills.",
     "intro": "Software engineer with a double Master's degree from ESILV (Paris) and Politecnico di Torino (Turin). I build across mobile, web, and backend infrastructure, always with the same baseline: clean architecture, testable code, and no technical debt left behind.",
     "experience": {
-      "title": "Experience",
-      "entries": [
-        {
-          "role": "Master's Thesis at Politecnico di Torino",
-          "company": "Endurance Lab",
-          "location": "Turin, Italy",
-          "period": "Oct 2025–Mar 2026",
-          "description": "Designed and built Endurance Lab, a cross-platform mobile app that normalizes training data from heterogeneous wearable ecosystems (Garmin, Polar) to solve vendor lock-in and provide standardized data collection for sports science research. Implemented MVVM architecture with interactive charts (fl_chart), GPS mapping (flutter_map), Firebase JWT authentication, and OAuth 2.0 deep-linking. Automated full lifecycle (CI/CD via GitHub Actions and Fastlane) through Google Play deployment. Achieved real-time processing of 1,000+ activities, 2.7 million GPS points, and 1.6 million physiological samples in closed beta."
-        },
-        {
-          "role": "Software Engineer Intern",
-          "company": "Athabasca University",
-          "location": "Edmonton, Canada",
-          "period": "Apr 2024–Jul 2024",
-          "description": "Built mFieldTrip, a cross-platform mobile app developed at Athabasca University that replaces traditional geography field studies with interactive, self-guided excursions using open-source GIS data. Designed the interface in Figma and developed for Android and Web using Flutter. Integrated interactive maps (flutter_map, QGIS2Web exports) and implemented a geospatial sorting algorithm based on Euclidean distance. Secured the app with Firebase Authentication and Cloud Firestore, managing four distinct user roles with content moderation."
-        }
-      ]
+      "title": "Experience"
     },
     "education": {
-      "title": "Education",
-      "entries": [
-        {
-          "school": "Politecnico di Torino",
-          "degree": "Master of Science, Computer Software Engineering",
-          "location": "Turin, Italy",
-          "period": "2024–2026"
-        },
-        {
-          "school": "ESILV (École Supérieure d'Ingénieurs Léonard de Vinci)",
-          "degree": "Master of Science, Cybersecurity and Cloud Computing",
-          "location": "Paris, France",
-          "period": "2020–2025"
-        }
-      ]
+      "title": "Education"
     },
     "skills": {
-      "title": "Skills",
-      "categories": {
-        "languages": "Languages",
-        "mobile": "Mobile",
-        "web": "Web",
-        "backend": "Backend",
-        "databases": "Databases",
-        "testing": "Testing",
-        "infrastructure": "Infrastructure",
-        "practices": "Practices"
-      },
-      "languages": "TypeScript, JavaScript, Dart, Python, Kotlin, Java, C#, C++",
-      "mobile": "Flutter, Android, React Native",
-      "web": "React, Next.js, Express.js, Vue.js, Angular, HTML, CSS",
-      "backend": "Node.js, Spring Boot, Django, .NET, OAuth2/OIDC",
-      "databases": "PostgreSQL, MySQL, SQLite, Firebase, MongoDB",
-      "testing": "Jest, JUnit, SonarQube",
-      "infrastructure": "Docker, Kubernetes, Linux, Nginx, CI/CD",
-      "practices": "Scrum, TDD, Pair Programming, Agile"
+      "title": "Skills"
     },
     "interests": {
-      "title": "Interests",
-      "entries": "Sports (ski, rugby, cycling, kayak), tech watch"
+      "title": "Interests"
     }
   },
   "ProjectsPage": {
@@ -86,52 +37,7 @@
     "description": "A selection of projects I have built.",
     "source": "Source",
     "live": "Live",
-    "back": "Back",
-    "projects": [
-      {
-        "id": "endurance-lab",
-        "title": "Endurance Lab",
-        "description": "Cross-platform mobile app normalizing training data from heterogeneous wearable ecosystems for sports science research.",
-        "tags": ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
-        "liveUrl": "https://endurance.veebor.net/index_en.html",
-        "detail": "Endurance Lab is a cross-platform mobile app that solves vendor lock-in for athletes by centralizing and normalizing training data from heterogeneous wearable ecosystems including Garmin and Polar watches. The project was developed as a master\u2019s thesis at Politecnico di Torino in collaboration with sports science researchers who needed standardized data collection infrastructure.\n\nThe app was built with an MVVM architecture in Flutter, integrating interactive charts via fl_chart and GPS mapping through flutter_map. Authentication uses Firebase JWT tokens, and third-party API integration is handled through OAuth 2.0 deep-linking. The full development lifecycle was automated through CI/CD pipelines using GitHub Actions and Fastlane, deploying directly to Google Play.\n\nThe closed beta deployment validated the real-time data processing pipeline: over 1,000 activities, 2.7 million GPS points, and 1.6 million physiological samples were ingested and normalized. The application is now used as a data collection platform for ongoing sports science studies.",
-        "screenshots": [
-          "/images/projects/endurance-lab/1",
-          "/images/projects/endurance-lab/2"
-        ]
-      },
-      {
-        "id": "microservices-car-rental",
-        "title": "Car Rental Platform",
-        "description": "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
-        "tags": ["Spring Boot", "React", "Kafka", "Keycloak", "PostgreSQL"],
-        "detail": "This distributed car rental platform was built as an engineering project applying strict test-driven development practices to a microservices architecture. The system handles fleet management, reservations, and payment processing with guaranteed transactional consistency across services.\n\nBackend services were developed with Spring Boot and PostgreSQL, continuously validated through JUnit and ephemeral Testcontainers environments. The payment module integrates PayPal through a resilient pipeline using Kafka for event streaming, change data capture for database synchronization, and the Outbox pattern to ensure exactly-once processing semantics across service boundaries. Security is centralized through Keycloak with OAuth 2.0 and OIDC, with dynamic request routing handled by Spring Cloud Gateway. The user interface was built with React.\n\nThe result was zero transaction loss across distributed payment processes and elimination of critical regressions before deployment. The exhaustive test coverage produced a highly maintainable codebase.",
-        "screenshots": [
-          "/images/projects/car-rental/1",
-          "/images/projects/car-rental/2"
-        ]
-      },
-      {
-        "id": "mfieldtrip",
-        "title": "mFieldTrip",
-        "description": "Cross-platform mobile app replacing traditional geography field studies with interactive, self-guided GIS excursions.",
-        "tags": ["Flutter", "Firebase", "flutter_map", "QGIS"],
-        "detail": "mFieldTrip enables remote geography field studies through interactive, self-guided excursions powered by open-source GIS data. Built during an internship at Athabasca University, which specializes in open and online learning, the app addresses the need for distance education students to complete field assignments without traveling to campus.\n\nThe interface was prototyped in Figma and developed as a cross-platform Flutter application for Android and Web. Interactive maps combine flutter_map with QGIS2Web exports rendered through WebView, and a geospatial algorithm orders available field trips by proximity. Four user roles are secured through Firebase Authentication and Cloud Firestore: students, professors, administrators, and guests, with public visibility controls for unauthenticated visitors.\n\nThe project delivered an end-to-end mobile solution for remote geography education at Athabasca University.",
-        "screenshots": [
-          "/images/projects/mfieldtrip/1",
-          "/images/projects/mfieldtrip/2"
-        ]
-      },
-      {
-        "id": "portfolio",
-        "title": "This Portfolio",
-        "description": "Next.js 16 portfolio built with Tailwind CSS v4, i18n via next-intl, and a design token system for layout spacing.",
-        "tags": ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
-        "repoUrl": "https://github.com/yannvillellas/portfolio",
-        "detail": "This website is a personal engineering portfolio built to showcase projects, skills, and professional background. It was developed from scratch with a focus on clean architecture, bilingual support, and fast static generation.\n\nThe site is built with Next.js 16 using the App Router and Tailwind CSS v4. A design token system manages all layout spacing consistently across every page, from the navbar\u2019s chrome insets to the footer\u2019s mobile navigation clearance. Internationalization is handled through next-intl, with all content sourced from translation files rather than a CMS or database, enabling full static generation. The hero section features animated ambient gradient orbs built with CSS keyframes that create depth without JavaScript.\n\nThe entire site is statically generated at build time, serving instant page loads with zero client-side JavaScript for content rendering. Every design decision was made with long-term maintainability in mind.",
-        "screenshots": ["/images/projects/portfolio/1"]
-      }
-    ]
+    "back": "Back"
   },
   "ContactPage": {
     "title": "Contact",
