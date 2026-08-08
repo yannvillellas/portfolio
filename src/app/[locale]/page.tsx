@@ -1,12 +1,17 @@
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import Background from "@/components/hero/Background";
+import PageContainer from "@/components/PageContainer";
+import Hero from "@/components/hero/Hero";
+import HomeSectionsPreview from "@/components/home/HomeSectionsPreview";
 
 export default function HomePage() {
-  const t = useTranslations("HomePage");
   return (
-    <div>
-      <h1>{t("title")}</h1>
-      <Link href="/about">{t("about")}</Link>
-    </div>
+    <main className="relative bg-background text-foreground">
+      <Background>
+        <PageContainer vertical={false}>
+          <Hero />
+          <HomeSectionsPreview />
+        </PageContainer>
+      </Background>
+    </main>
   );
 }

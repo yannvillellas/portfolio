@@ -1,0 +1,5 @@
+@layer components {
+  .nav-glass {
+    @apply bg-background/20 backdrop-blur-md rounded-2xl;
+  }
+}
