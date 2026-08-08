@@ -1,16 +1,6 @@
 import CardLink from "@/components/CardLink";
 import Pill from "@/components/Pill";
-
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  repoUrl?: string;
-  liveUrl?: string;
-  detail?: string;
-  screenshots?: string[];
-}
+import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (

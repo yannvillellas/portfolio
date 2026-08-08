@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import PageContainer from "@/components/PageContainer";
-import ProjectCard, { type Project } from "@/components/projects/ProjectCard";
+import ProjectCard from "@/components/projects/ProjectCard";
+import { getProjects } from "@/data/projects";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,9 +20,10 @@ export async function generateMetadata({
   };
 }
 
-export default function ProjectsPage() {
-  const t = useTranslations("ProjectsPage");
-  const projects = t.raw("projects") as unknown as Project[];
+export default async function ProjectsPage({ params }: PageProps) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+  const projects = getProjects(locale as "en" | "fr");
 
   return (
     <PageContainer>
