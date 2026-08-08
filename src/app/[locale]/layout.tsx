@@ -16,7 +16,16 @@ export const metadata: Metadata = {
     default: "Yann Villellas",
     template: "%s - Yann Villellas",
   },
-  description: "Personal portfolio website",
+  description:
+    "Software engineer portfolio showcasing mobile, web, and backend projects.",
+  openGraph: {
+    title: "Yann Villellas — Software Engineer",
+    description:
+      "Software engineer portfolio showcasing mobile, web, and backend projects.",
+    type: "website",
+    locale: "en",
+    siteName: "Yann Villellas",
+  },
 };
 
 const defaultFont = Inter({
