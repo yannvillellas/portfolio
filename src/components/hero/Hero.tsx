@@ -25,7 +25,7 @@ export default function Hero() {
 
           <Link
             href="/projects"
-            className="inline-flex items-center rounded-2xl border border-foreground/20 bg-background/55 px-6 py-3 font-heading text-base font-bold text-foreground no-underline backdrop-blur-sm transition-colors hover:border-foreground/30 hover:bg-background/75"
+            className="inline-flex items-center rounded-2xl border border-foreground/20 bg-background/60 px-6 py-3 font-heading text-base font-bold text-foreground no-underline backdrop-blur-sm transition-colors hover:border-foreground/30 hover:bg-background/70"
           >
             {t("secondaryCta")}
           </Link>
