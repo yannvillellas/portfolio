@@ -39,7 +39,7 @@ export default function HomeSectionCard({
 
         <div className="flex md:basis-3/5">
           <div
-            className={`relative flex w-full overflow-hidden rounded-2xl border border-foreground/20 shadow-[0_24px_80px_rgba(0,0,0,0.18)] ${section.imageToneClassName} aspect-[608/463.233] md:aspect-[531.4/423.583] lg:aspect-[793.4/608]`}
+            className={`relative flex w-full overflow-hidden rounded-2xl border border-foreground/10 shadow-[0_24px_80px_rgba(0,0,0,0.18)] ${section.imageToneClassName} aspect-[608/463.233] md:aspect-[531.4/423.583] lg:aspect-[793.4/608]`}
             role="img"
             aria-label={`${section.title} preview image`}
           >

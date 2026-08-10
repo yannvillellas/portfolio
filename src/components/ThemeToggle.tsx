@@ -96,7 +96,7 @@ export default function ThemeToggle({ labels }: ThemeToggleProps) {
     <div className="flex items-center gap-1">
       <button
         onClick={reset}
-        className={`h-9 rounded-2xl border border-foreground/20 px-2 text-xs font-medium transition-colors cursor-pointer ${
+        className={`h-9 rounded-2xl border border-foreground/10 px-2 text-xs font-medium transition-colors cursor-pointer ${
           isManual ? "text-foreground/50 hover:text-foreground/80" : "invisible"
         }`}
         aria-label={labels.system}
@@ -104,7 +104,7 @@ export default function ThemeToggle({ labels }: ThemeToggleProps) {
       >
         auto
       </button>
-      <div className="flex items-center rounded-2xl border border-foreground/20 bg-foreground/5 p-0.5 h-9">
+      <div className="flex items-center rounded-2xl border border-foreground/10 bg-foreground/5 p-0.5 h-9">
         <button
           onClick={() => toggle("light")}
           className={buttonClass("light")}
