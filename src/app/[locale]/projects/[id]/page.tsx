@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
+import ScreenshotGallery from "@/components/ScreenshotGallery";
 import {
   ArrowLeftIcon,
   ExternalLinkIcon,
@@ -72,15 +73,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </p>
 
       {screenshots && screenshots.length > 0 && (
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {screenshots.map((src) => (
-            <div
-              key={src}
-              className="flex aspect-16/10 items-center justify-center rounded-2xl bg-linear-to-br from-foreground/5 to-foreground/10"
-            >
-              <span className="text-sm text-foreground/20">{src}</span>
-            </div>
-          ))}
+        <div className="mt-10">
+          <ScreenshotGallery screenshots={screenshots} />
         </div>
       )}
 
