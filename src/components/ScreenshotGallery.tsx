@@ -24,7 +24,7 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
     <div className="mx-auto max-w-3xl">
       <div className="relative overflow-hidden rounded-2xl">
         <div
-          className="flex transition-transform duration-300 ease-out"
+          className="flex items-center transition-transform duration-300 ease-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {screenshots.map((s) => (
@@ -34,7 +34,11 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
                 alt={s.caption ?? ""}
                 width={1200}
                 height={750}
-                className="aspect-16/10 w-full object-cover"
+                className={`w-full rounded-2xl object-cover ${
+                  s.orientation === "portrait"
+                    ? "mx-auto aspect-9/19 max-w-xs"
+                    : "aspect-16/10"
+                }`}
               />
             </div>
           ))}
@@ -60,7 +64,13 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
         )}
       </div>
 
-      <div className="mt-3 flex items-center justify-between">
+      <div
+        className={`mt-3 flex items-center justify-between ${
+          screenshots[index].orientation === "portrait"
+            ? "mx-auto w-full max-w-xs"
+            : ""
+        }`}
+      >
         <p className="text-sm text-foreground/50">
           {screenshots[index].caption}
         </p>

@@ -1,6 +1,7 @@
 export interface Screenshot {
   src: string;
   caption?: string;
+  orientation?: "portrait" | "landscape";
 }
 
 export interface Project {
@@ -31,10 +32,12 @@ const data: Record<Locale, Project[]> = {
         {
           src: "/images/projects/endurance-lab/1.png",
           caption: "Activity dashboard with training metrics",
+          orientation: "portrait",
         },
         {
           src: "/images/projects/endurance-lab/2.png",
           caption: "GPS route visualization",
+          orientation: "portrait",
         },
       ],
     },
@@ -73,10 +76,12 @@ const data: Record<Locale, Project[]> = {
         {
           src: "/images/projects/mfieldtrip/1.png",
           caption: "Interactive field excursion map",
+          orientation: "portrait",
         },
         {
           src: "/images/projects/mfieldtrip/2.png",
           caption: "Learning module with assessment",
+          orientation: "portrait",
         },
       ],
     },
@@ -111,10 +116,12 @@ const data: Record<Locale, Project[]> = {
         {
           src: "/images/projects/endurance-lab/1.png",
           caption: "Tableau de bord avec métriques d'entraînement",
+          orientation: "portrait",
         },
         {
           src: "/images/projects/endurance-lab/2.png",
           caption: "Visualisation de parcours GPS",
+          orientation: "portrait",
         },
       ],
     },
@@ -153,10 +160,12 @@ const data: Record<Locale, Project[]> = {
         {
           src: "/images/projects/mfieldtrip/1.png",
           caption: "Carte interactive d'excursion",
+          orientation: "portrait",
         },
         {
           src: "/images/projects/mfieldtrip/2.png",
           caption: "Module d'apprentissage avec évaluation",
+          orientation: "portrait",
         },
       ],
     },
