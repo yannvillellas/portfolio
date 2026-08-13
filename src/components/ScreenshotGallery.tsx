@@ -44,14 +44,14 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
           <>
             <button
               onClick={prev}
-              className="absolute top-1/2 left-3 -translate-y-1/2 rounded-full bg-background/70 p-2 text-foreground/70 backdrop-blur-sm transition-colors hover:bg-background/90 hover:text-foreground"
+              className="absolute top-1/2 left-3 -translate-y-1/2 cursor-pointer rounded-full bg-background/70 p-2 text-foreground/70 backdrop-blur-sm transition-colors hover:bg-background/90 hover:text-foreground"
               aria-label="Previous image"
             >
               <ChevronLeftIcon />
             </button>
             <button
               onClick={next}
-              className="absolute top-1/2 right-3 -translate-y-1/2 rounded-full bg-background/70 p-2 text-foreground/70 backdrop-blur-sm transition-colors hover:bg-background/90 hover:text-foreground"
+              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer rounded-full bg-background/70 p-2 text-foreground/70 backdrop-blur-sm transition-colors hover:bg-background/90 hover:text-foreground"
               aria-label="Next image"
             >
               <ChevronRightIcon />
@@ -70,7 +70,7 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
               <button
                 key={i}
                 onClick={() => setIndex(i)}
-                className={`h-2 w-2 rounded-full transition-colors ${
+                className={`h-2 w-2 cursor-pointer rounded-full transition-colors ${
                   i === index ? "bg-foreground/60" : "bg-foreground/20"
                 }`}
                 aria-label={`Image ${i + 1}`}

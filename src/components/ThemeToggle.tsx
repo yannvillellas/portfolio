@@ -86,7 +86,7 @@ export default function ThemeToggle({ labels }: ThemeToggleProps) {
   if (!mounted) return null;
 
   const buttonClass = (t: Theme) =>
-    `rounded-xl p-1.5 transition-colors ${
+    `rounded-xl p-1.5 transition-colors cursor-pointer ${
       resolved === t
         ? "bg-background text-accent shadow-sm"
         : "text-foreground/50 hover:text-foreground/80"
