@@ -31,12 +31,17 @@ const data: Record<Locale, Project[]> = {
       screenshots: [
         {
           src: "/images/projects/endurance-lab/1.png",
-          caption: "Activity dashboard with training metrics",
+          caption: "Metrics dashboard with performance and health trends",
           orientation: "portrait",
         },
         {
           src: "/images/projects/endurance-lab/2.png",
-          caption: "GPS route visualization",
+          caption: "Searchable activity list",
+          orientation: "portrait",
+        },
+        {
+          src: "/images/projects/endurance-lab/3.png",
+          caption: "Activity details with GPS route map and interactive charts",
           orientation: "portrait",
         },
       ],
@@ -120,12 +125,19 @@ const data: Record<Locale, Project[]> = {
       screenshots: [
         {
           src: "/images/projects/endurance-lab/1.png",
-          caption: "Tableau de bord avec métriques d'entraînement",
+          caption:
+            "Tableau de bord de métriques avec tendances de performance et de santé",
           orientation: "portrait",
         },
         {
           src: "/images/projects/endurance-lab/2.png",
-          caption: "Visualisation de parcours GPS",
+          caption: "Liste des activités avec recherche",
+          orientation: "portrait",
+        },
+        {
+          src: "/images/projects/endurance-lab/3.png",
+          caption:
+            "Détails d'une activité avec carte GPS et graphiques interactifs",
           orientation: "portrait",
         },
       ],
