@@ -12,7 +12,7 @@ export default function LocaleSwitcher() {
     <select
       value={locale}
       onChange={(e) => router.replace(pathname, { locale: e.target.value })}
-      className="h-9 rounded-2xl border border-foreground/20 bg-background px-3 py-1.5 text-sm font-medium text-foreground/80 focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer hover:border-foreground/30 transition-colors"
+      className="h-9 rounded-2xl border border-foreground/10 bg-background px-3 py-1.5 text-sm font-medium text-foreground/80 focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer hover:border-foreground/20 transition-colors"
       aria-label="Select language"
     >
       <option value="en">English</option>

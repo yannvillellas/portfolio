@@ -15,7 +15,7 @@ export default function Pill({
 
   return (
     <span
-      className={`inline-block rounded-full border border-foreground/15 bg-background-secondary/40 px-3 py-1 ${textSize} text-foreground/80 ${className}`}
+      className={`inline-block rounded-full border border-foreground/10 bg-background-secondary/40 px-3 py-1 ${textSize} text-foreground/80 ${className}`}
     >
       {children}
     </span>

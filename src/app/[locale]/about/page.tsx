@@ -47,7 +47,7 @@ export default async function AboutPage({ params }: PageProps) {
           {experiences.map((exp) => (
             <div
               key={exp.company}
-              className="border-l-2 border-foreground/15 pl-6"
+              className="border-l-2 border-foreground/10 pl-6"
             >
               <h3 className="text-lg font-bold text-foreground">
                 {exp.company}
