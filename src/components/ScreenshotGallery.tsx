@@ -36,7 +36,7 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
                 height={750}
                 className={`w-full rounded-2xl object-cover ${
                   s.orientation === "portrait"
-                    ? "mx-auto aspect-9/19 max-w-xs"
+                    ? "mx-auto aspect-9/20 max-w-xs"
                     : "aspect-16/10"
                 }`}
               />

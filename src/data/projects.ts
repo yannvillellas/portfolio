@@ -69,18 +69,23 @@ const data: Record<Locale, Project[]> = {
       title: "mFieldTrip",
       description:
         "Cross-platform mobile app replacing traditional geography field studies with interactive, self-guided GIS excursions.",
-      tags: ["Flutter", "Firebase", "flutter_map", "QGIS"],
+      tags: ["Flutter", "Firebase", "flutter_map"],
       detail:
         "mFieldTrip enables remote geography field studies through interactive, self-guided excursions powered by open-source GIS data. Built during an internship at Athabasca University, which specializes in open and online learning, the app addresses the need for distance education students to complete field assignments without traveling to campus.\n\nThe interface was prototyped in Figma and developed as a cross-platform Flutter application for Android and Web. Interactive maps combine flutter_map with QGIS2Web exports rendered through WebView, and a geospatial algorithm orders field trips by proximity. Four user roles are secured through Firebase Authentication and Cloud Firestore: students, professors, administrators, and guests, with public visibility controls for unauthenticated visitors.\n\nThe project delivered an end-to-end mobile solution for remote geography education at Athabasca University.",
       screenshots: [
         {
           src: "/images/projects/mfieldtrip/1.png",
-          caption: "Interactive field excursion map",
+          caption: "Interactive map of all field trips",
           orientation: "portrait",
         },
         {
           src: "/images/projects/mfieldtrip/2.png",
-          caption: "Learning module with assessment",
+          caption: "Field trip details",
+          orientation: "portrait",
+        },
+        {
+          src: "/images/projects/mfieldtrip/3.png",
+          caption: "Embedded QGIS web map",
           orientation: "portrait",
         },
       ],
@@ -153,18 +158,23 @@ const data: Record<Locale, Project[]> = {
       title: "mFieldTrip",
       description:
         "Application mobile cross-platform remplaçant les études de terrain traditionnelles par des excursions interactives exploitant des données SIG open-source.",
-      tags: ["Flutter", "Firebase", "flutter_map", "QGIS"],
+      tags: ["Flutter", "Firebase", "flutter_map"],
       detail:
         "mFieldTrip permet de réaliser des études de terrain en géographie à distance via des excursions interactives exploitant des données SIG open-source. Développée lors d\u2019un stage à l\u2019Athabasca University, spécialisée dans l\u2019enseignement ouvert et à distance, l\u2019application répond au besoin des étudiants de réaliser leurs travaux de terrain sans se déplacer sur le campus.\n\nL\u2019interface a été prototypée sur Figma et développée en Flutter pour Android et Web. Les cartes interactives combinent flutter_map avec les exports QGIS2Web rendus via WebView, et un algorithme géospatial classe les excursions disponibles par proximité. Quatre rôles utilisateurs sont gérés via Firebase Authentication et Cloud Firestore : étudiants, professeurs, administrateurs et visiteurs, avec des contrôles de visibilité publique pour les utilisateurs non authentifiés.\n\nLe projet a livré une solution mobile complète pour l\u2019enseignement de la géographie à distance.",
       screenshots: [
         {
           src: "/images/projects/mfieldtrip/1.png",
-          caption: "Carte interactive d'excursion",
+          caption: "Carte interactive de toutes les excursions",
           orientation: "portrait",
         },
         {
           src: "/images/projects/mfieldtrip/2.png",
-          caption: "Module d'apprentissage avec évaluation",
+          caption: "Détails d'une excursion",
+          orientation: "portrait",
+        },
+        {
+          src: "/images/projects/mfieldtrip/3.png",
+          caption: "Carte web QGIS intégrée",
           orientation: "portrait",
         },
       ],
