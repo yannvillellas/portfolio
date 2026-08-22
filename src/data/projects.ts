@@ -20,6 +20,22 @@ type Locale = "en" | "fr";
 const data: Record<Locale, Project[]> = {
   en: [
     {
+      id: "open-endurance-coach",
+      title: "Open Endurance Coach",
+      description:
+        "Self-hosted AI coaching system that turns training telemetry into LLM-validated workout adjustments, gated by explicit athlete approval. Built with Python, SQLite, Pydantic, and Typer.",
+      tags: ["Python", "SQLite"],
+      repoUrl: "https://github.com/yannvillellas/open-endurance-coach",
+      detail:
+        "Open Endurance Coach is a self-hosted, AI-driven coaching system that turns raw telemetry from Intervals.icu into validated training decisions. It combines a strict LLM analysis pipeline with Joe Friel's periodization principles and Andrew Coggan's power analytics to compare executed training against planned targets and current readiness.\n\nThe daily interface is a terminal chat. Free text triggers a fresh analysis when needed or answers conversationally from a cached data snapshot. Every calendar change is drafted under a strict schema and proposed to the athlete with the exact plan. Nothing is written to Intervals.icu without a literal yes.\n\nThe result is a coaching loop where the athlete controls every write. Invalid LLM output is retried and rejected, creates resolve by name and date, and a workout-only category guard ensures races and non-workout events are never touched. The same engine is exposed as a one-shot CLI with dry-run defaults for automation.",
+      screenshots: [
+        {
+          src: "/images/projects/open-endurance-coach/1.png",
+          caption: "Terminal chat with the coach",
+        },
+      ],
+    },
+    {
       id: "endurance-lab",
       title: "Endurance Lab",
       description:
@@ -113,6 +129,22 @@ const data: Record<Locale, Project[]> = {
     },
   ],
   fr: [
+    {
+      id: "open-endurance-coach",
+      title: "Open Endurance Coach",
+      description:
+        "Système de coaching IA auto-hébergé qui transforme la télémétrie d'entraînement en ajustements validés par LLM, sous réserve d'une approbation explicite de l'athlète. Développé avec Python, SQLite, Pydantic et Typer.",
+      tags: ["Python", "SQLite"],
+      repoUrl: "https://github.com/yannvillellas/open-endurance-coach",
+      detail:
+        "Open Endurance Coach est un système de coaching piloté par IA, auto-hébergé, qui transforme la télémétrie brute d'Intervals.icu en décisions d'entraînement validées. Il combine un pipeline d'analyse LLM strict avec les principes de périodisation de Joe Friel et l'analyse de puissance d'Andrew Coggan pour comparer l'entraînement réalisé aux objectifs planifiés et à la condition du moment.\n\nL'interface quotidienne est un chat en terminal. Le texte libre déclenche une nouvelle analyse quand c'est nécessaire ou répond de manière conversationnelle à partir d'un instantané de données mis en cache. Chaque modification du calendrier est rédigée sous un schéma strict et proposée à l'athlète avec le plan exact. Rien n'est écrit sur Intervals.icu sans un « oui » explicite.\n\nLe résultat est une boucle de coaching où l'athlète contrôle chaque écriture. Les sorties LLM invalides sont réessayées puis rejetées, les créations sont résolues par nom et date, et une garde limite les mises à jour aux événements d'entraînement, sans jamais toucher aux courses. Le même moteur est exposé en CLI one-shot avec un mode dry-run par défaut.",
+      screenshots: [
+        {
+          src: "/images/projects/open-endurance-coach/1.png",
+          caption: "Chat en terminal avec le coach",
+        },
+      ],
+    },
     {
       id: "endurance-lab",
       title: "Endurance Lab",

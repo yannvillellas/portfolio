@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "endurance-lab",
     "microservices-car-rental",
     "mfieldtrip",
+    "open-endurance-coach",
     "portfolio",
   ];
 

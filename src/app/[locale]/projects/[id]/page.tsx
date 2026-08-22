@@ -21,6 +21,7 @@ export async function generateStaticParams() {
     "endurance-lab",
     "microservices-car-rental",
     "mfieldtrip",
+    "open-endurance-coach",
     "portfolio",
   ];
   return ["en", "fr"].flatMap((locale) => ids.map((id) => ({ locale, id })));
