@@ -18,14 +18,14 @@ export default function Hero() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/contact"
-            className="inline-flex items-center rounded-2xl bg-accent px-6 py-3 font-heading text-base font-bold text-background no-underline transition-colors hover:bg-accent-hover"
+            className="inline-flex items-center rounded-2xl bg-accent px-6 py-3 text-base font-bold text-background no-underline transition-colors hover:bg-accent-hover"
           >
             {t("primaryCta")}
           </Link>
 
           <Link
             href="/projects"
-            className="inline-flex items-center rounded-2xl border border-foreground/20 bg-background/60 px-6 py-3 font-heading text-base font-bold text-foreground no-underline backdrop-blur-sm transition-colors hover:border-foreground/30 hover:bg-background/70"
+            className="inline-flex items-center rounded-2xl border border-foreground/20 bg-background/60 px-6 py-3 text-base font-bold text-foreground no-underline backdrop-blur-sm transition-colors hover:border-foreground/30 hover:bg-background/70"
           >
             {t("secondaryCta")}
           </Link>

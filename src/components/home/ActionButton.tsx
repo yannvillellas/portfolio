@@ -10,7 +10,7 @@ export default function ActionButton({ href, label }: ActionButtonProps) {
   return (
     <Link
       href={href}
-      className="inline-flex w-fit items-center gap-2 rounded-2xl border border-accent/50 px-4 py-2.5 font-heading font-bold text-accent no-underline transition-colors hover:bg-accent/10 hover:border-accent-hover hover:text-accent-hover"
+      className="inline-flex w-fit items-center gap-2 rounded-2xl border border-accent/50 px-4 py-2.5 font-bold text-accent no-underline transition-colors hover:bg-accent/10 hover:border-accent-hover hover:text-accent-hover"
     >
       <span>{label}</span>
       <svg
