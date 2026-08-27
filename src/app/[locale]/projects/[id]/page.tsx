@@ -93,8 +93,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-2xl border border-foreground/20 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
           >
-            <GitHubIcon />
             {t("source")}
+            <GitHubIcon />
           </a>
         )}
         {project.liveUrl && (
@@ -104,8 +104,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-2xl border border-foreground/20 px-5 py-2 text-sm text-foreground/70 transition-colors hover:border-foreground/30 hover:text-foreground"
           >
-            <ExternalLinkIcon />
             {t("live")}
+            <ExternalLinkIcon />
           </a>
         )}
       </div>
