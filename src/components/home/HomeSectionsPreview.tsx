@@ -40,7 +40,6 @@ export default function HomeSectionsPreview() {
           key={section.href}
           section={section}
           reverseOnDesktop={index % 2 !== 0}
-          ctaLabel={tHome("seeMore")}
         />
       ))}
     </div>

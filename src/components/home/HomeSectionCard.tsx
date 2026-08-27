@@ -1,5 +1,3 @@
-import ActionButton from "@/components/home/ActionButton";
-
 export interface HomeSection {
   href: "/about" | "/projects" | "/contact";
   title: string;
@@ -10,13 +8,11 @@ export interface HomeSection {
 interface HomeSectionCardProps {
   section: HomeSection;
   reverseOnDesktop?: boolean;
-  ctaLabel: string;
 }
 
 export default function HomeSectionCard({
   section,
   reverseOnDesktop = false,
-  ctaLabel,
 }: HomeSectionCardProps) {
   return (
     <section className="flex min-h-svh w-full items-center py-[clamp(56px,8vw,120px)]">
@@ -29,7 +25,6 @@ export default function HomeSectionCard({
           <div className="flex w-full flex-col justify-center gap-5 p-7 md:p-10 lg:p-12">
             <h2>{section.title}</h2>
             <p className="max-w-xl text-foreground/80">{section.description}</p>
-            <ActionButton href={section.href} label={ctaLabel} />
           </div>
         </div>
 
