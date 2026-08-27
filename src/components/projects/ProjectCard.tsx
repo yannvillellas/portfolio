@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             src={thumbnail}
             alt={project.screenshots?.[0]?.caption ?? project.title}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 25vw"
           />
         </div>
