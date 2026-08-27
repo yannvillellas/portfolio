@@ -6,14 +6,17 @@
     "contact": "Contact"
   },
   "HomePage": {
+    "eyebrow": "Yann Villellas",
     "title": "Software Engineer",
     "heroSubtitle": "I build reliable, high-quality web and mobile applications.",
     "primaryCta": "Contact me",
     "secondaryCta": "View projects",
+    "aboutBlurb": "I build reliable, high-quality web and mobile applications, from idea to production, with clean architecture and measurable outcomes.",
+    "aboutLink": "More about me",
+    "allProjects": "All projects",
     "aboutPreviewDescription": "A quick overview of who I am, how I approach product thinking, and what drives my work day to day.",
     "projectsPreviewDescription": "A curated selection of recent builds, design experiments, and end-to-end implementations with measurable outcomes.",
-    "contactPreviewDescription": "Ways to connect, discuss new opportunities, or start a collaboration around web, design, and product ideas.",
-    "seeMore": "See more"
+    "contactPreviewDescription": "Ways to connect, discuss new opportunities, or start a collaboration around web, design, and product ideas."
   },
   "AboutPage": {
     "title": "About",
