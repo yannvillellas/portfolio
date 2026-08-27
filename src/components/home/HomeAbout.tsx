@@ -6,8 +6,8 @@ export default function HomeAbout() {
   const tAbout = useTranslations("AboutPage");
 
   return (
-    <section className="relative z-10 mx-auto w-full max-w-5xl mt-(--section-gap)">
-      <h2 className="mb-8">{tAbout("title")}</h2>
+    <section className="relative z-10 mx-auto w-full max-w-5xl">
+      <h2>{tAbout("title")}</h2>
       <p className="text-foreground/80">{t("aboutBlurb")}</p>
       <Link
         href="/about"

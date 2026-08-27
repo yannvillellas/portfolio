@@ -34,7 +34,7 @@ export default function ContactPage() {
     <PageContainer>
       <h1>{t("title")}</h1>
 
-      <div className="mt-16 grid gap-8 md:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-3">
         <ContactLink
           href="mailto:hi@yann.app"
           label={t("email")}
@@ -55,12 +55,12 @@ export default function ContactPage() {
         />
       </div>
 
-      <div className="mt-(--section-gap) border-t border-foreground/10 pt-10">
-        <div className="flex items-center gap-3">
+      <div>
+        <h2 className="flex items-center gap-3">
           <SparkleIcon />
-          <h2 className="text-lg md:text-xl">{t("chatComingSoon")}</h2>
-        </div>
-        <p className="mt-2 text-foreground/75">{t("chatDescription")}</p>
+          <div className="text-lg md:text-xl">{t("chatComingSoon")}</div>
+        </h2>
+        <p className="text-foreground/75">{t("chatDescription")}</p>
       </div>
     </PageContainer>
   );

@@ -34,12 +34,12 @@ export default async function AboutPage({ params }: PageProps) {
     <PageContainer>
       <h1>{t("title")}</h1>
 
-      <p className="mt-8 text-foreground/75">{t("intro")}</p>
+      <p className="text-foreground/75">{t("intro")}</p>
 
-      <section className="mt-(--section-gap)">
+      <section>
         <h2>{t("experience.title")}</h2>
 
-        <div className="mt-10 space-y-12">
+        <div className="space-y-12">
           {experiences.map((exp) => (
             <div
               key={exp.company}
@@ -55,10 +55,10 @@ export default async function AboutPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="mt-(--section-gap)">
+      <section>
         <h2>{t("education.title")}</h2>
 
-        <div className="mt-10 space-y-8">
+        <div className="space-y-8">
           {educationEntries.map((edu) => (
             <div key={edu.school}>
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -72,10 +72,10 @@ export default async function AboutPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="mt-(--section-gap)">
+      <section>
         <h2>{t("skills.title")}</h2>
 
-        <div className="mt-10 space-y-8">
+        <div className="space-y-8">
           {skillCategories.map((cat) => (
             <SkillCategory
               key={cat.key}
@@ -86,9 +86,9 @@ export default async function AboutPage({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="mt-(--section-gap)">
+      <section>
         <h2>{t("interests.title")}</h2>
-        <p className="mt-8 text-foreground/75">{interests}</p>
+        <p className="text-foreground/75">{interests}</p>
       </section>
     </PageContainer>
   );
@@ -100,7 +100,7 @@ function SkillCategory({ label, items }: { label: string; items: string }) {
   return (
     <div>
       <h3>{label}</h3>
-      <div className="mt-2 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
           <Pill key={skill}>{skill}</Pill>
         ))}

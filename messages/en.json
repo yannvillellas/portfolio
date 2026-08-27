@@ -8,20 +8,17 @@
   "HomePage": {
     "eyebrow": "Yann Villellas",
     "title": "Software Engineer",
-    "heroSubtitle": "I build reliable, high-quality web and mobile applications.",
+    "heroSubtitle": "I build web, mobile, and backend applications.",
     "primaryCta": "Contact me",
     "secondaryCta": "View projects",
-    "aboutBlurb": "I build reliable, high-quality web and mobile applications, from idea to production, with clean architecture and measurable outcomes.",
+    "aboutBlurb": "I'm a software engineer with a double Master's degree from ESILV and Politecnico di Torino. I've worked across mobile, web, and backend. This site gathers a few projects from that journey.",
     "aboutLink": "More about me",
-    "allProjects": "All projects",
-    "aboutPreviewDescription": "A quick overview of who I am, how I approach product thinking, and what drives my work day to day.",
-    "projectsPreviewDescription": "A curated selection of recent builds, design experiments, and end-to-end implementations with measurable outcomes.",
-    "contactPreviewDescription": "Ways to connect, discuss new opportunities, or start a collaboration around web, design, and product ideas."
+    "allProjects": "All projects"
   },
   "AboutPage": {
     "title": "About",
     "description": "Professional background and skills.",
-    "intro": "Software engineer with a double Master's degree from ESILV (Paris) and Politecnico di Torino (Turin). I build across mobile, web, and backend infrastructure, always with the same baseline: clean architecture, testable code, and no technical debt left behind.",
+    "intro": "Software engineer with a double Master's degree from ESILV (Paris) and Politecnico di Torino (Turin). I work across mobile, web, and backend, with a focus on clean architecture and testable code.",
     "experience": {
       "title": "Experience"
     },

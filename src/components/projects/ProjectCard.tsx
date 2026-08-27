@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             src={thumbnail}
             alt={project.screenshots?.[0]?.caption ?? project.title}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 25vw"
           />
         </div>
@@ -22,8 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="p-6">
         <h3>{project.title}</h3>
-
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <Pill key={tag}>{tag}</Pill>
           ))}

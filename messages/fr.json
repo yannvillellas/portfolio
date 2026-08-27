@@ -8,20 +8,17 @@
   "HomePage": {
     "eyebrow": "Yann Villellas",
     "title": "Ingénieur Logiciel",
-    "heroSubtitle": "Je conçois des applications web et mobiles fiables et de haute qualité.",
+    "heroSubtitle": "Je conçois des applications web, mobiles et backend.",
     "primaryCta": "Me contacter",
     "secondaryCta": "Voir les projets",
-    "aboutBlurb": "Je conçois des applications web et mobiles fiables, de l'idée à la production, avec une architecture propre et des résultats mesurables.",
+    "aboutBlurb": "Ingénieur logiciel avec un double diplôme de l'ESILV et du Politecnico di Torino. J'ai travaillé sur des projets mobiles, web et backend. Ce site en rassemble quelques-uns.",
     "aboutLink": "En savoir plus sur moi",
-    "allProjects": "Tous les projets",
-    "aboutPreviewDescription": "Un aperçu de qui je suis, comment j'aborde la réflexion produit et ce qui motive mon travail au quotidien.",
-    "projectsPreviewDescription": "Une sélection de projets récents, d'expérimentations et de réalisations complètes avec des résultats mesurables.",
-    "contactPreviewDescription": "Les moyens de me contacter, d'échanger sur de nouvelles opportunités ou de collaborer autour du web, du design et des idées."
+    "allProjects": "Tous les projets"
   },
   "AboutPage": {
     "title": "À propos",
     "description": "Parcours professionnel et compétences.",
-    "intro": "Ingénieur logiciel avec un double diplôme de l'ESILV (Paris) et du Politecnico di Torino (Turin). Je construis des applications mobiles, web et des infrastructures backend, toujours avec la même base : architecture propre, code testable et aucune dette technique laissée derrière.",
+    "intro": "Ingénieur logiciel avec un double diplôme de l'ESILV (Paris) et du Politecnico di Torino (Turin). Je travaille sur des applications mobiles, web et des infrastructures backend, avec une attention particulière à l'architecture propre et au code testable.",
     "experience": {
       "title": "Expérience"
     },
@@ -48,7 +45,7 @@
     "email": "Courriel",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "chatComingSoon": "Chattez avec moi — bientôt disponible",
+    "chatComingSoon": "Chattez avec moi, bientôt disponible",
     "chatDescription": "Un assistant IA qui répond aux questions sur mon parcours et mon expérience, bientôt disponible sur cette page."
   },
   "Footer": {

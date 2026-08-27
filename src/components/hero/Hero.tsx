@@ -10,7 +10,7 @@ export default function Hero() {
         <p className="type-caption">{t("eyebrow")}</p>
         <h1 className="mt-3 lg:text-6xl text-foreground">{t("title")}</h1>
 
-        <p className="text-lg md:text-xl mt-6 max-w-3xl text-foreground/80">
+        <p className="text-lg md:text-xl max-w-3xl text-foreground/80">
           {t("heroSubtitle")}
         </p>
 
