@@ -3,7 +3,8 @@ import { getTranslations } from "next-intl/server";
 import Background from "@/components/hero/Background";
 import PageContainer from "@/components/PageContainer";
 import Hero from "@/components/hero/Hero";
-import HomeSectionsPreview from "@/components/home/HomeSectionsPreview";
+import HomeAbout from "@/components/home/HomeAbout";
+import HomeProjects from "@/components/home/HomeProjects";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -21,13 +22,16 @@ export async function generateMetadata({
   };
 }
 
-export default function HomePage() {
+export default async function HomePage({ params }: PageProps) {
+  const { locale } = await params;
+
   return (
     <div className="relative bg-background text-foreground">
       <Background>
         <PageContainer vertical={false}>
           <Hero />
-          <HomeSectionsPreview />
+          <HomeAbout />
+          <HomeProjects locale={locale} />
         </PageContainer>
       </Background>
     </div>
