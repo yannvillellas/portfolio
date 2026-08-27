@@ -61,7 +61,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       <h1 className="mt-8">{project.title}</h1>
 
-      <p className="mt-8 text-foreground/75">{project.description}</p>
+      <p className="text-foreground/75">{project.description}</p>
 
       {screenshots && screenshots.length > 0 && (
         <div className="mt-12">
@@ -70,7 +70,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       )}
 
       {detail && (
-        <div className="mt-16 space-y-6">
+        <div className="mt-16">
           {detail.split("\n\n").map((paragraph) => (
             <p key={paragraph.slice(0, 40)} className="text-foreground/75">
               {paragraph}

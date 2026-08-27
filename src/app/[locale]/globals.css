@@ -28,7 +28,6 @@
   --header-clearance: calc(var(--chrome-inset-y) + var(--header-height));
   --header-content-gap: --spacing(6);
   --content-footer-gap: --spacing(24);
-  --section-gap: --spacing(24);
   --header-offset: calc(var(--header-clearance) + var(--header-content-gap));
   --mobile-nav-clearance: calc(
     env(safe-area-inset-bottom, 0px) + var(--chrome-inset-y) +
@@ -38,7 +37,6 @@
     --chrome-inset-x: --spacing(8);
     --mobile-nav-clearance: 0px;
     --content-footer-gap: --spacing(32);
-    --section-gap: --spacing(32);
   }
 }
 
@@ -66,19 +64,37 @@ body {
   }
 
   h1 {
-    @apply text-4xl font-semibold tracking-tight text-balance md:text-5xl;
+    @apply text-4xl font-semibold tracking-tight text-balance mb-6 md:text-5xl;
   }
 
   h2 {
-    @apply text-2xl font-semibold tracking-tight text-balance lg:text-3xl;
+    @apply text-2xl font-semibold tracking-tight text-balance mt-12 mb-8 lg:text-3xl;
   }
 
   h3 {
-    @apply text-lg font-normal leading-snug text-balance md:text-xl;
+    @apply text-lg font-normal leading-snug text-balance mb-2 md:text-xl;
   }
 
   p {
     @apply text-base leading-relaxed text-pretty;
+  }
+
+  h2 + *,
+  h3 + * {
+    margin-top: 0;
+  }
+
+  p + p {
+    @apply mt-5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-top: calc(var(--header-offset) + --spacing(4));
   }
 }
 

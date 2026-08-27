@@ -22,8 +22,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="p-6">
         <h3>{project.title}</h3>
-
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <Pill key={tag}>{tag}</Pill>
           ))}

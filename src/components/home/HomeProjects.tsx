@@ -24,8 +24,8 @@ export default function HomeProjects({ locale }: { locale: string }) {
     .slice(0, 3);
 
   return (
-    <section className="relative z-10 mx-auto w-full max-w-5xl mt-(--section-gap) pb-(--content-footer-gap)">
-      <h2 className="mb-8">{t("title")}</h2>
+    <section className="relative z-10 mx-auto w-full max-w-5xl pb-(--content-footer-gap)">
+      <h2>{t("title")}</h2>
       <div className="grid gap-8 md:grid-cols-3">
         {projects.map(({ project, screenshot }) => (
           <Link
@@ -44,7 +44,7 @@ export default function HomeProjects({ locale }: { locale: string }) {
                 />
               )}
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               <h3 className="transition-colors group-hover:text-accent">
                 {project.title}
               </h3>
