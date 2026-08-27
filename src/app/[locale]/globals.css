@@ -61,6 +61,10 @@ body {
 }
 
 @layer base {
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent/70;
+  }
+
   h1 {
     @apply text-4xl font-semibold tracking-tight text-balance md:text-5xl;
   }
@@ -85,5 +89,17 @@ body {
 
   .pill {
     @apply inline-block rounded-full border border-foreground/10 bg-background-secondary/40 px-3 py-1 text-sm text-foreground/80;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-2xl border px-6 py-3 text-base font-bold no-underline transition-colors;
+  }
+
+  .btn-primary {
+    @apply border-accent bg-accent text-background hover:border-accent-hover hover:bg-accent-hover;
+  }
+
+  .btn-secondary {
+    @apply border-foreground/20 bg-background/60 text-foreground backdrop-blur-sm hover:border-foreground/30 hover:bg-background/70;
   }
 }
