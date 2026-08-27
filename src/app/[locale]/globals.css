@@ -27,7 +27,8 @@
   --mobile-nav-height: --spacing(14);
   --header-clearance: calc(var(--chrome-inset-y) + var(--header-height));
   --header-content-gap: --spacing(6);
-  --content-footer-gap: --spacing(6);
+  --content-footer-gap: --spacing(24);
+  --section-gap: --spacing(24);
   --header-offset: calc(var(--header-clearance) + var(--header-content-gap));
   --mobile-nav-clearance: calc(
     env(safe-area-inset-bottom, 0px) + var(--chrome-inset-y) +
@@ -36,6 +37,8 @@
   @variant md {
     --chrome-inset-x: --spacing(8);
     --mobile-nav-clearance: 0px;
+    --content-footer-gap: --spacing(32);
+    --section-gap: --spacing(32);
   }
 }
 
@@ -47,21 +50,56 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-highlight: var(--highlight);
-  --font-sans: var(--font-sans);
-  --font-heading: var(--font-heading);
+  --font-sans: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  letter-spacing: -0.01em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading), sans-serif;
+@layer base {
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent/70;
+  }
+
+  h1 {
+    @apply text-4xl font-semibold tracking-tight text-balance md:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold tracking-tight text-balance lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-lg font-normal leading-snug text-balance md:text-xl;
+  }
+
+  p {
+    @apply text-base leading-relaxed text-pretty;
+  }
+}
+
+@layer components {
+  .type-caption {
+    @apply text-sm text-foreground/50;
+  }
+
+  .pill {
+    @apply inline-block rounded-full border border-foreground/10 bg-background-secondary/40 px-3 py-1 text-sm text-foreground/80;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-2xl border px-6 py-3 text-base font-bold no-underline transition-colors;
+  }
+
+  .btn-primary {
+    @apply border-accent bg-accent text-background hover:border-accent-hover hover:bg-accent-hover;
+  }
+
+  .btn-secondary {
+    @apply border-foreground/20 bg-background/60 text-foreground backdrop-blur-sm hover:border-foreground/30 hover:bg-background/70;
+  }
 }

@@ -4,7 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Inter, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Navigation from "@/components/navigation/Navigation";
@@ -30,13 +30,7 @@ export const metadata: Metadata = {
 
 const defaultFont = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const headingFont = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -74,7 +68,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${defaultFont.variable} ${headingFont.variable} relative flex min-h-svh flex-col`}
+        className={`${defaultFont.variable} relative flex min-h-svh flex-col`}
       >
         <NextIntlClientProvider messages={messages}>
           <Navigation items={menuItems} />

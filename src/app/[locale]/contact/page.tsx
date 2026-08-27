@@ -32,11 +32,9 @@ export default function ContactPage() {
 
   return (
     <PageContainer>
-      <h1 className="text-4xl font-black tracking-tight md:text-6xl">
-        {t("title")}
-      </h1>
+      <h1>{t("title")}</h1>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-16 grid gap-8 md:grid-cols-3">
         <ContactLink
           href="mailto:hi@yann.app"
           label={t("email")}
@@ -57,16 +55,12 @@ export default function ContactPage() {
         />
       </div>
 
-      <div className="mt-16 border-t border-foreground/10 pt-8">
+      <div className="mt-(--section-gap) border-t border-foreground/10 pt-10">
         <div className="flex items-center gap-3">
           <SparkleIcon />
-          <h2 className="text-lg font-bold text-foreground">
-            {t("chatComingSoon")}
-          </h2>
+          <h2 className="text-lg md:text-xl">{t("chatComingSoon")}</h2>
         </div>
-        <p className="mt-2 leading-relaxed text-foreground/75">
-          {t("chatDescription")}
-        </p>
+        <p className="mt-2 text-foreground/75">{t("chatDescription")}</p>
       </div>
     </PageContainer>
   );
@@ -95,11 +89,9 @@ function ContactLink({
       </span>
       <div className="flex items-center gap-3">
         <span className="text-foreground/50">{icon}</span>
-        <span className="text-sm text-foreground/50">{label}</span>
+        <span className="type-caption">{label}</span>
       </div>
-      <span className="mt-2 block text-base font-semibold text-foreground">
-        {value}
-      </span>
+      <span className="mt-2 block text-lg md:text-xl">{value}</span>
     </CardLink>
   );
 }

@@ -59,42 +59,33 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     <PageContainer>
       <StickyLink href="/projects" icon={<ArrowLeftIcon />} label={t("back")} />
 
-      <h1 className="mt-6 text-4xl font-black tracking-tight md:text-6xl">
-        {project.title}
-      </h1>
+      <h1 className="mt-8">{project.title}</h1>
 
-      <p className="mt-6 leading-relaxed text-foreground/75">
-        {project.description}
-      </p>
+      <p className="mt-8 text-foreground/75">{project.description}</p>
 
       {screenshots && screenshots.length > 0 && (
-        <div className="mt-10">
+        <div className="mt-12">
           <ScreenshotGallery screenshots={screenshots} />
         </div>
       )}
 
       {detail && (
-        <div className="mt-12 space-y-5">
+        <div className="mt-16 space-y-6">
           {detail.split("\n\n").map((paragraph) => (
-            <p
-              key={paragraph.slice(0, 40)}
-              className="leading-relaxed text-foreground/75"
-            >
+            <p key={paragraph.slice(0, 40)} className="text-foreground/75">
               {paragraph}
             </p>
           ))}
         </div>
       )}
 
-      <div className="mt-8 flex flex-wrap gap-2">
+      <div className="mt-10 flex flex-wrap gap-2">
         {project.tags.map((tag) => (
-          <Pill key={tag} size="sm">
-            {tag}
-          </Pill>
+          <Pill key={tag}>{tag}</Pill>
         ))}
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-4">
+      <div className="mt-12 flex flex-wrap gap-4">
         {project.repoUrl && (
           <a
             href={project.repoUrl}

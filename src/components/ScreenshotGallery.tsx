@@ -104,16 +104,14 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
 
       {multi && landscape && (
         <div className="mt-2 hidden items-center justify-between gap-4 lg:flex">
-          {current.caption && (
-            <p className="text-sm text-foreground/50">{current.caption}</p>
-          )}
+          {current.caption && <p className="type-caption">{current.caption}</p>}
           <Dots screenshots={screenshots} index={index} onSelect={setIndex} />
         </div>
       )}
 
       {current.caption && (
         <p
-          className={`mt-2 text-center text-sm text-foreground/50 ${
+          className={`type-caption mt-2 text-center ${
             landscape ? (multi ? "lg:hidden" : "lg:text-left") : ""
           }`}
         >

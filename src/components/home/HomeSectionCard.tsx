@@ -27,12 +27,8 @@ export default function HomeSectionCard({
       >
         <div className="flex md:basis-2/5">
           <div className="flex w-full flex-col justify-center gap-5 p-7 md:p-10 lg:p-12">
-            <h2 className="text-4xl font-black tracking-tight md:text-6xl">
-              {section.title}
-            </h2>
-            <p className="max-w-xl text-base leading-relaxed text-foreground/80 md:text-lg">
-              {section.description}
-            </p>
+            <h2>{section.title}</h2>
+            <p className="max-w-xl text-foreground/80">{section.description}</p>
             <ActionButton href={section.href} label={ctaLabel} />
           </div>
         </div>
