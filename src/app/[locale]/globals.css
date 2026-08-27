@@ -57,23 +57,24 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  letter-spacing: -0.01em;
 }
 
 @layer base {
   h1 {
-    @apply text-4xl font-semibold tracking-tight md:text-5xl;
+    @apply text-4xl font-semibold tracking-tight text-balance md:text-5xl;
   }
 
   h2 {
-    @apply text-2xl font-semibold tracking-tight lg:text-3xl;
+    @apply text-2xl font-semibold tracking-tight text-balance lg:text-3xl;
   }
 
   h3 {
-    @apply text-lg font-normal leading-snug md:text-xl;
+    @apply text-lg font-normal leading-snug text-balance md:text-xl;
   }
 
   p {
-    @apply text-base leading-relaxed;
+    @apply text-base leading-relaxed text-pretty;
   }
 }
 
