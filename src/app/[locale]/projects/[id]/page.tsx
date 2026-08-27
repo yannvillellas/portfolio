@@ -59,13 +59,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     <PageContainer>
       <StickyLink href="/projects" icon={<ArrowLeftIcon />} label={t("back")} />
 
-      <h1 className="mt-6 text-4xl font-black tracking-tight md:text-6xl">
-        {project.title}
-      </h1>
+      <h1 className="mt-6">{project.title}</h1>
 
-      <p className="mt-6 leading-relaxed text-foreground/75">
-        {project.description}
-      </p>
+      <p className="mt-6 text-foreground/75">{project.description}</p>
 
       {screenshots && screenshots.length > 0 && (
         <div className="mt-10">
@@ -76,10 +72,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       {detail && (
         <div className="mt-12 space-y-5">
           {detail.split("\n\n").map((paragraph) => (
-            <p
-              key={paragraph.slice(0, 40)}
-              className="leading-relaxed text-foreground/75"
-            >
+            <p key={paragraph.slice(0, 40)} className="text-foreground/75">
               {paragraph}
             </p>
           ))}
@@ -88,9 +81,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       <div className="mt-8 flex flex-wrap gap-2">
         {project.tags.map((tag) => (
-          <Pill key={tag} size="sm">
-            {tag}
-          </Pill>
+          <Pill key={tag}>{tag}</Pill>
         ))}
       </div>
 

@@ -32,16 +32,12 @@ export default async function AboutPage({ params }: PageProps) {
 
   return (
     <PageContainer>
-      <h1 className="text-4xl font-black tracking-tight md:text-6xl">
-        {t("title")}
-      </h1>
+      <h1>{t("title")}</h1>
 
-      <p className="mt-6 leading-relaxed text-foreground/75">{t("intro")}</p>
+      <p className="mt-6 text-foreground/75">{t("intro")}</p>
 
       <section className="mt-16">
-        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-          {t("experience.title")}
-        </h2>
+        <h2>{t("experience.title")}</h2>
 
         <div className="mt-8 space-y-10">
           {experiences.map((exp) => (
@@ -49,47 +45,35 @@ export default async function AboutPage({ params }: PageProps) {
               key={exp.company}
               className="border-l-2 border-foreground/10 pl-6"
             >
-              <h3 className="text-lg font-bold text-foreground">
-                {exp.company}
-              </h3>
-              <p className="text-sm text-foreground/50">
+              <h3>{exp.company}</h3>
+              <p className="type-caption">
                 {exp.role} · {exp.location} · {exp.period}
               </p>
-              <p className="mt-3 leading-relaxed text-foreground/75">
-                {exp.description}
-              </p>
+              <p className="mt-3 text-foreground/75">{exp.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="mt-16">
-        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-          {t("education.title")}
-        </h2>
+        <h2>{t("education.title")}</h2>
 
         <div className="mt-8 space-y-6">
           {educationEntries.map((edu) => (
             <div key={edu.school}>
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <h3 className="text-lg font-bold text-foreground">
-                  {edu.school}
-                </h3>
-                <span className="text-sm text-foreground/50">
-                  {edu.location}
-                </span>
+                <h3>{edu.school}</h3>
+                <span className="type-caption">{edu.location}</span>
               </div>
               <p className="text-foreground/75">{edu.degree}</p>
-              <p className="text-sm text-foreground/50">{edu.period}</p>
+              <p className="type-caption">{edu.period}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="mt-16">
-        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-          {t("skills.title")}
-        </h2>
+        <h2>{t("skills.title")}</h2>
 
         <div className="mt-8 space-y-6">
           {skillCategories.map((cat) => (
@@ -103,10 +87,8 @@ export default async function AboutPage({ params }: PageProps) {
       </section>
 
       <section className="mt-16">
-        <h2 className="text-2xl font-black tracking-tight md:text-3xl">
-          {t("interests.title")}
-        </h2>
-        <p className="mt-6 leading-relaxed text-foreground/75">{interests}</p>
+        <h2>{t("interests.title")}</h2>
+        <p className="mt-6 text-foreground/75">{interests}</p>
       </section>
     </PageContainer>
   );
@@ -117,12 +99,10 @@ function SkillCategory({ label, items }: { label: string; items: string }) {
 
   return (
     <div>
-      <span className="text-lg font-bold text-foreground">{label}</span>
+      <h3>{label}</h3>
       <div className="mt-2 flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <Pill key={skill} size="sm">
-            {skill}
-          </Pill>
+          <Pill key={skill}>{skill}</Pill>
         ))}
       </div>
     </div>

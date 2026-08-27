@@ -55,3 +55,31 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
 }
+
+@layer base {
+  h1 {
+    @apply text-4xl font-semibold tracking-tight md:text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold tracking-tight lg:text-3xl;
+  }
+
+  h3 {
+    @apply text-lg font-normal leading-snug md:text-xl;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+}
+
+@layer components {
+  .type-caption {
+    @apply text-sm text-foreground/50;
+  }
+
+  .pill {
+    @apply inline-block rounded-full border border-foreground/10 bg-background-secondary/40 px-3 py-1 text-sm text-foreground/80;
+  }
+}

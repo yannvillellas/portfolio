@@ -8,7 +8,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <CardLink href={`/projects/${project.id}`} className="overflow-hidden">
-      {thumbnail ? (
+      {thumbnail && (
         <div className="relative aspect-square">
           <Image
             src={thumbnail}
@@ -18,16 +18,10 @@ export default function ProjectCard({ project }: { project: Project }) {
             sizes="(max-width: 768px) 100vw, 25vw"
           />
         </div>
-      ) : (
-        <div className="flex aspect-square items-center justify-center bg-linear-to-br from-foreground/5 to-foreground/10">
-          <span className="text-sm font-semibold text-foreground/20">
-            {project.title}
-          </span>
-        </div>
       )}
 
       <div className="p-6">
-        <h3 className="text-lg font-bold text-foreground">{project.title}</h3>
+        <h3>{project.title}</h3>
 
         <div className="mt-3 flex flex-wrap gap-2">
           {project.tags.map((tag) => (

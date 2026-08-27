@@ -27,9 +27,7 @@ export default async function ProjectsPage({ params }: PageProps) {
 
   return (
     <PageContainer>
-      <h1 className="text-4xl font-black tracking-tight md:text-6xl">
-        {t("title")}
-      </h1>
+      <h1>{t("title")}</h1>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {projects.map((project) => (

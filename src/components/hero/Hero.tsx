@@ -7,11 +7,9 @@ export default function Hero() {
   return (
     <div className="relative z-10 flex min-h-svh items-center justify-center pb-16 pt-(--header-offset)">
       <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-        <h1 className="text-5xl font-black tracking-tight text-foreground md:text-7xl lg:text-8xl">
-          {t("title")}
-        </h1>
+        <h1 className="lg:text-6xl text-foreground">{t("title")}</h1>
 
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+        <p className="text-lg md:text-xl mt-6 max-w-3xl text-foreground/80">
           {t("heroSubtitle")}
         </p>
 

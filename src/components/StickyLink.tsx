@@ -29,7 +29,7 @@ export default function StickyLink({
   return (
     <Link
       href={href}
-      className={`sticky top-(--header-offset) z-30 inline-flex items-center gap-2 rounded-2xl border p-2 text-sm text-foreground/50 transition-[background-color,backdrop-filter,border-color,color] hover:text-foreground ${
+      className={`sticky top-(--header-offset) z-30 inline-flex items-center gap-2 rounded-2xl border p-2 type-caption transition-[background-color,backdrop-filter,border-color,color] hover:text-foreground ${
         scrolled
           ? "border-foreground/5 bg-background/20 backdrop-blur-md"
           : "border-transparent"
