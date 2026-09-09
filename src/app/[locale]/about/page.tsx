@@ -60,13 +60,19 @@ export default async function AboutPage({ params }: PageProps) {
 
         <div className="space-y-8">
           {educationEntries.map((edu) => (
-            <div key={edu.school}>
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <h3>{edu.school}</h3>
-                <span className="type-caption">{edu.location}</span>
-              </div>
-              <p className="text-foreground/75">{edu.degree}</p>
-              <p className="type-caption">{edu.period}</p>
+            <div
+              key={edu.school}
+              className="border-l-2 border-foreground/10 pl-6"
+            >
+              <h3>{edu.school}</h3>
+              <p className="type-caption">
+                {edu.degree} · {edu.location} · {edu.period}
+              </p>
+              {edu.coursework && (
+                <p className="mt-4 text-foreground/75">
+                  {t("education.coursework")}: {edu.coursework}
+                </p>
+              )}
             </div>
           ))}
         </div>
