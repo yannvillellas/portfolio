@@ -112,6 +112,31 @@ const data: Record<Locale, Project[]> = {
       ],
     },
     {
+      id: "kiruna-explorer",
+      title: "Kiruna Explorer",
+      description:
+        "Collaborative web platform narrating Kiruna's urban transformation through an interactive timeline and thematic maps. Built with Node.js, Express, React, and SQLite.",
+      tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
+      repoUrl:
+        "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
+      detail:
+        "Kiruna Explorer is a digital tool that narrates the ongoing urban transformation of the city of Kiruna, which is being relocated ahead of becoming the European Capital of Culture 2029. Built in collaboration between Politecnico di Torino and the City of Kiruna, the platform combines a dynamic timeline with thematic maps so visitors can explore how political, technical, and spatial decisions have shaped the city.\n\nI worked on this project as part of a Master-level Software Engineering II course team. The backend is a layered Express application with a DAO architecture over SQLite, session-based authentication, input validation, and file uploads. The frontend is built with React and Vite, using Leaflet and Turf for interactive mapping and D3 for data visualization.\n\nThe platform was developed with a Docker-based workflow and continuous testing (Jest for the backend, Cypress for end-to-end tests).",
+      screenshots: [
+        {
+          src: "/images/projects/kiruna-explorer/map.png",
+          caption: "Interactive thematic map",
+        },
+        {
+          src: "/images/projects/kiruna-explorer/listOfDocuments.png",
+          caption: "Document archive",
+        },
+        {
+          src: "/images/projects/kiruna-explorer/documentVisualization.png",
+          caption: "Document visualization",
+        },
+      ],
+    },
+    {
       id: "portfolio",
       title: "This Portfolio",
       description:
@@ -220,6 +245,31 @@ const data: Record<Locale, Project[]> = {
           src: "/images/projects/mfieldtrip/3.png",
           caption: "Carte web QGIS intégrée",
           orientation: "portrait",
+        },
+      ],
+    },
+    {
+      id: "kiruna-explorer",
+      title: "Kiruna Explorer",
+      description:
+        "Plateforme web collaborative qui raconte la transformation urbaine de Kiruna à travers une timeline interactive et des cartes thématiques. Développée avec Node.js, Express, React et SQLite.",
+      tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
+      repoUrl:
+        "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
+      detail:
+        "Kiruna Explorer est un outil numérique qui raconte la transformation urbaine en cours de la ville de Kiruna, déplacée en préparation de son statut de Capitale européenne de la culture 2029. Construite en collaboration entre le Politecnico di Torino et la ville de Kiruna, la plateforme combine une timeline dynamique et des cartes thématiques pour permettre aux visiteurs d'explorer comment les décisions politiques, techniques et spatiales ont façonné la ville.\n\nJ'ai travaillé sur ce projet au sein d'une équipe du cours de Software Engineering II de niveau Master. Le backend est une application Express en couches, avec une architecture DAO reposant sur SQLite, une authentification par session, une validation des entrées et l'envoi de fichiers. Le frontend est construit avec React et Vite, en utilisant Leaflet et Turf pour la cartographie interactive et D3 pour la visualisation de données.\n\nLa plateforme a été développée avec un workflow Docker et des tests continus (Jest pour le backend, Cypress pour les tests de bout en bout).",
+      screenshots: [
+        {
+          src: "/images/projects/kiruna-explorer/map.png",
+          caption: "Carte thématique interactive",
+        },
+        {
+          src: "/images/projects/kiruna-explorer/listOfDocuments.png",
+          caption: "Liste des documents",
+        },
+        {
+          src: "/images/projects/kiruna-explorer/documentVisualization.png",
+          caption: "Visualisation d'un document",
         },
       ],
     },
