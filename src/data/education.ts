@@ -19,7 +19,8 @@ const data: Record<Locale, EducationEntry[]> = {
         "Distributed Systems Programming, Cloud Computing Technologies, Advanced Software Engineering, Information & Embedded Systems Security, Optimization Algorithms, Web & Mobile Application Development",
     },
     {
-      school: "\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci",
+      school:
+        "\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci",
       degree:
         "Engineering degree (Dipl\u00f4me d\u2019ing\u00e9nieur), Cybersecurity and Cloud Computing",
       location: "Paris, France",
@@ -46,13 +47,14 @@ const data: Record<Locale, EducationEntry[]> = {
         "Programmation de syst\u00e8mes distribu\u00e9s, Cloud Computing, G\u00e9nie logiciel avanc\u00e9, S\u00e9curit\u00e9 de l\u2019information et des syst\u00e8mes embarqu\u00e9s, Algorithmes d\u2019optimisation, D\u00e9veloppement d\u2019applications web et mobiles",
     },
     {
-      school: "\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci",
+      school:
+        "\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci",
       degree:
         "Dipl\u00f4me d\u2019ing\u00e9nieur, Cybers\u00e9curit\u00e9 et Cloud Computing",
       location: "Paris, France",
       period: "2020 \u2013 2025",
       coursework:
-        "Cloud Computing, DevOps & DevSecOps, Tests d\u2019intrusion, S\u00e9curit\u00e9 r\u00e9seau, Cryptographie appliqu\u00e9e, Machine Learning & IA, D\u00e9veloppement web et mobile",
+        "Cloud Computing, DevOps & DevSecOps, Tests d\u2019intrusion, S\u00e9curit\u00e9 r\u00e9seau, Cryptographie appliqu\u00e9e, Machine Learning et IA, D\u00e9veloppement web et mobile",
     },
     {
       school: "Riga Technical University",
