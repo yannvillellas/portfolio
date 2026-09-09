@@ -43,7 +43,7 @@ const data: Record<Locale, EducationEntry[]> = {
       location: "Turin, Italie",
       period: "2024 \u2013 2026",
       coursework:
-        "Programmation des syst\u00e8mes distribu\u00e9s, Technologies de cloud computing, G\u00e9nie logiciel avanc\u00e9, S\u00e9curit\u00e9 des syst\u00e8mes d\u2019information et embarqu\u00e9s, Algorithmes d\u2019optimisation, D\u00e9veloppement d\u2019applications web et mobiles",
+        "Programmation de syst\u00e8mes distribu\u00e9s, Cloud Computing, G\u00e9nie logiciel avanc\u00e9, S\u00e9curit\u00e9 de l\u2019information et des syst\u00e8mes embarqu\u00e9s, Algorithmes d\u2019optimisation, D\u00e9veloppement d\u2019applications web et mobiles",
     },
     {
       school: "\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci",
@@ -52,7 +52,7 @@ const data: Record<Locale, EducationEntry[]> = {
       location: "Paris, France",
       period: "2020 \u2013 2025",
       coursework:
-        "Cloud Computing, DevOps & DevSecOps, Tests d\u2019intrusion, S\u00e9curit\u00e9 r\u00e9seau, Cryptographie appliqu\u00e9e, Machine Learning & IA, D\u00e9veloppement web & mobile",
+        "Cloud Computing, DevOps & DevSecOps, Tests d\u2019intrusion, S\u00e9curit\u00e9 r\u00e9seau, Cryptographie appliqu\u00e9e, Machine Learning & IA, D\u00e9veloppement web et mobile",
     },
     {
       school: "Riga Technical University",
@@ -60,7 +60,7 @@ const data: Record<Locale, EducationEntry[]> = {
       location: "Riga, Lettonie",
       period: "2022 \u2013 2023",
       coursework:
-        "Conception orient\u00e9e objet (C++), Architecture des syst\u00e8mes informatiques, R\u00e9seaux informatiques, Structures de donn\u00e9es avanc\u00e9es, Analyse num\u00e9rique",
+        "Conception orient\u00e9e objet (C++), Architecture des syst\u00e8mes informatiques, R\u00e9seaux informatiques, Structures de donn\u00e9es, Analyse num\u00e9rique",
     },
   ],
 };
