@@ -128,7 +128,7 @@ const data: Record<Locale, Project[]> = {
         },
         {
           src: "/images/projects/kiruna-explorer/listOfDocuments.png",
-          caption: "Document archive",
+          caption: "List of documents",
         },
         {
           src: "/images/projects/kiruna-explorer/documentVisualization.png",
