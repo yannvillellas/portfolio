@@ -22,6 +22,12 @@ const data: Record<Locale, EducationEntry[]> = {
       location: "Paris, France",
       period: "2020\u20132025",
     },
+    {
+      school: "Riga Technical University",
+      degree: "Semester abroad",
+      location: "Riga, Latvia",
+      period: "2022\u20132023",
+    },
   ],
   fr: [
     {
@@ -36,6 +42,12 @@ const data: Record<Locale, EducationEntry[]> = {
       degree: "Master of Science, Cybersecurity and Cloud Computing",
       location: "Paris, France",
       period: "2020 \u2013 2025",
+    },
+    {
+      school: "Riga Technical University",
+      degree: "Semestre d\u2019\u00e9change",
+      location: "Riga, Lettonie",
+      period: "2022 \u2013 2023",
     },
   ],
 };

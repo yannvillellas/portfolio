@@ -8,41 +8,41 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "languages",
     label: { en: "Languages", fr: "Langages" },
-    items: "TypeScript, JavaScript, Dart, Python, Kotlin, Java, C#, C++",
+    items: "Python, TypeScript, JavaScript, Java, Dart, Kotlin, C++, C#, SQL",
+  },
+  {
+    key: "frontend",
+    label: { en: "Frontend", fr: "Frontend" },
+    items: "React, Next.js, Vue.js, Angular, Tailwind CSS",
   },
   {
     key: "mobile",
     label: { en: "Mobile", fr: "Mobile" },
-    items: "Flutter, Android, React Native",
-  },
-  {
-    key: "web",
-    label: { en: "Web", fr: "Web" },
-    items: "React, Next.js, Express.js, Vue.js, Angular, HTML, CSS",
+    items: "Flutter, Android, Jetpack Compose, Jetpack Glance",
   },
   {
     key: "backend",
     label: { en: "Backend", fr: "Backend" },
-    items: "Node.js, Spring Boot, Django, .NET, OAuth2/OIDC",
+    items: "Node.js, Express.js, Spring Boot, OAuth2/OIDC",
   },
   {
     key: "databases",
     label: { en: "Databases", fr: "Bases de données" },
-    items: "PostgreSQL, MySQL, SQLite, Firebase, MongoDB",
+    items: "PostgreSQL, MySQL, MongoDB, SQLite, Firebase",
   },
   {
-    key: "testing",
-    label: { en: "Testing", fr: "Tests" },
-    items: "Jest, JUnit, SonarQube",
-  },
-  {
-    key: "infrastructure",
-    label: { en: "Infrastructure", fr: "Infrastructure" },
+    key: "devops",
+    label: { en: "DevOps & Cloud", fr: "DevOps & Cloud" },
     items: "Docker, Kubernetes, Linux, Nginx, CI/CD",
   },
   {
-    key: "practices",
-    label: { en: "Practices", fr: "Pratiques" },
-    items: "Scrum, TDD, Pair Programming, Agile",
+    key: "testing",
+    label: { en: "Testing & Quality", fr: "Tests & Qualité" },
+    items: "Jest, JUnit, SonarQube",
+  },
+  {
+    key: "tools",
+    label: { en: "Tools", fr: "Outils" },
+    items: "Git, Jira, YouTrack, Postman, Figma",
   },
 ];

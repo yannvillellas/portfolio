@@ -21,33 +21,41 @@ function Carousel({ screenshots }: { screenshots: Screenshot[] }) {
     setIndex((i) => (i === screenshots.length - 1 ? 0 : i + 1));
 
   const current = screenshots[index];
-  const isPortrait = screenshots[0].orientation === "portrait";
+  const first = screenshots[0];
+  const isPortrait =
+    first.width && first.height
+      ? first.height > first.width
+      : first.orientation === "portrait";
   const multi = screenshots.length > 1;
   const landscape = !isPortrait;
+  const aspectRatio =
+    first.width && first.height
+      ? `${first.width} / ${first.height}`
+      : isPortrait
+        ? "9 / 20"
+        : "16 / 10";
 
   return (
     <div className="mx-auto max-w-3xl">
       <div className={`relative mx-auto ${isPortrait ? "max-w-xs" : "w-full"}`}>
-        <div className="overflow-hidden rounded-2xl">
+        <div className="overflow-hidden rounded-2xl" style={{ aspectRatio }}>
           <div
-            className="flex transition-transform duration-300 ease-out motion-reduce:transition-none"
+            className="flex h-full transition-transform duration-300 ease-out motion-reduce:transition-none"
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
-            {screenshots.map((s) => (
-              <div key={s.src} className="w-full shrink-0">
+            {screenshots.map((s, i) => (
+              <div key={s.src} className="relative h-full w-full shrink-0">
                 <Image
                   src={s.src}
                   alt={s.caption ?? ""}
-                  width={isPortrait ? 900 : 1200}
-                  height={isPortrait ? 2000 : 750}
+                  fill
                   sizes={
                     isPortrait
                       ? "(max-width: 22rem) 100vw, 20rem"
                       : "(max-width: 48rem) 100vw, 48rem"
                   }
-                  className={`w-full object-cover ${
-                    isPortrait ? "aspect-9/20" : "aspect-16/10"
-                  }`}
+                  className="object-cover"
+                  priority={i === 0}
                 />
               </div>
             ))}

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
+import { getImageSize } from "@/lib/imageSize";
 import StickyLink from "@/components/StickyLink";
 import {
   ArrowLeftIcon,
@@ -21,6 +22,7 @@ export async function generateStaticParams() {
     "endurance-lab",
     "microservices-car-rental",
     "mfieldtrip",
+    "kiruna-explorer",
     "open-endurance-coach",
     "portfolio",
   ];
@@ -55,6 +57,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   const { detail, screenshots } = project;
 
+  const sizedScreenshots = screenshots?.map((s) => {
+    const size = getImageSize(s.src);
+    return size ? { ...s, width: size.width, height: size.height } : s;
+  });
+
   return (
     <PageContainer>
       <StickyLink href="/projects" icon={<ArrowLeftIcon />} label={t("back")} />
@@ -63,9 +70,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       <p className="text-foreground/75">{project.description}</p>
 
-      {screenshots && screenshots.length > 0 && (
+      {sizedScreenshots && sizedScreenshots.length > 0 && (
         <div className="mt-12">
-          <ScreenshotGallery screenshots={screenshots} />
+          <ScreenshotGallery screenshots={sizedScreenshots} />
         </div>
       )}
 
