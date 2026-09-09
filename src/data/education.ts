@@ -18,7 +18,8 @@ const data: Record<Locale, EducationEntry[]> = {
     {
       school:
         "ESILV (\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci)",
-      degree: "Master of Science, Cybersecurity and Cloud Computing",
+      degree:
+        "Engineering degree (Dipl\u00f4me d\u2019ing\u00e9nieur), Cybersecurity and Cloud Computing",
       location: "Paris, France",
       period: "2020\u20132025",
     },
@@ -39,7 +40,8 @@ const data: Record<Locale, EducationEntry[]> = {
     {
       school:
         "ESILV (\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci)",
-      degree: "Master of Science, Cybersecurity and Cloud Computing",
+      degree:
+        "Dipl\u00f4me d\u2019ing\u00e9nieur, Cybers\u00e9curit\u00e9 et Cloud Computing",
       location: "Paris, France",
       period: "2020 \u2013 2025",
     },
