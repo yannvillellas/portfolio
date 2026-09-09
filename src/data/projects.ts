@@ -2,6 +2,8 @@ export interface Screenshot {
   src: string;
   caption?: string;
   orientation?: "portrait" | "landscape";
+  width?: number;
+  height?: number;
 }
 
 export interface Project {
