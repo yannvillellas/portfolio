@@ -11,19 +11,20 @@
     "heroSubtitle": "I build web, mobile, and backend applications.",
     "primaryCta": "Contact me",
     "secondaryCta": "View projects",
-    "aboutBlurb": "I'm a software engineer with a double Master's degree from ESILV and Politecnico di Torino. I've worked across mobile, web, and backend. This site gathers a few projects from that journey.",
+    "aboutBlurb": "I'm a software engineer with a double degree: an engineering degree from École Supérieure d'Ingénieurs Léonard de Vinci and a Master of Science from Politecnico di Torino. I've worked across mobile, web, and backend. This site gathers a few projects from that journey.",
     "aboutLink": "More about me",
     "allProjects": "All projects"
   },
   "AboutPage": {
     "title": "About",
     "description": "Professional background and skills.",
-    "intro": "Software engineer with a double Master's degree from ESILV (Paris) and Politecnico di Torino (Turin). I work across mobile, web, and backend, with a focus on clean architecture and testable code.",
+    "intro": "Software engineer with a double degree: an engineering degree from École Supérieure d'Ingénieurs Léonard de Vinci (Paris) and a Master of Science from Politecnico di Torino (Turin). I work across mobile, web, and backend, with a focus on clean architecture and testable code.",
     "experience": {
       "title": "Experience"
     },
     "education": {
-      "title": "Education"
+      "title": "Education",
+      "coursework": "Coursework"
     },
     "skills": {
       "title": "Skills"

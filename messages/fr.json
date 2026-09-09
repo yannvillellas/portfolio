@@ -11,19 +11,20 @@
     "heroSubtitle": "Je conçois des applications web, mobiles et backend.",
     "primaryCta": "Me contacter",
     "secondaryCta": "Voir les projets",
-    "aboutBlurb": "Ingénieur logiciel avec un double diplôme de l'ESILV et du Politecnico di Torino. J'ai travaillé sur des projets mobiles, web et backend. Ce site en rassemble quelques-uns.",
+    "aboutBlurb": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci et un Master of Science du Politecnico di Torino. J'ai travaillé sur des projets mobiles, web et backend. Ce site en rassemble quelques-uns.",
     "aboutLink": "En savoir plus sur moi",
     "allProjects": "Tous les projets"
   },
   "AboutPage": {
     "title": "À propos",
     "description": "Parcours professionnel et compétences.",
-    "intro": "Ingénieur logiciel avec un double diplôme de l'ESILV (Paris) et du Politecnico di Torino (Turin). Je travaille sur des applications mobiles, web et des infrastructures backend, avec une attention particulière à l'architecture propre et au code testable.",
+    "intro": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci (Paris) et un Master of Science du Politecnico di Torino (Turin). Je travaille sur des applications mobiles, web et des infrastructures backend, avec une attention particulière à l'architecture propre et au code testable.",
     "experience": {
       "title": "Expérience"
     },
     "education": {
-      "title": "Formation"
+      "title": "Formation",
+      "coursework": "Cours principaux "
     },
     "skills": {
       "title": "Compétences"
