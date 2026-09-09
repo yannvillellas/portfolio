@@ -43,6 +43,6 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "tools",
     label: { en: "Tools", fr: "Outils" },
-    items: "Jira, YouTrack, Postman, Figma",
+    items: "Git, Jira, YouTrack, Postman, Figma",
   },
 ];
