@@ -93,6 +93,11 @@ export default async function AboutPage({ params }: PageProps) {
       </section>
 
       <section>
+        <h2>{t("languages.title")}</h2>
+        <p className="text-foreground/75">{t("languages.items")}</p>
+      </section>
+
+      <section>
         <h2>{t("interests.title")}</h2>
         <p className="text-foreground/75">{interests}</p>
       </section>

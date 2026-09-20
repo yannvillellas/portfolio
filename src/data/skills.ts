@@ -13,7 +13,7 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "frontend",
     label: { en: "Frontend", fr: "Frontend" },
-    items: "React, Next.js, Vue.js, Angular, Tailwind CSS",
+    items: "React, Next.js, Vue.js, Angular",
   },
   {
     key: "mobile",
@@ -23,7 +23,7 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "backend",
     label: { en: "Backend", fr: "Backend" },
-    items: "Node.js, Express.js, Spring Boot, OAuth2/OIDC",
+    items: "Node.js, Express.js, Spring Boot",
   },
   {
     key: "databases",
@@ -33,12 +33,7 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "devops",
     label: { en: "DevOps & Cloud", fr: "DevOps & Cloud" },
-    items: "Docker, Kubernetes, Linux, Nginx, CI/CD",
-  },
-  {
-    key: "testing",
-    label: { en: "Testing & Quality", fr: "Tests & Qualité" },
-    items: "Jest, JUnit, SonarQube",
+    items: "Docker, Kubernetes, Linux, Nginx, CI/CD, SonarQube",
   },
   {
     key: "tools",

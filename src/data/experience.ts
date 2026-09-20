@@ -11,8 +11,8 @@ type Locale = "en" | "fr";
 const data: Record<Locale, ExperienceEntry[]> = {
   en: [
     {
-      role: "Master's Thesis at Politecnico di Torino",
-      company: "Endurance Lab",
+      role: "Software Engineer (Master's thesis)",
+      company: "Politecnico di Torino",
       location: "Turin, Italy",
       period: "Oct 2025\u2013Mar 2026",
       description:
@@ -38,8 +38,8 @@ const data: Record<Locale, ExperienceEntry[]> = {
   ],
   fr: [
     {
-      role: "M\u00e9moire d\u2019ing\u00e9nierie au Politecnico di Torino",
-      company: "Endurance Lab",
+      role: "Ing\u00e9nieur Logiciel (M\u00e9moire)",
+      company: "Politecnico di Torino",
       location: "Turin, Italie",
       period: "Octobre 2025 \u2013 Mars 2026",
       description:

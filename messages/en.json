@@ -29,6 +29,10 @@
     "skills": {
       "title": "Skills"
     },
+    "languages": {
+      "title": "Languages",
+      "items": "French (native), English (C1), Italian (A2)"
+    },
     "interests": {
       "title": "Interests"
     }
