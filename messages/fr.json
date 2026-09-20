@@ -29,6 +29,10 @@
     "skills": {
       "title": "Compétences"
     },
+    "languages": {
+      "title": "Langues",
+      "items": "Français (natif), Anglais (C1), Italien (A2)"
+    },
     "interests": {
       "title": "Centres d'intérêt"
     }
