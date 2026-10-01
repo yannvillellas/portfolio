@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
@@ -8,15 +8,9 @@ import { getEducation } from "@/data/education";
 import { skillCategories } from "@/data/skills";
 import { getInterests } from "@/data/interests";
 
-interface PageProps {
-  params: Promise<{ locale: string }>;
-}
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "AboutPage" });
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations("AboutPage");
 
   return {
     title: t("title"),
@@ -25,9 +19,9 @@ export async function generateMetadata({
   };
 }
 
-export default async function AboutPage({ params }: PageProps) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "AboutPage" });
+export default async function AboutPage() {
+  const locale = await getLocale();
+  const t = await getTranslations("AboutPage");
   const experiences = getExperiences(locale as "en" | "fr");
   const educationEntries = getEducation(locale as "en" | "fr");
   const interests = getInterests(locale as "en" | "fr");

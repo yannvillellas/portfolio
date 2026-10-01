@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Home, User, Folder, Mail } from "lucide-react";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations, getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getTranslations, getMessages, getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -41,17 +40,11 @@ const defaultFont = Inter({
 
 export default async function LocaleLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  const t = await getTranslations({ locale, namespace: "Navigation" });
+  const locale = await getLocale();
+  const t = await getTranslations("Navigation");
   const messages = await getMessages();
 
   const menuItems = [
@@ -78,7 +71,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Navigation items={menuItems} />
           <main className="flex-1">{children}</main>
-          <Footer locale={locale} />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getAlternates } from "@/i18n/alternates";
 import PageContainer from "@/components/PageContainer";
@@ -35,8 +35,9 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { locale, id } = await params;
-  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+  const { id } = await params;
+  const locale = await getLocale();
+  const t = await getTranslations("ProjectsPage");
   const projects = getProjects(locale as "en" | "fr");
   const project = projects.find((p) => p.id === id);
 
@@ -50,11 +51,9 @@ export async function generateMetadata({
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
-  const { locale, id } = await params;
-  const t = await getTranslations({
-    locale,
-    namespace: "ProjectsPage",
-  });
+  const { id } = await params;
+  const locale = await getLocale();
+  const t = await getTranslations("ProjectsPage");
   const projects = getProjects(locale as "en" | "fr");
   const project = projects.find((p) => p.id === id);
 
