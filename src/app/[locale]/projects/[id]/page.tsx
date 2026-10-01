@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getAlternates } from "@/i18n/alternates";
+import { buildOpenGraph } from "@/i18n/metadata";
 import { routing } from "@/i18n/routing";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
@@ -42,6 +43,7 @@ export async function generateMetadata({
     title: project.title,
     description: project.description,
     alternates: getAlternates(locale, `/projects/${id}`),
+    openGraph: buildOpenGraph(locale, project.title, project.description),
   };
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
+import { buildOpenGraph } from "@/i18n/metadata";
 import Background from "@/components/hero/Background";
 import PageContainer from "@/components/PageContainer";
 import Hero from "@/components/hero/Hero";
@@ -15,6 +16,11 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title"),
     description: t("heroSubtitle"),
     alternates: getAlternates(locale, "/"),
+    openGraph: buildOpenGraph(
+      locale,
+      `${t("eyebrow")} — ${t("title")}`,
+      t("heroSubtitle"),
+    ),
   };
 }
 

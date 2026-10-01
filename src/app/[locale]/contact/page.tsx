@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
+import { buildOpenGraph } from "@/i18n/metadata";
 import PageContainer from "@/components/PageContainer";
 import CardLink from "@/components/CardLink";
 import {
@@ -20,6 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title"),
     description: t("description"),
     alternates: getAlternates(locale, "/contact"),
+    openGraph: buildOpenGraph(locale, t("title"), t("description")),
   };
 }
 
