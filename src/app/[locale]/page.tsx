@@ -1,39 +1,37 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
+import { buildOpenGraph } from "@/i18n/metadata";
 import Background from "@/components/hero/Background";
 import PageContainer from "@/components/PageContainer";
 import Hero from "@/components/hero/Hero";
 import HomeAbout from "@/components/home/HomeAbout";
 import HomeProjects from "@/components/home/HomeProjects";
 
-interface PageProps {
-  params: Promise<{ locale: string }>;
-}
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "HomePage" });
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations("HomePage");
 
   return {
     title: t("title"),
     description: t("heroSubtitle"),
     alternates: getAlternates(locale, "/"),
+    openGraph: buildOpenGraph(
+      locale,
+      `${t("eyebrow")} — ${t("title")}`,
+      t("heroSubtitle"),
+    ),
   };
 }
 
-export default async function HomePage({ params }: PageProps) {
-  const { locale } = await params;
-
+export default async function HomePage() {
   return (
     <div className="relative bg-background text-foreground">
       <Background>
         <PageContainer vertical={false}>
           <Hero />
           <HomeAbout />
-          <HomeProjects locale={locale} />
+          <HomeProjects />
         </PageContainer>
       </Background>
     </div>

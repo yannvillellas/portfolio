@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getAlternates } from "@/i18n/alternates";
+import { buildOpenGraph } from "@/i18n/metadata";
+import { routing } from "@/i18n/routing";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
@@ -19,15 +21,9 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const ids = [
-    "endurance-lab",
-    "microservices-car-rental",
-    "mfieldtrip",
-    "kiruna-explorer",
-    "open-endurance-coach",
-    "portfolio",
-  ];
-  return ["en", "fr"].flatMap((locale) => ids.map((id) => ({ locale, id })));
+  return routing.locales.flatMap((locale) =>
+    getProjects(locale).map((project) => ({ locale, id: project.id })),
+  );
 }
 
 export const dynamicParams = false;
@@ -35,8 +31,9 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { locale, id } = await params;
-  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+  const { id } = await params;
+  const locale = await getLocale();
+  const t = await getTranslations("ProjectsPage");
   const projects = getProjects(locale as "en" | "fr");
   const project = projects.find((p) => p.id === id);
 
@@ -46,15 +43,14 @@ export async function generateMetadata({
     title: project.title,
     description: project.description,
     alternates: getAlternates(locale, `/projects/${id}`),
+    openGraph: buildOpenGraph(locale, project.title, project.description),
   };
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
-  const { locale, id } = await params;
-  const t = await getTranslations({
-    locale,
-    namespace: "ProjectsPage",
-  });
+  const { id } = await params;
+  const locale = await getLocale();
+  const t = await getTranslations("ProjectsPage");
   const projects = getProjects(locale as "en" | "fr");
   const project = projects.find((p) => p.id === id);
 

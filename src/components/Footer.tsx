@@ -2,12 +2,8 @@ import { getTranslations } from "next-intl/server";
 import ThemeToggle from "@/components/ThemeToggle";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 
-interface FooterProps {
-  locale: string;
-}
-
-export default async function Footer({ locale }: FooterProps) {
-  const t = await getTranslations({ locale, namespace: "Footer" });
+export default async function Footer() {
+  const t = await getTranslations("Footer");
 
   const themeLabels = {
     light: t("themeLight"),
