@@ -11,6 +11,10 @@ import Navigation from "@/components/navigation/Navigation";
 import Footer from "@/components/Footer";
 import { InlineScript } from "@/components/InlineScript";
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://yann.app"),
   title: {

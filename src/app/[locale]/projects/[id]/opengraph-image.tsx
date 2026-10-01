@@ -1,9 +1,16 @@
 import { ImageResponse } from "next/og";
+import { routing } from "@/i18n/routing";
 import { getProjects } from "@/data/projects";
 
 export const alt = "Project — Yann Villellas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    getProjects(locale).map((project) => ({ locale, id: project.id })),
+  );
+}
 
 export default async function OpengraphImage({
   params,
