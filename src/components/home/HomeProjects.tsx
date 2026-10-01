@@ -1,7 +1,7 @@
 import { existsSync } from "fs";
 import path from "path";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Pill from "@/components/Pill";
 import { getProjects, type Project } from "@/data/projects";
@@ -12,9 +12,10 @@ function firstAvailableScreenshot(project: Project) {
   );
 }
 
-export default function HomeProjects({ locale }: { locale: string }) {
-  const t = useTranslations("ProjectsPage");
-  const tHome = useTranslations("HomePage");
+export default async function HomeProjects() {
+  const locale = await getLocale();
+  const t = await getTranslations("ProjectsPage");
+  const tHome = await getTranslations("HomePage");
   const projects = getProjects(locale as "en" | "fr")
     .map((project) => ({
       project,

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Home, User, Folder, Mail } from "lucide-react";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations, getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getTranslations, getMessages, getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { buildOpenGraph } from "@/i18n/metadata";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -11,23 +11,28 @@ import Navigation from "@/components/navigation/Navigation";
 import Footer from "@/components/Footer";
 import { InlineScript } from "@/components/InlineScript";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://yann.app"),
-  title: {
-    default: "Yann Villellas",
-    template: "%s - Yann Villellas",
-  },
-  description:
-    "Software engineer portfolio showcasing mobile, web, and backend projects.",
-  openGraph: {
-    title: "Yann Villellas — Software Engineer",
-    description:
-      "Software engineer portfolio showcasing mobile, web, and backend projects.",
-    type: "website",
-    locale: "en",
-    siteName: "Yann Villellas",
-  },
-};
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = await getTranslations("HomePage");
+
+  return {
+    metadataBase: new URL("https://yann.app"),
+    title: {
+      default: "Yann Villellas",
+      template: "%s - Yann Villellas",
+    },
+    description: t("heroSubtitle"),
+    openGraph: buildOpenGraph(
+      locale,
+      `${t("eyebrow")} — ${t("title")}`,
+      t("heroSubtitle"),
+    ),
+  };
+}
 
 const defaultFont = Inter({
   subsets: ["latin"],
@@ -37,17 +42,11 @@ const defaultFont = Inter({
 
 export default async function LocaleLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  const t = await getTranslations({ locale, namespace: "Navigation" });
+  const locale = await getLocale();
+  const t = await getTranslations("Navigation");
   const messages = await getMessages();
 
   const menuItems = [
@@ -74,7 +73,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Navigation items={menuItems} />
           <main className="flex-1">{children}</main>
-          <Footer locale={locale} />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
