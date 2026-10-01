@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getAlternates } from "@/i18n/alternates";
+import { routing } from "@/i18n/routing";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
@@ -19,15 +20,9 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const ids = [
-    "endurance-lab",
-    "microservices-car-rental",
-    "mfieldtrip",
-    "kiruna-explorer",
-    "open-endurance-coach",
-    "portfolio",
-  ];
-  return ["en", "fr"].flatMap((locale) => ids.map((id) => ({ locale, id })));
+  return routing.locales.flatMap((locale) =>
+    getProjects(locale).map((project) => ({ locale, id: project.id })),
+  );
 }
 
 export const dynamicParams = false;

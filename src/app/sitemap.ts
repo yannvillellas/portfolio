@@ -1,27 +1,20 @@
 import type { MetadataRoute } from "next";
+import { routing } from "@/i18n/routing";
+import { getProjects } from "@/data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://yann.app";
-  const locales = ["en", "fr"];
   const routes = ["", "/about", "/projects", "/contact"];
-  const projectIds = [
-    "endurance-lab",
-    "microservices-car-rental",
-    "mfieldtrip",
-    "kiruna-explorer",
-    "open-endurance-coach",
-    "portfolio",
-  ];
 
-  const pages = locales.flatMap((locale) =>
+  const pages = routing.locales.flatMap((locale) =>
     routes.map((route) => ({
       url: `${baseUrl}/${locale}${route}`,
     })),
   );
 
-  const projectPages = locales.flatMap((locale) =>
-    projectIds.map((id) => ({
-      url: `${baseUrl}/${locale}/projects/${id}`,
+  const projectPages = routing.locales.flatMap((locale) =>
+    getProjects(locale).map((project) => ({
+      url: `${baseUrl}/${locale}/projects/${project.id}`,
     })),
   );
 
