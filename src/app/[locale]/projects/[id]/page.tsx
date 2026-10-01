@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { getAlternates } from "@/i18n/alternates";
 import PageContainer from "@/components/PageContainer";
 import Pill from "@/components/Pill";
 import ScreenshotGallery from "@/components/ScreenshotGallery";
@@ -41,7 +42,11 @@ export async function generateMetadata({
 
   if (!project) return { title: t("title") };
 
-  return { title: project.title, description: project.description };
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: getAlternates(locale, `/projects/${id}`),
+  };
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {

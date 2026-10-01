@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import { InlineScript } from "@/components/InlineScript";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://yann.app"),
   title: {
     default: "Yann Villellas",
     template: "%s - Yann Villellas",
