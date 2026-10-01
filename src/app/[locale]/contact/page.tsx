@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { getAlternates } from "@/i18n/alternates";
 import PageContainer from "@/components/PageContainer";
 import CardLink from "@/components/CardLink";
 import {
@@ -24,6 +25,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    alternates: getAlternates(locale, "/contact"),
   };
 }
 

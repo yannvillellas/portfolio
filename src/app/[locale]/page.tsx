@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { getAlternates } from "@/i18n/alternates";
 import Background from "@/components/hero/Background";
 import PageContainer from "@/components/PageContainer";
 import Hero from "@/components/hero/Hero";
@@ -19,6 +20,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("heroSubtitle"),
+    alternates: getAlternates(locale, "/"),
   };
 }
 
