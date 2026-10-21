@@ -69,7 +69,14 @@ const data: Record<Locale, Project[]> = {
       title: "Car Rental Platform",
       description:
         "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
-      tags: ["Spring Boot", "Java", "React", "Kafka", "Keycloak", "PostgreSQL"],
+      tags: [
+        "Spring Boot",
+        "Kotlin",
+        "React",
+        "Kafka",
+        "Keycloak",
+        "PostgreSQL",
+      ],
       detail:
         "This distributed car rental platform was built as an engineering project applying test-driven development to a microservices architecture. The system handles fleet management, reservations, and payment processing with transactional consistency across services.\n\nBackend services were developed with Spring Boot and PostgreSQL, validated through JUnit and ephemeral Testcontainers environments. The payment module integrates PayPal through a resilient pipeline using Kafka for event streaming, change data capture for database synchronization, and the Outbox pattern to ensure exactly-once processing semantics across service boundaries. Security is centralized through Keycloak with OAuth 2.0 and OIDC, with dynamic request routing handled by Spring Cloud Gateway. The user interface was built with React.\n\nThe test suite runs end to end, covering the payment pipeline across service boundaries and catching regressions before they reach deployment. This project taught me a lot about distributed consistency and testing at scale.",
       screenshots: [
@@ -206,7 +213,14 @@ const data: Record<Locale, Project[]> = {
       title: "Plateforme de location de véhicules",
       description:
         "Système distribué en microservices avec cohérence transactionnelle via Kafka et le pattern Outbox. Développé avec Spring Boot, React et Keycloak.",
-      tags: ["Spring Boot", "Java", "React", "Kafka", "Keycloak", "PostgreSQL"],
+      tags: [
+        "Spring Boot",
+        "Kotlin",
+        "React",
+        "Kafka",
+        "Keycloak",
+        "PostgreSQL",
+      ],
       detail:
         "Cette plateforme de location de véhicules a été conçue comme un projet d\u2019ingénierie appliquant le développement piloté par les tests à une architecture microservices. Le système gère la gestion de flotte, les réservations et le traitement des paiements avec une cohérence transactionnelle entre services.\n\nLes services backend ont été développés avec Spring Boot et PostgreSQL, validés via JUnit et des environnements éphémères Testcontainers. Le module de paiement intègre PayPal via un pipeline résilient utilisant Kafka pour le streaming d\u2019événements, le CDC pour la synchronisation des bases de données et le pattern Outbox pour garantir une sémantique de traitement exactly-once entre les services. La sécurité est centralisée avec Keycloak (OAuth 2.0, OIDC) et le routage dynamique est assuré par Spring Cloud Gateway. L\u2019interface utilisateur a été construite avec React.\n\nLa suite de tests couvre le pipeline de paiement de bout en bout, à travers les frontières des services, et détecte les régressions avant déploiement. Ce projet m\u2019a beaucoup appris sur la cohérence distribuée et les tests à grande échelle.",
       screenshots: [
