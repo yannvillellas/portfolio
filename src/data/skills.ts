@@ -8,7 +8,8 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "languages",
     label: { en: "Languages", fr: "Langages" },
-    items: "Python, TypeScript, JavaScript, Java, Dart, Kotlin, C++, C#, SQL",
+    items:
+      "TypeScript, JavaScript, Kotlin, Dart, Python, Java, Rust, SQL, C#, C++",
   },
   {
     key: "frontend",
@@ -23,7 +24,8 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "backend",
     label: { en: "Backend", fr: "Backend" },
-    items: "Node.js, Express.js, Spring Boot",
+    items:
+      "Node.js, Express.js, Spring Boot, Kafka, Debezium, Outbox, Keycloak, OAuth 2.0, JWT, REST",
   },
   {
     key: "databases",
@@ -33,11 +35,17 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "devops",
     label: { en: "DevOps & Cloud", fr: "DevOps & Cloud" },
-    items: "Docker, Kubernetes, Linux, Nginx, CI/CD, SonarQube",
+    items:
+      "Docker, Kubernetes, Linux, Nginx, SonarQube, GitHub Actions, GitLab CI/CD, Fastlane",
+  },
+  {
+    key: "testing",
+    label: { en: "Testing", fr: "Tests" },
+    items: "Testcontainers, Jest, Cypress",
   },
   {
     key: "tools",
     label: { en: "Tools", fr: "Outils" },
-    items: "Git, Jira, YouTrack, Postman, Figma",
+    items: "OpenAPI, Flyway, Postman, Git, Jira, YouTrack, Figma",
   },
 ];

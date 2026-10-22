@@ -21,8 +21,7 @@ const data: Record<Locale, EducationEntry[]> = {
     {
       school:
         "\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci",
-      degree:
-        "Engineering degree (Dipl\u00f4me d\u2019ing\u00e9nieur), Cybersecurity and Cloud Computing",
+      degree: "Engineering degree, Cybersecurity & Cloud Computing",
       location: "Paris, France",
       period: "2020\u20132025",
       coursework:
@@ -50,7 +49,7 @@ const data: Record<Locale, EducationEntry[]> = {
       school:
         "\u00c9cole Sup\u00e9rieure d\u2019Ing\u00e9nieurs L\u00e9onard de Vinci",
       degree:
-        "Dipl\u00f4me d\u2019ing\u00e9nieur, Cybers\u00e9curit\u00e9 et Cloud Computing",
+        "Dipl\u00f4me d\u2019ing\u00e9nieur, Cloud Computing & Cybers\u00e9curit\u00e9",
       location: "Paris, France",
       period: "2020 \u2013 2025",
       coursework:
@@ -58,7 +57,7 @@ const data: Record<Locale, EducationEntry[]> = {
     },
     {
       school: "Riga Technical University",
-      degree: "Semestre d\u2019\u00e9change",
+      degree: "Semestre \u00e0 l\u2019\u00e9tranger",
       location: "Riga, Lettonie",
       period: "2022 \u2013 2023",
       coursework:

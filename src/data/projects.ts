@@ -22,14 +22,38 @@ type Locale = "en" | "fr";
 const data: Record<Locale, Project[]> = {
   en: [
     {
+      id: "mpp-autopilot",
+      title: "MPP Autopilot",
+      description:
+        "Autonomous Rust service that predicts Ligue 1 scorelines for a friends' Mon Petit Prono league, choosing the exact score that maximizes expected points from Elo ratings and MPP quotations.",
+      tags: ["Rust", "Docker"],
+      repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
+      screenshots: [
+        {
+          src: "/images/projects/mpp-autopilot/1.png",
+          caption:
+            "Ligue 1 fixtures and MPP quotations, fetched once per day",
+          orientation: "landscape",
+        },
+        {
+          src: "/images/projects/mpp-autopilot/2.png",
+          caption:
+            "Architecture: one daily MPP snapshot, three triggers, persistent state",
+          orientation: "landscape",
+        },
+      ],
+      detail:
+        "Built MPP Autopilot to automate a weekly Ligue 1 prediction routine for a friends' Mon Petit Prono (MPP) league. The service takes one daily snapshot of fixtures and quotations, converts ClubElo ratings into home and away expected goals with a Poisson model and a Dixon-Coles correction, then builds a 7\u00d77 score matrix to select the score with the highest expected points.\n\nIt runs unattended on Debian through Docker Compose, with three submission triggers\u2014publication, T-60, and T-5\u2014persistent state that prevents completed triggers from being replayed across restarts, and dry-run enabled by default. The codebase is covered by 57 integration tests and ships as a single stripped Rust binary in a distroless image with no shell, plus startup configuration validation.\n\nThe result is a hands-off weekly workflow that stays safe to test and restart, and the repository is public on GitHub.",
+    },
+    {
       id: "open-endurance-coach",
       title: "Open Endurance Coach",
       description:
-        "Self-hosted AI coaching system that turns training telemetry into LLM-validated workout adjustments, gated by explicit athlete approval. Built with Python, SQLite, Pydantic, and Typer.",
+        "Self-hosted LLM coaching system that turns training telemetry into validated workout adjustments, gated by explicit athlete approval. Built with Python, SQLite, Pydantic, and Typer.",
       tags: ["Python", "SQLite"],
       repoUrl: "https://github.com/yannvillellas/open-endurance-coach",
       detail:
-        "Open Endurance Coach is a self-hosted, AI-driven coaching system that turns raw telemetry from Intervals.icu into validated training decisions. It combines a strict LLM analysis pipeline with Joe Friel's periodization principles and Andrew Coggan's power analytics to compare executed training against planned targets and current readiness.\n\nThe daily interface is a terminal chat. Free text triggers a fresh analysis when needed or answers conversationally from a cached data snapshot. Every calendar change is drafted under a strict schema and proposed to the athlete with the exact plan. Nothing is written to Intervals.icu without a literal yes.\n\nThe result is a coaching loop where the athlete controls every write. Invalid LLM output is retried and rejected, creates resolve by name and date, and a workout-only category guard ensures races and non-workout events are never touched. The same engine is exposed as a one-shot CLI with dry-run defaults for automation.",
+        "Built Open Endurance Coach because generic training plans do not adapt to an athlete's actual telemetry. The system reads training from Intervals.icu and compares executed work with planned targets, Joe Friel's periodization principles, Andrew Coggan's power analytics, and current readiness before proposing any change.\n\nThe LLM pipeline is written in Python and enforces a strict JSON schema on every model response. Invalid output is retried and then rejected, calendar changes are resolved by name and date, and a workout-only guard prevents races and non-workout events from being touched. Every write requires a literal yes from the athlete; the same engine is exposed as a one-shot CLI with dry-run defaults for automation.\n\nThe codebase is covered by more than 1,000 tests with a 95% coverage threshold. A personal pilot with one athlete across 30+ workouts produced zero unapproved writes. The coach is open-source and provider-agnostic, an alternative to proprietary AI coaches at \u20ac5/month and human coaching at \u20ac200+.",
       screenshots: [
         {
           src: "/images/projects/open-endurance-coach/1.png",
@@ -41,11 +65,11 @@ const data: Record<Locale, Project[]> = {
       id: "endurance-lab",
       title: "Endurance Lab",
       description:
-        "Cross-platform mobile app normalizing training data from heterogeneous wearable ecosystems for sports science research.",
+        "Cross-platform mobile app that normalizes training data from heterogeneous wearable ecosystems for sports-science research.",
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
       liveUrl: "https://endurance.veebor.net/index_en.html",
       detail:
-        "Endurance Lab is a cross-platform mobile app that solves vendor lock-in for athletes by centralizing and normalizing training data from heterogeneous wearable ecosystems including Garmin and Polar watches. The project was developed as a master\u2019s thesis at Politecnico di Torino in collaboration with sports science researchers who needed standardized data collection infrastructure.\n\nThe app was built with an MVVM architecture in Flutter, integrating interactive charts via fl_chart and GPS mapping through flutter_map. Authentication uses Firebase JWT tokens, and third-party API integration is handled through OAuth 2.0 deep-linking. The full development lifecycle was automated through CI/CD pipelines using GitHub Actions and Fastlane, deploying directly to Google Play.\n\nThe closed beta deployment validated the real-time data processing pipeline: over 1,000 activities, 2.7 million GPS points, and 1.6 million physiological samples were ingested and normalized. The application is now used as a data collection platform for ongoing sports science studies.",
+        "Built Endurance Lab, a cross-platform mobile app that removes vendor lock-in for athletes by centralizing and normalizing training data from heterogeneous wearable ecosystems. The project was developed as a master's thesis at Politecnico di Torino with sports-science researchers who needed standardized data collection infrastructure.\n\nThe client is a device-agnostic Flutter application built on MVVM, with six health and performance indicators, interactive charts via fl_chart, GPS route mapping through flutter_map, Firebase JWT authentication, and two OAuth 2.0 provider integrations. The Android release pipeline was automated end to end with GitHub Actions and Fastlane\u2014tests, build, signing, GitHub Release, and Play beta\u2014with zero manual signing or upload steps.\n\nA 3.5-month closed beta with eight athletes validated the platform as a research data foundation: 1,001 activities, 2.7 million GPS points, and 1.6 million physiological samples were collected and normalized.",
       screenshots: [
         {
           src: "/images/projects/endurance-lab/1.png",
@@ -69,16 +93,9 @@ const data: Record<Locale, Project[]> = {
       title: "Car Rental Platform",
       description:
         "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
-      tags: [
-        "Spring Boot",
-        "Kotlin",
-        "React",
-        "Kafka",
-        "Keycloak",
-        "PostgreSQL",
-      ],
+      tags: ["Spring Boot", "Kotlin", "React", "Kafka", "Keycloak", "PostgreSQL"],
       detail:
-        "This distributed car rental platform was built as an engineering project applying test-driven development to a microservices architecture. The system handles fleet management, reservations, and payment processing with transactional consistency across services.\n\nBackend services were developed with Spring Boot and PostgreSQL, validated through JUnit and ephemeral Testcontainers environments. The payment module integrates PayPal through a resilient pipeline using Kafka for event streaming, change data capture for database synchronization, and the Outbox pattern to ensure exactly-once processing semantics across service boundaries. Security is centralized through Keycloak with OAuth 2.0 and OIDC, with dynamic request routing handled by Spring Cloud Gateway. The user interface was built with React.\n\nThe test suite runs end to end, covering the payment pipeline across service boundaries and catching regressions before they reach deployment. This project taught me a lot about distributed consistency and testing at scale.",
+        "Co-built a distributed car-rental platform as a team engineering project, covering fleet management, reservations, and payments across service boundaries. The goal was to keep reservations and payments consistent when several services write concurrently.\n\nOwned the reservation and payment services, built with Kotlin and Spring Boot on PostgreSQL. PayPal payments flow through Kafka and the Outbox pattern for at-least-once delivery and idempotent processing, while Debezium CDC keeps service databases synchronized. Keycloak centralizes OIDC/RBAC for four roles across the backend services and the React frontend via JWT, and Spring Cloud Gateway handles request routing.\n\nThe platform delivers 42 REST endpoints across four Kotlin/Spring Boot services, with 75.8% coverage measured through Testcontainers-backed tests. That test suite exercises the payment pipeline across service boundaries, catching regressions before deployment.",
       screenshots: [
         {
           src: "/images/projects/car-rental/1.jpg",
@@ -98,10 +115,10 @@ const data: Record<Locale, Project[]> = {
       id: "mfieldtrip",
       title: "mFieldTrip",
       description:
-        "Cross-platform mobile app replacing traditional geography field studies with interactive, self-guided GIS excursions.",
+        "Cross-platform mobile app that replaces traditional geography field studies with interactive, self-guided GIS excursions.",
       tags: ["Flutter", "Firebase", "flutter_map"],
       detail:
-        "mFieldTrip enables remote geography field studies through interactive, self-guided excursions powered by open-source GIS data. Built during an internship at Athabasca University, which specializes in open and online learning, the app addresses the need for distance education students to complete field assignments without traveling to campus.\n\nThe interface was prototyped in Figma and developed as a cross-platform Flutter application for Android, iOS, and Web. Interactive maps combine flutter_map with QGIS2Web exports rendered through WebView, and a geospatial algorithm orders field trips by proximity. Four user roles are secured through Firebase Authentication and Cloud Firestore: students, professors, administrators, and guests, with public visibility controls for unauthenticated visitors.\n\nThe project resulted in a working mobile app used to support remote geography education at Athabasca University.",
+        "Co-built mFieldTrip at Athabasca University, which specializes in open and online learning, for 40,000 distance-education students who needed to complete geography field assignments without travelling to campus. The app replaces traditional field studies with interactive, self-guided excursions built on open-source GIS data.\n\nThe client is a cross-platform Flutter app for Android, iOS, and Web. Interactive maps combine flutter_map with QGIS2Web exports rendered through WebView, and a geospatial sort orders excursions by proximity. Firebase Authentication, Firestore, and App Check secure the platform around three user roles\u2014Amateur, Student, and Professor\u2014with a separate admin role for content moderation.\n\nThe app was delivered to Athabasca University with field-trip upload (QGIS2Web ZIP, CSV POIs, images, PDF credits) and seven filters, giving the geography program a complete workflow for remote field assignments.",
       screenshots: [
         {
           src: "/images/projects/mfieldtrip/1.png",
@@ -124,12 +141,12 @@ const data: Record<Locale, Project[]> = {
       id: "kiruna-explorer",
       title: "Kiruna Explorer",
       description:
-        "Collaborative web platform narrating Kiruna's urban transformation through an interactive timeline and thematic maps. Built with Node.js, Express, React, and SQLite.",
+        "Collaborative geospatial platform mapping Kiruna's mining-driven relocation and its local impacts. Built with Node.js, Express, React, and SQLite.",
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
       repoUrl:
         "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
       detail:
-        "Kiruna Explorer is a digital tool that narrates the ongoing urban transformation of the city of Kiruna, which is being relocated ahead of becoming the European Capital of Culture 2029. Built in collaboration between Politecnico di Torino and the City of Kiruna, the platform combines a dynamic timeline with thematic maps so visitors can explore how political, technical, and spatial decisions have shaped the city.\n\nI worked on this project as part of a Master-level Software Engineering II course team. The backend is a layered Express application with a DAO architecture over SQLite, session-based authentication, input validation, and file uploads. The frontend is built with React and Vite, using Leaflet and Turf for interactive mapping and D3 for data visualization.\n\nThe platform was developed with a Docker-based workflow and continuous testing (Jest for the backend, Cypress for end-to-end tests).",
+        "Co-built Kiruna Explorer, a collaborative geospatial platform that documents Kiruna's mining-driven relocation and maps its local impacts as the city prepares to become European Capital of Culture 2029. The project was developed with the City of Kiruna and Politecnico di Torino so residents and planners could follow how political, technical, and spatial decisions reshaped the city.\n\nThe platform models 20 documents across five types and six stakeholder groups, from LKAB to citizens, and maps relocation impacts by area. Its backend is a 33-route Node.js/Express API on SQLite, while the React frontend uses Leaflet and Turf for thematic maps and D3 for data visualization. Role-based access covers two roles plus guest access, and the platform includes nine areas and sixteen associations.\n\nThe application is containerized with Docker and covered by 17 Jest tests and six Cypress end-to-end tests. Development followed a continuous testing workflow with a layered Express architecture, session-based authentication, input validation, and file uploads.",
       screenshots: [
         {
           src: "/images/projects/kiruna-explorer/map.png",
@@ -153,7 +170,7 @@ const data: Record<Locale, Project[]> = {
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
       repoUrl: "https://github.com/yannvillellas/portfolio",
       detail:
-        "This website is a personal engineering portfolio to showcase projects, skills, and professional background. It was developed from scratch with attention to clean architecture, bilingual support, and fast static generation.\n\nThe site is built with Next.js 16 using the App Router and Tailwind CSS v4. A design token system manages all layout spacing consistently across every page, from the navbar\u2019s chrome insets to the footer\u2019s mobile navigation clearance. Internationalization is handled through next-intl, with all content sourced from translation files rather than a CMS or database, enabling full static generation. The hero section features animated ambient gradient orbs built with CSS keyframes that create depth without JavaScript.\n\nThe entire site is statically generated at build time, serving instant page loads with zero client-side JavaScript for content rendering. It also doubles as my playground for design and web experiments.",
+        "Built this portfolio as a personal engineering site to present projects, skills, and professional background, with a focus on clean architecture, bilingual content, and fast static generation.\n\nThe site uses Next.js 16 with the App Router and Tailwind CSS v4. A design token system manages layout spacing consistently across every page, from the navbar's chrome insets to the footer's mobile navigation clearance. Internationalization is handled through next-intl, with all content sourced from translation files rather than a CMS or database, enabling full static generation. The hero section features animated ambient gradient orbs built with CSS keyframes that create depth without JavaScript.\n\nThe entire site is statically generated at build time, serving instant page loads with zero client-side JavaScript for content rendering. It also serves as a playground for design and web experiments.",
       screenshots: [
         {
           src: "/images/projects/portfolio/1.png",
@@ -164,14 +181,38 @@ const data: Record<Locale, Project[]> = {
   ],
   fr: [
     {
+      id: "mpp-autopilot",
+      title: "MPP Autopilot",
+      description:
+        "Service Rust autonome qui pr\u00e9dit les scores de Ligue 1 pour une ligue Mon Petit Prono entre amis, en choisissant le score exact qui maximise les points attendus \u00e0 partir des ratings Elo et des cotes MPP.",
+      tags: ["Rust", "Docker"],
+      repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
+      screenshots: [
+        {
+          src: "/images/projects/mpp-autopilot/1.png",
+          caption:
+            "Rencontres de Ligue 1 et cotes MPP, r\u00e9cup\u00e9r\u00e9es une fois par jour",
+          orientation: "landscape",
+        },
+        {
+          src: "/images/projects/mpp-autopilot/2.png",
+          caption:
+            "Architecture : un instantan\u00e9 MPP quotidien, trois d\u00e9clencheurs, \u00e9tat persistant",
+          orientation: "landscape",
+        },
+      ],
+      detail:
+        "Cr\u00e9ation de MPP Autopilot pour automatiser une routine hebdomadaire de pronostics Ligue 1 pour une ligue Mon Petit Prono (MPP) entre amis. Le service prend un instantan\u00e9 quotidien des rencontres et des cotes, convertit les ratings ClubElo en buts attendus \u00e0 domicile et \u00e0 l\u2019ext\u00e9rieur avec un mod\u00e8le de Poisson et une correction Dixon-Coles, puis construit une matrice de scores 7\u00d77 pour retenir le score qui maximise les points attendus.\n\nEx\u00e9cution sans supervision sur Debian via Docker Compose, avec trois d\u00e9clencheurs de soumission \u2014 publication, T-60 et T-5 \u2014, un \u00e9tat persistant qui emp\u00eache le rejeu des d\u00e9clencheurs ex\u00e9cut\u00e9s apr\u00e8s red\u00e9marrage, et un mode dry-run activ\u00e9 par d\u00e9faut. Couverture du code par 57 tests d\u2019int\u00e9gration et livraison sous forme d\u2019un binaire Rust unique all\u00e9g\u00e9 dans une image distroless sans shell, avec validation de la configuration au d\u00e9marrage.\n\nLe r\u00e9sultat est un flux hebdomadaire sans intervention, s\u00fbr \u00e0 tester et \u00e0 red\u00e9marrer, et le d\u00e9p\u00f4t est public sur GitHub.",
+    },
+    {
       id: "open-endurance-coach",
       title: "Open Endurance Coach",
       description:
-        "Système de coaching IA auto-hébergé qui transforme la télémétrie d'entraînement en ajustements validés par LLM, sous réserve d'une approbation explicite de l'athlète. Développé avec Python, SQLite, Pydantic et Typer.",
+        "Syst\u00e8me de coaching LLM auto-h\u00e9berg\u00e9 qui transforme la t\u00e9l\u00e9m\u00e9trie d\u2019entra\u00eenement en ajustements valid\u00e9s, sous r\u00e9serve d\u2019une approbation explicite de l\u2019athl\u00e8te. D\u00e9velopp\u00e9 avec Python, SQLite, Pydantic et Typer.",
       tags: ["Python", "SQLite"],
       repoUrl: "https://github.com/yannvillellas/open-endurance-coach",
       detail:
-        "Open Endurance Coach est un système de coaching piloté par IA, auto-hébergé, qui transforme la télémétrie brute d'Intervals.icu en décisions d'entraînement validées. Il combine un pipeline d'analyse LLM strict avec les principes de périodisation de Joe Friel et l'analyse de puissance d'Andrew Coggan pour comparer l'entraînement réalisé aux objectifs planifiés et à la condition du moment.\n\nL'interface quotidienne est un chat en terminal. Le texte libre déclenche une nouvelle analyse quand c'est nécessaire ou répond de manière conversationnelle à partir d'un instantané de données mis en cache. Chaque modification du calendrier est rédigée sous un schéma strict et proposée à l'athlète avec le plan exact. Rien n'est écrit sur Intervals.icu sans un « oui » explicite.\n\nLe résultat est une boucle de coaching où l'athlète contrôle chaque écriture. Les sorties LLM invalides sont réessayées puis rejetées, les créations sont résolues par nom et date, et une garde limite les mises à jour aux événements d'entraînement, sans jamais toucher aux courses. Le même moteur est exposé en CLI one-shot avec un mode dry-run par défaut.",
+        "Cr\u00e9ation d\u2019Open Endurance Coach parce que les plans d\u2019entra\u00eenement g\u00e9n\u00e9riques ne s\u2019adaptent pas \u00e0 la t\u00e9l\u00e9m\u00e9trie r\u00e9elle d\u2019un athl\u00e8te. Le syst\u00e8me lit l\u2019entra\u00eenement depuis Intervals.icu et compare le travail r\u00e9alis\u00e9 aux objectifs planifi\u00e9s, aux principes de p\u00e9riodisation de Joe Friel, \u00e0 l\u2019analyse de puissance d\u2019Andrew Coggan et \u00e0 la condition du moment avant de proposer un changement.\n\nLe pipeline LLM est \u00e9crit en Python et impose un sch\u00e9ma JSON strict \u00e0 chaque r\u00e9ponse du mod\u00e8le. Les sorties invalides sont r\u00e9essay\u00e9es puis rejet\u00e9es, les modifications de calendrier sont r\u00e9solues par nom et par date, et une garde limite les \u00e9critures aux s\u00e9ances d\u2019entra\u00eenement, sans jamais toucher aux courses. Chaque \u00e9criture exige un \u00ab\u00a0oui\u00a0\u00bb explicite de l\u2019athl\u00e8te ; le m\u00eame moteur est expos\u00e9 en CLI one-shot avec un mode dry-run par d\u00e9faut pour l\u2019automatisation.\n\nLe code est couvert par plus de 1\u00a0000 tests avec un seuil de couverture de 95\u00a0%. Un pilote personnel avec un athl\u00e8te sur plus de 30 s\u00e9ances a produit z\u00e9ro \u00e9criture non approuv\u00e9e. Le coach est open-source et agnostique du fournisseur LLM, comme alternative aux coachs IA propri\u00e9taires \u00e0 5\u00a0\u20ac/mois et au coaching humain \u00e0 plus de 200\u00a0\u20ac.",
       screenshots: [
         {
           src: "/images/projects/open-endurance-coach/1.png",
@@ -183,36 +224,36 @@ const data: Record<Locale, Project[]> = {
       id: "endurance-lab",
       title: "Endurance Lab",
       description:
-        "Application mobile cross-platform qui normalise les données d\u2019entraînement issues d\u2019écosystèmes de montres connectées hétérogènes pour la recherche en sciences du sport.",
+        "Application mobile multiplateforme qui normalise les donn\u00e9es d\u2019entra\u00eenement issues d\u2019\u00e9cosyst\u00e8mes de wearables h\u00e9t\u00e9rog\u00e8nes pour la recherche en sciences du sport.",
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
       liveUrl: "https://endurance.veebor.net/index_en.html",
       detail:
-        "Endurance Lab est une application mobile cross-platform qui résout le problème d\u2019enfermement propriétaire en centralisant et normalisant les données d\u2019entraînement issues d\u2019écosystèmes de montres connectées hétérogènes comme Garmin et Polar. Le projet a été développé dans le cadre d\u2019un mémoire d\u2019ingénierie au Politecnico di Torino, en collaboration avec des chercheurs en sciences du sport ayant besoin d\u2019une infrastructure de collecte de données standardisée.\n\nL\u2019application a été construite avec une architecture MVVM en Flutter, intégrant des graphiques interactifs via fl_chart et une cartographie GPS via flutter_map. L\u2019authentification utilise des jetons Firebase JWT, et l\u2019intégration d\u2019API tierces est gérée par OAuth 2.0 avec deep-linking. Le cycle de développement complet a été automatisé via des pipelines CI/CD avec GitHub Actions et Fastlane, jusqu\u2019au déploiement sur Google Play.\n\nLe déploiement en bêta fermée a validé le pipeline de traitement en temps réel : plus de 1 000 activités, 2,7 millions de points GPS et 1,6 million d\u2019échantillons physiologiques ont été ingérés et normalisés. L\u2019application est aujourd\u2019hui utilisée comme plateforme de collecte de données pour des études en sciences du sport.",
+        "Cr\u00e9ation d\u2019Endurance Lab, une application mobile multiplateforme qui l\u00e8ve l\u2019enfermement propri\u00e9taire en centralisant et normalisant les donn\u00e9es d\u2019entra\u00eenement issues d\u2019\u00e9cosyst\u00e8mes de wearables h\u00e9t\u00e9rog\u00e8nes. Le projet a \u00e9t\u00e9 d\u00e9velopp\u00e9 dans le cadre d\u2019un m\u00e9moire au Politecnico di Torino avec des chercheurs en sciences du sport ayant besoin d\u2019une infrastructure de collecte standardis\u00e9e.\n\nLe client est une application Flutter ind\u00e9pendante des appareils, fond\u00e9e sur une architecture MVVM, avec six indicateurs de sant\u00e9 et de performance, des graphiques interactifs via fl_chart, une cartographie GPS via flutter_map, une authentification Firebase JWT et deux int\u00e9grations OAuth 2.0. La publication Android est automatis\u00e9e de bout en bout avec GitHub Actions et Fastlane \u2014 tests, build, signature, GitHub Release et b\u00eata Play \u2014 sans aucune \u00e9tape manuelle de signature ou d\u2019envoi.\n\nUne b\u00eata ferm\u00e9e de 3,5 mois avec huit athl\u00e8tes a valid\u00e9 la plateforme comme socle de recherche : 1\u00a0001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d\u2019\u00e9chantillons physiologiques collect\u00e9s et normalis\u00e9s.",
       screenshots: [
         {
           src: "/images/projects/endurance-lab/1.png",
           caption:
-            "Tableau de bord de métriques avec tendances de performance et de santé",
+            "Tableau de bord de m\u00e9triques avec tendances de performance et de sant\u00e9",
           orientation: "portrait",
         },
         {
           src: "/images/projects/endurance-lab/2.png",
-          caption: "Liste des activités avec recherche",
+          caption: "Liste des activit\u00e9s avec recherche",
           orientation: "portrait",
         },
         {
           src: "/images/projects/endurance-lab/3.png",
           caption:
-            "Détails d'une activité avec carte GPS et graphiques interactifs",
+            "D\u00e9tails d\u2019une activit\u00e9 avec carte GPS et graphiques interactifs",
           orientation: "portrait",
         },
       ],
     },
     {
       id: "microservices-car-rental",
-      title: "Plateforme de location de véhicules",
+      title: "Plateforme de location de v\u00e9hicules",
       description:
-        "Système distribué en microservices avec cohérence transactionnelle via Kafka et le pattern Outbox. Développé avec Spring Boot, React et Keycloak.",
+        "Syst\u00e8me distribu\u00e9 en microservices avec coh\u00e9rence transactionnelle via Kafka et le pattern Outbox. D\u00e9velopp\u00e9 avec Spring Boot, React et Keycloak.",
       tags: [
         "Spring Boot",
         "Kotlin",
@@ -222,7 +263,7 @@ const data: Record<Locale, Project[]> = {
         "PostgreSQL",
       ],
       detail:
-        "Cette plateforme de location de véhicules a été conçue comme un projet d\u2019ingénierie appliquant le développement piloté par les tests à une architecture microservices. Le système gère la gestion de flotte, les réservations et le traitement des paiements avec une cohérence transactionnelle entre services.\n\nLes services backend ont été développés avec Spring Boot et PostgreSQL, validés via JUnit et des environnements éphémères Testcontainers. Le module de paiement intègre PayPal via un pipeline résilient utilisant Kafka pour le streaming d\u2019événements, le CDC pour la synchronisation des bases de données et le pattern Outbox pour garantir une sémantique de traitement exactly-once entre les services. La sécurité est centralisée avec Keycloak (OAuth 2.0, OIDC) et le routage dynamique est assuré par Spring Cloud Gateway. L\u2019interface utilisateur a été construite avec React.\n\nLa suite de tests couvre le pipeline de paiement de bout en bout, à travers les frontières des services, et détecte les régressions avant déploiement. Ce projet m\u2019a beaucoup appris sur la cohérence distribuée et les tests à grande échelle.",
+        "Cr\u00e9ation en \u00e9quipe d\u2019une plateforme de location de v\u00e9hicules distribu\u00e9e, couvrant la gestion de flotte, les r\u00e9servations et les paiements entre services. L\u2019objectif \u00e9tait de garantir la coh\u00e9rence des r\u00e9servations et des paiements lorsque plusieurs services \u00e9crivent simultan\u00e9ment.\n\nPrise en charge des services de r\u00e9servation et de paiement, d\u00e9velopp\u00e9s avec Kotlin et Spring Boot sur PostgreSQL. Les paiements PayPal passent par Kafka et le pattern Outbox pour une livraison au moins une fois et un traitement idempotent, tandis que Debezium CDC synchronise les bases de donn\u00e9es des services. Keycloak centralise l\u2019OIDC/RBAC pour quatre r\u00f4les sur les services backend et le frontend React via JWT, et Spring Cloud Gateway g\u00e8re le routage des requ\u00eates.\n\nLa plateforme expose 42 endpoints REST r\u00e9partis sur quatre services Kotlin/Spring Boot, avec 75,8\u00a0% de couverture mesur\u00e9e par des tests adoss\u00e9s \u00e0 Testcontainers. Cette suite de tests couvre le pipeline de paiement de bout en bout, \u00e0 travers les fronti\u00e8res des services, et d\u00e9tecte les r\u00e9gressions avant d\u00e9ploiement.",
       screenshots: [
         {
           src: "/images/projects/car-rental/1.jpg",
@@ -230,11 +271,11 @@ const data: Record<Locale, Project[]> = {
         },
         {
           src: "/images/projects/car-rental/2.jpg",
-          caption: "Vue d'ensemble des réservations",
+          caption: "Vue d\u2019ensemble des r\u00e9servations",
         },
         {
           src: "/images/projects/car-rental/3.jpg",
-          caption: "Tableau de réservation client",
+          caption: "Tableau de r\u00e9servation client",
         },
       ],
     },
@@ -242,10 +283,10 @@ const data: Record<Locale, Project[]> = {
       id: "mfieldtrip",
       title: "mFieldTrip",
       description:
-        "Application mobile cross-platform remplaçant les études de terrain traditionnelles par des excursions interactives exploitant des données SIG open-source.",
+        "Application mobile multiplateforme qui remplace les \u00e9tudes de terrain traditionnelles par des excursions interactives et autonomes exploitant des donn\u00e9es SIG open-source.",
       tags: ["Flutter", "Firebase", "flutter_map"],
       detail:
-        "mFieldTrip permet de réaliser des études de terrain en géographie à distance via des excursions interactives exploitant des données SIG open-source. Développée lors d\u2019un stage à l\u2019Athabasca University, spécialisée dans l\u2019enseignement ouvert et à distance, l\u2019application répond au besoin des étudiants de réaliser leurs travaux de terrain sans se déplacer sur le campus.\n\nL\u2019interface a été prototypée sur Figma et développée en Flutter pour Android, iOS et Web. Les cartes interactives combinent flutter_map avec les exports QGIS2Web rendus via WebView, et un algorithme géospatial classe les excursions disponibles par proximité. Quatre rôles utilisateurs sont gérés via Firebase Authentication et Cloud Firestore : étudiants, professeurs, administrateurs et visiteurs, avec des contrôles de visibilité publique pour les utilisateurs non authentifiés.\n\nLe projet a abouti à une application mobile fonctionnelle utilisée pour soutenir l\u2019enseignement de la géographie à distance.",
+        "Cr\u00e9ation en \u00e9quipe de mFieldTrip \u00e0 l\u2019Athabasca University, sp\u00e9cialis\u00e9e dans l\u2019enseignement ouvert et \u00e0 distance, pour 40\u00a0000 \u00e9tudiants qui devaient r\u00e9aliser leurs travaux de terrain en g\u00e9ographie sans se d\u00e9placer sur le campus. L\u2019application remplace les \u00e9tudes de terrain traditionnelles par des excursions interactives et autonomes exploitant des donn\u00e9es SIG open-source.\n\nLe client est une application Flutter multiplateforme pour Android, iOS et Web. Les cartes interactives combinent flutter_map et les exports QGIS2Web rendus dans une WebView, et un tri g\u00e9ospatial classe les excursions par proximit\u00e9. Firebase Authentication, Firestore et App Check s\u00e9curisent la plateforme autour de trois r\u00f4les utilisateurs \u2014 Amateur, Student et Professor \u2014 avec un r\u00f4le administrateur distinct pour la mod\u00e9ration des contenus.\n\nL\u2019application a \u00e9t\u00e9 livr\u00e9e \u00e0 l\u2019Athabasca University avec l\u2019import d\u2019excursions (ZIP QGIS2Web, POI CSV, images, cr\u00e9dits PDF) et sept filtres, offrant au programme de g\u00e9ographie un flux complet pour les travaux de terrain \u00e0 distance.",
       screenshots: [
         {
           src: "/images/projects/mfieldtrip/1.png",
@@ -254,12 +295,12 @@ const data: Record<Locale, Project[]> = {
         },
         {
           src: "/images/projects/mfieldtrip/2.png",
-          caption: "Détails d'une excursion",
+          caption: "D\u00e9tails d\u2019une excursion",
           orientation: "portrait",
         },
         {
           src: "/images/projects/mfieldtrip/3.png",
-          caption: "Carte web QGIS intégrée",
+          caption: "Carte web QGIS int\u00e9gr\u00e9e",
           orientation: "portrait",
         },
       ],
@@ -268,16 +309,16 @@ const data: Record<Locale, Project[]> = {
       id: "kiruna-explorer",
       title: "Kiruna Explorer",
       description:
-        "Plateforme web collaborative qui raconte la transformation urbaine de Kiruna à travers une timeline interactive et des cartes thématiques. Développée avec Node.js, Express, React et SQLite.",
+        "Plateforme g\u00e9ospatiale collaborative cartographiant la relocalisation de Kiruna li\u00e9e \u00e0 l\u2019exploitation mini\u00e8re et ses impacts locaux. D\u00e9velopp\u00e9e avec Node.js, Express, React et SQLite.",
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
       repoUrl:
         "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
       detail:
-        "Kiruna Explorer est un outil numérique qui raconte la transformation urbaine en cours de la ville de Kiruna, déplacée en préparation de son statut de Capitale européenne de la culture 2029. Construite en collaboration entre le Politecnico di Torino et la ville de Kiruna, la plateforme combine une timeline dynamique et des cartes thématiques pour permettre aux visiteurs d'explorer comment les décisions politiques, techniques et spatiales ont façonné la ville.\n\nJ'ai travaillé sur ce projet au sein d'une équipe du cours de Software Engineering II de niveau Master. Le backend est une application Express en couches, avec une architecture DAO reposant sur SQLite, une authentification par session, une validation des entrées et l'envoi de fichiers. Le frontend est construit avec React et Vite, en utilisant Leaflet et Turf pour la cartographie interactive et D3 pour la visualisation de données.\n\nLa plateforme a été développée avec un workflow Docker et des tests continus (Jest pour le backend, Cypress pour les tests de bout en bout).",
+        "Cr\u00e9ation en \u00e9quipe de Kiruna Explorer, une plateforme g\u00e9ospatiale collaborative qui documente la relocalisation de Kiruna li\u00e9e \u00e0 l\u2019exploitation mini\u00e8re et cartographie ses impacts locaux, alors que la ville se pr\u00e9pare \u00e0 devenir Capitale europ\u00e9enne de la culture 2029. Le projet a \u00e9t\u00e9 d\u00e9velopp\u00e9 avec la ville de Kiruna et le Politecnico di Torino pour permettre aux habitants et aux urbanistes de suivre la mani\u00e8re dont les d\u00e9cisions politiques, techniques et spatiales ont transform\u00e9 la ville.\n\nLa plateforme mod\u00e9lise 20 documents r\u00e9partis en cinq types et six groupes de parties prenantes, de LKAB aux citoyens, et cartographie les impacts de la relocalisation par zone. Le backend est une API Node.js/Express \u00e0 33 routes sur SQLite, tandis que le frontend React utilise Leaflet et Turf pour les cartes th\u00e9matiques et D3 pour la visualisation de donn\u00e9es. Le contr\u00f4le d\u2019acc\u00e8s couvre deux r\u00f4les et un acc\u00e8s invit\u00e9, avec neuf zones et seize associations.\n\nL\u2019application est conteneuris\u00e9e avec Docker et couverte par 17 tests Jest et six tests Cypress de bout en bout. Le d\u00e9veloppement a suivi un workflow de tests continus, avec une architecture Express en couches, une authentification par session, une validation des entr\u00e9es et l\u2019envoi de fichiers.",
       screenshots: [
         {
           src: "/images/projects/kiruna-explorer/map.png",
-          caption: "Carte thématique interactive",
+          caption: "Carte th\u00e9matique interactive",
         },
         {
           src: "/images/projects/kiruna-explorer/listOfDocuments.png",
@@ -285,7 +326,7 @@ const data: Record<Locale, Project[]> = {
         },
         {
           src: "/images/projects/kiruna-explorer/documentVisualization.png",
-          caption: "Visualisation d'un document",
+          caption: "Visualisation d\u2019un document",
         },
       ],
     },
@@ -293,15 +334,16 @@ const data: Record<Locale, Project[]> = {
       id: "portfolio",
       title: "Ce portfolio",
       description:
-        "Portfolio développé avec Next.js 16, Tailwind CSS v4 et un système de tokens de design pour la mise en page. Internationalisation avec next-intl.",
+        "Portfolio d\u00e9velopp\u00e9 avec Next.js 16, Tailwind CSS v4 et un syst\u00e8me de tokens de design pour la mise en page. Internationalisation avec next-intl.",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
       repoUrl: "https://github.com/yannvillellas/portfolio",
       detail:
-        "Ce site est un portfolio d\u2019ingénierie personnel conçu pour présenter des projets, des compétences et un parcours professionnel. Il a été développé intégralement avec une attention portée à l\u2019architecture propre, au support bilingue et à la génération statique rapide.\n\nLe site est construit avec Next.js 16 (App Router) et Tailwind CSS v4. Un système de tokens de design gère tous les espacements de mise en page de manière cohérente sur chaque page, des marges de la barre de navigation aux dégagements du pied de page pour la navigation mobile. L\u2019internationalisation est assurée par next-intl, avec l\u2019ensemble du contenu provenant des fichiers de traduction plutôt que d\u2019un CMS ou d\u2019une base de données, permettant une génération statique complète. La section d\u2019accueil présente des orbes à dégradé ambiant animés par keyframes CSS, créant de la profondeur sans JavaScript.\n\nL\u2019intégralité du site est générée statiquement au moment du build, offrant des chargements de page instantanés sans JavaScript côté client pour le rendu du contenu. Ce site me sert aussi de terrain d\u2019expérimentation pour le design et le web.",
+        "Cr\u00e9ation de ce portfolio comme site d\u2019ing\u00e9nierie personnel pour pr\u00e9senter des projets, des comp\u00e9tences et un parcours professionnel, avec une attention port\u00e9e \u00e0 l\u2019architecture propre, au contenu bilingue et \u00e0 la g\u00e9n\u00e9ration statique rapide.\n\nLe site utilise Next.js 16 avec l\u2019App Router et Tailwind CSS v4. Un syst\u00e8me de tokens de design g\u00e8re tous les espacements de mise en page de mani\u00e8re coh\u00e9rente sur chaque page, des marges de la barre de navigation aux d\u00e9gagements du pied de page pour la navigation mobile. L\u2019internationalisation est assur\u00e9e par next-intl, avec l\u2019ensemble du contenu provenant des fichiers de traduction plut\u00f4t que d\u2019un CMS ou d\u2019une base de donn\u00e9es, permettant une g\u00e9n\u00e9ration statique compl\u00e8te. La section d\u2019accueil pr\u00e9sente des orbes \u00e0 d\u00e9grad\u00e9 ambiant anim\u00e9s par keyframes CSS, cr\u00e9ant de la profondeur sans JavaScript.\n\nL\u2019int\u00e9gralit\u00e9 du site est g\u00e9n\u00e9r\u00e9e statiquement au moment du build, offrant des chargements de page instantan\u00e9s sans JavaScript c\u00f4t\u00e9 client pour le rendu du contenu. Ce site sert aussi de terrain d\u2019exp\u00e9rimentation pour le design et le web.",
       screenshots: [
         {
           src: "/images/projects/portfolio/1.png",
-          caption: "Page d'accueil avec orbes à dégradé ambiant",
+          caption:
+            "Page d\u2019accueil avec orbes \u00e0 d\u00e9grad\u00e9 ambiant",
         },
       ],
     },

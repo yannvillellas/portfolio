@@ -8,17 +8,17 @@
   "HomePage": {
     "eyebrow": "Yann Villellas",
     "title": "Ingénieur Logiciel",
-    "heroSubtitle": "Je conçois des applications web, mobiles et backend.",
+    "heroSubtitle": "Conception d'applications web, mobiles et backend.",
     "primaryCta": "Me contacter",
     "secondaryCta": "Voir les projets",
-    "aboutBlurb": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci et un Master of Science du Politecnico di Torino. J'ai travaillé sur des projets mobiles, web et backend. Ce site en rassemble quelques-uns.",
+    "aboutBlurb": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci et un Master of Science du Politecnico di Torino. Parcours mobile, web et backend, avec une attention particulière à l'architecture propre et au code testable. Ce site rassemble quelques projets issus de ce parcours.",
     "aboutLink": "En savoir plus sur moi",
     "allProjects": "Tous les projets"
   },
   "AboutPage": {
     "title": "À propos",
     "description": "Parcours professionnel et compétences.",
-    "intro": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci (Paris) et un Master of Science du Politecnico di Torino (Turin). Je travaille sur des applications mobiles, web et des infrastructures backend, avec une attention particulière à l'architecture propre et au code testable.",
+    "intro": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci (Paris) et un Master of Science du Politecnico di Torino (Turin). Parcours mobile, web et backend, avec une attention particulière à l'architecture propre et au code testable.",
     "experience": {
       "title": "Expérience"
     },
@@ -39,7 +39,7 @@
   },
   "ProjectsPage": {
     "title": "Projets",
-    "description": "Une sélection de projets que j'ai réalisés.",
+    "description": "Une sélection de projets d'ingénierie en mobile, web, backend et recherche.",
     "source": "Code source",
     "live": "En ligne",
     "back": "Retour"
