@@ -149,8 +149,6 @@ const data: Record<Locale, Project[]> = {
       description:
         "Collaborative geospatial platform mapping Kiruna's mining-driven relocation and its local impacts. Built with Node.js, Express, React, and SQLite.",
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
-      repoUrl:
-        "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
       detail:
         "Co-built Kiruna Explorer, a collaborative geospatial platform that documents Kiruna's mining-driven relocation and maps its local impacts as the city prepares to become European Capital of Culture 2029. The project was developed with the City of Kiruna and Politecnico di Torino so residents and planners could follow how political, technical, and spatial decisions reshaped the city.\n\nThe platform models 20 documents across five types and six stakeholder groups, from LKAB to citizens, and maps relocation impacts by area. Its backend is a 33-route Node.js/Express API on SQLite, while the React frontend uses Leaflet and Turf for thematic maps and D3 for data visualization. Role-based access covers two roles plus guest access, and the platform includes nine areas and sixteen associations.\n\nThe application is containerized with Docker and covered by 17 Jest tests and six Cypress end-to-end tests. Development followed a continuous testing workflow with a layered Express architecture, session-based authentication, input validation, and file uploads.",
       screenshots: [
@@ -317,8 +315,6 @@ const data: Record<Locale, Project[]> = {
       description:
         "Plateforme g\u00e9ospatiale collaborative cartographiant la relocalisation de Kiruna li\u00e9e \u00e0 l\u2019exploitation mini\u00e8re et ses impacts locaux. D\u00e9velopp\u00e9e avec Node.js, Express, React et SQLite.",
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
-      repoUrl:
-        "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
       detail:
         "Cr\u00e9ation en \u00e9quipe de Kiruna Explorer, une plateforme g\u00e9ospatiale collaborative qui documente la relocalisation de Kiruna li\u00e9e \u00e0 l\u2019exploitation mini\u00e8re et cartographie ses impacts locaux, alors que la ville se pr\u00e9pare \u00e0 devenir Capitale europ\u00e9enne de la culture 2029. Le projet a \u00e9t\u00e9 d\u00e9velopp\u00e9 avec la ville de Kiruna et le Politecnico di Torino pour permettre aux habitants et aux urbanistes de suivre la mani\u00e8re dont les d\u00e9cisions politiques, techniques et spatiales ont transform\u00e9 la ville.\n\nLa plateforme mod\u00e9lise 20 documents r\u00e9partis en cinq types et six groupes de parties prenantes, de LKAB aux citoyens, et cartographie les impacts de la relocalisation par zone. Le backend est une API Node.js/Express \u00e0 33 routes sur SQLite, tandis que le frontend React utilise Leaflet et Turf pour les cartes th\u00e9matiques et D3 pour la visualisation de donn\u00e9es. Le contr\u00f4le d\u2019acc\u00e8s couvre deux r\u00f4les et un acc\u00e8s invit\u00e9, avec neuf zones et seize associations.\n\nL\u2019application est conteneuris\u00e9e avec Docker et couverte par 17 tests Jest et six tests Cypress de bout en bout. Le d\u00e9veloppement a suivi un workflow de tests continus, avec une architecture Express en couches, une authentification par session, une validation des entr\u00e9es et l\u2019envoi de fichiers.",
       screenshots: [
