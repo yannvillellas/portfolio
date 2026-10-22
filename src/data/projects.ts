@@ -22,6 +22,30 @@ type Locale = "en" | "fr";
 const data: Record<Locale, Project[]> = {
   en: [
     {
+      id: "mpp-autopilot",
+      title: "MPP Autopilot",
+      description:
+        "Autonomous Rust service that predicts Ligue 1 scorelines for a friends' Mon Petit Prono league, choosing the exact score that maximizes expected points from Elo ratings and MPP quotations.",
+      tags: ["Rust", "Docker"],
+      repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
+      screenshots: [
+        {
+          src: "/images/projects/mpp-autopilot/1.png",
+          caption:
+            "Ligue 1 fixtures and MPP quotations, fetched once per day",
+          orientation: "landscape",
+        },
+        {
+          src: "/images/projects/mpp-autopilot/2.png",
+          caption:
+            "Architecture: one daily MPP snapshot, three triggers, persistent state",
+          orientation: "landscape",
+        },
+      ],
+      detail:
+        "Built MPP Autopilot to automate a weekly Ligue 1 prediction routine for a friends' Mon Petit Prono (MPP) league. The service takes one daily snapshot of fixtures and quotations, converts ClubElo ratings into home and away expected goals with a Poisson model and a Dixon-Coles correction, then builds a 7\u00d77 score matrix to select the score with the highest expected points.\n\nIt runs unattended on Debian through Docker Compose, with three submission triggers\u2014publication, T-60, and T-5\u2014persistent state that prevents completed triggers from being replayed across restarts, and dry-run enabled by default. The codebase is covered by 57 integration tests and ships as a single stripped Rust binary in a distroless image with no shell, plus startup configuration validation.\n\nThe result is a hands-off weekly workflow that stays safe to test and restart, and the repository is public on GitHub.",
+    },
+    {
       id: "open-endurance-coach",
       title: "Open Endurance Coach",
       description:
@@ -156,6 +180,30 @@ const data: Record<Locale, Project[]> = {
     },
   ],
   fr: [
+    {
+      id: "mpp-autopilot",
+      title: "MPP Autopilot",
+      description:
+        "Service Rust autonome qui pr\u00e9dit les scores de Ligue 1 pour une ligue Mon Petit Prono entre amis, en choisissant le score exact qui maximise les points attendus \u00e0 partir des ratings Elo et des cotes MPP.",
+      tags: ["Rust", "Docker"],
+      repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
+      screenshots: [
+        {
+          src: "/images/projects/mpp-autopilot/1.png",
+          caption:
+            "Rencontres de Ligue 1 et cotes MPP, r\u00e9cup\u00e9r\u00e9es une fois par jour",
+          orientation: "landscape",
+        },
+        {
+          src: "/images/projects/mpp-autopilot/2.png",
+          caption:
+            "Architecture : un instantan\u00e9 MPP quotidien, trois d\u00e9clencheurs, \u00e9tat persistant",
+          orientation: "landscape",
+        },
+      ],
+      detail:
+        "Cr\u00e9ation de MPP Autopilot pour automatiser une routine hebdomadaire de pronostics Ligue 1 pour une ligue Mon Petit Prono (MPP) entre amis. Le service prend un instantan\u00e9 quotidien des rencontres et des cotes, convertit les ratings ClubElo en buts attendus \u00e0 domicile et \u00e0 l\u2019ext\u00e9rieur avec un mod\u00e8le de Poisson et une correction Dixon-Coles, puis construit une matrice de scores 7\u00d77 pour retenir le score qui maximise les points attendus.\n\nEx\u00e9cution sans supervision sur Debian via Docker Compose, avec trois d\u00e9clencheurs de soumission \u2014 publication, T-60 et T-5 \u2014, un \u00e9tat persistant qui emp\u00eache le rejeu des d\u00e9clencheurs ex\u00e9cut\u00e9s apr\u00e8s red\u00e9marrage, et un mode dry-run activ\u00e9 par d\u00e9faut. Couverture du code par 57 tests d\u2019int\u00e9gration et livraison sous forme d\u2019un binaire Rust unique all\u00e9g\u00e9 dans une image distroless sans shell, avec validation de la configuration au d\u00e9marrage.\n\nLe r\u00e9sultat est un flux hebdomadaire sans intervention, s\u00fbr \u00e0 tester et \u00e0 red\u00e9marrer, et le d\u00e9p\u00f4t est public sur GitHub.",
+    },
     {
       id: "open-endurance-coach",
       title: "Open Endurance Coach",
