@@ -25,7 +25,7 @@ const data: Record<Locale, Project[]> = {
       id: "mpp-autopilot",
       title: "MPP Autopilot",
       description:
-        "Autonomous Rust service that predicts Ligue 1 scorelines for a friends' Mon Petit Prono league, choosing the exact score that maximizes expected points from Elo ratings and MPP quotations.",
+        "Autonomous Rust service that predicts Ligue 1 scorelines for a friends' Mon Petit Prono league, choosing the exact score that maximizes expected points from live market odds, with an Elo fallback.",
       tags: ["Rust", "Docker"],
       repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
       screenshots: [
@@ -37,12 +37,12 @@ const data: Record<Locale, Project[]> = {
         {
           src: "/images/projects/mpp-autopilot/2.png",
           caption:
-            "Architecture: one daily MPP snapshot, three triggers, persistent state",
+            "Architecture: market odds, Elo fallback, four triggers, backtest",
           orientation: "landscape",
         },
       ],
       detail:
-        "Built MPP Autopilot to automate a weekly Ligue 1 prediction routine for a friends' Mon Petit Prono (MPP) league. The service takes one daily snapshot of fixtures and quotations, converts ClubElo ratings into home and away expected goals with a Poisson model and a Dixon-Coles correction, then builds a 7\u00d77 score matrix to select the score with the highest expected points.\n\nIt schedules three submission triggers (publication, T-60, and T-5), keeps persistent state that prevents completed triggers from being replayed across restarts, and enables dry-run by default.\n\nThe result is a weekly routine that runs without manual intervention: 57 integration tests cover the trigger and state paths, and the service ships as a single stripped Rust binary in a distroless image, deployed with Docker Compose on Debian.",
+        "Built MPP Autopilot to automate a weekly Ligue 1 prediction routine for a friends' Mon Petit Prono (MPP) league. The task was to pick the exact score with the highest expected points from the market's prices, without depending on a single data source.\n\nEach trigger pass sends one request to The Odds API for the 1X2 line and the 2.5-goal total, converts them into home and away expected goals through a Poisson solve, and builds a 7\u00d77 Dixon-Coles score matrix to pick the highest expected points. When the market is missing or unusable, the model falls back to in-house Elo ratings computed from Football-Data results, backfilled from 2020/21 and cached on disk. The service schedules four submission triggers (publication, T-60, T-5 and T-1); in write mode it reads the registered forecast back from MPP before patching, and keeps persistent state for trigger memory and an audit trail. Dry-run is the default.\n\nA backtest harness measured the model on 612 matches, fitting the conversion coefficients on four seasons and judging them on two unseen seasons, with paired confidence intervals and a 0.01 nat noise floor. Market prices reached 2.97 exact-score log-loss against 3.04 for the current Elo path, and fitting the conversion improved Elo from 3.11 to 3.04. The default test suite has 187 tests across the market, Elo, trigger and state paths, with 23 more behind the backtest feature. The service ships as a single stripped Rust binary in a distroless image, deployed with Docker Compose on Debian.",
     },
     {
       id: "open-endurance-coach",
@@ -149,8 +149,6 @@ const data: Record<Locale, Project[]> = {
       description:
         "Collaborative geospatial platform mapping Kiruna's mining-driven relocation and its local impacts. Built with Node.js, Express, React, and SQLite.",
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
-      repoUrl:
-        "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
       detail:
         "Co-built Kiruna Explorer, a collaborative geospatial platform that documents Kiruna's mining-driven relocation and maps its local impacts as the city prepares to become European Capital of Culture 2029. The project was developed with the City of Kiruna and Politecnico di Torino so residents and planners could follow how political, technical, and spatial decisions reshaped the city.\n\nThe platform models 20 documents across five types and six stakeholder groups, from LKAB to citizens, and maps relocation impacts by area. Its backend is a 33-route Node.js/Express API on SQLite, while the React frontend uses Leaflet and Turf for thematic maps and D3 for data visualization. Role-based access covers two roles plus guest access, and the platform includes nine areas and sixteen associations.\n\nThe application is containerized with Docker and covered by 17 Jest tests and six Cypress end-to-end tests. Development followed a continuous testing workflow with a layered Express architecture, session-based authentication, input validation, and file uploads.",
       screenshots: [
@@ -190,7 +188,7 @@ const data: Record<Locale, Project[]> = {
       id: "mpp-autopilot",
       title: "MPP Autopilot",
       description:
-        "Service Rust autonome qui pr\u00e9dit les scores de Ligue 1 pour une ligue Mon Petit Prono entre amis, en choisissant le score exact qui maximise les points attendus \u00e0 partir des ratings Elo et des cotes MPP.",
+        "Service Rust autonome qui pr\u00e9dit les scores de Ligue 1 pour une ligue Mon Petit Prono entre amis, en choisissant le score exact qui maximise les points attendus \u00e0 partir des cotes de march\u00e9, avec repli sur un Elo recalcul\u00e9 en interne.",
       tags: ["Rust", "Docker"],
       repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
       screenshots: [
@@ -203,12 +201,12 @@ const data: Record<Locale, Project[]> = {
         {
           src: "/images/projects/mpp-autopilot/2.png",
           caption:
-            "Architecture : un instantan\u00e9 MPP quotidien, trois d\u00e9clencheurs, \u00e9tat persistant",
+            "Architecture : cotes de march\u00e9, repli Elo, quatre d\u00e9clencheurs, backtest",
           orientation: "landscape",
         },
       ],
       detail:
-        "Cr\u00e9ation de MPP Autopilot pour automatiser une routine hebdomadaire de pronostics Ligue 1 pour une ligue Mon Petit Prono (MPP) entre amis. Le service prend un instantan\u00e9 quotidien des rencontres et des cotes, convertit les ratings ClubElo en buts attendus \u00e0 domicile et \u00e0 l\u2019ext\u00e9rieur avec un mod\u00e8le de Poisson et une correction Dixon-Coles, puis construit une matrice de scores 7\u00d77 pour retenir le score qui maximise les points attendus.\n\nLe service planifie trois d\u00e9clencheurs de soumission (publication, T-60 et T-5), conserve un \u00e9tat persistant qui emp\u00eache le rejeu des d\u00e9clencheurs ex\u00e9cut\u00e9s apr\u00e8s red\u00e9marrage, et active le mode dry-run par d\u00e9faut.\n\nLe r\u00e9sultat est une routine hebdomadaire qui tourne sans intervention manuelle : 57 tests d\u2019int\u00e9gration couvrent les d\u00e9clencheurs et l\u2019\u00e9tat, et le service est livr\u00e9 sous forme d\u2019un binaire Rust unique all\u00e9g\u00e9 dans une image distroless, d\u00e9ploy\u00e9e avec Docker Compose sur Debian.",
+        "Cr\u00e9ation de MPP Autopilot pour automatiser une routine hebdomadaire de pronostics Ligue 1 pour une ligue Mon Petit Prono (MPP) entre amis. L\u2019objectif \u00e9tait de choisir le score exact qui maximise les points attendus \u00e0 partir des cotes du march\u00e9, sans d\u00e9pendre d\u2019une source unique de donn\u00e9es.\n\nChaque passe de d\u00e9clencheur envoie une requ\u00eate \u00e0 The Odds API pour la ligne 1X2 et le total de 2,5 buts, les convertit en buts attendus \u00e0 domicile et \u00e0 l\u2019ext\u00e9rieur par r\u00e9solution de Poisson, puis construit une matrice de scores Dixon-Coles 7\u00d77 pour retenir le score qui maximise les points attendus. Si le march\u00e9 est absent ou inutilisable, le mod\u00e8le se replie sur des ratings Elo calcul\u00e9s en interne depuis les r\u00e9sultats Football-Data, r\u00e9tro-remplis depuis 2020/21 et mis en cache sur disque. Le service planifie quatre d\u00e9clencheurs de soumission (publication, T-60, T-5 et T-1) ; en mode \u00e9criture, il relit le pronostic enregistr\u00e9 aupr\u00e8s de MPP avant d\u2019\u00e9crire, et conserve un \u00e9tat persistant pour la m\u00e9moire des d\u00e9clencheurs et l\u2019historique des \u00e9critures. Le mode dry-run est activ\u00e9 par d\u00e9faut.\n\nUn harnais de backtest a mesur\u00e9 le mod\u00e8le sur 612 matchs, avec les coefficients de conversion ajust\u00e9s sur quatre saisons et \u00e9valu\u00e9s sur deux saisons jamais vues, \u00e0 l\u2019aide d\u2019intervalles de confiance appari\u00e9s et d\u2019un plancher de bruit de 0,01 nat. Les cotes de march\u00e9 atteignent 2,97 de log-loss sur le score exact contre 3,04 pour la trajectoire Elo actuelle, et l\u2019ajustement de la conversion a fait passer Elo de 3,11 \u00e0 3,04. La suite de tests par d\u00e9faut compte 187 tests sur le march\u00e9, Elo, les d\u00e9clencheurs et l\u2019\u00e9tat, avec 23 tests suppl\u00e9mentaires derri\u00e8re la fonctionnalit\u00e9 backtest. Le service est livr\u00e9 sous forme d\u2019un binaire Rust unique all\u00e9g\u00e9 dans une image distroless, d\u00e9ploy\u00e9e avec Docker Compose sur Debian.",
     },
     {
       id: "open-endurance-coach",
@@ -317,8 +315,6 @@ const data: Record<Locale, Project[]> = {
       description:
         "Plateforme g\u00e9ospatiale collaborative cartographiant la relocalisation de Kiruna li\u00e9e \u00e0 l\u2019exploitation mini\u00e8re et ses impacts locaux. D\u00e9velopp\u00e9e avec Node.js, Express, React et SQLite.",
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
-      repoUrl:
-        "https://github.com/yannvillellas/polito-se2-24-20-Kiruna-eXplorer",
       detail:
         "Cr\u00e9ation en \u00e9quipe de Kiruna Explorer, une plateforme g\u00e9ospatiale collaborative qui documente la relocalisation de Kiruna li\u00e9e \u00e0 l\u2019exploitation mini\u00e8re et cartographie ses impacts locaux, alors que la ville se pr\u00e9pare \u00e0 devenir Capitale europ\u00e9enne de la culture 2029. Le projet a \u00e9t\u00e9 d\u00e9velopp\u00e9 avec la ville de Kiruna et le Politecnico di Torino pour permettre aux habitants et aux urbanistes de suivre la mani\u00e8re dont les d\u00e9cisions politiques, techniques et spatiales ont transform\u00e9 la ville.\n\nLa plateforme mod\u00e9lise 20 documents r\u00e9partis en cinq types et six groupes de parties prenantes, de LKAB aux citoyens, et cartographie les impacts de la relocalisation par zone. Le backend est une API Node.js/Express \u00e0 33 routes sur SQLite, tandis que le frontend React utilise Leaflet et Turf pour les cartes th\u00e9matiques et D3 pour la visualisation de donn\u00e9es. Le contr\u00f4le d\u2019acc\u00e8s couvre deux r\u00f4les et un acc\u00e8s invit\u00e9, avec neuf zones et seize associations.\n\nL\u2019application est conteneuris\u00e9e avec Docker et couverte par 17 tests Jest et six tests Cypress de bout en bout. Le d\u00e9veloppement a suivi un workflow de tests continus, avec une architecture Express en couches, une authentification par session, une validation des entr\u00e9es et l\u2019envoi de fichiers.",
       screenshots: [
