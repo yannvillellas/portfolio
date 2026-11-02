@@ -31,7 +31,7 @@ const data: Record<Locale, ExperienceEntry[]> = {
       company:
         "Direction de l'Information L\u00e9gale et Administrative (DILA)",
       location: "Paris, France",
-      period: "Jul 2022\u2013Aug 2022",
+      period: "Jun 2022\u2013Jul 2022",
       description:
         "Replaced a manual Excel-based dependency triage with automated scanning in the Java/Maven build pipeline at DILA. Integrated OWASP Dependency-Check to cover direct and transitive dependencies, eliminating the manual pass and saving 15\u201330 minutes per day. Tuned the scanner with eight XML suppression rules that removed eight recurring false positives, so the team could focus on real vulnerabilities. Configured three DILA-specific SEKOIA.IO CTI profiles to filter threat reports by sector and collect 150+ indicators of compromise for monitoring, turning a manual review into a targeted watchlist.",
     },
@@ -58,7 +58,7 @@ const data: Record<Locale, ExperienceEntry[]> = {
       company:
         "Direction de l\u2019Information L\u00e9gale et Administrative (DILA)",
       location: "Paris, France",
-      period: "Juillet 2022 \u2013 Ao\u00fbt 2022",
+      period: "Juin 2022 \u2013 Juillet 2022",
       description:
         "Remplacement d\u2019un tri des d\u00e9pendances manuel, fond\u00e9 sur Excel, par un scan automatis\u00e9 dans le pipeline Java/Maven de la DILA. Int\u00e9gration d\u2019OWASP Dependency-Check pour couvrir les d\u00e9pendances directes et transitives, avec suppression des v\u00e9rifications manuelles et un gain de 15 \u00e0 30 minutes par jour. R\u00e9glage du scanner avec huit r\u00e8gles XML de suppression ayant \u00e9limin\u00e9 huit faux positifs r\u00e9currents, pour recentrer l\u2019\u00e9quipe sur les vraies vuln\u00e9rabilit\u00e9s. Configuration de trois profils SEKOIA.IO CTI propres \u00e0 la DILA, avec filtrage sectoriel des rapports de menace et collecte de plus de 150 IOC pour une surveillance cibl\u00e9e, transformant une revue manuelle en veille exploitable.",
     },
