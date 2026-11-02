@@ -88,7 +88,7 @@ const data: Record<Locale, Project[]> = {
       ],
     },
     {
-      id: "microservices-car-rental",
+      id: "car-rental-platform",
       title: "Car Rental Platform",
       description:
         "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
@@ -254,7 +254,7 @@ const data: Record<Locale, Project[]> = {
       ],
     },
     {
-      id: "microservices-car-rental",
+      id: "car-rental-platform",
       title: "Plateforme de location de v\u00e9hicules",
       description:
         "Syst\u00e8me distribu\u00e9 en microservices avec coh\u00e9rence transactionnelle via Kafka et le pattern Outbox. D\u00e9velopp\u00e9 avec Spring Boot, React et Keycloak.",
