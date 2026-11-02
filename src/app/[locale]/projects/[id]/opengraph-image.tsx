@@ -4,9 +4,10 @@ import { ImageResponse } from "next/og";
 import { routing } from "@/i18n/routing";
 import { getProjects } from "@/data/projects";
 
-export const alt = "Project — Yann Villellas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const fallbackAlt = "Project — Yann Villellas";
 
 const mimeTypes: Record<string, string> = {
   jpg: "image/jpeg",
@@ -27,6 +28,27 @@ export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     getProjects(locale).map((project) => ({ locale, id: project.id })),
   );
+}
+
+export function generateImageMetadata({
+  params,
+}: {
+  params?: { locale?: string; id?: string };
+}) {
+  const { locale, id } = params ?? {};
+  const project =
+    locale && id
+      ? getProjects(locale as "en" | "fr").find((p) => p.id === id)
+      : undefined;
+
+  return [
+    {
+      id: "screenshot",
+      alt: project ? `${project.title} — Yann Villellas` : fallbackAlt,
+      size,
+      contentType,
+    },
+  ];
 }
 
 export default async function OpengraphImage({
