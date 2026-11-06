@@ -112,6 +112,7 @@ export default function PhoneScene({
 
   return (
     <div
+      aria-hidden="true"
       className="relative mx-auto h-full w-auto max-w-full"
       style={{ aspectRatio: "1482 / 3209" }}
     >

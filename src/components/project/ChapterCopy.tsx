@@ -8,12 +8,19 @@ interface ChapterCopyProps {
 export default function ChapterCopy({ chapters, active }: ChapterCopyProps) {
   return (
     <>
-      <div className="grid">
+      <ol className="sr-only">
+        {chapters.map((chapter) => (
+          <li key={chapter.title}>
+            <h2>{chapter.title}</h2>
+            <p>{chapter.body}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div className="grid" aria-hidden="true">
         {chapters.map((chapter, index) => (
           <div
             key={chapter.title}
-            aria-hidden={index !== active}
-            inert={index !== active}
             className={`col-start-1 row-start-1 transition-opacity duration-200 motion-reduce:transition-none ${
               index === active ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
