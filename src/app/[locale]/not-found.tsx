@@ -1,31 +1,24 @@
-import Container from "@/components/layout/Container";
-import Section from "@/components/layout/Section";
+import en from "../../../messages/en.json";
 import { Link } from "@/i18n/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
-import DocumentMeta from "@/components/layout/DocumentMeta";
 
-export default async function NotFound() {
-  const t = await getTranslations("NotFound");
-  const locale = await getLocale();
+const copy = en.NotFound;
 
+export default function LocaleNotFound() {
   return (
-    <Section>
-      <DocumentMeta lang={locale} title={t("title")} />
-      <Container>
-        <p className="text-sm text-mut">{t("eyebrow")}</p>
-        <h1 className="mt-3 text-4xl tracking-tight lg:text-5xl">
-          {t("title")}
-        </h1>
-        <p className="mt-4 max-w-prose text-base leading-relaxed text-mut">
-          {t("description")}
-        </p>
-        <Link
-          href="/"
-          className="mt-8 inline-flex items-center gap-1 text-sm text-ink underline-offset-4 transition-colors hover:text-accent hover:underline"
-        >
-          {t("back")}
-        </Link>
-      </Container>
-    </Section>
+    <div className="mx-auto flex min-h-[60svh] max-w-2xl flex-col justify-center px-6 py-16">
+      <p className="text-sm text-mut">{copy.eyebrow}</p>
+      <h1 className="mt-3 text-4xl font-semibold tracking-tight lg:text-5xl">
+        {copy.title}
+      </h1>
+      <p className="mt-4 max-w-prose text-base leading-relaxed text-mut">
+        {copy.description}
+      </p>
+      <Link
+        href="/"
+        className="mt-8 inline-flex text-sm text-ink underline-offset-4 hover:text-accent hover:underline"
+      >
+        {copy.back}
+      </Link>
+    </div>
   );
 }
