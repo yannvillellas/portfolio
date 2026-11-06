@@ -58,6 +58,10 @@ body {
 }
 
 @layer base {
+  html {
+    scroll-padding-bottom: var(--tabbar-clearance);
+  }
+
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-accent;
   }
