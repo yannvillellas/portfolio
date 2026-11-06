@@ -23,6 +23,20 @@ interface PhoneStageProps {
   progress: RefObject<number>;
 }
 
+let cachedSupport: boolean | null = null;
+
+function supportsWebgl(): boolean {
+  if (cachedSupport !== null) return cachedSupport;
+
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("webgl2") ?? canvas.getContext("webgl");
+
+  cachedSupport = Boolean(context);
+  context?.getExtension("WEBGL_lose_context")?.loseContext();
+
+  return cachedSupport;
+}
+
 export default function PhoneStage({
   views,
   activeIndex,
@@ -32,12 +46,8 @@ export default function PhoneStage({
   const [webgl, setWebgl] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const canvas = document.createElement("canvas");
-    const supported = Boolean(
-      canvas.getContext("webgl2") ?? canvas.getContext("webgl"),
-    );
     // eslint-disable-next-line react-hooks/set-state-in-effect -- WebGL support is browser-only
-    setWebgl(supported);
+    setWebgl(supportsWebgl());
   }, []);
 
   if (webgl === null) {

@@ -44,11 +44,26 @@ export default function PhoneScene({
       mobile = media.matches;
     };
 
+    let calmFrames = 0;
+
     const tick = () => {
       if (!running || !handle) return;
       handle.update(progress.current, mobile, calm.matches);
+
+      if (calm.matches && ++calmFrames > 45) {
+        running = false;
+        return;
+      }
+
       frame = requestAnimationFrame(tick);
     };
+
+    const wake = () => {
+      calmFrames = 0;
+      start();
+    };
+
+    const onVisibility = () => (document.hidden ? stop() : wake());
     const start = () => {
       if (running) return;
       running = true;
@@ -64,6 +79,8 @@ export default function PhoneScene({
     let themeObserver: MutationObserver | null = null;
 
     media.addEventListener("change", onMedia);
+    window.addEventListener("scroll", wake, { passive: true });
+    document.addEventListener("visibilitychange", onVisibility);
     createPhoneScene(
       canvas,
       views.map((view) => view.src),
@@ -97,6 +114,8 @@ export default function PhoneScene({
       disposed = true;
       stop();
       media.removeEventListener("change", onMedia);
+      window.removeEventListener("scroll", wake);
+      document.removeEventListener("visibilitychange", onVisibility);
       resizeObserver?.disconnect();
       intersectionObserver?.disconnect();
       themeObserver?.disconnect();
