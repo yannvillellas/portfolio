@@ -7,7 +7,7 @@ import {
   getResolvedTheme,
   getStoredMode,
   getSystemTheme,
-  THEME_KEY,
+  storeMode,
 } from "@/lib/theme";
 import type { Mode, Theme } from "@/lib/theme";
 
@@ -50,13 +50,13 @@ export default function ThemeToggle({ labels }: ThemeToggleProps) {
   }, [isManual]);
 
   const toggle = useCallback((newTheme: Theme) => {
-    localStorage.setItem(THEME_KEY, newTheme);
+    storeMode(newTheme);
     setMode(newTheme);
     setResolved(newTheme);
   }, []);
 
   const reset = useCallback(() => {
-    localStorage.removeItem(THEME_KEY);
+    storeMode("system");
     setMode("system");
     setResolved(getSystemTheme());
   }, []);

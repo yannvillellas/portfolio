@@ -6,9 +6,24 @@ export const THEME_ATTR = "data-theme";
 
 export function getStoredMode(): Mode {
   if (typeof window === "undefined") return "system";
-  const stored = localStorage.getItem(THEME_KEY);
-  if (stored === "light" || stored === "dark") return stored;
+
+  try {
+    const stored = localStorage.getItem(THEME_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+  } catch {
+    return "system";
+  }
+
   return "system";
+}
+
+export function storeMode(mode: Mode) {
+  try {
+    if (mode === "system") localStorage.removeItem(THEME_KEY);
+    else localStorage.setItem(THEME_KEY, mode);
+  } catch {
+    return;
+  }
 }
 
 export function getSystemTheme(): Theme {
