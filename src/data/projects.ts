@@ -116,7 +116,7 @@ const demos: Record<Locale, Record<string, Demo>> = {
         { t: 3.0, text: "" },
         {
           t: 3.2,
-          text: "18 upcoming Ligue 1 fixtures       WRITE=false \u00b7 one snapshot / day",
+          text: "9 upcoming Ligue 1 fixtures       WRITE=false \u00b7 one snapshot / day",
         },
       ],
     },
@@ -227,7 +227,7 @@ const demos: Record<Locale, Record<string, Demo>> = {
         { t: 3.0, text: "" },
         {
           t: 3.2,
-          text: "18 upcoming Ligue 1 fixtures       WRITE=false \u00b7 one snapshot / day",
+          text: "9 upcoming Ligue 1 fixtures       WRITE=false \u00b7 one snapshot / day",
         },
       ],
     },
@@ -318,8 +318,8 @@ const data: Record<Locale, Project[]> = {
         },
       ],
       detail: [
-        "Mon Petit Prono asks for one exact score per Ligue 1 fixture, eighteen per gameweek, and the market already knows which score is most likely. The service aggregates odds from The Odds API into a probability for each score and bets the highest one.",
-        "That rule was not chosen by intuition. Three strategies were replayed against 79 matches of the current season with the real MPP payouts, and betting the favourite returned 36.3 points per match against 31.1 for maximizing expected value and 25.0 for the longest odds. When a fixture has no usable price, Elo ratings computed from Football-Data results since 2020/21 take over. The service runs in Rust and only publishes with WRITE=true, four passes a day, with atomic state and a season ledger.",
+        "Mon Petit Prono asks for one exact score per Ligue 1 fixture, 9 per gameweek, and the market already knows which score is most likely. The service aggregates odds from The Odds API into a probability for each score, takes the outcome the market favours, then its most probable score.",
+        "That rule was not chosen by intuition. 3 strategies were replayed against 79 matches of the current season with the real MPP payouts, and betting the favourite returned 36.3 points per match against 31.1 for maximizing expected value and 25.0 for the longest odds. When a fixture has no usable price, Elo ratings computed from Football-Data results since 2020/21 take over. The service runs in Rust and only publishes with WRITE=true, 4 triggers per match, with atomic state, a season ledger and 219 tests.",
       ],
     },
     {
@@ -639,8 +639,8 @@ const data: Record<Locale, Project[]> = {
         },
       ],
       detail: [
-        "Mon Petit Prono demande un score exact par rencontre de Ligue 1, soit dix-huit par journée, et le marché sait déjà quel score est le plus probable. Le service agrège les cotes de The Odds API en une probabilité par score et parie le plus haut.",
-        "Cette règle ne vient pas d'une intuition. Trois stratégies ont été rejouées sur 79 matchs de la saison en cours avec les paiements réels de MPP, et parier le favori rend 36,3 points par match contre 31,1 pour la maximisation de l'espérance et 25,0 pour la cote la plus haute. Sans cote exploitable, un Elo calculé sur les résultats Football-Data depuis 2020/21 prend le relais. Le service tourne en Rust et ne publie qu'avec WRITE=true, quatre passes par jour, avec un état atomique et un registre de saison.",
+        "Mon Petit Prono demande un score exact par rencontre de Ligue 1, soit 9 par journée, et le marché sait déjà quel score est le plus probable. Le service agrège les cotes de The Odds API en une probabilité par score, retient l'issue favorite, puis son score le plus probable.",
+        "Cette règle ne vient pas d'une intuition. 3 stratégies ont été rejouées sur 79 matchs de la saison en cours avec les paiements réels de MPP, et parier le favori rend 36,3 points par match contre 31,1 pour la maximisation de l'espérance et 25,0 pour la cote la plus haute. Sans cote exploitable, un Elo calculé sur les résultats Football-Data depuis 2020/21 prend le relais. Le service tourne en Rust et ne publie qu'avec WRITE=true, 4 déclencheurs par match, avec un état atomique, un registre de saison et 219 tests.",
       ],
     },
     {
