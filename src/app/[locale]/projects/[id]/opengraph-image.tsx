@@ -3,7 +3,8 @@ import { getProjects } from "@/data/projects";
 import { OG_SIZE } from "@/lib/og";
 import { projectOgImage } from "@/lib/og-project";
 
-export const alt = "Projet · Yann Villellas";
+export const alt = "Yann Villellas";
+export const dynamicParams = false;
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
