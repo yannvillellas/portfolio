@@ -13,7 +13,7 @@ export default function TerminalLineText({ text }: TerminalLineTextProps) {
         {odds ? (
           <>
             <span className="text-ink">{odds[1]}</span>
-            <span className="text-accent">{odds[2]}</span>
+            <span className="text-accent-on-panel">{odds[2]}</span>
           </>
         ) : (
           <span className="text-ink">{rest}</span>
@@ -25,7 +25,7 @@ export default function TerminalLineText({ text }: TerminalLineTextProps) {
   if (text.startsWith("$")) {
     return (
       <>
-        <span className="text-accent">$</span>
+        <span className="text-accent-on-panel">$</span>
         <span className="text-ink">{text.slice(1)}</span>
       </>
     );
@@ -35,14 +35,14 @@ export default function TerminalLineText({ text }: TerminalLineTextProps) {
   if (speaker) {
     return (
       <>
-        <span className="font-semibold text-accent">{speaker[1]}</span>
+        <span className="font-semibold text-accent-on-panel">{speaker[1]}</span>
         <span className="text-ink">{speaker[2]}</span>
       </>
     );
   }
 
   if (text.startsWith("Applied")) {
-    return <span className="text-accent">{text}</span>;
+    return <span className="text-accent-on-panel">{text}</span>;
   }
 
   return <span className="text-ink">{text}</span>;

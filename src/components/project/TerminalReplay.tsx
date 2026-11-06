@@ -83,7 +83,7 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
             setElapsed(0);
             setRun((value) => value + 1);
           }}
-          className="inline-flex h-11 cursor-pointer items-center gap-2 text-sm text-mut transition-colors hover:text-ink"
+          className="inline-flex h-11 cursor-pointer items-center gap-2 text-sm text-mut-on-panel transition-colors hover:text-ink"
         >
           <RotateCcw size={14} aria-hidden="true" />
           {t("replay")}

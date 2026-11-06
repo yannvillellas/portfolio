@@ -13,6 +13,8 @@
   --color-panel: #e8e8e9;
   --color-chrome: #585853;
   --color-control: #8c8c88;
+  --color-mut-on-panel: #686862;
+  --color-accent-on-panel: #6746f2;
 
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
@@ -32,6 +34,8 @@
   --color-panel: #1b1b19;
   --color-chrome: #b1b1ae;
   --color-control: #61615f;
+  --color-mut-on-panel: #8d8d88;
+  --color-accent-on-panel: #c8f751;
 }
 
 :root {
