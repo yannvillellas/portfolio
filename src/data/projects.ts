@@ -365,7 +365,7 @@ const data: Record<Locale, Project[]> = {
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
       liveUrl: "https://endurance.veebor.net/index_en.html",
       detail: [
-        "Endurance research drowns in exports. Four ecosystems, four file formats, and no single view of what an athlete actually did across a season. Endurance Lab connects a Garmin or Polar account through OAuth, normalises every activity into one model, and shows the season as trends instead of a folder of files.",
+        "Endurance research drowns in exports. 4 ecosystems, 4 file formats, and no single view of what an athlete actually did across a season. Endurance Lab connects a Garmin or Polar account through OAuth, normalises every activity into one model, and shows the season as trends instead of a folder of files.",
         "The app is written in Flutter and ships to iOS and Android from one codebase, with Firebase behind authentication and storage. The client carries 6 indicators, GPS maps and 2 OAuth integrations. A 3.5-month beta collected 8 athletes, 1,001 activities, 2.7 million GPS points and 1.6 million samples, and the release pipeline runs with zero manual steps.",
       ],
       screenshots: [
@@ -459,7 +459,7 @@ const data: Record<Locale, Project[]> = {
       },
       chapters: [
         {
-          title: "Four services, 42 endpoints.",
+          title: "4 services, 42 endpoints.",
           body: "Users, reservations, payments and a gateway, each a Kotlin and Spring Boot service with its own PostgreSQL database.",
         },
         {
@@ -467,7 +467,7 @@ const data: Record<Locale, Project[]> = {
           body: "Kafka, the outbox pattern and Debezium CDC keep a reservation and its PayPal payment consistent when one side fails.",
         },
         {
-          title: "Four roles, one token.",
+          title: "4 roles, 1 token.",
           body: "Keycloak holds OIDC and RBAC, and the React front end authenticates with the same JWT the services already trust.",
         },
       ],
@@ -566,12 +566,12 @@ const data: Record<Locale, Project[]> = {
       },
       chapters: [
         {
-          title: "20 documents, six stakeholders.",
+          title: "20 documents, 6 stakeholders.",
           body: "The relocation is read one document at a time, each tied to the actor who produced it, from LKAB to the citizens.",
         },
         {
           title: "Every document on its zone.",
-          body: "The map places the 20 documents across the nine areas the mine affects, so a claim can be read where it happens.",
+          body: "The map places the 20 documents across the 9 areas the mine affects, so a claim can be read where it happens.",
         },
         {
           title: "The document, not a thumbnail.",
@@ -631,7 +631,7 @@ const data: Record<Locale, Project[]> = {
         },
         {
           title: "Mesuré sur 79 matchs.",
-          body: "Trois règles ont été comparées aux paiements réels de MPP. Le favori rapporte 36,3 points par match, l'espérance 31,1, la cote la plus haute 25,0.",
+          body: "3 règles ont été comparées aux paiements réels de MPP. Le favori rapporte 36,3 points par match, l'espérance 31,1, la cote la plus haute 25,0.",
         },
         {
           title: "L'Elo quand la cote manque.",
@@ -686,7 +686,7 @@ const data: Record<Locale, Project[]> = {
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
       liveUrl: "https://endurance.veebor.net/index_en.html",
       detail: [
-        "La recherche en endurance se noie dans les exports. Quatre \u00e9cosyst\u00e8mes, quatre formats de fichiers, et aucune vue unique sur ce qu'un athl\u00e8te a vraiment fait sur une saison. Endurance Lab connecte un compte Garmin ou Polar par OAuth, ram\u00e8ne chaque activit\u00e9 \u00e0 un mod\u00e8le unique, et pr\u00e9sente la saison en tendances au lieu d'un dossier de fichiers.",
+        "La recherche en endurance se noie dans les exports. 4 \u00e9cosyst\u00e8mes, 4 formats de fichiers, et aucune vue unique sur ce qu'un athl\u00e8te a vraiment fait sur une saison. Endurance Lab connecte un compte Garmin ou Polar par OAuth, ram\u00e8ne chaque activit\u00e9 \u00e0 un mod\u00e8le unique, et pr\u00e9sente la saison en tendances au lieu d'un dossier de fichiers.",
         "L'application est \u00e9crite en Flutter et sort sur iOS comme sur Android depuis une seule base de code, avec Firebase derri\u00e8re l'authentification et le stockage. Le client porte 6 indicateurs, des cartes GPS et 2 int\u00e9grations OAuth. Une b\u00eata de 3,5 mois a rassembl\u00e9 8 athl\u00e8tes, 1\u202f001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d'\u00e9chantillons, et la cha\u00eene de publication ne demande aucune \u00e9tape manuelle.",
       ],
       screenshots: [
@@ -782,7 +782,7 @@ const data: Record<Locale, Project[]> = {
       },
       chapters: [
         {
-          title: "Quatre services, 42 routes.",
+          title: "4 services, 42 routes.",
           body: "Utilisateurs, r\u00e9servations, paiements et passerelle, chacun en Kotlin et Spring Boot avec sa propre base PostgreSQL.",
         },
         {
@@ -790,7 +790,7 @@ const data: Record<Locale, Project[]> = {
           body: "Kafka, le patron Outbox et Debezium CDC gardent la r\u00e9servation et son paiement PayPal coh\u00e9rents quand un c\u00f4t\u00e9 l\u00e2che.",
         },
         {
-          title: "Quatre r\u00f4les, un seul jeton.",
+          title: "4 r\u00f4les, 1 seul jeton.",
           body: "Keycloak porte l'OIDC et le RBAC, et le front React s'authentifie avec le JWT que les services d\u00e9j\u00e0 reconnaissent.",
         },
       ],
@@ -890,12 +890,12 @@ const data: Record<Locale, Project[]> = {
       },
       chapters: [
         {
-          title: "20 documents, six parties prenantes.",
+          title: "20 documents, 6 parties prenantes.",
           body: "La relocalisation se lit document par document, chacun rattach\u00e9 \u00e0 l'acteur qui l'a produit, de LKAB aux habitants.",
         },
         {
           title: "Chaque document sur sa zone.",
-          body: "La carte place les 20 documents sur les neuf zones touch\u00e9es par la mine, pour lire une contestation l\u00e0 o\u00f9 elle se passe.",
+          body: "La carte place les 20 documents sur les 9 zones touch\u00e9es par la mine, pour lire une contestation l\u00e0 o\u00f9 elle se passe.",
         },
         {
           title: "Le document, pas sa vignette.",
