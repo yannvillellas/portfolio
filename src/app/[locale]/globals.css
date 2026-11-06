@@ -2,15 +2,15 @@
 @import "../../styles/navigation.css";
 
 @theme {
-  --color-paper: #f7f7f4;
-  --color-ink: #171715;
+  --color-paper: #f6f6f7;
+  --color-ink: #171717;
   --color-mut: #6f6f69;
-  --color-line: #dcdcd4;
+  --color-line: #dededf;
   --about-label: --spacing(50);
   --color-purple: #6d4aff;
   --color-lime: #c8f751;
   --color-accent: var(--color-purple);
-  --color-panel: #efefe9;
+  --color-panel: #e8e8e9;
   --color-chrome: #585853;
   --color-control: #8c8c88;
 
@@ -24,12 +24,12 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --color-paper: #0b0b0c;
+  --color-paper: #0c0c0b;
   --color-ink: #f2f2ee;
   --color-mut: #8d8d88;
-  --color-line: #26262a;
+  --color-line: #2a2a27;
   --color-accent: var(--color-lime);
-  --color-panel: #1b1b20;
+  --color-panel: #1b1b19;
   --color-chrome: #b1b1ae;
   --color-control: #61615f;
 }

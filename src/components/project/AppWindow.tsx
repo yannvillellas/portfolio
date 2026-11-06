@@ -68,9 +68,9 @@ export default function AppWindow({
       >
         <div className="flex h-6.5 shrink-0 items-center gap-2 border-b border-line bg-ink/5 px-2.5">
           <div className="flex gap-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-line" />
-            <span className="h-1.5 w-1.5 rounded-full bg-line" />
-            <span className="h-1.5 w-1.5 rounded-full bg-line" />
+            <span className="h-1.5 w-1.5 rounded-full bg-mut/70" />
+            <span className="h-1.5 w-1.5 rounded-full bg-mut/70" />
+            <span className="h-1.5 w-1.5 rounded-full bg-mut/70" />
           </div>
           <span className="flex-1 text-center text-xs text-chrome">
             {title}

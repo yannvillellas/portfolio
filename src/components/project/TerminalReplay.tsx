@@ -56,9 +56,9 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
     <div className="flex h-full w-full flex-col overflow-hidden rounded-lg border border-line bg-panel">
       <div className="flex h-7 items-center gap-2 border-b border-line bg-ink/5 px-3">
         <div className="flex gap-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-line" />
-          <span className="h-1.5 w-1.5 rounded-full bg-line" />
-          <span className="h-1.5 w-1.5 rounded-full bg-line" />
+          <span className="h-1.5 w-1.5 rounded-full bg-mut/70" />
+          <span className="h-1.5 w-1.5 rounded-full bg-mut/70" />
+          <span className="h-1.5 w-1.5 rounded-full bg-mut/70" />
         </div>
         <span className="flex-1 text-center text-xs text-chrome">{title}</span>
       </div>
