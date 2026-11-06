@@ -351,7 +351,7 @@ const data: Record<Locale, Project[]> = {
           body: "No provider is imposed. The coach starts on OVHcloud's anonymous free tier and moves elsewhere on request.",
         },
         {
-          title: "Two families, never mixed.",
+          title: "Separate write families.",
           body: "A session change cannot reach a race, and the reverse holds. Races are created and moved inside their own family.",
         },
       ],
@@ -359,14 +359,14 @@ const data: Record<Locale, Project[]> = {
     {
       id: "endurance-lab",
       title: "Endurance Lab",
-      summary: "Two training sources brought together in a single timeline.",
+      summary: "Garmin and Polar, one timeline.",
       description:
         "Cross-platform mobile app that normalizes training data from heterogeneous wearable ecosystems for sports-science research.",
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
       liveUrl: "https://endurance.veebor.net/index_en.html",
       detail: [
         "Endurance research drowns in exports. Four ecosystems, four file formats, and no single view of what an athlete actually did across a season. Endurance Lab connects a Garmin or Polar account through OAuth, normalises every activity into one model, and shows the season as trends instead of a folder of files.",
-        "The app is written in Flutter and ships to iOS and Android from one codebase, with Firebase behind authentication and storage. The client carries six indicators, GPS maps and two OAuth integrations. A three-and-a-half month beta collected 8 athletes, 1,001 activities, 2.7 million GPS points and 1.6 million samples, and the release pipeline runs with zero manual steps.",
+        "The app is written in Flutter and ships to iOS and Android from one codebase, with Firebase behind authentication and storage. The client carries 6 indicators, GPS maps and 2 OAuth integrations. A 3.5-month beta collected 8 athletes, 1,001 activities, 2.7 million GPS points and 1.6 million samples, and the release pipeline runs with zero manual steps.",
       ],
       screenshots: [
         {
@@ -417,7 +417,7 @@ const data: Record<Locale, Project[]> = {
       ],
       detail: [
         "Renting a car touches three systems at once. The fleet has to show the vehicle as taken, the customer has to be charged, and neither can be true while the other is not. The platform splits that work across four Kotlin and Spring Boot services, users, reservations, payments and a gateway, each with its own PostgreSQL database and its own migrations.",
-        "Payments travel through Kafka with the outbox pattern and Debezium change data capture, so a reservation and its PayPal confirmation stay consistent even when one side fails. Keycloak issues a single OIDC token carrying four roles, and the React front end uses the same JWT as the services. Fourty-two endpoints are covered by 75.8 per cent of line coverage, held up by Testcontainers rather than mocks.",
+        "Payments travel through Kafka with the outbox pattern and Debezium change data capture, so a reservation and its PayPal confirmation stay consistent even when one side fails. Keycloak issues a single OIDC token carrying 4 roles, and the React front end uses the same JWT as the services. 42 endpoints with 75.8% line coverage, held up by Testcontainers rather than mocks.",
       ],
       screenshots: [
         {
@@ -480,8 +480,8 @@ const data: Record<Locale, Project[]> = {
         "Cross-platform mobile app that replaces traditional geography field studies with interactive, self-guided GIS excursions.",
       tags: ["Flutter", "Firebase", "flutter_map"],
       detail: [
-        "Athabasca University teaches forty thousand students at a distance, and a field trip is the one thing a distance course cannot ship. mFieldTrip turns a trip into a map a student can walk through from home, with the same stops, the same media and the same credits as the real thing.",
-        "The app is a single Flutter codebase running on Android, iOS and the web. Firebase handles authentication, storage and App Check, with three roles from amateur to professor and an admin path for moderation. A new trip is published by importing a QGIS to Web archive and a CSV of points of interest, and students sort what they see by proximity.",
+        "Athabasca University teaches 40,000 students at a distance, and a field trip is the one thing a distance course cannot ship. mFieldTrip turns a trip into a map a student can walk through from home, with the same stops, the same media and the same credits as the real thing.",
+        "The app is a single Flutter codebase running on Android, iOS and the web. Firebase handles authentication, storage and App Check, with 3 roles from amateur to professor and an admin path for moderation. A new trip is published by importing a QGIS to Web archive and a CSV of points of interest, and students sort what they see by proximity.",
       ],
       screenshots: [
         {
@@ -524,7 +524,7 @@ const data: Record<Locale, Project[]> = {
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
       detail: [
         "Kiruna is moving because the mine is expanding under it, and the argument about what is lost and what is compensated lives in documents scattered across agencies. Kiruna Explorer puts those documents on a map, so a plan, a complaint and a compensation claim can be read against the same piece of ground.",
-        "20 documents in five types involve six stakeholders, from LKAB to the residents, and the model links each one to the nine affected areas and to 16 associations between them. A Node.js and Express API exposes 33 routes over SQLite, the front end draws the map with Leaflet, and access runs on two roles plus a read-only guest. The whole thing ships in Docker, with 17 Jest test files and six Cypress runs.",
+        "20 documents of 5 types involve 6 stakeholders, from LKAB to the residents, and the model links each one to the 9 affected areas and to 16 associations between them. A Node.js and Express API exposes 33 routes over SQLite, the front end draws the map with Leaflet, and access runs on 2 roles plus a read-only guest. The whole thing ships in Docker, with 17 Jest test files and 6 Cypress runs.",
       ],
       screenshots: [
         {
@@ -595,7 +595,7 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "The site you are reading.",
-          body: "One page rebuilt from scratch in Next.js and Tailwind, with two languages and a light and dark theme.",
+          body: "One page rebuilt from scratch in Next.js and Tailwind, with 2 languages and a light and dark theme.",
         },
       ],
       screenshots: [
@@ -672,7 +672,7 @@ const data: Record<Locale, Project[]> = {
           body: "Aucun fournisseur n'est impos\u00e9. Le coach d\u00e9marre sur le palier gratuit anonyme d'OVHcloud et change de mod\u00e8le sur demande.",
         },
         {
-          title: "Deux familles, jamais m\u00e9lang\u00e9es.",
+          title: "Familles d'\u00e9criture s\u00e9par\u00e9es.",
           body: "Une modification de s\u00e9ance ne peut pas toucher une course, et l'inverse non plus. Les courses se cr\u00e9ent et se d\u00e9placent dans leur propre famille.",
         },
       ],
@@ -680,15 +680,14 @@ const data: Record<Locale, Project[]> = {
     {
       id: "endurance-lab",
       title: "Endurance Lab",
-      summary:
-        "Deux sources d\u2019entra\u00eenement r\u00e9unies dans une seule chronologie.",
+      summary: "Garmin et Polar, une seule chronologie.",
       description:
         "Application mobile multiplateforme qui normalise les donn\u00e9es d\u2019entra\u00eenement issues d\u2019\u00e9cosyst\u00e8mes de wearables h\u00e9t\u00e9rog\u00e8nes pour la recherche en sciences du sport.",
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
       liveUrl: "https://endurance.veebor.net/index_en.html",
       detail: [
         "La recherche en endurance se noie dans les exports. Quatre \u00e9cosyst\u00e8mes, quatre formats de fichiers, et aucune vue unique sur ce qu'un athl\u00e8te a vraiment fait sur une saison. Endurance Lab connecte un compte Garmin ou Polar par OAuth, ram\u00e8ne chaque activit\u00e9 \u00e0 un mod\u00e8le unique, et pr\u00e9sente la saison en tendances au lieu d'un dossier de fichiers.",
-        "L'application est \u00e9crite en Flutter et sort sur iOS comme sur Android depuis une seule base de code, avec Firebase derri\u00e8re l'authentification et le stockage. Le client porte six indicateurs, des cartes GPS et deux int\u00e9grations OAuth. Une b\u00eata de trois mois et demi a rassembl\u00e9 8 athl\u00e8tes, 1\u202f001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d'\u00e9chantillons, et la cha\u00eene de publication ne demande aucune \u00e9tape manuelle.",
+        "L'application est \u00e9crite en Flutter et sort sur iOS comme sur Android depuis une seule base de code, avec Firebase derri\u00e8re l'authentification et le stockage. Le client porte 6 indicateurs, des cartes GPS et 2 int\u00e9grations OAuth. Une b\u00eata de 3,5 mois a rassembl\u00e9 8 athl\u00e8tes, 1\u202f001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d'\u00e9chantillons, et la cha\u00eene de publication ne demande aucune \u00e9tape manuelle.",
       ],
       screenshots: [
         {
@@ -741,7 +740,7 @@ const data: Record<Locale, Project[]> = {
       ],
       detail: [
         "Louer une voiture touche trois syst\u00e8mes \u00e0 la fois. La flotte doit marquer le v\u00e9hicule comme pris, le client doit \u00eatre d\u00e9bit\u00e9, et aucun des deux ne peut \u00eatre vrai pendant que l'autre ne l'est pas. La plateforme r\u00e9partit ce travail sur quatre services Kotlin et Spring Boot, utilisateurs, r\u00e9servations, paiements et passerelle, chacun avec sa base PostgreSQL et ses migrations.",
-        "Les paiements passent par Kafka avec le patron Outbox et la capture de changements Debezium, donc une r\u00e9servation et sa confirmation PayPal restent coh\u00e9rentes m\u00eame si un c\u00f4t\u00e9 l\u00e2che. Keycloak \u00e9met un seul jeton OIDC porteur de quatre r\u00f4les, et le front React utilise le m\u00eame JWT que les services. 42 routes sont couvertes \u00e0 75,8\u00a0% de lignes, tenues par Testcontainers plut\u00f4t que par des mocks.",
+        "Les paiements passent par Kafka avec le patron Outbox et la capture de changements Debezium, donc une r\u00e9servation et sa confirmation PayPal restent coh\u00e9rentes m\u00eame si un c\u00f4t\u00e9 l\u00e2che. Keycloak \u00e9met un seul jeton OIDC porteur de 4 r\u00f4les, et le front React utilise le m\u00eame JWT que les services. 42 routes avec 75,8\u00a0% de couverture, tenues par Testcontainers plut\u00f4t que par des mocks.",
       ],
       screenshots: [
         {
@@ -805,8 +804,8 @@ const data: Record<Locale, Project[]> = {
         "Application mobile multiplateforme qui remplace les \u00e9tudes de terrain traditionnelles par des excursions interactives et autonomes exploitant des donn\u00e9es SIG open-source.",
       tags: ["Flutter", "Firebase", "flutter_map"],
       detail: [
-        "L'Universit\u00e9 Athabasca enseigne \u00e0 quarante mille \u00e9tudiants \u00e0 distance, et l'excursion sur le terrain est la seule chose qu'un cours \u00e0 distance ne peut pas livrer. mFieldTrip transforme une sortie en carte que l'\u00e9tudiant parcourt depuis chez lui, avec les m\u00eames arr\u00eats, les m\u00eames m\u00e9dias et les m\u00eames cr\u00e9dits que sur place.",
-        "L'application tient dans une seule base Flutter qui tourne sur Android, iOS et le web. Firebase porte l'authentification, le stockage et App Check, avec trois r\u00f4les de l'amateur au professeur et un acc\u00e8s admin pour la mod\u00e9ration. Une nouvelle excursion se publie en important une archive QGIS to Web et un CSV de points d'int\u00e9r\u00eat, et les \u00e9tudiants trient ce qu'ils voient par proximit\u00e9.",
+        "L'Universit\u00e9 Athabasca enseigne \u00e0 40\u202f000 \u00e9tudiants \u00e0 distance, et l'excursion sur le terrain est la seule chose qu'un cours \u00e0 distance ne peut pas livrer. mFieldTrip transforme une sortie en carte que l'\u00e9tudiant parcourt depuis chez lui, avec les m\u00eames arr\u00eats, les m\u00eames m\u00e9dias et les m\u00eames cr\u00e9dits que sur place.",
+        "L'application tient dans une seule base Flutter qui tourne sur Android, iOS et le web. Firebase porte l'authentification, le stockage et App Check, avec 3 r\u00f4les de l'amateur au professeur et un acc\u00e8s admin pour la mod\u00e9ration. Une nouvelle excursion se publie en important une archive QGIS to Web et un CSV de points d'int\u00e9r\u00eat, et les \u00e9tudiants trient ce qu'ils voient par proximit\u00e9.",
       ],
       screenshots: [
         {
@@ -849,7 +848,7 @@ const data: Record<Locale, Project[]> = {
       tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
       detail: [
         "Kiruna se d\u00e9place parce que la mine s'\u00e9tend sous la ville, et le d\u00e9bat sur ce qui est perdu et ce qui est compens\u00e9 vit dans des documents dispers\u00e9s entre les agences. Kiruna Explorer pose ces documents sur une carte, pour qu'un plan, une contestation et une demande de compensation se lisent sur le m\u00eame morceau de terrain.",
-        "20 documents en cinq types impliquent six parties prenantes, de LKAB aux habitants, et le mod\u00e8le relie chacun aux neuf zones touch\u00e9es et \u00e0 16 associations entre eux. Une API Node.js et Express expose 33 routes sur SQLite, le front dessine la carte avec Leaflet, et l'acc\u00e8s repose sur deux r\u00f4les plus un invit\u00e9 en lecture seule. Le tout tourne dans Docker, avec 17 fichiers de tests Jest et six parcours Cypress.",
+        "20 documents en 5 types impliquent 6 parties prenantes, de LKAB aux habitants, et le mod\u00e8le relie chacun aux 9 zones touch\u00e9es et \u00e0 16 associations entre eux. Une API Node.js et Express expose 33 routes sur SQLite, le front dessine la carte avec Leaflet, et l'acc\u00e8s repose sur 2 r\u00f4les plus un invit\u00e9 en lecture seule. Le tout tourne dans Docker, avec 17 fichiers de tests Jest et 6 parcours Cypress.",
       ],
       screenshots: [
         {
@@ -920,7 +919,7 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "Le site que vous lisez.",
-          body: "Une page reconstruite de z\u00e9ro en Next.js et Tailwind, avec deux langues et un th\u00e8me clair et sombre.",
+          body: "Une page reconstruite de z\u00e9ro en Next.js et Tailwind, avec 2 langues et un th\u00e8me clair et sombre.",
         },
       ],
       screenshots: [
