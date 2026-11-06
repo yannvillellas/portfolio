@@ -57,6 +57,8 @@ export default async function AboutPage() {
                   subtitle={[experience.company, experience.location]
                     .filter(Boolean)
                     .join(" · ")}
+                  summary={experience.summary}
+                  highlights={experience.highlights}
                 />
               ))}
             </div>

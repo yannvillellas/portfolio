@@ -3,7 +3,8 @@ export interface ExperienceEntry {
   company: string;
   location?: string;
   period: string;
-  description: string;
+  summary: string;
+  highlights: string[];
 }
 
 type Locale = "en" | "fr";
@@ -15,16 +16,26 @@ const data: Record<Locale, ExperienceEntry[]> = {
       company: "Politecnico di Torino",
       location: "Turin, Italy",
       period: "Oct 2025\u2013Mar 2026",
-      description:
-        "Built Endurance Lab to unify fragmented training data across wearable providers for athletes and sports-science researchers, removing vendor lock-in and giving research teams a standardized collection layer. Delivered a device-agnostic Flutter client built on MVVM, with six health and performance indicators, GPS route maps, and two OAuth 2.0 provider integrations. Automated the Android release pipeline with GitHub Actions and Fastlane, covering tests, build, signing, GitHub Release, and Play beta, with zero manual signing or upload steps. Ran a 3.5-month closed beta with eight athletes that validated the platform as a research data foundation: 1,001 activities, 2.7 million GPS points, and 1.6 million physiological samples were collected and normalized.",
+      summary:
+        "Built Endurance Lab to unify fragmented training data across wearable providers for athletes and sports-science researchers.",
+      highlights: [
+        "Delivered a device-agnostic **Flutter** client (MVVM) with **6** indicators, GPS route maps and **2** OAuth 2.0 integrations.",
+        "Ran a **3.5**-month beta with **8** athletes (**1,001** activities, **2.7M** GPS points, **1.6M** samples), validating a research data foundation.",
+        "Automated Android tests, signing, GitHub Release and Play beta with **GitHub Actions** and Fastlane, with **0** manual steps.",
+      ],
     },
     {
       role: "Software Engineer Intern",
       company: "Athabasca University",
       location: "Edmonton, Canada",
       period: "Apr 2024\u2013Jul 2024",
-      description:
-        "Co-built mFieldTrip at Athabasca University for 40,000 distance-education students, who needed to complete self-guided GIS field trips without travelling to the field. Developed a cross-platform Flutter app for Android, iOS, and Web, with flutter_map and QGIS2Web exports, plus a geospatial sort that orders excursions by proximity. Implemented Firebase Authentication, Firestore, and App Check around three user roles (Amateur, Student, and Professor), with a separate admin role for content moderation. Delivered the app to Athabasca University with field-trip upload (QGIS2Web ZIP, CSV POIs, images, PDF credits) and seven filters, giving the geography program a complete workflow for remote field assignments.",
+      summary:
+        "Co-built mFieldTrip for **40,000** distance-education students to complete self-guided GIS field trips without travelling to the field.",
+      highlights: [
+        "Developed a cross-platform **Flutter** app (Android, iOS, Web) with flutter_map, sorting excursions by proximity.",
+        "Implemented **Firebase** Auth, Firestore and App Check, with **3** user roles (Amateur, Student, Professor) plus admin moderation.",
+        "Delivered the app to Athabasca University, including field-trip upload (**QGIS2Web** ZIP, CSV POIs, images, PDF credits) and **7** filters.",
+      ],
     },
     {
       role: "Tools and Application Security Intern",
@@ -32,8 +43,13 @@ const data: Record<Locale, ExperienceEntry[]> = {
         "Direction de l'Information L\u00e9gale et Administrative (DILA)",
       location: "Paris, France",
       period: "Jun 2022\u2013Jul 2022",
-      description:
-        "Replaced a manual Excel-based dependency triage with automated scanning in the Java/Maven build pipeline at DILA. Integrated OWASP Dependency-Check to cover direct and transitive dependencies, eliminating the manual pass and saving 15\u201330 minutes per day. Tuned the scanner with eight XML suppression rules that removed eight recurring false positives, so the team could focus on real vulnerabilities. Configured three DILA-specific SEKOIA.IO CTI profiles to filter threat reports by sector and collect 150+ indicators of compromise for monitoring, turning a manual review into a targeted watchlist.",
+      summary:
+        "Replaced slow, noisy Excel-based dependency triage with automated scanning for the Direction de l'Information L\u00e9gale et Administrative.",
+      highlights: [
+        "Integrated **OWASP Dependency-Check**, eliminating manual checks of direct and transitive dependencies and saving 15\u201330 min per day.",
+        "Tuned the scanner with **8** XML rules, removing **8** recurring false positives so the team could focus on real vulnerabilities.",
+        "Configured **3** **SEKOIA.IO** CTI profiles, with sector filtering and **150+** collected IOCs for targeted DILA monitoring.",
+      ],
     },
   ],
   fr: [
@@ -42,16 +58,26 @@ const data: Record<Locale, ExperienceEntry[]> = {
       company: "Politecnico di Torino",
       location: "Turin, Italie",
       period: "oct. 2025\u2013mars 2026",
-      description:
-        "Conception d\u2019Endurance Lab pour unifier des donn\u00e9es d\u2019entra\u00eenement fragment\u00e9es entre fournisseurs de wearables, au b\u00e9n\u00e9fice des athl\u00e8tes et des chercheurs en sciences du sport, en supprimant l\u2019enfermement propri\u00e9taire et en fournissant une couche de collecte standardis\u00e9e. Livraison d\u2019un client Flutter ind\u00e9pendant des appareils, fond\u00e9 sur une architecture MVVM, avec six indicateurs de sant\u00e9 et de performance, des cartes GPS et deux int\u00e9grations OAuth 2.0. Automatisation de la publication Android avec GitHub Actions et Fastlane, couvrant les tests, le build, la signature, la GitHub Release et la b\u00eata Play, sans aucune \u00e9tape manuelle de signature ou d\u2019envoi. Validation de la plateforme comme socle de recherche par une b\u00eata ferm\u00e9e de 3,5 mois avec huit athl\u00e8tes : 1 001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d\u2019\u00e9chantillons physiologiques collect\u00e9s et normalis\u00e9s.",
+      summary:
+        "Cr\u00e9ation d'Endurance Lab pour unifier les donn\u00e9es fragment\u00e9es de multiples fournisseurs de wearables pour athl\u00e8tes et chercheurs.",
+      highlights: [
+        "Livraison d'un client **Flutter** ind\u00e9pendant des appareils (MVVM) avec **6** indicateurs, cartes GPS et 2 int\u00e9grations OAuth 2.0.",
+        "Validation d'une b\u00eata de 3,5 mois (8 athl\u00e8tes, 1\u202f001 activit\u00e9s, 2,7 M GPS, 1,6 M \u00e9chantillons), socle de recherche.",
+        "Automatisation des tests, de la signature et de la publication Play b\u00eata avec **GitHub Actions** et Fastlane, avec 0 \u00e9tape manuelle.",
+      ],
     },
     {
       role: "Stagiaire Ing\u00e9nieur Logiciel",
       company: "Athabasca University",
       location: "Edmonton, Canada",
       period: "avr. 2024\u2013juil. 2024",
-      description:
-        "Cr\u00e9ation en \u00e9quipe de mFieldTrip \u00e0 l\u2019Athabasca University pour 40 000 \u00e9tudiants \u00e0 distance, qui devaient r\u00e9aliser des excursions SIG autonomes sans se d\u00e9placer sur le terrain. D\u00e9veloppement d\u2019une application Flutter multiplateforme (Android, iOS, Web) avec flutter_map et les exports QGIS2Web, ainsi qu\u2019un tri g\u00e9ospatial des excursions par proximit\u00e9. Mise en place de Firebase Authentication, Firestore et App Check autour de trois r\u00f4les utilisateurs (Amateur, Student et Professor), avec un r\u00f4le administrateur distinct pour la mod\u00e9ration des contenus. Livraison de l\u2019application \u00e0 l\u2019Athabasca University avec l\u2019import d\u2019excursions (ZIP QGIS2Web, POI CSV, images, cr\u00e9dits PDF) et sept filtres, offrant au programme de g\u00e9ographie un flux complet pour les travaux de terrain \u00e0 distance.",
+      summary:
+        "Cr\u00e9ation de mFieldTrip en \u00e9quipe pour les 40\u202f000 \u00e9tudiants \u00e0 distance, avec des excursions SIG autonomes sans d\u00e9placement sur le terrain.",
+      highlights: [
+        "D\u00e9veloppement d'une application **Flutter** multiplateforme (Android, iOS, Web) avec tri des excursions par proximit\u00e9.",
+        "Mise en place de **Firebase** Auth, Firestore et App Check, avec 3 r\u00f4les (Amateur, Student, Professor) et mod\u00e9ration admin.",
+        "Livraison de l'application \u00e0 Athabasca University, avec l'import de ZIP **QGIS2Web**, POIs CSV, images et cr\u00e9dits PDF, et **7** filtres.",
+      ],
     },
     {
       role: "Stagiaire Outillage et S\u00e9curit\u00e9 des Applications",
@@ -59,8 +85,13 @@ const data: Record<Locale, ExperienceEntry[]> = {
         "Direction de l\u2019Information L\u00e9gale et Administrative (DILA)",
       location: "Paris, France",
       period: "juin 2022\u2013juil. 2022",
-      description:
-        "Remplacement d\u2019un tri des d\u00e9pendances manuel, fond\u00e9 sur Excel, par un scan automatis\u00e9 dans le pipeline Java/Maven de la DILA. Int\u00e9gration d\u2019OWASP Dependency-Check pour couvrir les d\u00e9pendances directes et transitives, avec suppression des v\u00e9rifications manuelles et un gain de 15 \u00e0 30 minutes par jour. R\u00e9glage du scanner avec huit r\u00e8gles XML de suppression ayant \u00e9limin\u00e9 huit faux positifs r\u00e9currents, pour recentrer l\u2019\u00e9quipe sur les vraies vuln\u00e9rabilit\u00e9s. Configuration de trois profils SEKOIA.IO CTI propres \u00e0 la DILA, avec filtrage sectoriel des rapports de menace et collecte de plus de 150 IOC pour une surveillance cibl\u00e9e, transformant une revue manuelle en veille exploitable.",
+      summary:
+        "Remplacement d'un triage Excel lent et bruyant par un scan automatis\u00e9 pour la Direction de l'Information L\u00e9gale et Administrative.",
+      highlights: [
+        "Int\u00e9gration d'**OWASP Dependency-Check**, sans v\u00e9rifications manuelles des d\u00e9pendances directes et transitives, 15\u201330 min par jour.",
+        "R\u00e9glage du scanner avec 8 r\u00e8gles XML, supprimant 8 faux positifs r\u00e9currents pour recentrer l'\u00e9quipe sur les vraies vuln\u00e9rabilit\u00e9s.",
+        "Configuration de **3** profils **SEKOIA.IO** CTI, filtrage sectoriel et collecte de **150+** IOC pour une surveillance DILA cibl\u00e9e.",
+      ],
     },
   ],
 };

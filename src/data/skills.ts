@@ -1,7 +1,7 @@
 export interface SkillCategory {
   key: string;
   label: { en: string; fr: string };
-  items: string;
+  items: string | { en: string; fr: string };
 }
 
 export const skillCategories: SkillCategory[] = [
@@ -47,5 +47,21 @@ export const skillCategories: SkillCategory[] = [
     key: "tools",
     label: { en: "Tools", fr: "Outils" },
     items: "OpenAPI, Flyway, Postman, Git, Jira, YouTrack, Figma",
+  },
+  {
+    key: "coursework",
+    label: { en: "Relevant coursework", fr: "Cours pertinents" },
+    items: {
+      en: "Distributed Systems, Computer Networks, Security, ML/AI, Optimization, Numerical Analysis",
+      fr: "Systèmes distribués, Réseaux informatiques, Sécurité, ML/IA, Optimisation, Analyse numérique",
+    },
+  },
+  {
+    key: "spoken",
+    label: { en: "Spoken languages", fr: "Langues parlées" },
+    items: {
+      en: "French (native), English (C1), Italian (A2)",
+      fr: "français (natif), anglais (C1), italien (A2)",
+    },
   },
 ];
