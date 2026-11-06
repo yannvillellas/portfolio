@@ -291,9 +291,9 @@ const data: Record<Locale, Project[]> = {
       id: "mpp-autopilot",
       title: "MPP Autopilot",
       summary:
-        "The exact score that maximizes expected points on a Ligue 1 matchday.",
+        "The market favourite's most probable score, gameweek after gameweek.",
       description:
-        "Autonomous Rust service that predicts Ligue 1 scorelines for a friends' Mon Petit Prono league, choosing the exact score that maximizes expected points from live market odds, with an Elo fallback.",
+        "Autonomous Rust service that predicts Ligue 1 scorelines for a friends' Mon Petit Prono league, betting the most probable score of the market favourite, with an Elo fallback.",
       tags: ["Rust", "Docker"],
       repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
       screenshots: [
@@ -306,7 +306,7 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "The market favourite.",
-          body: "Aggregated odds from The Odds API give a probability for every exact score, and the pick is the one they rank highest.",
+          body: "Aggregated odds from The Odds API give a probability for every exact score. The service takes the outcome the market favours, then its most probable score.",
         },
         {
           title: "Measured on 79 matches.",
@@ -611,9 +611,9 @@ const data: Record<Locale, Project[]> = {
       id: "mpp-autopilot",
       title: "MPP Autopilot",
       summary:
-        "Le score exact qui maximise les points attendus d\u2019une journ\u00e9e de Ligue 1.",
+        "Le score le plus probable de l'issue favorite, journ\u00e9e apr\u00e8s journ\u00e9e.",
       description:
-        "Service Rust autonome qui pr\u00e9dit les scores de Ligue 1 pour une ligue Mon Petit Prono entre amis, en choisissant le score exact qui maximise les points attendus \u00e0 partir des cotes de march\u00e9, avec repli sur un Elo recalcul\u00e9 en interne.",
+        "Service Rust autonome qui pr\u00e9dit les scores de Ligue 1 pour une ligue Mon Petit Prono entre amis, en pariant le score le plus probable de l'issue favorite, avec repli sur un Elo recalcul\u00e9 en interne.",
       tags: ["Rust", "Docker"],
       repoUrl: "https://github.com/yannvillellas/mpp-autopilot",
       screenshots: [
@@ -627,7 +627,7 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "Le favori du marché.",
-          body: "Les cotes agrégées de The Odds API donnent une probabilité pour chaque score exact, et le pari retenu est celui qu'elles placent en tête.",
+          body: "Les cotes agrégées de The Odds API donnent une probabilité pour chaque score exact. Le service retient l'issue favorite, puis son score le plus probable.",
         },
         {
           title: "Mesuré sur 79 matchs.",
