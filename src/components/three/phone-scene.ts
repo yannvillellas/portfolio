@@ -4,7 +4,7 @@ import { createPhoneModel } from "./phone-model";
 
 export interface PhoneSceneHandle {
   setActive: (index: number) => void;
-  update: (progress: number, mobile: boolean) => void;
+  update: (progress: number, mobile: boolean, reduced?: boolean) => void;
   applyTheme: () => void;
   resize: () => void;
   dispose: () => void;
@@ -103,14 +103,17 @@ export async function createPhoneScene(
   };
   setActive(0);
 
-  const update = (progress: number, mobile: boolean) => {
+  const update = (progress: number, mobile: boolean, reduced = false) => {
     const elapsed = (performance.now() - start) / 1000;
     const range = motion.desktopRotation;
     const breathing = motion.breathing;
-    model.group.rotation.y =
-      (1 - progress) * range + Math.sin(elapsed * 0.55) * breathing;
+    model.group.rotation.y = reduced
+      ? (1 - progress) * range
+      : (1 - progress) * range + Math.sin(elapsed * 0.55) * breathing;
     model.group.rotation.x = 0.05 - Math.sin(progress * Math.PI) * 0.06;
-    model.group.position.y = 0.05 + Math.sin(elapsed * 0.8) * 0.018;
+    model.group.position.y = reduced
+      ? 0.05
+      : 0.05 + Math.sin(elapsed * 0.8) * 0.018;
     model.screens.forEach((screen) => {
       const target =
         screen.userData.targetOpacity ??
@@ -119,7 +122,7 @@ export async function createPhoneScene(
     });
     const cycle = (elapsed % 10) / 10;
     const sweep = Math.min(1, cycle / 0.14);
-    pass.intensity = Math.sin(Math.PI * sweep) * 1.5;
+    pass.intensity = reduced ? 0 : Math.sin(Math.PI * sweep) * 1.5;
     pass.position.set(-5 + sweep * 10, 2.2, 2);
     renderer.render(scene, camera);
   };

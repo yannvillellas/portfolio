@@ -38,6 +38,7 @@ export default function PhoneScene({
     let frame = 0;
     let running = false;
     const media = window.matchMedia("(max-width: 767px)");
+    const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
     let mobile = media.matches;
     const onMedia = () => {
       mobile = media.matches;
@@ -45,7 +46,7 @@ export default function PhoneScene({
 
     const tick = () => {
       if (!running || !handle) return;
-      handle.update(progress.current, mobile);
+      handle.update(progress.current, mobile, calm.matches);
       frame = requestAnimationFrame(tick);
     };
     const start = () => {
