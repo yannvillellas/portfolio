@@ -6,7 +6,6 @@ import { buildOpenGraph } from "@/i18n/metadata";
 import { routing } from "@/i18n/routing";
 import { getProjects } from "@/data/projects";
 import type { Demo, Project, ProjectChapter } from "@/data/projects";
-import { getImageSize } from "@/lib/imageSize";
 import ChapterSequence from "@/components/project/ChapterSequence";
 import ProjectArticle from "@/components/project/ProjectArticle";
 import ProjectHeader from "@/components/project/ProjectHeader";
