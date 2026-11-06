@@ -51,6 +51,9 @@ export default async function ProjectHeader({ project }: ProjectHeaderProps) {
                   className="inline-flex items-center gap-1 text-mut underline-offset-4 transition-colors hover:text-ink hover:underline"
                 >
                   {t("source")}
+                  <span className="sr-only">
+                    {project.title}, {t("newTab")}
+                  </span>
                   <svg
                     width="13"
                     height="13"
@@ -75,6 +78,9 @@ export default async function ProjectHeader({ project }: ProjectHeaderProps) {
                   className="inline-flex items-center gap-1 text-mut underline-offset-4 transition-colors hover:text-ink hover:underline"
                 >
                   {t("live")}
+                  <span className="sr-only">
+                    {project.title}, {t("newTab")}
+                  </span>
                   <svg
                     width="13"
                     height="13"

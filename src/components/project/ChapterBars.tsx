@@ -23,7 +23,7 @@ export default function ChapterBars({
           key={chapter.title}
           type="button"
           onClick={() => onSelect(index)}
-          aria-label={`${index + 1}. ${chapter.title}`}
+          aria-label={`${index + 1}. ${chapter.title}${index === active ? `, ${t("currentChapter")}` : ""}`}
           aria-current={index === active ? "step" : undefined}
           className="group flex h-11 w-8 cursor-pointer items-center justify-center"
         >

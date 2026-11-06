@@ -60,7 +60,9 @@
     "replay": "Replay",
     "inProgress": "in progress",
     "nextChapter": "Next chapter: {title}",
-    "chapters": "Chapters"
+    "chapters": "Chapters",
+    "newTab": "opens in a new tab",
+    "currentChapter": "current chapter"
   },
   "ContactPage": {
     "title": "Contact",
