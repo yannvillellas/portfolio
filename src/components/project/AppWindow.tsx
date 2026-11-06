@@ -37,7 +37,7 @@ export default function AppWindow({
 
     const observer = new ResizeObserver(([entry]) => {
       const { width, height } = entry.contentRect;
-      const imageHeight = Math.min(height - BAR, width / ratio);
+      const imageHeight = Math.max(0, Math.min(height - BAR, width / ratio));
       setFrame({
         width: Math.round(imageHeight * ratio),
         height: Math.round(imageHeight + BAR),
