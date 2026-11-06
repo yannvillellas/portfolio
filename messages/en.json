@@ -3,60 +3,84 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "back": "Back",
+    "primary": "Main navigation",
+    "mobile": "Mobile navigation"
   },
   "HomePage": {
-    "eyebrow": "Yann Villellas",
-    "title": "Software Engineer",
+    "eyebrow": "Software engineer",
+    "role": "Software Engineer",
+    "title": "Code in production.",
     "heroSubtitle": "Building web, mobile, and backend applications.",
-    "primaryCta": "Contact me",
-    "secondaryCta": "View projects",
-    "aboutBlurb": "Software engineer with a double degree: an engineering degree from École Supérieure d'Ingénieurs Léonard de Vinci and a Master of Science from Politecnico di Torino. Experience spans mobile, web, and backend, with a focus on clean architecture and testable code. This site gathers a few projects from that journey.",
-    "aboutLink": "More about me",
+    "projectsTitle": "Projects",
+    "inProgress": "in progress",
+    "pathTitle": "Background",
+    "aboutP1": "Double degree from <b>ESILV</b> and <b>Politecnico di Torino</b>. I build <b>mobile</b> apps, <b>web</b> apps and <b>backend</b> services.",
+    "aboutP2": "Tests, continuous integration, dry-run by default, persistent state. The same principles across the projects above.",
+    "aboutP3": "Based in <b>France</b>, open to <b>international</b> roles.",
+    "pathLink": "Full background",
+    "contactAvailability": "Available for a role.",
     "allProjects": "All projects"
   },
   "AboutPage": {
     "title": "About",
     "description": "Professional background and skills.",
-    "intro": "Software engineer with a double degree: an engineering degree from École Supérieure d'Ingénieurs Léonard de Vinci (Paris) and a Master of Science from Politecnico di Torino (Turin). Experience spans mobile, web, and backend, with a focus on clean architecture and testable code.",
+    "introP1": "Software engineer with a double degree, an engineering degree from École Supérieure d'Ingénieurs Léonard de Vinci (Paris) and a Master of Science from Politecnico di Torino (Turin).",
+    "introP2": "Experience spans mobile, web, and backend, with a focus on clean architecture and testable code.",
     "experience": {
       "title": "Experience"
     },
     "education": {
-      "title": "Education",
-      "coursework": "Coursework"
+      "title": "Education"
     },
     "skills": {
       "title": "Skills"
-    },
-    "languages": {
-      "title": "Languages",
-      "items": "French (native), English (C1), Italian (A2)"
-    },
-    "interests": {
-      "title": "Interests"
     }
+  },
+  "LegalPage": {
+    "title": "Legal notice",
+    "description": "Publisher, hosting, personal data and intellectual property.",
+    "editorTitle": "Publisher",
+    "editor": "Yann Villellas, private individual.",
+    "contact": "Contact:",
+    "hostingTitle": "Hosting",
+    "hosting": "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, United States (Vercel server, cdg1 region).",
+    "propertyTitle": "Intellectual property",
+    "property": "Texts, screenshots and project code belong to their author. Trademarks mentioned (Ligue 1, Garmin, Polar, etc.) belong to their respective owners.",
+    "privacyTitle": "Personal data",
+    "privacy": "No analytics cookies, no forms, no accounts. Only Vercel server logs are retained for security and diagnostics, based on legitimate interest. No data is sold. To exercise your access or deletion rights, write to hi@yann.app. As hosting is located outside the European Union, transfers rely on Vercel's standard contractual clauses."
   },
   "ProjectsPage": {
     "title": "Projects",
     "description": "A selection of engineering projects across mobile, web, backend, and research.",
     "source": "Source",
     "live": "Live",
-    "back": "Back"
+    "replay": "Replay",
+    "inProgress": "in progress"
   },
   "ContactPage": {
     "title": "Contact",
     "description": "How to reach me.",
-    "email": "Email",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "chatComingSoon": "Chat with me, coming soon",
-    "chatDescription": "An AI assistant that answers questions about my background and experience, coming to this page in the future."
+    "soonBadge": "soon",
+    "soonTitle": "Conversational assistant",
+    "soonDescription": "It will answer questions about my background and experience."
   },
   "Footer": {
-    "copyright": "© 2026 Yann Villellas. All rights reserved.",
+    "copyright": "© 2026 Yann Villellas",
+    "legalAndPrivacy": "Legal notice and privacy",
     "themeLight": "Light",
     "themeDark": "Dark",
-    "themeSystem": "System"
+    "themeSystem": "System",
+    "themeAuto": "auto",
+    "language": "Language"
+  },
+  "NotFound": {
+    "eyebrow": "Error 404",
+    "title": "This page does not exist.",
+    "description": "The link may be broken, or the page has moved.",
+    "back": "Back to the home page"
   }
 }
