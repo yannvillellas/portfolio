@@ -51,7 +51,17 @@ export async function createPhoneScene(
       panel.lookAt(0, 0, 0);
       room.add(panel);
     }
-    return pmrem.fromScene(room, 0.02).texture;
+    const target = pmrem.fromScene(room, 0.02);
+
+    room.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) return;
+      object.geometry.dispose();
+      if (object.material instanceof THREE.MeshBasicMaterial) {
+        object.material.dispose();
+      }
+    });
+
+    return target.texture;
   };
 
   const envDay = buildRoom(9);
@@ -60,7 +70,18 @@ export async function createPhoneScene(
   scene.environment = envDay;
   scene.environmentIntensity = light.day.environment;
 
-  const model = await createPhoneModel(urls);
+  let model;
+
+  try {
+    model = await createPhoneModel(urls);
+  } catch (error) {
+    envDay.dispose();
+    envNight.dispose();
+    pmrem.dispose();
+    renderer.dispose();
+    throw error;
+  }
+
   scene.add(model.group);
 
   const key = new THREE.DirectionalLight(0xffffff, light.day.key);
