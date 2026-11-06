@@ -1,6 +1,6 @@
 # Agent instructions
 
-`yann.app`, a personal portfolio. Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, next-intl. Every page is prerendered; there is no server runtime.
+`yann.app`, a personal portfolio. Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, next-intl. Every page is prerendered; a small proxy resolves the locale.
 
 ## Commands
 
@@ -18,10 +18,10 @@ A change is done when `lint`, `tsc` and `build` all pass. There is no test suite
 | Path                           | Holds                                                              |
 | ------------------------------ | ------------------------------------------------------------------ |
 | `src/app/[locale]/`            | every route, one segment per page                                  |
-| `src/components/`              | components, grouped by area (home, project, about, layout)         |
+| `src/components/`              | components, grouped by area (home, project, projects, about, three, ui, layout) |
 | `src/data/`                    | projects, experience, education, skills — both languages per entry |
 | `messages/`                    | interface strings, one namespace per page                          |
-| `public/images/projects/`      | screenshots, 540 px WebP                                           |
+| `public/images/projects/`      | project screenshots, WebP where weight mattered                    |
 | `src/app/[locale]/globals.css` | `@theme` tokens: colours and radii                                 |
 
 ## Internationalisation
@@ -43,5 +43,5 @@ A change is done when `lint`, `tsc` and `build` all pass. There is no test suite
 
 - Commit secrets, `.env*` files or credentials.
 - Edit `messages/fr.json` without its English counterpart.
-- Add a dependency without asking: `sharp` is present because Next uses it for image optimisation, `three` because of the 3D phone.
+- Add a dependency without asking. `sharp` is imported by `src/lib/og.ts` to transcode WebP screenshots for the share cards; `three` drives the 3D phone.
 - Leave a WebGL resource alive on unmount: dispose textures, materials and render targets, and keep one renderer per mount.
