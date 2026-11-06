@@ -40,6 +40,7 @@ export default async function LocaleLayout({
 }) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const skipLabel = (await getTranslations("Navigation"))("skip");
 
   return (
     <html lang={locale} data-theme="light" suppressHydrationWarning>
@@ -58,8 +59,16 @@ export default async function LocaleLayout({
       </head>
       <body className="relative flex min-h-svh flex-col">
         <NextIntlClientProvider messages={messages}>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-panel focus:px-4 focus:py-2 focus:text-sm focus:text-ink focus:ring-1 focus:ring-line"
+          >
+            {skipLabel}
+          </a>
           <Navigation />
-          <main className="flex-1">{children}</main>
+          <main id="main" tabIndex={-1} className="flex-1">
+            {children}
+          </main>
           <Footer />
         </NextIntlClientProvider>
       </body>

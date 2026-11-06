@@ -76,7 +76,7 @@ export default function ThemeToggle({ labels }: ThemeToggleProps) {
         className={`h-8 cursor-pointer rounded-lg px-2 text-xs text-mut transition-colors hover:text-ink ${
           isManual ? "" : "invisible"
         }`}
-        aria-label={labels.system}
+        aria-label={`${labels.auto} (${labels.system})`}
         title={labels.system}
       >
         {labels.auto}
@@ -87,6 +87,7 @@ export default function ThemeToggle({ labels }: ThemeToggleProps) {
           onClick={() => toggle("light")}
           className={buttonClass("light")}
           aria-label={labels.light}
+          aria-pressed={resolved === "light"}
         >
           <Sun size={16} aria-hidden="true" />
         </button>
@@ -95,6 +96,7 @@ export default function ThemeToggle({ labels }: ThemeToggleProps) {
           onClick={() => toggle("dark")}
           className={buttonClass("dark")}
           aria-label={labels.dark}
+          aria-pressed={resolved === "dark"}
         >
           <Moon size={16} aria-hidden="true" />
         </button>

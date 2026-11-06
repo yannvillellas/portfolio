@@ -6,7 +6,8 @@
     "contact": "Contact",
     "back": "Back",
     "primary": "Main navigation",
-    "mobile": "Mobile navigation"
+    "mobile": "Mobile navigation",
+    "skip": "Skip to content"
   },
   "HomePage": {
     "eyebrow": "Software engineer",
