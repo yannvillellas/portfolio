@@ -4,7 +4,7 @@ import { createPhoneModel } from "./phone-model";
 
 export interface PhoneSceneHandle {
   setActive: (index: number) => void;
-  update: (progress: number, mobile: boolean, reduced?: boolean) => void;
+  update: (progress: number, reduced?: boolean) => void;
   applyTheme: () => void;
   resize: () => void;
   dispose: () => void;
@@ -124,7 +124,7 @@ export async function createPhoneScene(
   };
   setActive(0);
 
-  const update = (progress: number, mobile: boolean, reduced = false) => {
+  const update = (progress: number, reduced = false) => {
     const elapsed = (performance.now() - start) / 1000;
     const range = motion.desktopRotation;
     const breathing = motion.breathing;

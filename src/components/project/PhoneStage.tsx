@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { phoneAspectRatio } from "@/lib/media";
 import { useEffect, useState } from "react";
 import type { RefObject } from "react";
 import PhoneFallback from "@/components/project/PhoneFallback";
@@ -11,7 +12,7 @@ const PhoneScene = dynamic(() => import("@/components/three/PhoneScene"), {
     <div
       aria-hidden="true"
       className="mx-auto h-full"
-      style={{ aspectRatio: "1482 / 3209" }}
+      style={{ aspectRatio: phoneAspectRatio }}
     />
   ),
 });
@@ -55,7 +56,7 @@ export default function PhoneStage({
       <div
         aria-hidden="true"
         className="mx-auto h-full"
-        style={{ aspectRatio: "1482 / 3209" }}
+        style={{ aspectRatio: phoneAspectRatio }}
       />
     );
   }

@@ -6,7 +6,6 @@ export function useScrollProgress(count: number) {
   const ref = useRef<HTMLDivElement>(null);
   const progress = useRef(0);
   const [active, setActive] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ export function useScrollProgress(count: number) {
       const span = element.offsetHeight - viewport;
       const value = span > 0 ? Math.max(0, Math.min(1, -rect.top / span)) : 0;
       progress.current = value;
-      if (value > 0) setScrolled(true);
       setFinished(value >= 0.995);
       const index = Math.min(count - 1, Math.floor(value * count));
       setActive(index);
@@ -33,5 +31,5 @@ export function useScrollProgress(count: number) {
     };
   }, [count]);
 
-  return { ref, progress, active, scrolled, finished };
+  return { ref, progress, active, finished };
 }

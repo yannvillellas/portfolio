@@ -29,7 +29,7 @@ export default function ChapterSequence({
   demo,
   label,
 }: ChapterSequenceProps) {
-  const { ref, progress, active, scrolled, finished } = useScrollProgress(
+  const { ref, progress, active, finished } = useScrollProgress(
     chapters.length,
   );
   const view = chapters[active].view ?? active;
