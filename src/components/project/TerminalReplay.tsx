@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { RotateCcw } from "lucide-react";
+import { Pause, Play, RotateCcw } from "lucide-react";
 import { useTranslations } from "next-intl";
 import TerminalLineText from "@/components/project/TerminalLineText";
 
@@ -22,8 +22,28 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
   const total = lines.at(-1)?.t ?? 0;
   const [elapsed, setElapsed] = useState(0);
   const [run, setRun] = useState(0);
+  const [paused, setPaused] = useState(false);
   const frame = useRef<number | null>(null);
   const shown = useRef(-1);
+  const pausedRef = useRef(false);
+  const elapsedMs = useRef(0);
+
+  const finished = elapsed >= total;
+
+  const togglePause = () => {
+    pausedRef.current = !pausedRef.current;
+    setPaused(pausedRef.current);
+  };
+
+  const replay = () => {
+    const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    pausedRef.current = false;
+    setPaused(false);
+    elapsedMs.current = 0;
+    setElapsed(calm ? total : 0);
+    setRun((value) => value + 1);
+  };
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -32,12 +52,17 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
       return;
     }
 
-    let start: number | null = null;
+    let last = performance.now();
     shown.current = -1;
+    elapsedMs.current = 0;
 
     const tick = (now: number) => {
-      if (start === null) start = now;
-      const value = ((now - start) / 1000) * PLAYBACK_RATE;
+      const delta = now - last;
+      last = now;
+
+      if (!pausedRef.current) elapsedMs.current += delta * PLAYBACK_RATE;
+
+      const value = elapsedMs.current / 1000;
       if (value >= total) {
         setElapsed(total);
         frame.current = null;
@@ -87,18 +112,23 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
       <div className="flex items-center justify-end border-t border-line px-4 py-1.5">
         <button
           type="button"
-          onClick={() => {
-            const calm = window.matchMedia(
-              "(prefers-reduced-motion: reduce)",
-            ).matches;
-
-            setElapsed(calm ? total : 0);
-            setRun((value) => value + 1);
-          }}
-          className="inline-flex h-11 cursor-pointer items-center gap-2 text-sm text-mut-on-panel transition-colors hover:text-ink"
+          onClick={finished ? replay : togglePause}
+          aria-label={
+            finished
+              ? t("controls.replay")
+              : paused
+                ? t("controls.resume")
+                : t("controls.pause")
+          }
+          className="inline-flex h-11 w-11 cursor-pointer items-center justify-center text-mut-on-panel transition-colors hover:text-ink"
         >
-          <RotateCcw size={14} aria-hidden="true" />
-          {t("replay")}
+          {finished ? (
+            <RotateCcw size={14} aria-hidden="true" />
+          ) : paused ? (
+            <Play size={14} aria-hidden="true" />
+          ) : (
+            <Pause size={14} aria-hidden="true" />
+          )}
         </button>
       </div>
 

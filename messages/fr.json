@@ -57,7 +57,11 @@
     "description": "Une sélection de projets d'ingénierie en mobile, web, backend et recherche.",
     "source": "Code source",
     "live": "En ligne",
-    "replay": "Rejouer",
+    "controls": {
+      "replay": "Rejouer",
+      "pause": "Mettre en pause",
+      "resume": "Reprendre"
+    },
     "inProgress": "en cours",
     "nextChapter": "Chapitre suivant : {title}",
     "chapters": "Chapitres",

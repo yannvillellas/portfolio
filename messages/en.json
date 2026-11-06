@@ -57,7 +57,11 @@
     "description": "A selection of engineering projects across mobile, web, backend, and research.",
     "source": "Source",
     "live": "Live",
-    "replay": "Replay",
+    "controls": {
+      "replay": "Replay",
+      "pause": "Pause",
+      "resume": "Resume"
+    },
     "inProgress": "in progress",
     "nextChapter": "Next chapter: {title}",
     "chapters": "Chapters",
