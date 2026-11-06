@@ -11,7 +11,11 @@ export default function BackLink({ label }: BackLinkProps) {
   const router = useRouter();
 
   const goBack = () => {
-    if (window.history.length > 1) {
+    const cameFromThisSite =
+      document.referrer !== "" &&
+      document.referrer.startsWith(window.location.origin);
+
+    if (cameFromThisSite && window.history.length > 1) {
       router.back();
       return;
     }
