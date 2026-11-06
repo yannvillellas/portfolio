@@ -654,7 +654,7 @@ const data: Record<Locale, Project[]> = {
       repoUrl: "https://github.com/yannvillellas/open-endurance-coach",
       detail: [
         "Open Endurance Coach lit l'entra\u00eenement d'un athl\u00e8te depuis Intervals.icu et confronte le travail r\u00e9ellement accompli \u00e0 la p\u00e9riodisation de Joe Friel, \u00e0 l'analyse de puissance de Coggan et \u00e0 l'\u00e9tat de fatigue du moment. Ce qui en sort est une modification de calendrier propos\u00e9e avec ses preuves et ses questions ouvertes, et rien n'est \u00e9crit tant que l'athl\u00e8te n'a pas r\u00e9pondu oui.",
-        "Le mod\u00e8le qui parle derri\u00e8re est interchangeable. Aucune cl\u00e9 de fournisseur LLM n'est \u00e0 d\u00e9tenir avant le premier lancement, et le pipeline valide chaque r\u00e9ponse contre un sch\u00e9ma JSON strict avant toute tentative d'\u00e9criture, avec r\u00e9essai puis rejet des sorties invalides. Les modifications sont r\u00e9solues par nom et par date, relues apr\u00e8s chaque \u00e9criture et ignor\u00e9es quand rien ne change. Une garde maintient chaque mutation dans sa famille, donc une s\u00e9ance ne se change jamais en course et une course se cr\u00e9e sans toucher au plan. La suite compte plus de 1 000 tests derri\u00e8re un seuil de couverture de 95\u00a0%, ce qui tient la garantie d'une version \u00e0 l'autre. Un pilote personnel de plus de 30 s\u00e9ances n'a produit aucune \u00e9criture non approuv\u00e9e. Le m\u00eame moteur tourne en CLI one-shot avec un dry-run pour l'automatisation.",
+        "Le mod\u00e8le qui parle derri\u00e8re est interchangeable. Aucune cl\u00e9 de fournisseur LLM n'est \u00e0 d\u00e9tenir avant le premier lancement, et le pipeline valide chaque r\u00e9ponse contre un sch\u00e9ma JSON strict avant toute tentative d'\u00e9criture, avec r\u00e9essai puis rejet des sorties invalides. Les modifications sont r\u00e9solues par nom et par date, relues apr\u00e8s chaque \u00e9criture et ignor\u00e9es quand rien ne change. Une garde maintient chaque mutation dans sa famille, donc une s\u00e9ance ne se change jamais en course et une course se cr\u00e9e sans toucher au plan. La suite compte plus de 1 000 tests derri\u00e8re un seuil de couverture de 95\u00a0%, ce qui tient la garantie d'une version \u00e0 l'autre. Un pilote personnel de plus de 30 s\u00e9ances n'a produit aucune \u00e9criture non approuv\u00e9e. Le m\u00eame moteur tourne en CLI one-shot avec un dry-run pour l'automatisation.",
       ],
       screenshots: [
         {
@@ -827,7 +827,7 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "Toutes les excursions sur une carte.",
-          body: "40 000 \u00e9tudiants \u00e0 distance explorent les excursions de leur universit\u00e9 depuis une carte, sans d\u00e9placement ni document papier.",
+          body: "40 000 \u00e9tudiants \u00e0 distance explorent les excursions de leur universit\u00e9 depuis une carte, sans d\u00e9placement ni document papier.",
         },
         {
           title: "Une excursion, ses lieux, ses m\u00e9dias.",
