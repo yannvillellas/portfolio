@@ -23,6 +23,7 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
   const [elapsed, setElapsed] = useState(0);
   const [run, setRun] = useState(0);
   const frame = useRef<number | null>(null);
+  const shown = useRef(-1);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -32,6 +33,7 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
     }
 
     let start: number | null = null;
+    shown.current = -1;
 
     const tick = (now: number) => {
       if (start === null) start = now;
@@ -41,7 +43,13 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
         frame.current = null;
         return;
       }
-      setElapsed(value);
+      const count = lines.filter((line) => line.t <= value).length;
+
+      if (count !== shown.current) {
+        shown.current = count;
+        setElapsed(value);
+      }
+
       frame.current = requestAnimationFrame(tick);
     };
 
@@ -50,7 +58,7 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
     return () => {
       if (frame.current !== null) cancelAnimationFrame(frame.current);
     };
-  }, [run, total]);
+  }, [run, total, lines]);
 
   return (
     <div className="flex h-full w-full flex-col overflow-hidden rounded-lg border border-line bg-panel">
@@ -80,7 +88,11 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
         <button
           type="button"
           onClick={() => {
-            setElapsed(0);
+            const calm = window.matchMedia(
+              "(prefers-reduced-motion: reduce)",
+            ).matches;
+
+            setElapsed(calm ? total : 0);
             setRun((value) => value + 1);
           }}
           className="inline-flex h-11 cursor-pointer items-center gap-2 text-sm text-mut-on-panel transition-colors hover:text-ink"
