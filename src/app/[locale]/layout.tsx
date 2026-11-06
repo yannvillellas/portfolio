@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, getMessages, getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { buildOpenGraph } from "@/i18n/metadata";
 import "./globals.css";
+
+const switzer = localFont({
+  src: [
+    { path: "../fonts/switzer-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/switzer-600.woff2", weight: "600", style: "normal" },
+  ],
+  display: "swap",
+  adjustFontFallback: "Arial",
+  variable: "--font-switzer",
+});
 
 import Footer from "@/components/layout/Footer";
 import Navigation from "@/components/layout/Navigation";
@@ -43,18 +54,13 @@ export default async function LocaleLayout({
   const skipLabel = (await getTranslations("Navigation"))("skip");
 
   return (
-    <html lang={locale} data-theme="light" suppressHydrationWarning>
+    <html
+      lang={locale}
+      data-theme="light"
+      suppressHydrationWarning
+      className={switzer.variable}
+    >
       <head>
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link
-          rel="preconnect"
-          href="https://cdn.fontshare.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap"
-        />
         <InlineScript html={themeInitScript} />
       </head>
       <body className="relative flex min-h-svh flex-col">

@@ -48,7 +48,7 @@
 body {
   background: var(--color-paper);
   color: var(--color-ink);
-  font-family: "Switzer", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-switzer), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
