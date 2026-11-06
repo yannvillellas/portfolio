@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import sharp from "sharp";
 import { join } from "node:path";
 
 export const OG_SIZE = { width: 1200, height: 630 };
@@ -75,10 +76,17 @@ const mimeTypes: Record<string, string> = {
   png: "image/png",
 };
 
-export function screenshotDataUrl(src: string) {
+export async function screenshotDataUrl(src: string): Promise<string | null> {
   const extension = src.split(".").pop()?.toLowerCase() ?? "";
-  const mime = mimeTypes[extension];
-  if (!mime) return null;
-  const base64 = readFileSync(join(process.cwd(), "public", src), "base64");
-  return `data:${mime};base64,${base64}`;
+  const file = join(process.cwd(), "public", src);
+  try {
+    const mime = mimeTypes[extension];
+    if (mime) {
+      return `data:${mime};base64,${readFileSync(file, "base64")}`;
+    }
+    const jpeg = await sharp(file).jpeg({ quality: 84 }).toBuffer();
+    return `data:image/jpeg;base64,${jpeg.toString("base64")}`;
+  } catch {
+    return null;
+  }
 }

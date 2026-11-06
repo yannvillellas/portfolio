@@ -7,7 +7,7 @@ export async function projectOgImage(project: Project | undefined) {
   const title = project?.title ?? "Project";
   const tags = project?.tags ?? [];
   const screenshot = project?.screenshots?.[0];
-  const imageSrc = screenshot ? screenshotDataUrl(screenshot.src) : null;
+  const imageSrc = screenshot ? await screenshotDataUrl(screenshot.src) : null;
   const font = await loadSwitzer();
 
   return new ImageResponse(
