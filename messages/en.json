@@ -58,7 +58,9 @@
     "source": "Source",
     "live": "Live",
     "replay": "Replay",
-    "inProgress": "in progress"
+    "inProgress": "in progress",
+    "nextChapter": "Next chapter: {title}",
+    "chapters": "Chapters"
   },
   "ContactPage": {
     "title": "Contact",

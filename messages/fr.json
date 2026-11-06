@@ -58,7 +58,9 @@
     "source": "Code source",
     "live": "En ligne",
     "replay": "Rejouer",
-    "inProgress": "en cours"
+    "inProgress": "en cours",
+    "nextChapter": "Chapitre suivant : {title}",
+    "chapters": "Chapitres"
   },
   "ContactPage": {
     "title": "Contact",

@@ -3,6 +3,7 @@
 import Container from "@/components/layout/Container";
 import AppWindow from "@/components/project/AppWindow";
 import type { AppWindowView } from "@/components/project/AppWindow";
+import { useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
 import ChapterBars from "@/components/project/ChapterBars";
 import ChapterCopy from "@/components/project/ChapterCopy";
@@ -49,6 +50,8 @@ export default function ChapterSequence({
       behavior: "auto",
     });
   };
+
+  const t = useTranslations("ProjectsPage");
 
   const stepForward = () => {
     const element = ref.current;
@@ -113,7 +116,9 @@ export default function ChapterSequence({
             <button
               type="button"
               onClick={stepForward}
-              aria-label={chapters[active + 1]?.title ?? label}
+              aria-label={t("nextChapter", {
+                title: chapters[active + 1]?.title ?? label,
+              })}
               className="fixed bottom-24 left-1/2 z-10 -translate-x-1/2 cursor-pointer rounded-full p-2 text-accent sm:bottom-8"
             >
               <ChevronDown className="h-5 w-5 animate-bounce motion-reduce:animate-none" />

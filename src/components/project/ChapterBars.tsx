@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { ProjectChapter } from "@/data/projects";
 
 interface ChapterBarsProps {
@@ -13,14 +14,16 @@ export default function ChapterBars({
   active,
   onSelect,
 }: ChapterBarsProps) {
+  const t = useTranslations("ProjectsPage");
+
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2" role="group" aria-label={t("chapters")}>
       {chapters.map((chapter, index) => (
         <button
           key={chapter.title}
           type="button"
           onClick={() => onSelect(index)}
-          aria-label={chapter.title}
+          aria-label={`${index + 1}. ${chapter.title}`}
           aria-current={index === active ? "step" : undefined}
           className="group flex h-11 w-8 cursor-pointer items-center justify-center"
         >
