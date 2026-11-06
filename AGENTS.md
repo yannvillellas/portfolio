@@ -45,19 +45,19 @@ if (!hasLocale(routing.locales, locale)) {
 **Important differences from Tailwind v3:**
 
 - Configuration is in `src/app/[locale]/globals.css` using `@theme` directive
-- Custom fonts defined via CSS variables: `--font-sans` (body), `--font-heading` (headings)
-- Dark mode uses native CSS `@media (prefers-color-scheme: dark)` in globals.css
+- One typeface, Switzer, loaded from Fontshare in `layout.tsx` and applied in `globals.css`
+- Theme is a `data-theme` attribute on `<html>`, set before paint and toggled in the footer. There is no `prefers-color-scheme` media query
 - PostCSS configured with `@tailwindcss/postcss` plugin only
 
 **Font loading pattern:**
 
 ```tsx
-// In layout.tsx: Import fonts and set as CSS variables
-import { Inter, Montserrat } from "next/font/google";
-const inter = Inter({ variable: "--font-sans", ... });
-const montserrat = Montserrat({ variable: "--font-heading", ... });
-<body className={`${inter.variable} ${montserrat.variable}`}>
+// In layout.tsx: preconnect and one stylesheet link
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600" rel="stylesheet" />
 ```
+
+The family is declared once, in `globals.css`, on `body`. No `next/font`.
 
 ## Path Aliases
 

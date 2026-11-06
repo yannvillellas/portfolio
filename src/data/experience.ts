@@ -41,7 +41,7 @@ const data: Record<Locale, ExperienceEntry[]> = {
       role: "Ing\u00e9nieur Logiciel (M\u00e9moire)",
       company: "Politecnico di Torino",
       location: "Turin, Italie",
-      period: "Octobre 2025 \u2013 Mars 2026",
+      period: "Octobre 2025\u2013Mars 2026",
       description:
         "Conception d\u2019Endurance Lab pour unifier des donn\u00e9es d\u2019entra\u00eenement fragment\u00e9es entre fournisseurs de wearables, au b\u00e9n\u00e9fice des athl\u00e8tes et des chercheurs en sciences du sport, en supprimant l\u2019enfermement propri\u00e9taire et en fournissant une couche de collecte standardis\u00e9e. Livraison d\u2019un client Flutter ind\u00e9pendant des appareils, fond\u00e9 sur une architecture MVVM, avec six indicateurs de sant\u00e9 et de performance, des cartes GPS et deux int\u00e9grations OAuth 2.0. Automatisation de la publication Android avec GitHub Actions et Fastlane, couvrant les tests, le build, la signature, la GitHub Release et la b\u00eata Play, sans aucune \u00e9tape manuelle de signature ou d\u2019envoi. Validation de la plateforme comme socle de recherche par une b\u00eata ferm\u00e9e de 3,5 mois avec huit athl\u00e8tes : 1\u00a0001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d\u2019\u00e9chantillons physiologiques collect\u00e9s et normalis\u00e9s.",
     },
@@ -49,7 +49,7 @@ const data: Record<Locale, ExperienceEntry[]> = {
       role: "Stagiaire Ing\u00e9nieur Logiciel",
       company: "Athabasca University",
       location: "Edmonton, Canada",
-      period: "Avril 2024 \u2013 Juillet 2024",
+      period: "Avril 2024\u2013Juillet 2024",
       description:
         "Cr\u00e9ation en \u00e9quipe de mFieldTrip \u00e0 l\u2019Athabasca University pour 40\u00a0000 \u00e9tudiants \u00e0 distance, qui devaient r\u00e9aliser des excursions SIG autonomes sans se d\u00e9placer sur le terrain. D\u00e9veloppement d\u2019une application Flutter multiplateforme (Android, iOS, Web) avec flutter_map et les exports QGIS2Web, ainsi qu\u2019un tri g\u00e9ospatial des excursions par proximit\u00e9. Mise en place de Firebase Authentication, Firestore et App Check autour de trois r\u00f4les utilisateurs (Amateur, Student et Professor), avec un r\u00f4le administrateur distinct pour la mod\u00e9ration des contenus. Livraison de l\u2019application \u00e0 l\u2019Athabasca University avec l\u2019import d\u2019excursions (ZIP QGIS2Web, POI CSV, images, cr\u00e9dits PDF) et sept filtres, offrant au programme de g\u00e9ographie un flux complet pour les travaux de terrain \u00e0 distance.",
     },
@@ -58,13 +58,13 @@ const data: Record<Locale, ExperienceEntry[]> = {
       company:
         "Direction de l\u2019Information L\u00e9gale et Administrative (DILA)",
       location: "Paris, France",
-      period: "Juin 2022 \u2013 Juillet 2022",
+      period: "Juin 2022\u2013Juillet 2022",
       description:
         "Remplacement d\u2019un tri des d\u00e9pendances manuel, fond\u00e9 sur Excel, par un scan automatis\u00e9 dans le pipeline Java/Maven de la DILA. Int\u00e9gration d\u2019OWASP Dependency-Check pour couvrir les d\u00e9pendances directes et transitives, avec suppression des v\u00e9rifications manuelles et un gain de 15 \u00e0 30 minutes par jour. R\u00e9glage du scanner avec huit r\u00e8gles XML de suppression ayant \u00e9limin\u00e9 huit faux positifs r\u00e9currents, pour recentrer l\u2019\u00e9quipe sur les vraies vuln\u00e9rabilit\u00e9s. Configuration de trois profils SEKOIA.IO CTI propres \u00e0 la DILA, avec filtrage sectoriel des rapports de menace et collecte de plus de 150 IOC pour une surveillance cibl\u00e9e, transformant une revue manuelle en veille exploitable.",
     },
   ],
 };
 
-export function getExperiences(locale: Locale): ExperienceEntry[] {
-  return data[locale];
+export function getExperiences(locale: string): ExperienceEntry[] {
+  return data[locale === "fr" ? "fr" : "en"];
 }

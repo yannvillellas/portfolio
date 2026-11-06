@@ -41,7 +41,7 @@ const data: Record<Locale, EducationEntry[]> = {
       school: "Politecnico di Torino",
       degree: "Master of Science, Computer Software Engineering",
       location: "Turin, Italie",
-      period: "2024 \u2013 2026",
+      period: "2024\u20132026",
       coursework:
         "Programmation de syst\u00e8mes distribu\u00e9s, Cloud Computing, G\u00e9nie logiciel avanc\u00e9, S\u00e9curit\u00e9 de l\u2019information et des syst\u00e8mes embarqu\u00e9s, Algorithmes d\u2019optimisation, D\u00e9veloppement d\u2019applications web et mobiles",
     },
@@ -51,7 +51,7 @@ const data: Record<Locale, EducationEntry[]> = {
       degree:
         "Dipl\u00f4me d\u2019ing\u00e9nieur, Cloud Computing & Cybers\u00e9curit\u00e9",
       location: "Paris, France",
-      period: "2020 \u2013 2025",
+      period: "2020\u20132025",
       coursework:
         "Cloud Computing, DevOps & DevSecOps, Tests d\u2019intrusion, S\u00e9curit\u00e9 r\u00e9seau, Cryptographie appliqu\u00e9e, Machine Learning et IA, D\u00e9veloppement web et mobile",
     },
@@ -59,13 +59,13 @@ const data: Record<Locale, EducationEntry[]> = {
       school: "Riga Technical University",
       degree: "Semestre \u00e0 l\u2019\u00e9tranger",
       location: "Riga, Lettonie",
-      period: "2022 \u2013 2023",
+      period: "2022\u20132023",
       coursework:
         "Conception orient\u00e9e objet (C++), Architecture des syst\u00e8mes informatiques, R\u00e9seaux informatiques, Structures de donn\u00e9es, Analyse num\u00e9rique",
     },
   ],
 };
 
-export function getEducation(locale: Locale): EducationEntry[] {
-  return data[locale];
+export function getEducation(locale: string): EducationEntry[] {
+  return data[locale === "fr" ? "fr" : "en"];
 }
