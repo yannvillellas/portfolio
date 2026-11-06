@@ -89,6 +89,7 @@ export async function createPhoneModel(urls: string[]): Promise<PhoneModel> {
       bodyGeometry.dispose();
       screenGeometry.dispose();
       frameMaterial.dispose();
+      screens.forEach((screen) => screen.material.dispose());
       textures.forEach((texture) => texture.dispose());
     },
   };

@@ -125,8 +125,11 @@ export async function createPhoneScene(
   };
 
   const dispose = () => {
-    renderer.dispose();
     model.dispose();
+    envDay.dispose();
+    envNight.dispose();
+    pmrem.dispose();
+    renderer.dispose();
   };
 
   return { setActive, update, applyTheme, resize, dispose };
