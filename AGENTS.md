@@ -1,131 +1,47 @@
-# Copilot Instructions - Portfolio Project
+# Agent instructions
 
-## Architecture Overview
+`yann.app`, a personal portfolio. Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, next-intl. Every page is prerendered; a small proxy resolves the locale.
 
-This is a **Next.js 16 App Router** portfolio site with **internationalization (i18n)** using `next-intl`. The project uses:
+## Commands
 
-- **React 19** with Server Components by default
-- **Tailwind CSS v4** (inline theme configuration in CSS)
-- **TypeScript** with strict mode
-- **Turbopack** for fast development builds
-
-### Key Architectural Pattern: Locale-First Routing
-
-All pages are nested under `src/app/[locale]/` dynamic segment. Locale routing proxy (`src/proxy.ts`) handles locale detection/redirection for routes matching `/((?!api|trpc|_next|_vercel|.*\\..*).*)`
-
-## Internationalization (i18n) Setup
-
-**Configuration files:**
-
-- `src/i18n/routing.ts` - defines supported locales (`en`, `fr`) and default locale
-- `src/proxy.ts` - locale routing proxy (was `middleware.ts` before Next.js 16)
-- `src/i18n/request.ts` - configures how messages are loaded per request
-- `src/i18n/navigation.ts` - exports locale-aware navigation wrappers (`Link`, `redirect`, `useRouter`, etc.)
-- `messages/[locale].json` - translation files organized by page namespaces (e.g., `HomePage`, `AboutPage`)
-
-**Critical patterns:**
-
-```tsx
-// ✅ Always use next-intl hooks for translations
-import { useTranslations } from "next-intl";
-const t = useTranslations("HomePage"); // namespace from messages JSON
-
-// ✅ Always use locale-aware navigation from @/i18n/navigation
-import { Link } from "@/i18n/navigation"; // NOT from "next/link"
-<Link href="/about">{t("about")}</Link>;
-
-// ✅ Root layout validates locale before rendering
-if (!hasLocale(routing.locales, locale)) {
-  notFound();
-}
+```bash
+npm run dev      # Turbopack, http://localhost:3000
+npm run lint     # ESLint
+npx tsc --noEmit # type check
+npm run build    # the real gate: prerenders every route
 ```
 
-## Styling with Tailwind CSS v4
+A change is done when `lint`, `tsc` and `build` all pass. There is no test suite; do not add one unasked.
 
-**Important differences from Tailwind v3:**
+## Layout
 
-- Configuration is in `src/app/[locale]/globals.css` using `@theme` directive
-- Custom fonts defined via CSS variables: `--font-sans` (body), `--font-heading` (headings)
-- Dark mode uses native CSS `@media (prefers-color-scheme: dark)` in globals.css
-- PostCSS configured with `@tailwindcss/postcss` plugin only
+| Path                           | Holds                                                              |
+| ------------------------------ | ------------------------------------------------------------------ |
+| `src/app/[locale]/`            | every route, one segment per page                                  |
+| `src/components/`              | components, grouped by area (home, project, projects, about, three, ui, layout) |
+| `src/data/`                    | projects, experience, education, skills — both languages per entry |
+| `messages/`                    | interface strings, one namespace per page                          |
+| `public/images/projects/`      | project screenshots, WebP where weight mattered                    |
+| `src/app/[locale]/globals.css` | `@theme` tokens: colours and radii                                 |
 
-**Font loading pattern:**
+## Internationalisation
 
-```tsx
-// In layout.tsx: Import fonts and set as CSS variables
-import { Inter, Montserrat } from "next/font/google";
-const inter = Inter({ variable: "--font-sans", ... });
-const montserrat = Montserrat({ variable: "--font-heading", ... });
-<body className={`${inter.variable} ${montserrat.variable}`}>
-```
+- French and English are parallel: same pages, same figures, same number of chapters. Never edit one language alone.
+- User-facing text comes from `messages/*.json` or from `src/data/`, never hard-coded in a component.
+- Import `Link`, `redirect`, `useRouter` from `@/i18n/navigation`, never from `next/link`.
+- Locale routing lives in `src/proxy.ts`; supported locales in `src/i18n/routing.ts`.
 
-## Path Aliases
+## Conventions
 
-Use `@/*` for imports from `src/` directory:
+- Server Components by default; `"use client"` only for state, events or browser APIs.
+- Tailwind is the design system: no arbitrary value when a scale class exists (`text-sm`, not `text-[13px]`), no opacity standing in for a colour level.
+- Colour roles: `chrome` for text on a raised surface, `control` for a visible interactive element, `line` for hairlines. Contrast is measured, not eyeballed.
+- The theme is `data-theme` on `<html>`, set before paint.
+- Numbers in digits, date ranges with an en dash and no spaces (`2020–2025`).
 
-```tsx
-import { Link } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
-```
+## Do not
 
-## Development Workflow
-
-**Commands:**
-
-- `npm run dev` - Start dev server with Turbopack (recommended)
-- `npm run build` - Production build
-- `npm run lint` - ESLint validation
-- `npm start` - Production server
-
-**Adding new pages:**
-
-1. Create page under `src/app/[locale]/[route]/page.tsx`
-2. Add translations to `messages/en.json` and `messages/fr.json` with appropriate namespace
-3. Use `useTranslations("[Namespace]")` hook in component
-4. Use `Link` from `@/i18n/navigation` for internal navigation
-
-**Adding new locales:**
-
-1. Add locale to `src/i18n/routing.ts` locales array
-2. Create `messages/[new-locale].json` with all page namespaces
-3. Middleware automatically handles routing
-
-## Component Organization
-
-- `src/components/` - Shared components organized by feature (hero, home, navigation)
-- `src/app/[locale]/` - Page components
-- Server Components by default; add `"use client"` only when needed for client interactivity
-
-## Metadata and SEO
-
-**All pages and layouts must export metadata:**
-
-```tsx
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Page Title",
-  description: "Page description",
-};
-```
-
-For dynamic metadata with i18n, use `generateMetadata`:
-
-```tsx
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  return {
-    title: locale === "en" ? "Title" : "Titre",
-  };
-}
-```
-
-## Key Files Reference
-
-- `next.config.ts` - Wraps config with `createNextIntlPlugin()`
-- `src/proxy.ts` - Locale routing proxy (excludes API routes, static files)
-- `src/types/css.d.ts` - TypeScript declarations for CSS custom properties
+- Commit secrets, `.env*` files or credentials.
+- Edit `messages/fr.json` without its English counterpart.
+- Add a dependency without asking. `sharp` is imported by `src/lib/og.ts` to transcode WebP screenshots for the share cards; `three` drives the 3D phone.
+- Leave a WebGL resource alive on unmount: dispose textures, materials and render targets, and keep one renderer per mount.

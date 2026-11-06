@@ -1,15 +1,25 @@
 import type { Metadata } from "next";
-import { Home, User, Folder, Mail } from "lucide-react";
+import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, getMessages, getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { buildOpenGraph } from "@/i18n/metadata";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-import Navigation from "@/components/navigation/Navigation";
-import Footer from "@/components/Footer";
+const switzer = localFont({
+  src: [
+    { path: "../fonts/switzer-400.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/switzer-600.woff2", weight: "600", style: "normal" },
+  ],
+  display: "swap",
+  adjustFontFallback: "Arial",
+  variable: "--font-switzer",
+});
+
+import Footer from "@/components/layout/Footer";
+import Navigation from "@/components/layout/Navigation";
 import { InlineScript } from "@/components/InlineScript";
+import { themeInitScript } from "@/lib/theme";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -28,17 +38,11 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t("heroSubtitle"),
     openGraph: buildOpenGraph(
       locale,
-      `${t("eyebrow")} — ${t("title")}`,
+      `Yann Villellas — ${t("role")}`,
       t("heroSubtitle"),
     ),
   };
 }
-
-const defaultFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export default async function LocaleLayout({
   children,
@@ -46,33 +50,31 @@ export default async function LocaleLayout({
   children: React.ReactNode;
 }) {
   const locale = await getLocale();
-  const t = await getTranslations("Navigation");
   const messages = await getMessages();
-
-  const menuItems = [
-    { label: t("home"), link: "/", mobileIcon: <Home size={18} /> },
-    { label: t("about"), link: "/about", mobileIcon: <User size={18} /> },
-    {
-      label: t("projects"),
-      link: "/projects",
-      mobileIcon: <Folder size={18} />,
-    },
-    { label: t("contact"), link: "/contact", mobileIcon: <Mail size={18} /> },
-  ];
+  const skipLabel = (await getTranslations("Navigation"))("skip");
 
   return (
-    <html lang={locale} data-theme="light" suppressHydrationWarning>
+    <html
+      lang={locale}
+      data-theme="light"
+      suppressHydrationWarning
+      className={switzer.variable}
+    >
       <head>
-        <InlineScript
-          html={`(function(){try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");else if(t==="light")document.documentElement.setAttribute("data-theme","light");else if(window.matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()`}
-        />
+        <InlineScript html={themeInitScript} />
       </head>
-      <body
-        className={`${defaultFont.variable} relative flex min-h-svh flex-col`}
-      >
+      <body className="relative flex min-h-svh flex-col">
         <NextIntlClientProvider messages={messages}>
-          <Navigation items={menuItems} />
-          <main className="flex-1">{children}</main>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-panel focus:px-4 focus:py-2 focus:text-sm focus:text-ink focus:ring-1 focus:ring-line"
+          >
+            {skipLabel}
+          </a>
+          <Navigation />
+          <main id="main" tabIndex={-1} className="flex-1">
+            {children}
+          </main>
           <Footer />
         </NextIntlClientProvider>
       </body>

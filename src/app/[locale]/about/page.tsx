@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
 import { buildOpenGraph } from "@/i18n/metadata";
-import PageContainer from "@/components/PageContainer";
-import Pill from "@/components/Pill";
+import Container from "@/components/layout/Container";
+import SkillList from "@/components/about/SkillList";
+import TimelineRow from "@/components/about/TimelineRow";
 import { getExperiences } from "@/data/experience";
 import { getEducation } from "@/data/education";
 import { skillCategories } from "@/data/skills";
-import { getInterests } from "@/data/interests";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -24,96 +24,70 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AboutPage() {
   const locale = await getLocale();
   const t = await getTranslations("AboutPage");
-  const experiences = getExperiences(locale as "en" | "fr");
-  const educationEntries = getEducation(locale as "en" | "fr");
-  const interests = getInterests(locale as "en" | "fr");
+  const experiences = getExperiences(locale);
+  const educationEntries = getEducation(locale);
+  const language = locale === "fr" ? "fr" : "en";
 
   return (
-    <PageContainer>
-      <h1>{t("title")}</h1>
+    <div className="pt-14 pb-24">
+      <Container>
+        <div className="max-w-prose">
+          <h1 className="m-0 text-4xl font-semibold tracking-tight text-balance lg:text-5xl">
+            {t("title")}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-mut">
+            {t("introP1")}
+          </p>
+          <p className="mt-5 text-base leading-relaxed text-mut">
+            {t("introP2")}
+          </p>
+        </div>
 
-      <p className="text-foreground/75">{t("intro")}</p>
-
-      <section>
-        <h2>{t("experience.title")}</h2>
-
-        <div className="space-y-12">
-          {experiences.map((exp) => (
-            <div
-              key={exp.company}
-              className="border-l-2 border-foreground/10 pl-6"
-            >
-              <h3>{exp.company}</h3>
-              <p className="type-caption">
-                {exp.role} · {exp.location} · {exp.period}
-              </p>
-              <p className="mt-4 text-foreground/75">{exp.description}</p>
+        <div className="mt-16 space-y-16">
+          <section>
+            <h2 className="m-0 mb-6 text-2xl font-semibold tracking-tight lg:text-3xl">
+              {t("experience.title")}
+            </h2>
+            <div className="border-t border-line">
+              {experiences.map((experience) => (
+                <TimelineRow
+                  key={experience.company}
+                  period={experience.period}
+                  title={experience.role}
+                  subtitle={[experience.company, experience.location]
+                    .filter(Boolean)
+                    .join(" · ")}
+                  summary={experience.summary}
+                  highlights={experience.highlights}
+                />
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      <section>
-        <h2>{t("education.title")}</h2>
-
-        <div className="space-y-8">
-          {educationEntries.map((edu) => (
-            <div
-              key={edu.school}
-              className="border-l-2 border-foreground/10 pl-6"
-            >
-              <h3>{edu.school}</h3>
-              <p className="type-caption">
-                {edu.degree} · {edu.location} · {edu.period}
-              </p>
-              {edu.coursework && (
-                <p className="mt-4 text-foreground/75">
-                  {t("education.coursework")}: {edu.coursework}
-                </p>
-              )}
+          <section>
+            <h2 className="m-0 mb-6 text-2xl font-semibold tracking-tight lg:text-3xl">
+              {t("education.title")}
+            </h2>
+            <div className="border-t border-line">
+              {educationEntries.map((education) => (
+                <TimelineRow
+                  key={education.school}
+                  period={education.period}
+                  title={education.degree}
+                  subtitle={`${education.school} · ${education.location}`}
+                />
+              ))}
             </div>
-          ))}
+          </section>
+
+          <section>
+            <h2 className="m-0 mb-6 text-2xl font-semibold tracking-tight lg:text-3xl">
+              {t("skills.title")}
+            </h2>
+            <SkillList categories={skillCategories} language={language} />
+          </section>
         </div>
-      </section>
-
-      <section>
-        <h2>{t("skills.title")}</h2>
-
-        <div className="space-y-8">
-          {skillCategories.map((cat) => (
-            <SkillCategory
-              key={cat.key}
-              label={cat.label[locale as "en" | "fr"]}
-              items={cat.items}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h2>{t("languages.title")}</h2>
-        <p className="text-foreground/75">{t("languages.items")}</p>
-      </section>
-
-      <section>
-        <h2>{t("interests.title")}</h2>
-        <p className="text-foreground/75">{interests}</p>
-      </section>
-    </PageContainer>
-  );
-}
-
-function SkillCategory({ label, items }: { label: string; items: string }) {
-  const skills = items.split(", ");
-
-  return (
-    <div>
-      <h3>{label}</h3>
-      <div className="flex flex-wrap gap-2">
-        {skills.map((skill) => (
-          <Pill key={skill}>{skill}</Pill>
-        ))}
-      </div>
+      </Container>
     </div>
   );
 }

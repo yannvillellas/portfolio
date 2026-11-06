@@ -2,38 +2,32 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
 import { buildOpenGraph } from "@/i18n/metadata";
-import Background from "@/components/hero/Background";
-import PageContainer from "@/components/PageContainer";
-import Hero from "@/components/hero/Hero";
-import HomeAbout from "@/components/home/HomeAbout";
-import HomeProjects from "@/components/home/HomeProjects";
+import Hero from "@/components/home/Hero";
+import SelectedWork from "@/components/home/SelectedWork";
+import AboutBlurb from "@/components/home/AboutBlurb";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const t = await getTranslations("HomePage");
 
   return {
-    title: t("title"),
+    title: { absolute: "Yann Villellas" },
     description: t("heroSubtitle"),
     alternates: getAlternates(locale, "/"),
     openGraph: buildOpenGraph(
       locale,
-      `${t("eyebrow")} — ${t("title")}`,
+      `Yann Villellas — ${t("role")}`,
       t("heroSubtitle"),
     ),
   };
 }
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
-    <div className="relative bg-background text-foreground">
-      <Background>
-        <PageContainer vertical={false}>
-          <Hero />
-          <HomeAbout />
-          <HomeProjects />
-        </PageContainer>
-      </Background>
-    </div>
+    <>
+      <Hero />
+      <SelectedWork />
+      <AboutBlurb />
+    </>
   );
 }

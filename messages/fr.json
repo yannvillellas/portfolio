@@ -3,60 +3,93 @@
     "home": "Accueil",
     "about": "À propos",
     "projects": "Projets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "back": "Retour",
+    "primary": "Navigation principale",
+    "mobile": "Navigation mobile",
+    "skip": "Aller au contenu"
   },
   "HomePage": {
-    "eyebrow": "Yann Villellas",
-    "title": "Ingénieur Logiciel",
+    "eyebrow": "Ingénieur logiciel",
+    "role": "Ingénieur logiciel",
+    "title": "Du code en production.",
     "heroSubtitle": "Conception d'applications web, mobiles et backend.",
-    "primaryCta": "Me contacter",
-    "secondaryCta": "Voir les projets",
-    "aboutBlurb": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci et un Master of Science du Politecnico di Torino. Parcours mobile, web et backend, avec une attention particulière à l'architecture propre et au code testable. Ce site rassemble quelques projets issus de ce parcours.",
-    "aboutLink": "En savoir plus sur moi",
+    "projectsTitle": "Projets",
+    "inProgress": "en cours",
+    "pathTitle": "Parcours",
+    "aboutP1": "Double diplômé <b>ESILV</b> et <b>Politecnico di Torino</b>. Je construis des applications <b>mobiles</b>, <b>web</b> et des services <b>backend</b>.",
+    "aboutP2": "Tests, intégration continue, dry-run par défaut, état persistant. Ce sont les mêmes principes sur les projets ci-dessus.",
+    "aboutP3": "Basé en <b>France</b>, mobile à l’<b>international</b>.",
+    "pathLink": "Le parcours complet",
+    "contactAvailability": "Disponible pour un poste.",
     "allProjects": "Tous les projets"
   },
   "AboutPage": {
     "title": "À propos",
     "description": "Parcours professionnel et compétences.",
-    "intro": "Ingénieur logiciel titulaire d'un double diplôme : un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci (Paris) et un Master of Science du Politecnico di Torino (Turin). Parcours mobile, web et backend, avec une attention particulière à l'architecture propre et au code testable.",
+    "introP1": "Ingénieur logiciel titulaire d'un double diplôme, un diplôme d'ingénieur de l'École Supérieure d'Ingénieurs Léonard de Vinci (Paris) et un Master of Science du Politecnico di Torino (Turin).",
+    "introP2": "Parcours mobile, web et backend, avec une attention particulière à l'architecture propre et au code testable.",
     "experience": {
       "title": "Expérience"
     },
     "education": {
-      "title": "Formation",
-      "coursework": "Cours principaux "
+      "title": "Formation"
     },
     "skills": {
       "title": "Compétences"
-    },
-    "languages": {
-      "title": "Langues",
-      "items": "Français (natif), Anglais (C1), Italien (A2)"
-    },
-    "interests": {
-      "title": "Centres d'intérêt"
     }
+  },
+  "LegalPage": {
+    "title": "Mentions légales",
+    "description": "Éditeur, hébergement, données personnelles et propriété intellectuelle.",
+    "editorTitle": "Éditeur",
+    "editor": "Yann Villellas, personne physique.",
+    "contact": "Contact :",
+    "hostingTitle": "Hébergement",
+    "hosting": "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis (serveur Vercel, région cdg1).",
+    "propertyTitle": "Propriété intellectuelle",
+    "property": "Les textes, captures et code des projets appartiennent à leur auteur. Les marques citées (Ligue 1, Garmin, Polar…) appartiennent à leurs propriétaires.",
+    "privacyTitle": "Données personnelles",
+    "privacy": "Aucun cookie de mesure d'audience, aucun formulaire, aucun compte. Seuls les journaux serveur Vercel sont conservés pour la sécurité et le diagnostic, sur la base de l'intérêt légitime. Aucune donnée n'est vendue. Pour exercer vos droits d'accès ou de suppression, écrivez à hi@yann.app. L'hébergement étant situé hors Union européenne, les transferts s'appuient sur les clauses contractuelles types de Vercel."
   },
   "ProjectsPage": {
     "title": "Projets",
     "description": "Une sélection de projets d'ingénierie en mobile, web, backend et recherche.",
     "source": "Code source",
     "live": "En ligne",
-    "back": "Retour"
+    "controls": {
+      "replay": "Rejouer",
+      "pause": "Mettre en pause",
+      "resume": "Reprendre"
+    },
+    "inProgress": "en cours",
+    "nextChapter": "Chapitre suivant : {title}",
+    "chapters": "Chapitres",
+    "newTab": "s'ouvre dans un nouvel onglet",
+    "currentChapter": "chapitre actuel"
   },
   "ContactPage": {
     "title": "Contact",
     "description": "Comment me contacter.",
-    "email": "Courriel",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "chatComingSoon": "Chattez avec moi, bientôt disponible",
-    "chatDescription": "Un assistant IA qui répond aux questions sur mon parcours et mon expérience, bientôt disponible sur cette page."
+    "soonBadge": "bientôt",
+    "soonTitle": "Assistant conversationnel",
+    "soonDescription": "Il répondra aux questions sur mon parcours et mon expérience."
   },
   "Footer": {
-    "copyright": "© 2026 Yann Villellas. Tous droits réservés.",
+    "copyright": "© 2026 Yann Villellas",
+    "legalAndPrivacy": "Mentions légales et confidentialité",
     "themeLight": "Clair",
     "themeDark": "Sombre",
-    "themeSystem": "Système"
+    "themeSystem": "Système",
+    "themeAuto": "auto",
+    "language": "Langue"
+  },
+  "NotFound": {
+    "eyebrow": "Erreur 404",
+    "title": "Cette page n'existe pas.",
+    "description": "Le lien est peut-être cassé, ou la page a changé d'adresse.",
+    "back": "Retour à l'accueil"
   }
 }

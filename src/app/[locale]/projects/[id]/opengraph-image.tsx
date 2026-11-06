@@ -1,54 +1,17 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
-import { ImageResponse } from "next/og";
 import { routing } from "@/i18n/routing";
 import { getProjects } from "@/data/projects";
+import { OG_SIZE } from "@/lib/og";
+import { projectOgImage } from "@/lib/og-project";
 
-export const size = { width: 1200, height: 630 };
+export const alt = "Yann Villellas";
+export const dynamicParams = false;
+export const size = OG_SIZE;
 export const contentType = "image/png";
-
-const fallbackAlt = "Project — Yann Villellas";
-
-const mimeTypes: Record<string, string> = {
-  jpg: "image/jpeg",
-  jpeg: "image/jpeg",
-  png: "image/png",
-};
-
-function screenshotDataUrl(src: string) {
-  const extension = src.split(".").pop()?.toLowerCase() ?? "";
-  const mime = mimeTypes[extension];
-  if (!mime) return null;
-
-  const base64 = readFileSync(join(process.cwd(), "public", src), "base64");
-  return `data:${mime};base64,${base64}`;
-}
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     getProjects(locale).map((project) => ({ locale, id: project.id })),
   );
-}
-
-export function generateImageMetadata({
-  params,
-}: {
-  params?: { locale?: string; id?: string };
-}) {
-  const { locale, id } = params ?? {};
-  const project =
-    locale && id
-      ? getProjects(locale as "en" | "fr").find((p) => p.id === id)
-      : undefined;
-
-  return [
-    {
-      id: "screenshot",
-      alt: project ? `${project.title} — Yann Villellas` : fallbackAlt,
-      size,
-      contentType,
-    },
-  ];
 }
 
 export default async function OpengraphImage({
@@ -57,79 +20,5 @@ export default async function OpengraphImage({
   params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = await params;
-  const projects = getProjects(locale as "en" | "fr");
-  const project = projects.find((p) => p.id === id);
-
-  const title = project?.title ?? "Project";
-  const tags = project?.tags ?? [];
-  const screenshot = project?.screenshots?.[0];
-  const imageSrc = screenshot ? screenshotDataUrl(screenshot.src) : null;
-
-  if (imageSrc) {
-    return new ImageResponse(
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          backgroundColor: "#0b0f19",
-        }}
-      >
-        <img
-          src={imageSrc}
-          alt={screenshot?.caption ?? title}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      </div>,
-      { ...size },
-    );
-  }
-
-  return new ImageResponse(
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        padding: 80,
-        backgroundColor: "#0b0f19",
-        backgroundImage:
-          "radial-gradient(circle at 85% 15%, #1e3a8a 0%, transparent 45%), radial-gradient(circle at 15% 85%, #4c1d95 0%, transparent 45%)",
-        color: "#f8fafc",
-        fontFamily: "sans-serif",
-      }}
-    >
-      <div style={{ display: "flex", fontSize: 30, color: "#93c5fd" }}>
-        yann.app
-      </div>
-
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", fontSize: 76, fontWeight: 700 }}>
-          {title}
-        </div>
-
-        <div style={{ display: "flex", marginTop: 32 }}>
-          {tags.slice(0, 4).map((tag) => (
-            <div
-              key={tag}
-              style={{
-                display: "flex",
-                fontSize: 26,
-                color: "#cbd5e1",
-                border: "2px solid #334155",
-                borderRadius: 9999,
-                padding: "10px 28px",
-                marginRight: 16,
-              }}
-            >
-              {tag}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>,
-    { ...size },
-  );
+  return projectOgImage(getProjects(locale).find((item) => item.id === id));
 }

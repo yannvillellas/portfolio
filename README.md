@@ -1,41 +1,46 @@
-# Yann Villellas — Portfolio
+# yann.app
 
-Software engineering portfolio built with Next.js 16 (App Router), Tailwind CSS v4, and next-intl for bilingual content (English/French).
+Portfolio of Yann Villellas, software engineer. Every project leads with a working interface, a real screenshot, and the decisions behind it.
+
+**Live:** [yann.app](https://yann.app) — French and English, light and dark.
 
 ## Stack
 
-- **Framework:** Next.js 16 with Turbopack
-- **Styling:** Tailwind CSS v4 (inline theme, design tokens)
-- **Internationalization:** next-intl (SSG-compatible, `Link` from `@/i18n/navigation`). Display labels in `messages/*.json`, structured content in `src/data/*.ts`.
-- **Fonts:** Inter (body) and Montserrat (headings) via `next/font`
-- **Deployment:** Static generation (SSG) — all pages pre-rendered at build time
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, next-intl. Every page is prerendered; a small proxy resolves the locale.
 
-## Architecture
-
-- **`PageContainer`** — single source of truth for page layout (horizontal constraints, optional vertical spacing)
-- **`CardLink` / `Pill`** — shared interactive primitives, all hover/transition behavior unified
-- **Design tokens** — `--chrome-inset-x/y`, `--header-height`, `--mobile-nav-height`, `--header-offset`, `--content-footer-gap` in `globals.css`. All values on an 8px grid.
-- **i18n** — all user-facing content in `messages/en.json` and `messages/fr.json`. `useTranslations` with namespace per page.
-
-## Development
+## Getting started
 
 ```bash
-npm run dev      # Dev server with Turbopack
-npm run build    # Production build
-npm run lint     # ESLint validation
-npm start        # Production server
+npm install
+npm run dev      # http://localhost:3000, opens in the browser's language
 ```
 
-- **Data:** Structured content (projects, experience, skills, education, interests) in typed `src/data/*.ts` files. Display labels in `messages/*.json`. Compile-time type safety, no `t.raw()` casts.
+| Command         | What it does                             |
+| --------------- | ---------------------------------------- |
+| `npm run dev`   | development server with Turbopack        |
+| `npm run build` | production build, every page prerendered |
+| `npm run start` | serves the production build              |
+| `npm run lint`  | ESLint                                   |
 
-## Project structure
+There is no test suite: the build prerenders every route, which catches what types do not.
 
-```text
-src/
-  app/[locale]/      # Routes (about, contact, projects, [id])
-  components/        # Shared components (hero, navigation, home, projects, icons)
-  styles/            # Background, navigation CSS modules
-  i18n/              # routing.ts, request.ts, navigation.ts
-  types/             # TypeScript declarations
-messages/            # en.json, fr.json translation files
-```
+## Content
+
+Copy is data, not markup.
+
+| Where                                                 | What                                                              |
+| ----------------------------------------------------- | ----------------------------------------------------------------- |
+| `src/data/projects.ts`                                | 7 projects, French and English, three chapters each plus its demo |
+| `src/data/experience.ts`, `education.ts`, `skills.ts` | the about page timeline                                           |
+| `messages/fr.json`, `messages/en.json`                | every interface string, one namespace per page                    |
+| `public/images/projects/`                             | project screenshots, WebP where weight mattered                   |
+
+To add a project, add one entry carrying both languages: the copy sits in a single object, so a translation is never a second file to keep in sync.
+
+## Deployment
+
+Static pages on Vercel. No environment variables are required.
+
+## License
+
+The code is readable. Text, screenshots and personal content are not licensed for reuse.

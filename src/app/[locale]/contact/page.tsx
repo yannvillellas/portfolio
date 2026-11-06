@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { ArrowUpRight } from "lucide-react";
 import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
 import { buildOpenGraph } from "@/i18n/metadata";
-import PageContainer from "@/components/PageContainer";
-import CardLink from "@/components/CardLink";
-import {
-  EmailIcon,
-  ExternalLinkIcon,
-  GitHubIcon,
-  LinkedInIcon,
-  SparkleIcon,
-} from "@/components/icons/Icons";
+import Container from "@/components/layout/Container";
+import { email, githubUrl, linkedinUrl } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -25,71 +18,72 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ContactPage() {
-  const t = useTranslations("ContactPage");
+export default async function ContactPage() {
+  const t = await getTranslations("ContactPage");
 
   return (
-    <PageContainer>
-      <h1>{t("title")}</h1>
+    <div className="pt-14 pb-24">
+      <Container>
+        <div className="max-w-2xl">
+          <h1 className="m-0 text-4xl font-semibold tracking-tight text-balance lg:text-5xl">
+            {t("title")}
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-mut">
+            {t("description")}
+          </p>
+          <a
+            href={`mailto:${email}`}
+            className="mt-8 inline-flex items-center gap-1 text-2xl text-accent underline-offset-4 transition-colors hover:underline"
+          >
+            {email}
+            <ArrowUpRight
+              size={12}
+              aria-hidden="true"
+              className="-translate-y-0.75 text-mut"
+            />
+          </a>
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-mut underline-offset-4 transition-colors hover:text-ink hover:underline"
+            >
+              {t("github")}
+              <ArrowUpRight
+                size={12}
+                aria-hidden="true"
+                className="-translate-y-0.75 text-mut"
+              />
+            </a>
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-mut underline-offset-4 transition-colors hover:text-ink hover:underline"
+            >
+              {t("linkedin")}
+              <ArrowUpRight
+                size={12}
+                aria-hidden="true"
+                className="-translate-y-0.75 text-mut"
+              />
+            </a>
+          </div>
 
-      <div className="grid gap-8 md:grid-cols-3">
-        <ContactLink
-          href="mailto:hi@yann.app"
-          label={t("email")}
-          value="hi@yann.app"
-          icon={<EmailIcon />}
-        />
-        <ContactLink
-          href="https://www.linkedin.com/in/yannvillellas/"
-          label={t("linkedin")}
-          value="yannvillellas"
-          icon={<LinkedInIcon />}
-        />
-        <ContactLink
-          href="https://github.com/yannvillellas"
-          label={t("github")}
-          value="yannvillellas"
-          icon={<GitHubIcon />}
-        />
-      </div>
-
-      <div>
-        <h2 className="flex items-center gap-3">
-          <SparkleIcon />
-          <div className="text-lg md:text-xl">{t("chatComingSoon")}</div>
-        </h2>
-        <p className="text-foreground/75">{t("chatDescription")}</p>
-      </div>
-    </PageContainer>
-  );
-}
-
-function ContactLink({
-  href,
-  label,
-  value,
-  icon,
-}: {
-  href: string;
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <CardLink
-      href={href}
-      external
-      bgHover
-      className="relative flex flex-col justify-between p-6"
-    >
-      <span className="absolute top-5 right-5 text-foreground/25 transition-colors group-hover:text-foreground/50">
-        <ExternalLinkIcon />
-      </span>
-      <div className="flex items-center gap-3">
-        <span className="text-foreground/50">{icon}</span>
-        <span className="type-caption">{label}</span>
-      </div>
-      <span className="mt-2 block text-lg md:text-xl">{value}</span>
-    </CardLink>
+          <div className="mt-14 border-t border-line pt-6 text-mut">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-sm">{t("soonTitle")}</p>
+              <span className="rounded-full border border-line px-2.5 py-0.5 text-xs text-mut">
+                {t("soonBadge")}
+              </span>
+            </div>
+            <p className="mt-2 max-w-prose text-sm leading-relaxed">
+              {t("soonDescription")}
+            </p>
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 }
