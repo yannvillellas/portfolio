@@ -28,6 +28,14 @@ export default function AppWindow({
   const [frame, setFrame] = useState<{ width: number; height: number } | null>(
     null,
   );
+  const [seen, setSeen] = useState(() => new Set([activeIndex]));
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- keep visited views mounted for the fade
+    setSeen((current) =>
+      current.has(activeIndex) ? current : new Set(current).add(activeIndex),
+    );
+  }, [activeIndex]);
 
   const ratio = active ? active.width / active.height : 1;
 
@@ -78,18 +86,20 @@ export default function AppWindow({
         </div>
 
         <div className="relative min-h-0 flex-1">
-          {views.map((view, index) => (
-            <Image
-              key={view.src}
-              src={view.src}
-              alt={view.caption}
-              fill
-              sizes="(min-width: 1280px) 1152px, 100vw"
-              className={`object-cover object-top transition-opacity duration-300 motion-reduce:transition-none ${
-                index === activeIndex ? "opacity-100" : "opacity-0"
-              }`}
-            />
-          ))}
+          {views.map((view, index) =>
+            index === activeIndex || seen.has(index) ? (
+              <Image
+                key={view.src}
+                src={view.src}
+                alt={view.caption}
+                fill
+                sizes="(min-width: 1280px) 1152px, 100vw"
+                className={`object-cover object-top transition-opacity duration-300 motion-reduce:transition-none ${
+                  index === activeIndex ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ) : null,
+          )}
         </div>
       </div>
     </div>
