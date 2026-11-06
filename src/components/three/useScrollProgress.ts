@@ -14,7 +14,9 @@ export function useScrollProgress(count: number) {
       const element = ref.current;
       if (!element) return;
       const rect = element.getBoundingClientRect();
-      const span = element.offsetHeight - window.innerHeight;
+      const sticky = element.firstElementChild as HTMLElement | null;
+      const viewport = sticky ? sticky.offsetHeight : window.innerHeight;
+      const span = element.offsetHeight - viewport;
       const value = span > 0 ? Math.max(0, Math.min(1, -rect.top / span)) : 0;
       progress.current = value;
       if (value > 0) setScrolled(true);
