@@ -1,13 +1,16 @@
 import Container from "@/components/layout/Container";
 import Section from "@/components/layout/Section";
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import DocumentMeta from "@/components/layout/DocumentMeta";
 
 export default async function NotFound() {
   const t = await getTranslations("NotFound");
+  const locale = await getLocale();
 
   return (
     <Section>
+      <DocumentMeta lang={locale} title={t("title")} />
       <Container>
         <p className="text-sm text-mut">{t("eyebrow")}</p>
         <h1 className="mt-3 text-4xl tracking-tight lg:text-5xl">
