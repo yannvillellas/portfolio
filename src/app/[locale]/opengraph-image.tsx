@@ -1,18 +1,18 @@
 import { ImageResponse } from "next/og";
 import { routing } from "@/i18n/routing";
+import { OG_SIZE, loadSwitzer, ogFonts } from "@/lib/og";
+import en from "../../../messages/en.json";
+import fr from "../../../messages/fr.json";
 
-export const alt = "Yann Villellas — Software Engineer";
-export const size = { width: 1200, height: 630 };
+export const alt = "Yann Villellas · Ingénieur logiciel";
+export const size = OG_SIZE;
 export const contentType = "image/png";
+
+const messages = { en, fr };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
-
-const subtitles: Record<string, string> = {
-  en: "Software Engineer",
-  fr: "Ingénieur logiciel",
-};
 
 export default async function OpengraphImage({
   params,
@@ -20,7 +20,8 @@ export default async function OpengraphImage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const subtitle = subtitles[locale] ?? subtitles.en;
+  const home = (locale === "fr" ? messages.fr : messages.en).HomePage;
+  const font = await loadSwitzer();
 
   return new ImageResponse(
     (
@@ -31,35 +32,83 @@ export default async function OpengraphImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: 80,
-          backgroundColor: "#0b0f19",
-          backgroundImage:
-            "radial-gradient(circle at 15% 20%, #1e3a8a 0%, transparent 45%), radial-gradient(circle at 85% 80%, #4c1d95 0%, transparent 45%)",
-          color: "#f8fafc",
-          fontFamily: "sans-serif",
+          padding: "72px 80px 64px",
+          backgroundColor: "#f7f7f4",
+          color: "#171715",
+          fontFamily: "Switzer",
         }}
       >
-        <div style={{ display: "flex", fontSize: 30, color: "#93c5fd" }}>
-          yann.app
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            fontSize: 24,
+            color: "#6f6f69",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div
+              style={{
+                display: "flex",
+                width: 10,
+                height: 10,
+                backgroundColor: "#6d4aff",
+              }}
+            />
+            Yann Villellas
+          </div>
+          <div style={{ display: "flex" }}>{home.role}</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 96, fontWeight: 700 }}>
-            Yann Villellas
+          <div
+            style={{
+              display: "flex",
+              fontSize: 84,
+              lineHeight: 1.04,
+              fontWeight: 600,
+              letterSpacing: "-0.04em",
+              maxWidth: 940,
+            }}
+          >
+            {home.title}
           </div>
           <div
             style={{
               display: "flex",
-              fontSize: 44,
-              color: "#cbd5e1",
-              marginTop: 16,
+              fontSize: 32,
+              lineHeight: 1.35,
+              color: "#6f6f69",
+              marginTop: 26,
+              maxWidth: 880,
             }}
           >
-            {subtitle}
+            {home.heroSubtitle}
           </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            fontSize: 22,
+            color: "#6f6f69",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              width: 120,
+              height: 4,
+              backgroundColor: "#6d4aff",
+            }}
+          />
+          <div style={{ display: "flex" }}>yann.app</div>
         </div>
       </div>
     ),
-    { ...size },
+    { ...size, fonts: ogFonts(font) },
   );
 }

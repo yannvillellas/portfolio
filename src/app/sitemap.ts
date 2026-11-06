@@ -4,7 +4,7 @@ import { getProjects } from "@/data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://yann.app";
-  const routes = ["", "/about", "/projects", "/contact"];
+  const routes = ["", "/about", "/projects", "/contact", "/legal"];
 
   const pages = routing.locales.flatMap((locale) =>
     routes.map((route) => ({
