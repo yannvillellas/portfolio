@@ -23,19 +23,20 @@ export default function AppWindow({
   views,
   activeIndex,
 }: AppWindowProps) {
-  const active = views[activeIndex] ?? views[0];
+  const current = Math.min(activeIndex, views.length - 1);
+  const active = views[current];
   const wrapRef = useRef<HTMLDivElement>(null);
   const [frame, setFrame] = useState<{ width: number; height: number } | null>(
     null,
   );
-  const [seen, setSeen] = useState(() => new Set([activeIndex]));
+  const [seen, setSeen] = useState(() => new Set([current]));
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- keep visited views mounted for the fade
-    setSeen((current) =>
-      current.has(activeIndex) ? current : new Set(current).add(activeIndex),
+    setSeen((visited) =>
+      visited.has(current) ? visited : new Set(visited).add(current),
     );
-  }, [activeIndex]);
+  }, [current]);
 
   const ratio = active ? active.width / active.height : 1;
 
@@ -87,7 +88,7 @@ export default function AppWindow({
 
         <div className="relative min-h-0 flex-1">
           {views.map((view, index) =>
-            index === activeIndex || seen.has(index) ? (
+            index === current || seen.has(index) ? (
               <Image
                 key={view.src}
                 src={view.src}
@@ -95,7 +96,7 @@ export default function AppWindow({
                 fill
                 sizes="(min-width: 1280px) 1152px, 100vw"
                 className={`object-cover object-top transition-opacity duration-300 motion-reduce:transition-none ${
-                  index === activeIndex ? "opacity-100" : "opacity-0"
+                  index === current ? "opacity-100" : "opacity-0"
                 }`}
               />
             ) : null,

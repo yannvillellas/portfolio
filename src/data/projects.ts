@@ -595,13 +595,23 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "The site you are reading.",
-          body: "One page rebuilt from scratch in Next.js and Tailwind, with 2 languages and a light and dark theme.",
+          body: "Rebuilt from scratch in Next.js and Tailwind, with 2 languages and a light and dark theme.",
+        },
+        {
+          title: "The 3 shapes of a project.",
+          view: 0,
+          body: "A CLI replays line by line, an interface opens in a window frame, a mobile app turns in the hand.",
+        },
+        {
+          title: "Colour roles with a threshold attached.",
+          view: 0,
+          body: "7 roles across 2 themes, each ratio measured against its surface. The pairs that failed were recalculated until they cleared AA.",
         },
       ],
       screenshots: [
         {
           src: "/images/projects/portfolio/1.png",
-          caption: "Home page with ambient gradient orbs",
+          caption: "Home page",
         },
       ],
     },
@@ -921,12 +931,21 @@ const data: Record<Locale, Project[]> = {
           title: "Le site que vous lisez.",
           body: "Une page reconstruite de z\u00e9ro en Next.js et Tailwind, avec 2 langues et un th\u00e8me clair et sombre.",
         },
+        {
+          title: "Les 3 formes d'un projet.",
+          view: 0,
+          body: "Une CLI se rejoue ligne par ligne, une interface s\u2019ouvre dans un cadre de fen\u00eatre, une application mobile tourne dans la main.",
+        },
+        {
+          title: "Des r\u00f4les de couleur avec un seuil attach\u00e9.",
+          view: 0,
+          body: "7 r\u00f4les sur 2 th\u00e8mes, chaque ratio mesur\u00e9 contre sa surface. Les paires qui \u00e9chouaient ont \u00e9t\u00e9 recalcul\u00e9es jusqu\u2019au seuil AA.",
+        },
       ],
       screenshots: [
         {
           src: "/images/projects/portfolio/1.png",
-          caption:
-            "Page d\u2019accueil avec orbes \u00e0 d\u00e9grad\u00e9 ambiant",
+          caption: "Page d\u2019accueil",
         },
       ],
     },
