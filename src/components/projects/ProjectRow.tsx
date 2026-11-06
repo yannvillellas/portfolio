@@ -28,7 +28,7 @@ export default function ProjectRow({
         </Heading>
         <div className="mt-1.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 text-sm">
           {project.year !== undefined && (
-            <span className="tabular-nums text-mut/60">{project.year}</span>
+            <span className="tabular-nums text-mut">{project.year}</span>
           )}
           {project.tags.map((tag) => (
             <span key={tag} className="text-mut">

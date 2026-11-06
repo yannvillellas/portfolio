@@ -9,7 +9,7 @@ export default function TerminalLineText({ text }: TerminalLineTextProps) {
     const odds = rest.match(/^(.*)(\[[^\]]+\])$/);
     return (
       <>
-        <span className="text-mut/60">{timestamp[1]}</span>
+        <span className="text-chrome">{timestamp[1]}</span>
         {odds ? (
           <>
             <span className="text-ink">{odds[1]}</span>

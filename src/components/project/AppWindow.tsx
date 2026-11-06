@@ -72,7 +72,9 @@ export default function AppWindow({
             <span className="h-1.5 w-1.5 rounded-full bg-line" />
             <span className="h-1.5 w-1.5 rounded-full bg-line" />
           </div>
-          <span className="flex-1 text-center text-xs text-mut">{title}</span>
+          <span className="flex-1 text-center text-xs text-chrome">
+            {title}
+          </span>
         </div>
 
         <div className="relative min-h-0 flex-1">

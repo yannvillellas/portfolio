@@ -60,7 +60,7 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
           <span className="h-1.5 w-1.5 rounded-full bg-line" />
           <span className="h-1.5 w-1.5 rounded-full bg-line" />
         </div>
-        <span className="flex-1 text-center text-xs text-mut">{title}</span>
+        <span className="flex-1 text-center text-xs text-chrome">{title}</span>
       </div>
 
       <pre className="min-h-0 flex-1 overflow-hidden px-4 py-3 font-mono text-xs leading-relaxed whitespace-pre-wrap wrap-break-word sm:whitespace-pre sm:break-normal">

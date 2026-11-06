@@ -74,7 +74,9 @@ export default async function ContactPage() {
           <div className="mt-14 border-t border-line pt-6 text-mut">
             <div className="flex flex-wrap items-center gap-3">
               <p className="text-sm">{t("soonTitle")}</p>
-              <span className="text-sm text-mut/70">{t("soonBadge")}</span>
+              <span className="rounded-full border border-line px-2.5 py-0.5 text-xs text-mut">
+                {t("soonBadge")}
+              </span>
             </div>
             <p className="mt-2 max-w-prose text-sm leading-relaxed">
               {t("soonDescription")}

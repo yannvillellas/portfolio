@@ -11,6 +11,8 @@
   --color-lime: #c8f751;
   --color-accent: var(--color-purple);
   --color-panel: #efefe9;
+  --color-chrome: #585853;
+  --color-control: #8c8c88;
 
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
@@ -28,6 +30,8 @@
   --color-line: #26262a;
   --color-accent: var(--color-lime);
   --color-panel: #1b1b20;
+  --color-chrome: #b1b1ae;
+  --color-control: #61615f;
 }
 
 :root {
@@ -51,7 +55,7 @@ body {
 
 @layer base {
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-accent/70;
+    @apply outline-2 outline-offset-2 outline-accent;
   }
 
   h1 {

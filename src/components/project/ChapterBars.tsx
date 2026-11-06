@@ -31,7 +31,7 @@ export default function ChapterBars({
             className={`h-0.5 rounded-full transition-all duration-300 ${
               index === active
                 ? "w-7 bg-accent"
-                : "w-5 bg-line group-hover:bg-mut"
+                : "w-5 bg-control group-hover:bg-mut"
             }`}
           />
         </button>

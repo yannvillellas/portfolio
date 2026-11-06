@@ -16,7 +16,7 @@ export default async function ProjectHeader({ project }: ProjectHeaderProps) {
         <div className="max-w-3xl">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
             {project.year !== undefined && (
-              <span className="tabular-nums text-mut/60">{project.year}</span>
+              <span className="tabular-nums text-mut">{project.year}</span>
             )}
             {project.tags.map((tag) => (
               <span key={tag} className="text-mut">
