@@ -23,11 +23,13 @@ export default function PhoneScene({
   const containerRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<PhoneSceneHandle | null>(null);
   const activeRef = useRef(activeIndex);
+  const wakeRef = useRef<(() => void) | null>(null);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     activeRef.current = activeIndex;
     handleRef.current?.setActive(activeIndex);
+    wakeRef.current?.();
   }, [activeIndex]);
 
   useEffect(() => {
@@ -46,8 +48,14 @@ export default function PhoneScene({
 
     let calmFrames = 0;
 
+    let inView = false;
+
     const tick = () => {
-      if (!running || !handle) return;
+      if (!running) return;
+      if (!handle) {
+        running = false;
+        return;
+      }
       handle.update(progress.current, calm.matches);
 
       if (calm.matches && ++calmFrames > 45) {
@@ -58,12 +66,6 @@ export default function PhoneScene({
       frame = requestAnimationFrame(tick);
     };
 
-    const wake = () => {
-      calmFrames = 0;
-      start();
-    };
-
-    const onVisibility = () => (document.hidden ? stop() : wake());
     const start = () => {
       if (running) return;
       running = true;
@@ -73,6 +75,14 @@ export default function PhoneScene({
       running = false;
       cancelAnimationFrame(frame);
     };
+
+    const wake = () => {
+      calmFrames = 0;
+      if (inView && !document.hidden) start();
+    };
+    wakeRef.current = wake;
+
+    const onVisibility = () => (document.hidden ? stop() : wake());
 
     let resizeObserver: ResizeObserver | null = null;
     let intersectionObserver: IntersectionObserver | null = null;
@@ -95,7 +105,11 @@ export default function PhoneScene({
         resizeObserver = new ResizeObserver(() => created.resize());
         if (canvas.parentElement) resizeObserver.observe(canvas.parentElement);
         intersectionObserver = new IntersectionObserver(
-          ([entry]) => (entry.isIntersecting ? start() : stop()),
+          ([entry]) => {
+            inView = entry.isIntersecting;
+            if (inView) start();
+            else stop();
+          },
           { threshold: 0 },
         );
         intersectionObserver.observe(canvas.parentElement ?? canvas);
@@ -104,6 +118,7 @@ export default function PhoneScene({
           attributes: true,
           attributeFilter: ["data-theme"],
         });
+        created.update(progress.current, calm.matches);
       })
       .catch(() => {
         if (!disposed) setFailed(true);
@@ -119,6 +134,7 @@ export default function PhoneScene({
       themeObserver?.disconnect();
       handle?.dispose();
       handleRef.current = null;
+      wakeRef.current = null;
       canvas.remove();
     };
   }, [views, progress]);
