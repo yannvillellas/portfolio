@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft } from "lucide-react";
-import { useRouter } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 interface BackLinkProps {
   label: string;
@@ -9,18 +9,18 @@ interface BackLinkProps {
 
 export default function BackLink({ label }: BackLinkProps) {
   const router = useRouter();
+  const pathname = usePathname();
 
   const goBack = () => {
-    const cameFromThisSite =
-      document.referrer !== "" &&
-      document.referrer.startsWith(window.location.origin);
+    let previous: string | null = null;
 
-    if (cameFromThisSite && window.history.length > 1) {
-      router.back();
-      return;
+    try {
+      previous = sessionStorage.getItem("previous-path");
+    } catch {
+      previous = null;
     }
 
-    router.push("/");
+    router.push(previous && previous !== pathname ? previous : "/");
   };
 
   return (
