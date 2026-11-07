@@ -3,9 +3,27 @@ import type { ProjectChapter } from "@/data/projects";
 interface ChapterCopyProps {
   chapters: ProjectChapter[];
   active: number;
+  position: number;
 }
 
-export default function ChapterCopy({ chapters, active }: ChapterCopyProps) {
+const FADE = 0.4;
+const BODY_LAG = 0.06;
+
+function clamp(value: number) {
+  return Math.max(0, Math.min(1, value));
+}
+
+export default function ChapterCopy({
+  chapters,
+  active,
+  position,
+}: ChapterCopyProps) {
+  const last = chapters.length - 1;
+  const enter = clamp(position / FADE);
+  const leave = active === last ? 1 : clamp((1 - position) / FADE);
+  const shown = Math.min(enter, leave);
+  const bodyShown = Math.min(clamp((position - BODY_LAG) / FADE), leave);
+
   return (
     <>
       <ol className="sr-only">
@@ -18,21 +36,31 @@ export default function ChapterCopy({ chapters, active }: ChapterCopyProps) {
       </ol>
 
       <div className="grid" aria-hidden="true">
-        {chapters.map((chapter, index) => (
-          <div
-            key={chapter.title}
-            className={`col-start-1 row-start-1 transition-opacity duration-200 motion-reduce:transition-none ${
-              index === active ? "opacity-100" : "pointer-events-none opacity-0"
-            }`}
-          >
-            <h2 className="mt-0 mb-0 text-2xl font-semibold tracking-tight lg:text-3xl">
-              {chapter.title}
-            </h2>
-            <p className="mt-2 line-clamp-2 max-w-prose text-base leading-relaxed text-mut sm:line-clamp-none">
-              {chapter.body}
-            </p>
-          </div>
-        ))}
+        {chapters.map((chapter, index) => {
+          const isActive = index === active;
+
+          return (
+            <div
+              key={chapter.title}
+              style={{ opacity: isActive ? shown : undefined }}
+              className={`col-start-1 row-start-1 ${
+                isActive
+                  ? "motion-reduce:opacity-100!"
+                  : "pointer-events-none opacity-0"
+              }`}
+            >
+              <h2 className="mt-0 mb-0 text-2xl font-semibold tracking-tight lg:text-3xl">
+                {chapter.title}
+              </h2>
+              <p
+                style={isActive ? { opacity: bodyShown } : undefined}
+                className="mt-2 max-w-prose text-base leading-relaxed text-mut motion-reduce:opacity-100!"
+              >
+                {chapter.body}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </>
   );
