@@ -20,7 +20,12 @@ export default function BackLink({ label }: BackLinkProps) {
       previous = null;
     }
 
-    router.push(previous && previous !== pathname ? previous : "/");
+    if (previous && previous !== pathname) {
+      router.back();
+      return;
+    }
+
+    router.push("/");
   };
 
   return (
