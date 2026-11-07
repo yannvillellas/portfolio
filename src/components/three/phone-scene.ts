@@ -154,6 +154,7 @@ export async function createPhoneScene(
     envNight.dispose();
     pmrem.dispose();
     renderer.dispose();
+    renderer.forceContextLoss();
   };
 
   return { setActive, update, applyTheme, resize, dispose };

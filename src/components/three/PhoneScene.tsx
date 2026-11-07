@@ -20,7 +20,7 @@ export default function PhoneScene({
   label,
   progress,
 }: PhoneSceneProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const handleRef = useRef<PhoneSceneHandle | null>(null);
   const activeRef = useRef(activeIndex);
   const [failed, setFailed] = useState(false);
@@ -31,8 +31,12 @@ export default function PhoneScene({
   }, [activeIndex]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    const canvas = document.createElement("canvas");
+    canvas.className = "h-full w-full";
+    container.append(canvas);
 
     let disposed = false;
     let handle: PhoneSceneHandle | null = null;
@@ -115,6 +119,7 @@ export default function PhoneScene({
       themeObserver?.disconnect();
       handle?.dispose();
       handleRef.current = null;
+      canvas.remove();
     };
   }, [views, progress]);
 
@@ -130,7 +135,7 @@ export default function PhoneScene({
       className="relative mx-auto h-full w-auto max-w-full"
       style={{ aspectRatio: phoneAspectRatio }}
     >
-      <canvas ref={canvasRef} className="h-full w-full" />
+      <div ref={containerRef} className="h-full w-full" />
     </div>
   );
 }
