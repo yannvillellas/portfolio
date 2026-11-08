@@ -23,12 +23,12 @@ export default function ChapterBars({
           key={chapter.title}
           type="button"
           onClick={() => onSelect(index)}
-          aria-label={`${index + 1}. ${chapter.title}${index === active ? `, ${t("currentChapter")}` : ""}`}
+          aria-label={`${index + 1}. ${chapter.title.replace(/\.$/, "")}${index === active ? `, ${t("currentChapter")}` : ""}`}
           aria-current={index === active ? "step" : undefined}
           className="group flex h-11 w-8 cursor-pointer items-center justify-center"
         >
           <span
-            className={`h-0.5 rounded-full transition-all duration-300 ${
+            className={`h-0.5 rounded-full transition-all duration-300 motion-reduce:transition-none ${
               index === active
                 ? "w-7 bg-accent"
                 : "w-5 bg-control group-hover:bg-mut"

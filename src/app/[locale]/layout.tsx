@@ -1,10 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, getMessages, getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { buildOpenGraph } from "@/i18n/metadata";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 const switzer = localFont({
   src: [
@@ -63,7 +69,7 @@ export default async function LocaleLayout({
       <head>
         <InlineScript html={themeInitScript} />
       </head>
-      <body className="relative flex min-h-svh flex-col">
+      <body className="relative flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
           <a
             href="#main"

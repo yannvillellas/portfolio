@@ -28,7 +28,9 @@ export const light = {
 };
 
 export const motion = {
-  desktopRotation: 0.45,
+  desktopRotation: 0.55,
+  turnCurve: 3.2,
+  roll: 0.05,
   breathing: 0.07,
   mobileBreathing: 0.02,
 };

@@ -14,7 +14,7 @@ export default function GlobalNotFound() {
   return (
     <html lang="en">
       <body className="bg-paper text-ink">
-        <main className="mx-auto flex min-h-svh max-w-2xl flex-col justify-center px-6 py-16">
+        <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center px-6 py-16">
           <p className="text-sm text-mut">{copy.eyebrow}</p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight lg:text-5xl">
             {copy.title}

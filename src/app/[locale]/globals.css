@@ -103,6 +103,20 @@ body {
     opacity: 0;
     animation: terminal-line 0.3s ease-out forwards;
   }
+
+  .chapter-section {
+    height: calc(100vh + var(--chapter-count) * 69vh);
+  }
+
+  .chapter-stage {
+    height: calc(100vh - 3.5rem);
+  }
+
+  @media (min-width: 640px) {
+    .chapter-stage {
+      height: calc(100vh - 4rem);
+    }
+  }
 }
 
 @keyframes terminal-line {

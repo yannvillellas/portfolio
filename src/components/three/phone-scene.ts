@@ -128,10 +128,14 @@ export async function createPhoneScene(
     const elapsed = (performance.now() - start) / 1000;
     const range = motion.desktopRotation;
     const breathing = motion.breathing;
+    const turn = Math.pow(1 - progress, motion.turnCurve) * range;
     model.group.rotation.y = reduced
-      ? (1 - progress) * range
-      : (1 - progress) * range + Math.sin(elapsed * 0.55) * breathing;
+      ? turn
+      : turn + Math.sin(elapsed * 0.55) * breathing;
     model.group.rotation.x = 0.05 - Math.sin(progress * Math.PI) * 0.06;
+    model.group.rotation.z = reduced
+      ? 0
+      : Math.sin(progress * Math.PI) * motion.roll;
     model.group.position.y = reduced
       ? 0.05
       : 0.05 + Math.sin(elapsed * 0.8) * 0.018;
@@ -154,6 +158,7 @@ export async function createPhoneScene(
     envNight.dispose();
     pmrem.dispose();
     renderer.dispose();
+    renderer.forceContextLoss();
   };
 
   return { setActive, update, applyTheme, resize, dispose };

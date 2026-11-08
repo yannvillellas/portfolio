@@ -19,11 +19,11 @@ export default function PhoneFallback({
   if (views.length === 0) return null;
 
   return (
-    <div className="mx-auto w-full max-w-40 sm:max-w-52">
-      <div
-        className="relative overflow-hidden rounded-4xl border border-line bg-panel"
-        style={{ aspectRatio: phoneAspectRatio }}
-      >
+    <div
+      className="mx-auto h-full max-w-full"
+      style={{ aspectRatio: phoneAspectRatio }}
+    >
+      <div className="relative h-full overflow-hidden rounded-4xl border border-line bg-panel">
         {views.map((view, index) => (
           <Image
             key={view.src}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Folder, Home, Mail, User } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Container from "@/components/layout/Container";
@@ -16,6 +16,18 @@ export default function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const showBack = pathname.startsWith("/projects/") || pathname === "/legal";
+  const previousPath = useRef<string | null>(null);
+
+  useEffect(() => {
+    try {
+      if (previousPath.current !== null) {
+        sessionStorage.setItem("previous-path", previousPath.current);
+      }
+    } catch {
+      // Storage can be unavailable; the back link falls back to the home page.
+    }
+    previousPath.current = pathname;
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);

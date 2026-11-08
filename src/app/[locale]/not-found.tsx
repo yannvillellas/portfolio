@@ -5,7 +5,7 @@ const copy = en.NotFound;
 
 export default function LocaleNotFound() {
   return (
-    <div className="mx-auto flex min-h-[60svh] max-w-2xl flex-col justify-center px-6 py-16">
+    <div className="mx-auto flex min-h-[60vh] max-w-2xl flex-col justify-center px-6 py-16">
       <p className="text-sm text-mut">{copy.eyebrow}</p>
       <h1 className="mt-3 text-4xl font-semibold tracking-tight lg:text-5xl">
         {copy.title}
