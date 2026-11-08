@@ -76,7 +76,6 @@ const demos: Record<Locale, Record<string, Demo>> = {
       title: "mpp-autopilot \u00b7 list",
       lines: [
         { t: 0.2, text: "$ mpp-autopilot list" },
-        { t: 0.4, text: "" },
         {
           t: 0.55,
           text: "2026-10-25 17:15  GW8 OM - Havre AC  [62/124/140]  mpp_championship_match_2640624",
@@ -246,7 +245,6 @@ const demos: Record<Locale, Record<string, Demo>> = {
       title: "mpp-autopilot \u00b7 list",
       lines: [
         { t: 0.2, text: "$ mpp-autopilot list" },
-        { t: 0.4, text: "" },
         {
           t: 0.55,
           text: "2026-10-25 17:15  GW8 OM - Havre AC  [62/124/140]  mpp_championship_match_2640624",
