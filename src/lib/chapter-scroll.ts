@@ -31,5 +31,5 @@ export function chapterTarget(
 }
 
 export function sequenceEnd(section: HTMLElement) {
-  return sectionStart(section) + scrollRunway(section);
+  return sectionStart(section) + section.offsetHeight;
 }
