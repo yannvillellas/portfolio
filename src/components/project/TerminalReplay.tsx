@@ -125,7 +125,7 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
         ))}
       </pre>
 
-      <div className="flex items-center justify-end border-t border-line px-4 py-1.5">
+      <div className="flex items-center justify-end border-t border-line px-4 py-0.5">
         <button
           type="button"
           onClick={finished ? replay : togglePause}
@@ -136,7 +136,7 @@ export default function TerminalReplay({ title, lines }: TerminalReplayProps) {
                 ? t("controls.resume")
                 : t("controls.pause")
           }
-          className="inline-flex h-11 w-11 cursor-pointer items-center justify-center text-mut-on-panel transition-colors hover:text-ink"
+          className="inline-flex h-8 w-8 cursor-pointer items-center justify-center text-mut-on-panel transition-colors hover:text-ink"
         >
           {finished ? (
             <RotateCcw size={14} aria-hidden="true" />
