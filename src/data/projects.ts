@@ -76,7 +76,6 @@ const demos: Record<Locale, Record<string, Demo>> = {
       title: "mpp-autopilot \u00b7 list",
       lines: [
         { t: 0.2, text: "$ mpp-autopilot list" },
-        { t: 0.4, text: "" },
         {
           t: 0.55,
           text: "2026-10-25 17:15  GW8 OM - Havre AC  [62/124/140]  mpp_championship_match_2640624",
@@ -246,7 +245,6 @@ const demos: Record<Locale, Record<string, Demo>> = {
       title: "mpp-autopilot \u00b7 list",
       lines: [
         { t: 0.2, text: "$ mpp-autopilot list" },
-        { t: 0.4, text: "" },
         {
           t: 0.55,
           text: "2026-10-25 17:15  GW8 OM - Havre AC  [62/124/140]  mpp_championship_match_2640624",
@@ -478,7 +476,6 @@ const data: Record<Locale, Project[]> = {
       description:
         "Cross-platform mobile app that normalizes training data from heterogeneous wearable ecosystems for sports-science research.",
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
-      liveUrl: "https://endurance.veebor.net/index_en.html",
       detail: [
         "Endurance research drowns in exports. 4 ecosystems, 4 file formats, and no single view of what an athlete actually did across a season. Endurance Lab connects a Garmin or Polar account through OAuth, normalises every activity into one model, and shows the season as trends instead of a folder of files.",
         "The app is written in Flutter and ships to iOS and Android from one codebase, with Firebase behind authentication and storage. The client carries 6 indicators, GPS maps and 2 OAuth integrations. A 3.5-month beta collected 8 athletes, 1,001 activities, 2.7 million GPS points and 1.6 million samples, and the release pipeline runs with zero manual steps.",
@@ -809,7 +806,6 @@ const data: Record<Locale, Project[]> = {
       description:
         "Application mobile multiplateforme qui normalise les donn\u00e9es d\u2019entra\u00eenement issues d\u2019\u00e9cosyst\u00e8mes de wearables h\u00e9t\u00e9rog\u00e8nes pour la recherche en sciences du sport.",
       tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
-      liveUrl: "https://endurance.veebor.net/index_en.html",
       detail: [
         "La recherche en endurance se noie dans les exports. 4 \u00e9cosyst\u00e8mes, 4 formats de fichiers, et aucune vue unique sur ce qu'un athl\u00e8te a vraiment fait sur une saison. Endurance Lab connecte un compte Garmin ou Polar par OAuth, ram\u00e8ne chaque activit\u00e9 \u00e0 un mod\u00e8le unique, et pr\u00e9sente la saison en tendances au lieu d'un dossier de fichiers.",
         "L'application est \u00e9crite en Flutter et sort sur iOS comme sur Android depuis une seule base de code, avec Firebase derri\u00e8re l'authentification et le stockage. Le client porte 6 indicateurs, des cartes GPS et 2 int\u00e9grations OAuth. Une b\u00eata de 3,5 mois a rassembl\u00e9 8 athl\u00e8tes, 1\u202f001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d'\u00e9chantillons, et la cha\u00eene de publication ne demande aucune \u00e9tape manuelle.",
