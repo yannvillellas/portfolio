@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { Project } from "@/data/projects";
+import Heading from "@/components/ui/Heading";
+import ProjectMeta from "@/components/projects/ProjectMeta";
 
 interface ProjectRowProps {
   project: Project;
@@ -14,7 +16,6 @@ export default function ProjectRow({
   headingLevel = "h3",
 }: ProjectRowProps) {
   const screenshot = project.screenshots?.[0];
-  const Heading = headingLevel;
 
   return (
     <Link
@@ -22,35 +23,23 @@ export default function ProjectRow({
       aria-label={project.title}
       className="group flex items-center gap-6 border-b border-line py-5 transition-transform duration-250 hover:translate-x-2"
     >
-      <div className="min-w-0 flex-1">
-        <Heading className="m-0 text-xl font-semibold tracking-tight transition-colors duration-250 group-hover:text-accent">
-          {project.title}
-        </Heading>
-        <div className="mt-1.5 flex flex-wrap items-center gap-x-3.5 gap-y-1 text-sm">
-          {project.year !== undefined && (
-            <span className="tabular-nums text-mut">{project.year}</span>
-          )}
-          {project.tags.map((tag) => (
-            <span key={tag} className="text-mut">
-              {tag}
-            </span>
-          ))}
-          {project.status === "in-progress" && (
-            <span className="inline-flex items-center gap-1.5 text-accent">
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 rounded-full bg-accent"
-              />
-              {statusLabel}
-            </span>
-          )}
+      <div className="flex min-w-0 flex-1 flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
+          <Heading
+            level={headingLevel}
+            size="card"
+            className="transition-colors duration-250 group-hover:text-accent"
+          >
+            {project.title}
+          </Heading>
+          <ProjectMeta project={project} statusLabel={statusLabel} />
         </div>
-        <p className="mt-2 max-w-xl text-sm leading-normal text-mut">
+        <p className="max-w-xl text-sm leading-normal text-mut">
           {project.summary ?? project.description}
         </p>
       </div>
 
-      <div className="relative h-21 w-33 ml-auto shrink-0 overflow-hidden rounded-md border border-line bg-panel">
+      <div className="relative ml-auto h-21 w-33 shrink-0 overflow-hidden rounded-md border border-line bg-panel">
         {screenshot && (
           <Image
             src={screenshot.src}

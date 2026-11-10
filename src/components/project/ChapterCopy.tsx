@@ -1,4 +1,5 @@
 import type { ProjectChapter } from "@/data/projects";
+import Heading from "@/components/ui/Heading";
 
 interface ChapterCopyProps {
   chapters: ProjectChapter[];
@@ -29,7 +30,9 @@ export default function ChapterCopy({
       <ol className="sr-only">
         {chapters.map((chapter) => (
           <li key={chapter.title}>
-            <h2>{chapter.title}</h2>
+            <Heading level="h2" size="block">
+              {chapter.title}
+            </Heading>
             <p>{chapter.body}</p>
           </li>
         ))}
@@ -49,9 +52,9 @@ export default function ChapterCopy({
                   : "pointer-events-none opacity-0"
               }`}
             >
-              <h2 className="mt-0 mb-0 text-2xl font-semibold tracking-tight lg:text-3xl">
+              <Heading level="h2" size="block">
                 {chapter.title}
-              </h2>
+              </Heading>
               <p
                 style={isActive ? { opacity: bodyShown } : undefined}
                 className="mt-2 max-w-prose text-base leading-relaxed text-mut motion-reduce:opacity-100!"

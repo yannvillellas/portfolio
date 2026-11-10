@@ -1,20 +1,19 @@
 import { getTranslations } from "next-intl/server";
 import { email } from "@/lib/site";
+import Heading from "@/components/ui/Heading";
+import TextLink from "@/components/ui/TextLink";
 
 export default async function ContactBlock() {
   const t = await getTranslations("HomePage");
 
   return (
     <div className="mt-14 flex flex-col gap-4 border-t border-line pt-14 pb-10 md:flex-row md:items-end md:justify-between">
-      <h2 className="m-0 text-2xl font-semibold tracking-tight lg:text-3xl">
+      <Heading level="h2" size="block">
         {t("contactAvailability")}
-      </h2>
-      <a
-        href={`mailto:${email}`}
-        className="text-base text-accent underline-offset-4 transition-colors hover:underline"
-      >
+      </Heading>
+      <TextLink href={`mailto:${email}`} tone="accent" size="base">
         {email} <span aria-hidden="true">→</span>
-      </a>
+      </TextLink>
     </div>
   );
 }

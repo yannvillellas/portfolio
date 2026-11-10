@@ -3,7 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { getTranslations, getLocale } from "next-intl/server";
 import { getAlternates } from "@/i18n/alternates";
 import { buildOpenGraph } from "@/i18n/metadata";
-import Container from "@/components/layout/Container";
+import PageShell from "@/components/layout/PageShell";
+import PageHeader from "@/components/layout/PageHeader";
+import Prose from "@/components/ui/Prose";
+import TextLink from "@/components/ui/TextLink";
 import { email, githubUrl, linkedinUrl } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -22,68 +25,55 @@ export default async function ContactPage() {
   const t = await getTranslations("ContactPage");
 
   return (
-    <div className="pt-14 pb-24">
-      <Container>
-        <div className="max-w-2xl">
-          <h1 className="m-0 text-4xl font-semibold tracking-tight text-balance lg:text-5xl">
-            {t("title")}
-          </h1>
-          <p className="mt-4 text-base leading-relaxed text-mut">
-            {t("description")}
-          </p>
-          <a
-            href={`mailto:${email}`}
-            className="mt-8 inline-flex items-center gap-1 text-2xl text-accent underline-offset-4 transition-colors hover:underline"
-          >
+    <PageShell>
+      <PageHeader
+        title={t("title")}
+        width="2xl"
+        leadMeasure="none"
+        lead={t("description")}
+      >
+        <div className="mt-4 flex flex-col gap-8">
+          <TextLink href={`mailto:${email}`} tone="accent" size="2xl">
             {email}
             <ArrowUpRight
               size={12}
               aria-hidden="true"
               className="-translate-y-0.75 text-mut"
             />
-          </a>
-          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-mut underline-offset-4 transition-colors hover:text-ink hover:underline"
-            >
+          </TextLink>
+
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <TextLink href={githubUrl} newTab>
               {t("github")}
               <ArrowUpRight
                 size={12}
                 aria-hidden="true"
                 className="-translate-y-0.75 text-mut"
               />
-            </a>
-            <a
-              href={linkedinUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-mut underline-offset-4 transition-colors hover:text-ink hover:underline"
-            >
+            </TextLink>
+            <TextLink href={linkedinUrl} newTab>
               {t("linkedin")}
               <ArrowUpRight
                 size={12}
                 aria-hidden="true"
                 className="-translate-y-0.75 text-mut"
               />
-            </a>
-          </div>
-
-          <div className="mt-14 border-t border-line pt-6 text-mut">
-            <div className="flex flex-wrap items-center gap-3">
-              <p className="text-sm">{t("soonTitle")}</p>
-              <span className="rounded-full border border-line px-2.5 py-0.5 text-xs text-mut">
-                {t("soonBadge")}
-              </span>
-            </div>
-            <p className="mt-2 max-w-prose text-sm leading-relaxed">
-              {t("soonDescription")}
-            </p>
+            </TextLink>
           </div>
         </div>
-      </Container>
-    </div>
+      </PageHeader>
+
+      <div className="mt-14 max-w-2xl border-t border-line pt-6">
+        <div className="flex flex-wrap items-center gap-3">
+          <p className="text-sm text-mut">{t("soonTitle")}</p>
+          <span className="rounded-full border border-line px-2.5 py-0.5 text-xs text-mut">
+            {t("soonBadge")}
+          </span>
+        </div>
+        <Prose size="sm" className="mt-2">
+          <p>{t("soonDescription")}</p>
+        </Prose>
+      </div>
+    </PageShell>
   );
 }

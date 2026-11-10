@@ -27,7 +27,7 @@ export default function TimelineRow({
     <div className="grid gap-1 border-b border-line py-4 sm:grid-cols-[var(--about-label)_1fr] sm:gap-6">
       <p className="text-sm text-mut">{period}</p>
       <div>
-        <p className="mt-0 text-ink">{title}</p>
+        <p className="text-ink">{title}</p>
         <p className="mt-0.5 text-sm text-mut">{subtitle}</p>
         {summary && (
           <p className="mt-3 max-w-prose text-sm leading-relaxed text-mut">
@@ -35,7 +35,7 @@ export default function TimelineRow({
           </p>
         )}
         {highlights && (
-          <ul className="mt-2 max-w-prose list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-mut marker:text-control">
+          <ul className="mt-2 flex max-w-prose list-disc flex-col gap-1.5 pl-4 text-sm leading-relaxed text-mut marker:text-control">
             {highlights.map((highlight) => (
               <li key={highlight}>{emphasis(highlight)}</li>
             ))}
