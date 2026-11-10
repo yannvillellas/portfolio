@@ -423,7 +423,7 @@ const data: Record<Locale, Project[]> = {
         },
         {
           title: "Measured on 79 matches.",
-          body: "Three rules were tested against real MPP payouts. The favourite scored 36.3 points per match, expected value 31.1, the longest odds 25.0.",
+          body: "Three betting rules were scored on MPP's points scale. The favourite scored 36.3 points per match, expected value 31.1, the longest odds 25.0.",
         },
         {
           title: "The Elo when a price is missing.",
@@ -432,7 +432,7 @@ const data: Record<Locale, Project[]> = {
       ],
       detail: [
         "Mon Petit Prono asks for one exact score per Ligue 1 fixture, 9 per gameweek, and the market already knows which score is most likely. The service aggregates odds from The Odds API into a probability for each score, takes the outcome the market favours, then its most probable score.",
-        "That rule was not chosen by intuition. 3 strategies were replayed against 79 matches of the current season with the real MPP payouts, and betting the favourite returned 36.3 points per match against 31.1 for maximizing expected value and 25.0 for the longest odds. When a fixture has no usable price, Elo ratings computed from Football-Data results since 2020/21 take over. The service runs in Rust and only publishes with WRITE=true, 4 triggers per match, with atomic state, a season ledger and 219 tests.",
+        "That rule was not chosen by intuition. 3 betting rules were replayed against 79 matches of the current season on MPP's points scale, and betting the favourite returned 36.3 points per match against 31.1 for maximizing expected value and 25.0 for the longest odds. When a fixture has no usable price, Elo ratings computed from Football-Data results since 2020/21 take over. The service runs in Rust and only publishes with WRITE=true, 4 triggers per match, with atomic state, a season ledger and 219 tests.",
       ],
     },
     {
@@ -587,12 +587,12 @@ const data: Record<Locale, Project[]> = {
     {
       id: "mfieldtrip",
       title: "mFieldTrip",
-      summary: "A university's field trips, walkable from home.",
+      summary: "A university's field trips, guided by GPS on site.",
       description:
-        "Cross-platform mobile app that replaces traditional geography field studies with interactive, self-guided GIS excursions.",
+        "Cross-platform mobile app that turns geography field trips into self-guided GIS excursions, guided by GPS on site.",
       tags: ["Flutter", "Firebase", "flutter_map"],
       detail: [
-        "Athabasca University teaches 40,000 students at a distance, and a field trip is the one thing a distance course cannot ship. mFieldTrip turns a trip into a map a student can walk through from home, with the same stops, the same media and the same credits as the real thing.",
+        "Athabasca University teaches 40,000 students at a distance, and a field trip is the one thing a distance course cannot ship. mFieldTrip sends the student out with the guide in the phone. The map follows their position on site, the nearest stop comes first, and each stop carries its own media and credits.",
         "The app is a single Flutter codebase running on Android, iOS and the web. Firebase handles authentication, storage and App Check, with 3 roles from amateur to professor and an admin path for moderation. A new trip is published by importing a QGIS to Web archive and a CSV of points of interest, and students sort what they see by proximity.",
       ],
       screenshots: [
@@ -615,7 +615,7 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "Every field trip on one map.",
-          body: "40,000 distance students explore their university's field trips from a map, with no travel and no paper handout.",
+          body: "40,000 distance students follow their university's field trips on a map, guided by GPS, with no paper handout.",
         },
         {
           title: "A trip, its places, its media.",
@@ -753,7 +753,7 @@ const data: Record<Locale, Project[]> = {
         },
         {
           title: "Mesuré sur 79 matchs.",
-          body: "3 règles ont été comparées aux paiements réels de MPP. Le favori rapporte 36,3 points par match, l'espérance 31,1, la cote la plus haute 25,0.",
+          body: "3 règles de pari ont été comparées sur le barème de points MPP. Le favori rapporte 36,3 points par match, l'espérance 31,1, la cote la plus haute 25,0.",
         },
         {
           title: "L'Elo quand la cote manque.",
@@ -762,7 +762,7 @@ const data: Record<Locale, Project[]> = {
       ],
       detail: [
         "Mon Petit Prono demande un score exact par rencontre de Ligue 1, soit 9 par journée, et le marché sait déjà quel score est le plus probable. Le service agrège les cotes de The Odds API en une probabilité par score, retient l'issue favorite, puis son score le plus probable.",
-        "Cette règle ne vient pas d'une intuition. 3 stratégies ont été rejouées sur 79 matchs de la saison en cours avec les paiements réels de MPP, et parier le favori rend 36,3 points par match contre 31,1 pour la maximisation de l'espérance et 25,0 pour la cote la plus haute. Sans cote exploitable, un Elo calculé sur les résultats Football-Data depuis 2020/21 prend le relais. Le service tourne en Rust et ne publie qu'avec WRITE=true, 4 déclencheurs par match, avec un état atomique, un registre de saison et 219 tests.",
+        "Cette règle ne vient pas d'une intuition. 3 règles de pari ont été rejouées sur 79 matchs de la saison en cours sur le barème de points MPP, et parier le favori rend 36,3 points par match contre 31,1 pour la maximisation de l'espérance et 25,0 pour la cote la plus haute. Sans cote exploitable, un Elo calculé sur les résultats Football-Data depuis 2020/21 prend le relais. Le service tourne en Rust et ne publie qu'avec WRITE=true, 4 déclencheurs par match, avec un état atomique, un registre de saison et 219 tests.",
       ],
     },
     {
@@ -920,12 +920,12 @@ const data: Record<Locale, Project[]> = {
       id: "mfieldtrip",
       title: "mFieldTrip",
       summary:
-        "Les excursions de terrain d'une universit\u00e9, accessibles depuis chez soi.",
+        "Les excursions de terrain d'une universit\u00e9, guid\u00e9es par GPS sur place.",
       description:
-        "Application mobile multiplateforme qui remplace les \u00e9tudes de terrain traditionnelles par des excursions interactives et autonomes exploitant des donn\u00e9es SIG open-source.",
+        "Application mobile multiplateforme qui transforme les excursions de g\u00e9ographie en sorties autonomes guid\u00e9es par GPS sur le terrain.",
       tags: ["Flutter", "Firebase", "flutter_map"],
       detail: [
-        "L'Universit\u00e9 Athabasca enseigne \u00e0 40\u202f000 \u00e9tudiants \u00e0 distance, et l'excursion sur le terrain est la seule chose qu'un cours \u00e0 distance ne peut pas livrer. mFieldTrip transforme une sortie en carte que l'\u00e9tudiant parcourt depuis chez lui, avec les m\u00eames arr\u00eats, les m\u00eames m\u00e9dias et les m\u00eames cr\u00e9dits que sur place.",
+        "L'Universit\u00e9 Athabasca enseigne \u00e0 40\u202f000 \u00e9tudiants \u00e0 distance, et l'excursion sur le terrain est la seule chose qu'un cours \u00e0 distance ne peut pas livrer. mFieldTrip envoie l'\u00e9tudiant sur place avec le guide dans le t\u00e9l\u00e9phone. La carte suit sa position sur le site, l'arr\u00eat le plus proche arrive en premier, et chaque arr\u00eat porte ses m\u00e9dias et ses cr\u00e9dits.",
         "L'application tient dans une seule base Flutter qui tourne sur Android, iOS et le web. Firebase porte l'authentification, le stockage et App Check, avec 3 r\u00f4les de l'amateur au professeur et un acc\u00e8s admin pour la mod\u00e9ration. Une nouvelle excursion se publie en important une archive QGIS to Web et un CSV de points d'int\u00e9r\u00eat, et les \u00e9tudiants trient ce qu'ils voient par proximit\u00e9.",
       ],
       screenshots: [
@@ -948,7 +948,7 @@ const data: Record<Locale, Project[]> = {
       chapters: [
         {
           title: "Toutes les excursions sur une carte.",
-          body: "40 000 \u00e9tudiants \u00e0 distance explorent les excursions de leur universit\u00e9 depuis une carte, sans d\u00e9placement ni document papier.",
+          body: "40 000 \u00e9tudiants \u00e0 distance suivent les excursions de leur universit\u00e9 sur une carte, guid\u00e9s par GPS, sans document papier.",
         },
         {
           title: "Une excursion, ses lieux, ses m\u00e9dias.",
