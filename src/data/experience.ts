@@ -30,7 +30,7 @@ const data: Record<Locale, ExperienceEntry[]> = {
       location: "Edmonton, Canada",
       period: "Apr 2024\u2013Jul 2024",
       summary:
-        "Co-built mFieldTrip for **40,000** distance-education students to complete self-guided GIS field trips without travelling to the field.",
+        "Co-built mFieldTrip for **40,000** distance-education students to complete self-guided GIS field trips, guided by GPS on site.",
       highlights: [
         "Developed a cross-platform **Flutter** app (Android, iOS, Web) with flutter_map, sorting excursions by proximity.",
         "Implemented **Firebase** Auth, Firestore and App Check, with **3** user roles (Amateur, Student, Professor) plus admin moderation.",
@@ -72,7 +72,7 @@ const data: Record<Locale, ExperienceEntry[]> = {
       location: "Edmonton, Canada",
       period: "avr. 2024\u2013juil. 2024",
       summary:
-        "Cr\u00e9ation de mFieldTrip en \u00e9quipe pour les 40\u202f000 \u00e9tudiants \u00e0 distance, avec des excursions SIG autonomes sans d\u00e9placement sur le terrain.",
+        "Cr\u00e9ation de mFieldTrip en \u00e9quipe pour les 40\u202f000 \u00e9tudiants \u00e0 distance, avec des excursions SIG en autonomie, guid\u00e9es par GPS sur le terrain.",
       highlights: [
         "D\u00e9veloppement d'une application **Flutter** multiplateforme (Android, iOS, Web) avec tri des excursions par proximit\u00e9.",
         "Mise en place de **Firebase** Auth, Firestore et App Check, avec 3 r\u00f4les (Amateur, Student, Professor) et mod\u00e9ration admin.",
