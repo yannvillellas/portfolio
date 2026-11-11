@@ -48,7 +48,7 @@ export default async function LegalPage() {
     <PageShell>
       <PageHeader title={t("title")} />
 
-      <div className="mt-12 flex max-w-prose flex-col gap-12">
+      <div className="mt-16 flex max-w-prose flex-col gap-16">
         {sections.map((section) => (
           <section key={section.title}>
             <Heading level="h2" role="block">

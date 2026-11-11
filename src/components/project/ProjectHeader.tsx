@@ -29,7 +29,7 @@ export default async function ProjectHeader({ project }: ProjectHeaderProps) {
           lead={project.description}
         >
           {hasLinks && (
-            <div className="mt-1 flex flex-wrap gap-x-6 gap-y-2">
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
               {project.repoUrl && (
                 <TextLink href={project.repoUrl} newTab>
                   {t("source")}

@@ -21,7 +21,7 @@ export default async function AboutBlurb() {
           href="/about"
           linkLabel={t("pathLink")}
         />
-        <Prose className="pt-8">
+        <Prose className="pt-5">
           <p>{t.rich("aboutP1", rich)}</p>
           <p>{t.rich("aboutP2", rich)}</p>
           <p>{t.rich("aboutP3", rich)}</p>

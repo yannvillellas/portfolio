@@ -32,7 +32,7 @@ export default async function ContactPage() {
         leadMeasure="none"
         lead={t("description")}
       >
-        <div className="mt-4 flex flex-col gap-8">
+        <div className="flex flex-col gap-8">
           <TextLink href={`mailto:${email}`} tone="accent" size="2xl">
             {email}
             <ArrowUpRight
@@ -63,7 +63,7 @@ export default async function ContactPage() {
         </div>
       </PageHeader>
 
-      <div className="mt-14 max-w-2xl border-t border-line pt-6">
+      <div className="mt-16 max-w-2xl border-t border-line pt-6">
         <div className="flex flex-wrap items-center gap-3">
           <p className="text-sm text-mut">{t("soonTitle")}</p>
           <span className="rounded-full border border-line px-2.5 py-0.5 text-xs text-mut">

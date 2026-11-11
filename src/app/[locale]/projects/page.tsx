@@ -32,7 +32,7 @@ export default async function ProjectsPage() {
         lead={t("description")}
       />
 
-      <div className="mt-10 border-t border-line">
+      <div className="mt-16 border-t border-line">
         {projects.map((project) => (
           <ProjectRow
             key={project.id}

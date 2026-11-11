@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-16">
+    <div className="flex flex-col gap-16 pb-24">
       <Hero />
       <SelectedWork />
       <AboutBlurb />

@@ -11,7 +11,7 @@ export default function SkillList({ categories, language }: SkillListProps) {
       {categories.map((category) => (
         <div
           key={category.key}
-          className="grid gap-0.5 border-b border-line py-3 sm:grid-cols-[var(--about-label)_1fr] sm:gap-6"
+          className="grid gap-0.5 border-b border-line py-4 sm:grid-cols-[var(--about-label)_1fr] sm:gap-6"
         >
           <p className="text-sm text-mut">{category.label[language]}</p>
           <p className="text-sm text-ink">

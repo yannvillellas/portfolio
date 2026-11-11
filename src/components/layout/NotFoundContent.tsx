@@ -15,13 +15,13 @@ export default function NotFoundContent({ copy, link }: NotFoundContentProps) {
   return (
     <>
       <p className="text-sm text-mut">{copy.eyebrow}</p>
-      <Heading level="h1" role="page" className="mt-3">
+      <Heading level="h1" role="page" className="mt-4">
         {copy.title}
       </Heading>
       <Prose>
         <p>{copy.description}</p>
       </Prose>
-      <div className="mt-8">{link}</div>
+      <div className="mt-6">{link}</div>
     </>
   );
 }
