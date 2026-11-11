@@ -26,11 +26,7 @@ export default async function ContactPage() {
 
   return (
     <PageShell>
-      <PageHeader
-        title={t("title")}
-        width="2xl"
-        lead={t("description")}
-      >
+      <PageHeader title={t("title")} width="2xl" lead={t("description")}>
         <div className="flex flex-col gap-8">
           <TextLink href={`mailto:${email}`} tone="accent" size="2xl">
             {email}

@@ -26,11 +26,7 @@ export default async function ProjectsPage() {
 
   return (
     <PageShell>
-      <PageHeader
-        title={t("title")}
-        width="3xl"
-        lead={t("description")}
-      />
+      <PageHeader title={t("title")} width="3xl" lead={t("description")} />
 
       <div className="mt-16 border-t border-line">
         {projects.map((project) => (

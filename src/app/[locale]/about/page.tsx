@@ -33,9 +33,7 @@ export default async function AboutPage() {
 
   return (
     <PageShell>
-      <PageHeader
-        title={t("title")}
-      >
+      <PageHeader title={t("title")}>
         <Prose>
           <p>{t("introP1")}</p>
           <p>{t("introP2")}</p>
