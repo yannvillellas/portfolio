@@ -4,7 +4,6 @@ interface ProseProps {
   children: ReactNode;
   size?: "base" | "sm";
   gap?: "default" | "tight";
-  measure?: "prose" | "none";
   className?: string;
 }
 
@@ -18,21 +17,22 @@ const GAP = {
   tight: "gap-3",
 } as const;
 
-const MEASURE = {
-  prose: "max-w-prose",
-  none: "",
-} as const;
-
 export default function Prose({
   children,
   size = "base",
   gap = "default",
-  measure = "prose",
-  className = "",
+  className,
 }: ProseProps) {
   return (
     <div
-      className={`flex flex-col leading-relaxed text-mut ${GAP[gap]} ${MEASURE[measure]} ${SIZE[size]} ${className}`}
+      className={[
+        "flex max-w-prose flex-col leading-relaxed text-mut",
+        GAP[gap],
+        SIZE[size],
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       {children}
     </div>

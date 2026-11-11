@@ -5,7 +5,6 @@ import Prose from "@/components/ui/Prose";
 interface PageHeaderProps {
   title: string;
   lead?: string;
-  leadMeasure?: "prose" | "none";
   eyebrow?: ReactNode;
   width?: "prose" | "2xl" | "3xl";
   children?: ReactNode;
@@ -20,7 +19,6 @@ const WIDTH = {
 export default function PageHeader({
   title,
   lead,
-  leadMeasure = "prose",
   eyebrow,
   width = "prose",
   children,
@@ -32,7 +30,7 @@ export default function PageHeader({
         {title}
       </Heading>
       {lead && (
-        <Prose measure={leadMeasure}>
+        <Prose>
           <p>{lead}</p>
         </Prose>
       )}

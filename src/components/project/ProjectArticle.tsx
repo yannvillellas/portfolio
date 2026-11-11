@@ -1,5 +1,4 @@
 import Container from "@/components/layout/Container";
-import Section from "@/components/layout/Section";
 import Prose from "@/components/ui/Prose";
 
 interface ProjectArticleProps {
@@ -10,7 +9,7 @@ export default function ProjectArticle({ detail }: ProjectArticleProps) {
   if (!detail) return null;
 
   return (
-    <Section>
+    <section className="pt-16 pb-24">
       <Container>
         <Prose>
           {detail.map((paragraph) => (
@@ -18,6 +17,6 @@ export default function ProjectArticle({ detail }: ProjectArticleProps) {
           ))}
         </Prose>
       </Container>
-    </Section>
+    </section>
   );
 }

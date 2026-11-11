@@ -29,7 +29,6 @@ export default async function ContactPage() {
       <PageHeader
         title={t("title")}
         width="2xl"
-        leadMeasure="none"
         lead={t("description")}
       >
         <div className="flex flex-col gap-8">
