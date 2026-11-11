@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/layout/Container";
 import SectionHeader from "@/components/layout/SectionHeader";
-import ContactBlock from "@/components/home/ContactBlock";
 import Prose from "@/components/ui/Prose";
 
 export default async function AboutBlurb() {
@@ -26,7 +25,6 @@ export default async function AboutBlurb() {
           <p>{t.rich("aboutP2", rich)}</p>
           <p>{t.rich("aboutP3", rich)}</p>
         </Prose>
-        <ContactBlock />
       </Container>
     </section>
   );
