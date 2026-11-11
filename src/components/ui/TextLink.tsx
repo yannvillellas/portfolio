@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 
-export type TextLinkTone = "muted" | "accent" | "ink";
+type TextLinkTone = "muted" | "accent" | "ink";
 
 interface TextLinkProps {
   href: string;
