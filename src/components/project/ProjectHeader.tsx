@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/layout/Container";
 import PageHeader from "@/components/layout/PageHeader";
-import ProjectMeta from "@/components/projects/ProjectMeta";
+import ProjectMetaLine from "@/components/projects/ProjectMetaLine";
 import TextLink from "@/components/ui/TextLink";
 import type { Project } from "@/data/projects";
 
@@ -20,7 +20,11 @@ export default async function ProjectHeader({ project }: ProjectHeaderProps) {
           title={project.title}
           width="3xl"
           eyebrow={
-            <ProjectMeta project={project} statusLabel={t("inProgress")} />
+            <ProjectMetaLine
+              project={project}
+              statusLabel={t("inProgress")}
+              gap="wide"
+            />
           }
           lead={project.description}
         >

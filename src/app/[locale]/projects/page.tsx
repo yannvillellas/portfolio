@@ -4,7 +4,6 @@ import { getAlternates } from "@/i18n/alternates";
 import { buildOpenGraph } from "@/i18n/metadata";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
-import Prose from "@/components/ui/Prose";
 import ProjectRow from "@/components/projects/ProjectRow";
 import { getProjects } from "@/data/projects";
 

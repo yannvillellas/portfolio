@@ -12,7 +12,6 @@ export default async function LocaleNotFound() {
           eyebrow: t("eyebrow"),
           title: t("title"),
           description: t("description"),
-          back: t("back"),
         }}
         link={
           <TextLink href="/" tone="ink">

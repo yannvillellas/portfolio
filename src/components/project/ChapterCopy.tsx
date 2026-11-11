@@ -30,9 +30,7 @@ export default function ChapterCopy({
       <ol className="sr-only">
         {chapters.map((chapter) => (
           <li key={chapter.title}>
-            <Heading level="h2" size="block">
-              {chapter.title}
-            </Heading>
+            <h2>{chapter.title}</h2>
             <p>{chapter.body}</p>
           </li>
         ))}
@@ -52,12 +50,12 @@ export default function ChapterCopy({
                   : "pointer-events-none opacity-0"
               }`}
             >
-              <Heading level="h2" size="block">
+              <Heading level="h2" role="block">
                 {chapter.title}
               </Heading>
               <p
                 style={isActive ? { opacity: bodyShown } : undefined}
-                className="mt-2 max-w-prose text-base leading-relaxed text-mut motion-reduce:opacity-100!"
+                className="max-w-prose text-base leading-relaxed text-mut motion-reduce:opacity-100!"
               >
                 {chapter.body}
               </p>

@@ -10,7 +10,7 @@ export default async function SelectedWork() {
   const projects = getProjects(locale).filter((project) => project.featured);
 
   return (
-    <section className="pb-2">
+    <section>
       <Container>
         <SectionHeader
           title={t("projectsTitle")}

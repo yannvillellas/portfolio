@@ -26,9 +26,9 @@ export default function PageHeader({
   children,
 }: PageHeaderProps) {
   return (
-    <div className={`flex flex-col gap-4 ${WIDTH[width]}`}>
-      {eyebrow}
-      <Heading level="h1" size="page">
+    <div className={`flex flex-col ${WIDTH[width]}`}>
+      {eyebrow && <div className="mb-4">{eyebrow}</div>}
+      <Heading level="h1" role="page">
         {title}
       </Heading>
       {lead && (

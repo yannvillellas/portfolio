@@ -81,7 +81,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   const chapters = project.chapters ?? [];
   const sequenceChapters =
     demo && chapters.length === 0 ? fallbackChapters(project, demo) : chapters;
-  const showSequence = demo !== undefined;
 
   return (
     <>

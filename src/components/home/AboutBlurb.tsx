@@ -14,7 +14,7 @@ export default async function AboutBlurb() {
   };
 
   return (
-    <section className="pt-16">
+    <section>
       <Container>
         <SectionHeader
           title={t("pathTitle")}

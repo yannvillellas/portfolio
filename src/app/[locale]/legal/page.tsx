@@ -6,6 +6,7 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import Heading from "@/components/ui/Heading";
 import Prose from "@/components/ui/Prose";
+import TextLink from "@/components/ui/TextLink";
 import { email } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -31,12 +32,9 @@ export default async function LegalPage() {
           <p>{t("editor")}</p>
           <p>
             {t("contact")}{" "}
-            <a
-              href={`mailto:${email}`}
-              className="text-accent underline-offset-4 hover:underline"
-            >
+            <TextLink href={`mailto:${email}`} tone="accent" size="base">
               {email}
-            </a>
+            </TextLink>
           </p>
         </>
       ),
@@ -52,8 +50,8 @@ export default async function LegalPage() {
 
       <div className="mt-12 flex max-w-prose flex-col gap-12">
         {sections.map((section) => (
-          <section key={section.title} className="flex flex-col gap-4">
-            <Heading level="h2" size="block">
+          <section key={section.title}>
+            <Heading level="h2" role="block">
               {section.title}
             </Heading>
             <Prose gap="tight">{section.body}</Prose>

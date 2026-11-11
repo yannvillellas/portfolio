@@ -12,12 +12,7 @@ import PhoneStage from "@/components/project/PhoneStage";
 import TerminalReplay from "@/components/project/TerminalReplay";
 import { useScrollProgress } from "@/components/project/useScrollProgress";
 import type { ProjectChapter } from "@/data/projects";
-import {
-  chapterScroll,
-  chapterTarget,
-  pinOffset,
-  sequenceEnd,
-} from "@/lib/chapter-scroll";
+import { chapterTarget, sequenceEnd } from "@/lib/chapter-scroll";
 
 export type SequenceDemo =
   | { kind: "terminal"; title: string; lines: { t: number; text: string }[] }

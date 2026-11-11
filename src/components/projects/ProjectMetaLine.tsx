@@ -1,16 +1,23 @@
 import type { Project } from "@/data/projects";
 
-interface ProjectMetaProps {
+interface ProjectMetaLineProps {
   project: Project;
   statusLabel: string;
+  gap?: "tight" | "wide";
 }
 
-export default function ProjectMeta({
+const GAP = {
+  tight: "gap-x-3.5",
+  wide: "gap-x-4",
+} as const;
+
+export default function ProjectMetaLine({
   project,
   statusLabel,
-}: ProjectMetaProps) {
+  gap = "tight",
+}: ProjectMetaLineProps) {
   return (
-    <div className="flex flex-wrap items-center gap-x-3.5 gap-y-1 text-sm">
+    <div className={`flex flex-wrap items-center gap-y-1 text-sm ${GAP[gap]}`}>
       {project.year !== undefined && (
         <span className="tabular-nums text-mut">{project.year}</span>
       )}
