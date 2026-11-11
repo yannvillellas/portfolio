@@ -27,7 +27,7 @@ export default function ProjectRow({
         <div>
           <Heading
             level={headingLevel}
-            role="card"
+            variant="card"
             className="transition-colors duration-250 group-hover:text-accent"
           >
             {project.title}

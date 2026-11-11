@@ -20,11 +20,7 @@ export default async function ProjectHeader({ project }: ProjectHeaderProps) {
           title={project.title}
           width="3xl"
           eyebrow={
-            <ProjectMetaLine
-              project={project}
-              statusLabel={t("inProgress")}
-              gap="wide"
-            />
+            <ProjectMetaLine project={project} statusLabel={t("inProgress")} />
           }
           lead={project.description}
         >

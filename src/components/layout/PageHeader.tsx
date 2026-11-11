@@ -26,7 +26,7 @@ export default function PageHeader({
   return (
     <div className={`flex flex-col ${WIDTH[width]}`}>
       {eyebrow && <div className="mb-4">{eyebrow}</div>}
-      <Heading level="h1" role="page">
+      <Heading level="h1" variant="page">
         {title}
       </Heading>
       {lead && (

@@ -15,7 +15,7 @@ export default function NotFoundContent({ copy, link }: NotFoundContentProps) {
   return (
     <>
       <p className="text-sm text-mut">{copy.eyebrow}</p>
-      <Heading level="h1" role="page" className="mt-4">
+      <Heading level="h1" variant="page" className="mt-4">
         {copy.title}
       </Heading>
       <Prose>

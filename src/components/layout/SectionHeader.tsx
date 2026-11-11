@@ -14,7 +14,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className="flex items-baseline justify-between gap-6 border-b border-line pb-4">
-      <Heading level="h2" role="section">
+      <Heading level="h2" variant="section">
         {title}
       </Heading>
       <TextLink href={href} tone="muted" size="sm" underline={false}>

@@ -11,7 +11,7 @@ export default async function Hero() {
       <Container>
         <div className="flex max-w-2xl flex-col">
           <p className="text-sm text-mut">{t("eyebrow")}</p>
-          <Heading level="h1" role="hero">
+          <Heading level="h1" variant="hero">
             {t("title")}
           </Heading>
           <Prose>

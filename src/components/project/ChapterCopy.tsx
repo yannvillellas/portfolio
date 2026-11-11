@@ -50,7 +50,7 @@ export default function ChapterCopy({
                   : "pointer-events-none opacity-0"
               }`}
             >
-              <Heading level="h2" role="block">
+              <Heading level="h2" variant="block">
                 {chapter.title}
               </Heading>
               <p

@@ -42,7 +42,7 @@ export default async function AboutPage() {
 
       <div className="mt-16 flex flex-col gap-16">
         <section>
-          <Heading level="h2" role="block">
+          <Heading level="h2" variant="block">
             {t("experience.title")}
           </Heading>
           <div className="border-t border-line">
@@ -62,7 +62,7 @@ export default async function AboutPage() {
         </section>
 
         <section>
-          <Heading level="h2" role="block">
+          <Heading level="h2" variant="block">
             {t("education.title")}
           </Heading>
           <div className="border-t border-line">
@@ -78,7 +78,7 @@ export default async function AboutPage() {
         </section>
 
         <section>
-          <Heading level="h2" role="block">
+          <Heading level="h2" variant="block">
             {t("skills.title")}
           </Heading>
           <SkillList categories={skillCategories} language={language} />
