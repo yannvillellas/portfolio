@@ -6,7 +6,7 @@ export const OG_SIZE = { width: 1200, height: 630 };
 
 const FONT_CSS =
   "https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap";
-const normalStyle: "normal" = "normal";
+const normalStyle = "normal" as const;
 
 export interface SwitzerFonts {
   regular: ArrayBuffer | null;

@@ -1,5 +1,5 @@
 import Container from "@/components/layout/Container";
-import Section from "@/components/layout/Section";
+import Prose from "@/components/ui/Prose";
 
 interface ProjectArticleProps {
   detail?: string[];
@@ -9,19 +9,14 @@ export default function ProjectArticle({ detail }: ProjectArticleProps) {
   if (!detail) return null;
 
   return (
-    <Section>
+    <section className="pt-16 pb-24">
       <Container>
-        <div className="max-w-prose space-y-5">
+        <Prose>
           {detail.map((paragraph) => (
-            <p
-              key={paragraph.slice(0, 40)}
-              className="text-base leading-relaxed text-mut"
-            >
-              {paragraph}
-            </p>
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
-        </div>
+        </Prose>
       </Container>
-    </Section>
+    </section>
   );
 }

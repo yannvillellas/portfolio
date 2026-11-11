@@ -10,11 +10,7 @@ export function ogStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function ogCard(
-  title: string,
-  subtitle: string,
-  role: string,
-) {
+export async function ogCard(title: string, subtitle: string, role: string) {
   const font = await loadSwitzer();
 
   return new ImageResponse(

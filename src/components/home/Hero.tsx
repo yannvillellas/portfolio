@@ -1,20 +1,22 @@
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/layout/Container";
+import Heading from "@/components/ui/Heading";
+import Prose from "@/components/ui/Prose";
 
 export default async function Hero() {
   const t = await getTranslations("HomePage");
 
   return (
-    <section className="pt-14 pb-10">
+    <section className="pt-14">
       <Container>
-        <div className="max-w-2xl">
+        <div className="flex max-w-2xl flex-col">
           <p className="text-sm text-mut">{t("eyebrow")}</p>
-          <h1 className="mt-4 mb-0 text-5xl font-semibold tracking-tight text-balance lg:text-6xl">
+          <Heading level="h1" variant="hero">
             {t("title")}
-          </h1>
-          <p className="mt-4.5 max-w-prose text-base leading-relaxed text-mut">
-            {t("heroSubtitle")}
-          </p>
+          </Heading>
+          <Prose>
+            <p>{t("heroSubtitle")}</p>
+          </Prose>
         </div>
       </Container>
     </section>

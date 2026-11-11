@@ -1,5 +1,3 @@
-export const chapterScroll = 0.69;
-
 function stickyOf(section: HTMLElement) {
   return section.firstElementChild as HTMLElement | null;
 }

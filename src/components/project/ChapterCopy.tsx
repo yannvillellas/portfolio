@@ -1,4 +1,5 @@
 import type { ProjectChapter } from "@/data/projects";
+import Heading from "@/components/ui/Heading";
 
 interface ChapterCopyProps {
   chapters: ProjectChapter[];
@@ -49,12 +50,12 @@ export default function ChapterCopy({
                   : "pointer-events-none opacity-0"
               }`}
             >
-              <h2 className="mt-0 mb-0 text-2xl font-semibold tracking-tight lg:text-3xl">
+              <Heading level="h2" variant="block">
                 {chapter.title}
-              </h2>
+              </Heading>
               <p
                 style={isActive ? { opacity: bodyShown } : undefined}
-                className="mt-2 max-w-prose text-base leading-relaxed text-mut motion-reduce:opacity-100!"
+                className="max-w-prose text-base leading-relaxed text-mut motion-reduce:opacity-100!"
               >
                 {chapter.body}
               </p>
