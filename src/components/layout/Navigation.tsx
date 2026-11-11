@@ -45,14 +45,14 @@ export default function Navigation() {
       mobileIcon: <Home size={18} aria-hidden="true" />,
     },
     {
-      label: t("projects"),
-      link: "/projects",
-      mobileIcon: <Folder size={18} aria-hidden="true" />,
-    },
-    {
       label: t("about"),
       link: "/about",
       mobileIcon: <User size={18} aria-hidden="true" />,
+    },
+    {
+      label: t("projects"),
+      link: "/projects",
+      mobileIcon: <Folder size={18} aria-hidden="true" />,
     },
     {
       label: t("contact"),
