@@ -6,7 +6,6 @@ import Hero from "@/components/home/Hero";
 import AboutBlurb from "@/components/home/AboutBlurb";
 import SelectedWork from "@/components/home/SelectedWork";
 import ContactBlock from "@/components/home/ContactBlock";
-import Container from "@/components/layout/Container";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -30,9 +29,7 @@ export default function HomePage() {
       <Hero />
       <AboutBlurb />
       <SelectedWork />
-      <Container>
-        <ContactBlock />
-      </Container>
+      <ContactBlock />
     </div>
   );
 }
