@@ -475,7 +475,7 @@ const data: Record<Locale, Project[]> = {
       summary: "Garmin and Polar, one timeline.",
       description:
         "Cross-platform mobile app that normalizes training data from heterogeneous wearable ecosystems for sports-science research.",
-      tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
+      tags: ["Flutter", "Firebase"],
       detail: [
         "Endurance research drowns in exports. 4 ecosystems, 4 file formats, and no single view of what an athlete actually did across a season. Endurance Lab connects a Garmin or Polar account through OAuth, normalises every activity into one model, and shows the season as trends instead of a folder of files.",
         "The app is written in Flutter and ships to iOS and Android from one codebase, with Firebase behind authentication and storage. The client carries 6 indicators, GPS maps and 2 OAuth integrations. A 3.5-month beta collected 8 athletes, 1,001 activities, 2.7 million GPS points and 1.6 million samples, and the release pipeline runs with zero manual steps.",
@@ -519,17 +519,10 @@ const data: Record<Locale, Project[]> = {
         "Vehicle booking and fleet management, from catalog to invoicing.",
       description:
         "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
-      tags: [
-        "Spring Boot",
-        "Kotlin",
-        "React",
-        "Kafka",
-        "Keycloak",
-        "PostgreSQL",
-      ],
+      tags: ["Kotlin", "Spring Boot", "PostgreSQL"],
       detail: [
         "Renting a car touches three systems at once. The fleet has to show the vehicle as taken, the customer has to be charged, and neither can be true while the other is not. The platform splits that work across four Kotlin and Spring Boot services, users, reservations, payments and a gateway, each with its own PostgreSQL database and its own migrations.",
-        "Payments travel through Kafka with the outbox pattern and Debezium change data capture, so a reservation and its PayPal confirmation stay consistent even when one side fails. Keycloak issues a single OIDC token carrying 4 roles, and the React front end uses the same JWT as the services. 42 endpoints with 75.8% line coverage, held up by Testcontainers rather than mocks.",
+        "Payments travel through Kafka with the outbox pattern and Debezium change data capture, so a reservation and its PayPal confirmation stay consistent even when one side fails. Keycloak issues a single OIDC token carrying 4 roles, and the React front end uses the same JWT as the services. 42 routes with 75.8% line coverage, held up by Testcontainers rather than mocks, on a backend wired through JPA.",
       ],
       screenshots: [
         {
@@ -571,7 +564,7 @@ const data: Record<Locale, Project[]> = {
       },
       chapters: [
         {
-          title: "4 services, 42 endpoints.",
+          title: "4 services, 42 routes.",
           body: "Users, reservations, payments and a gateway, each a Kotlin and Spring Boot service with its own PostgreSQL database.",
         },
         {
@@ -590,7 +583,7 @@ const data: Record<Locale, Project[]> = {
       summary: "A university's field trips, guided by GPS on site.",
       description:
         "Cross-platform mobile app that turns geography field trips into self-guided GIS excursions, guided by GPS on site.",
-      tags: ["Flutter", "Firebase", "flutter_map"],
+      tags: ["Flutter", "Firebase"],
       detail: [
         "Athabasca University teaches 40,000 students at a distance, and a field trip is the one thing a distance course cannot ship. mFieldTrip sends the student out with the guide in the phone. The map follows their position on site, the nearest stop comes first, and each stop carries its own media and credits.",
         "The app is a single Flutter codebase running on Android, iOS and the web. Firebase handles authentication, storage and App Check, with 3 roles from amateur to professor and an admin path for moderation. A new trip is published by importing a QGIS to Web archive and a CSV of points of interest, and students sort what they see by proximity.",
@@ -633,7 +626,7 @@ const data: Record<Locale, Project[]> = {
       summary: "A map of the documents behind Kiruna's relocation.",
       description:
         "Collaborative geospatial platform mapping Kiruna's mining-driven relocation and its local impacts. Built with Node.js, Express, React, and SQLite.",
-      tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
+      tags: ["Node.js", "React", "SQLite"],
       detail: [
         "Kiruna is moving because the mine is expanding under it, and the argument about what is lost and what is compensated lives in documents scattered across agencies. Kiruna Explorer puts those documents on a map, so a plan, a complaint and a compensation claim can be read against the same piece of ground.",
         "20 documents of 5 types involve 6 stakeholders, from LKAB to the residents, and the model links each one to the 9 affected areas and to 16 associations between them. A Node.js and Express API exposes 33 routes over SQLite, the front end draws the map with Leaflet, and access runs on 2 roles plus a read-only guest. The whole thing ships in Docker, with 17 Jest test files and 6 Cypress runs.",
@@ -697,7 +690,7 @@ const data: Record<Locale, Project[]> = {
       summary: "This site, built with Next.js and Tailwind.",
       description:
         "Bilingual Next.js 16 portfolio built with Tailwind CSS v4, next-intl, and a design token system. Lighthouse desktop 100/100/100/100.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
+      tags: ["Next.js", "Tailwind CSS", "next-intl"],
       repoUrl: "https://github.com/yannvillellas/portfolio",
       detail: [
         "Built this portfolio as a personal engineering site and a playground for design and web experiments, with a focus on clean architecture, bilingual content, and static generation. The goal was to present seven case studies in French and English without a CMS or runtime content store.",
@@ -805,7 +798,7 @@ const data: Record<Locale, Project[]> = {
       summary: "Garmin et Polar, une seule chronologie.",
       description:
         "Application mobile multiplateforme qui normalise les donn\u00e9es d\u2019entra\u00eenement issues d\u2019\u00e9cosyst\u00e8mes de wearables h\u00e9t\u00e9rog\u00e8nes pour la recherche en sciences du sport.",
-      tags: ["Flutter", "Firebase", "GitHub Actions", "Fastlane"],
+      tags: ["Flutter", "Firebase"],
       detail: [
         "La recherche en endurance se noie dans les exports. 4 \u00e9cosyst\u00e8mes, 4 formats de fichiers, et aucune vue unique sur ce qu'un athl\u00e8te a vraiment fait sur une saison. Endurance Lab connecte un compte Garmin ou Polar par OAuth, ram\u00e8ne chaque activit\u00e9 \u00e0 un mod\u00e8le unique, et pr\u00e9sente la saison en tendances au lieu d'un dossier de fichiers.",
         "L'application est \u00e9crite en Flutter et sort sur iOS comme sur Android depuis une seule base de code, avec Firebase derri\u00e8re l'authentification et le stockage. Le client porte 6 indicateurs, des cartes GPS et 2 int\u00e9grations OAuth. Une b\u00eata de 3,5 mois a rassembl\u00e9 8 athl\u00e8tes, 1\u202f001 activit\u00e9s, 2,7 millions de points GPS et 1,6 million d'\u00e9chantillons, et la cha\u00eene de publication ne demande aucune \u00e9tape manuelle.",
@@ -851,17 +844,10 @@ const data: Record<Locale, Project[]> = {
         "R\u00e9servation de v\u00e9hicules et gestion de flotte, du catalogue \u00e0 la facturation.",
       description:
         "Syst\u00e8me distribu\u00e9 en microservices avec coh\u00e9rence transactionnelle via Kafka et le pattern Outbox. D\u00e9velopp\u00e9 avec Spring Boot, React et Keycloak.",
-      tags: [
-        "Spring Boot",
-        "Kotlin",
-        "React",
-        "Kafka",
-        "Keycloak",
-        "PostgreSQL",
-      ],
+      tags: ["Kotlin", "Spring Boot", "PostgreSQL"],
       detail: [
         "Louer une voiture touche trois syst\u00e8mes \u00e0 la fois. La flotte doit marquer le v\u00e9hicule comme pris, le client doit \u00eatre d\u00e9bit\u00e9, et aucun des deux ne peut \u00eatre vrai pendant que l'autre ne l'est pas. La plateforme r\u00e9partit ce travail sur quatre services Kotlin et Spring Boot, utilisateurs, r\u00e9servations, paiements et passerelle, chacun avec sa base PostgreSQL et ses migrations.",
-        "Les paiements passent par Kafka avec le patron Outbox et la capture de changements Debezium, donc une r\u00e9servation et sa confirmation PayPal restent coh\u00e9rentes m\u00eame si un c\u00f4t\u00e9 l\u00e2che. Keycloak \u00e9met un seul jeton OIDC porteur de 4 r\u00f4les, et le front React utilise le m\u00eame JWT que les services. 42 routes avec 75,8\u00a0% de couverture, tenues par Testcontainers plut\u00f4t que par des mocks.",
+        "Les paiements passent par Kafka avec le patron Outbox et la capture de changements Debezium, donc une r\u00e9servation et sa confirmation PayPal restent coh\u00e9rentes m\u00eame si un c\u00f4t\u00e9 l\u00e2che. Keycloak \u00e9met un seul jeton OIDC porteur de 4 r\u00f4les, et le front React utilise le m\u00eame JWT que les services. 42 routes avec 75,8\u00a0% de couverture, tenues par Testcontainers plut\u00f4t que par des mocks, sur un backend c\u00e2bl\u00e9 en JPA.",
       ],
       screenshots: [
         {
@@ -923,7 +909,7 @@ const data: Record<Locale, Project[]> = {
         "Les excursions de terrain d'une universit\u00e9, guid\u00e9es par GPS sur place.",
       description:
         "Application mobile multiplateforme qui transforme les excursions de g\u00e9ographie en sorties autonomes guid\u00e9es par GPS sur le terrain.",
-      tags: ["Flutter", "Firebase", "flutter_map"],
+      tags: ["Flutter", "Firebase"],
       detail: [
         "L'Universit\u00e9 Athabasca enseigne \u00e0 40\u202f000 \u00e9tudiants \u00e0 distance, et l'excursion sur le terrain est la seule chose qu'un cours \u00e0 distance ne peut pas livrer. mFieldTrip envoie l'\u00e9tudiant sur place avec le guide dans le t\u00e9l\u00e9phone. La carte suit sa position sur le site, l'arr\u00eat le plus proche arrive en premier, et chaque arr\u00eat porte ses m\u00e9dias et ses cr\u00e9dits.",
         "L'application tient dans une seule base Flutter qui tourne sur Android, iOS et le web. Firebase porte l'authentification, le stockage et App Check, avec 3 r\u00f4les de l'amateur au professeur et un acc\u00e8s admin pour la mod\u00e9ration. Une nouvelle excursion se publie en important une archive QGIS to Web et un CSV de points d'int\u00e9r\u00eat, et les \u00e9tudiants trient ce qu'ils voient par proximit\u00e9.",
@@ -966,7 +952,7 @@ const data: Record<Locale, Project[]> = {
       summary: "Une carte des documents de la relocalisation de Kiruna.",
       description:
         "Plateforme g\u00e9ospatiale collaborative cartographiant la relocalisation de Kiruna li\u00e9e \u00e0 l\u2019exploitation mini\u00e8re et ses impacts locaux. D\u00e9velopp\u00e9e avec Node.js, Express, React et SQLite.",
-      tags: ["Node.js", "Express", "React", "SQLite", "Docker"],
+      tags: ["Node.js", "React", "SQLite"],
       detail: [
         "Kiruna se d\u00e9place parce que la mine s'\u00e9tend sous la ville, et le d\u00e9bat sur ce qui est perdu et ce qui est compens\u00e9 vit dans des documents dispers\u00e9s entre les agences. Kiruna Explorer pose ces documents sur une carte, pour qu'un plan, une contestation et une demande de compensation se lisent sur le m\u00eame morceau de terrain.",
         "20 documents en 5 types impliquent 6 parties prenantes, de LKAB aux habitants, et le mod\u00e8le relie chacun aux 9 zones touch\u00e9es et \u00e0 16 associations entre eux. Une API Node.js et Express expose 33 routes sur SQLite, le front dessine la carte avec Leaflet, et l'acc\u00e8s repose sur 2 r\u00f4les plus un invit\u00e9 en lecture seule. Le tout tourne dans Docker, avec 17 fichiers de tests Jest et 6 parcours Cypress.",
@@ -1030,7 +1016,7 @@ const data: Record<Locale, Project[]> = {
       summary: "Ce site, construit avec Next.js et Tailwind.",
       description:
         "Portfolio bilingue Next.js 16 avec Tailwind CSS v4, next-intl et un syst\u00e8me de tokens de design. Lighthouse desktop 100/100/100/100.",
-      tags: ["Next.js", "TypeScript", "Tailwind CSS", "next-intl"],
+      tags: ["Next.js", "Tailwind CSS", "next-intl"],
       repoUrl: "https://github.com/yannvillellas/portfolio",
       detail: [
         "Cr\u00e9ation de ce portfolio comme site d\u2019ing\u00e9nierie personnel et terrain d\u2019exp\u00e9rimentation pour le design et le web, avec une attention port\u00e9e \u00e0 l\u2019architecture propre, au contenu bilingue et \u00e0 la g\u00e9n\u00e9ration statique. L\u2019objectif \u00e9tait de pr\u00e9senter sept \u00e9tudes de cas en fran\u00e7ais et en anglais sans CMS ni stockage de contenu \u00e0 l\u2019ex\u00e9cution.",
