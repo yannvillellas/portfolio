@@ -519,17 +519,10 @@ const data: Record<Locale, Project[]> = {
         "Vehicle booking and fleet management, from catalog to invoicing.",
       description:
         "Distributed microservices system with transactional consistency via Kafka and the Outbox pattern. Built with Spring Boot, React, and Keycloak.",
-      tags: [
-        "Spring Boot",
-        "Kotlin",
-        "React",
-        "Kafka",
-        "Keycloak",
-        "PostgreSQL",
-      ],
+      tags: ["Kotlin", "Spring Boot", "PostgreSQL"],
       detail: [
         "Renting a car touches three systems at once. The fleet has to show the vehicle as taken, the customer has to be charged, and neither can be true while the other is not. The platform splits that work across four Kotlin and Spring Boot services, users, reservations, payments and a gateway, each with its own PostgreSQL database and its own migrations.",
-        "Payments travel through Kafka with the outbox pattern and Debezium change data capture, so a reservation and its PayPal confirmation stay consistent even when one side fails. Keycloak issues a single OIDC token carrying 4 roles, and the React front end uses the same JWT as the services. 42 endpoints with 75.8% line coverage, held up by Testcontainers rather than mocks.",
+        "Payments travel through Kafka with the outbox pattern and Debezium change data capture, so a reservation and its PayPal confirmation stay consistent even when one side fails. Keycloak issues a single OIDC token carrying 4 roles, and the React front end uses the same JWT as the services. 42 routes with 75.8% line coverage, held up by Testcontainers rather than mocks, on a backend wired through JPA.",
       ],
       screenshots: [
         {
@@ -571,7 +564,7 @@ const data: Record<Locale, Project[]> = {
       },
       chapters: [
         {
-          title: "4 services, 42 endpoints.",
+          title: "4 services, 42 routes.",
           body: "Users, reservations, payments and a gateway, each a Kotlin and Spring Boot service with its own PostgreSQL database.",
         },
         {
@@ -851,17 +844,10 @@ const data: Record<Locale, Project[]> = {
         "R\u00e9servation de v\u00e9hicules et gestion de flotte, du catalogue \u00e0 la facturation.",
       description:
         "Syst\u00e8me distribu\u00e9 en microservices avec coh\u00e9rence transactionnelle via Kafka et le pattern Outbox. D\u00e9velopp\u00e9 avec Spring Boot, React et Keycloak.",
-      tags: [
-        "Spring Boot",
-        "Kotlin",
-        "React",
-        "Kafka",
-        "Keycloak",
-        "PostgreSQL",
-      ],
+      tags: ["Kotlin", "Spring Boot", "PostgreSQL"],
       detail: [
         "Louer une voiture touche trois syst\u00e8mes \u00e0 la fois. La flotte doit marquer le v\u00e9hicule comme pris, le client doit \u00eatre d\u00e9bit\u00e9, et aucun des deux ne peut \u00eatre vrai pendant que l'autre ne l'est pas. La plateforme r\u00e9partit ce travail sur quatre services Kotlin et Spring Boot, utilisateurs, r\u00e9servations, paiements et passerelle, chacun avec sa base PostgreSQL et ses migrations.",
-        "Les paiements passent par Kafka avec le patron Outbox et la capture de changements Debezium, donc une r\u00e9servation et sa confirmation PayPal restent coh\u00e9rentes m\u00eame si un c\u00f4t\u00e9 l\u00e2che. Keycloak \u00e9met un seul jeton OIDC porteur de 4 r\u00f4les, et le front React utilise le m\u00eame JWT que les services. 42 routes avec 75,8\u00a0% de couverture, tenues par Testcontainers plut\u00f4t que par des mocks.",
+        "Les paiements passent par Kafka avec le patron Outbox et la capture de changements Debezium, donc une r\u00e9servation et sa confirmation PayPal restent coh\u00e9rentes m\u00eame si un c\u00f4t\u00e9 l\u00e2che. Keycloak \u00e9met un seul jeton OIDC porteur de 4 r\u00f4les, et le front React utilise le m\u00eame JWT que les services. 42 routes avec 75,8\u00a0% de couverture, tenues par Testcontainers plut\u00f4t que par des mocks, sur un backend c\u00e2bl\u00e9 en JPA.",
       ],
       screenshots: [
         {
