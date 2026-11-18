@@ -14,7 +14,7 @@ export const skillCategories: SkillCategory[] = [
   {
     key: "frontend",
     label: { en: "Frontend", fr: "Frontend" },
-    items: "React, Next.js, Vue.js, Angular",
+    items: "React, Next.js, Vue.js",
   },
   {
     key: "mobile",
@@ -25,12 +25,12 @@ export const skillCategories: SkillCategory[] = [
     key: "backend",
     label: { en: "Backend", fr: "Backend" },
     items:
-      "Node.js, Express.js, Spring Boot, Kafka, Debezium, Outbox, Keycloak, OAuth 2.0, JWT, REST",
+      "Node.js, Express.js, Spring Boot, JPA, Kafka, Debezium, Outbox, Keycloak, OAuth 2.0, JWT, REST",
   },
   {
     key: "databases",
     label: { en: "Databases", fr: "Bases de données" },
-    items: "PostgreSQL, MySQL, MongoDB, SQLite, Firebase",
+    items: "PostgreSQL, MongoDB, SQLite, Firebase",
   },
   {
     key: "devops",
