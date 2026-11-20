@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Emphasis from "@/components/ui/Emphasis";
 
 interface TimelineRowProps {
   period: string;
@@ -12,7 +13,11 @@ function emphasis(text: string): ReactNode[] {
   return text
     .split("**")
     .map((part, index) =>
-      index % 2 === 1 ? <strong key={`${part}-${index}`}>{part}</strong> : part,
+      index % 2 === 1 ? (
+        <Emphasis key={`${part}-${index}`}>{part}</Emphasis>
+      ) : (
+        part
+      ),
     );
 }
 
