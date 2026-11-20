@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { routing } from "@/i18n/routing";
-import { OG_SIZE, loadSwitzer, ogFonts } from "@/lib/og";
+import { OG_SIZE, loadFonts, ogFonts } from "@/lib/og";
+import { FONT_FAMILY } from "@/lib/font";
 
 export const size = OG_SIZE;
 export const alt = "Yann Villellas";
@@ -11,7 +12,7 @@ export function ogStaticParams() {
 }
 
 export async function ogCard(title: string, subtitle: string, role: string) {
-  const font = await loadSwitzer();
+  const font = await loadFonts();
 
   return new ImageResponse(
     <div
@@ -24,7 +25,7 @@ export async function ogCard(title: string, subtitle: string, role: string) {
         padding: "72px 80px 64px",
         backgroundColor: "#f6f6f7",
         color: "#171717",
-        fontFamily: "Switzer",
+        fontFamily: FONT_FAMILY,
       }}
     >
       <div

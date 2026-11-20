@@ -1,43 +1,35 @@
 import { readFileSync } from "node:fs";
-import sharp from "sharp";
 import { join } from "node:path";
+import sharp from "sharp";
+import { FONT_FAMILY, OG_FILES, OG_WEIGHTS } from "./font";
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
-const FONT_CSS =
-  "https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap";
 const normalStyle = "normal" as const;
 
-export interface SwitzerFonts {
+export interface OgFontData {
   regular: ArrayBuffer | null;
   bold: ArrayBuffer | null;
 }
 
-let fontsPromise: Promise<SwitzerFonts | null> | null = null;
-
-async function fetchWeight(css: string, weight: number) {
-  const block = css
-    .split("@font-face")
-    .find((part) => part.includes(`font-weight: ${weight}`));
-  const match = block?.match(/url\('([^']+\.ttf)'\)/);
-  if (!match) return null;
-  const url = match[1].startsWith("//") ? `https:${match[1]}` : match[1];
-  return fetch(url).then((response) => response.arrayBuffer());
+function readFont(file: string): ArrayBuffer | null {
+  try {
+    const buffer = readFileSync(
+      join(process.cwd(), "src", "app", "fonts", file),
+    );
+    return Uint8Array.from(buffer).buffer;
+  } catch {
+    return null;
+  }
 }
 
-export function loadSwitzer(): Promise<SwitzerFonts | null> {
-  fontsPromise ??= (async () => {
-    try {
-      const css = await fetch(FONT_CSS).then((response) => response.text());
-      const [regular, bold] = await Promise.all([
-        fetchWeight(css, 400),
-        fetchWeight(css, 600),
-      ]);
-      return { regular, bold };
-    } catch {
-      return null;
-    }
-  })();
+let fontsPromise: Promise<OgFontData | null> | null = null;
+
+export function loadFonts(): Promise<OgFontData | null> {
+  fontsPromise ??= Promise.resolve({
+    regular: readFont(OG_FILES.regular),
+    bold: readFont(OG_FILES.bold),
+  });
   return fontsPromise;
 }
 
@@ -48,22 +40,22 @@ export interface OgFont {
   style: "normal";
 }
 
-export function ogFonts(fonts: SwitzerFonts | null): OgFont[] | undefined {
+export function ogFonts(fonts: OgFontData | null): OgFont[] | undefined {
   if (!fonts) return undefined;
   const entries: OgFont[] = [];
   if (fonts.regular) {
     entries.push({
-      name: "Switzer",
+      name: FONT_FAMILY,
       data: fonts.regular,
-      weight: 400,
+      weight: OG_WEIGHTS.regular,
       style: normalStyle,
     });
   }
   if (fonts.bold) {
     entries.push({
-      name: "Switzer",
+      name: FONT_FAMILY,
       data: fonts.bold,
-      weight: 600,
+      weight: OG_WEIGHTS.bold,
       style: normalStyle,
     });
   }

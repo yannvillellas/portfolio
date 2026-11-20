@@ -1,14 +1,15 @@
 /* eslint-disable @next/next/no-img-element -- ImageResponse requires plain img elements */
 import { ImageResponse } from "next/og";
 import type { Project } from "@/data/projects";
-import { OG_SIZE, loadSwitzer, ogFonts, screenshotDataUrl } from "./og";
+import { OG_SIZE, loadFonts, ogFonts, screenshotDataUrl } from "./og";
+import { FONT_FAMILY } from "./font";
 
 export async function projectOgImage(project: Project | undefined) {
   const title = project?.title ?? "Project";
   const tags = project?.tags ?? [];
   const screenshot = project?.screenshots?.[0];
   const imageSrc = screenshot ? await screenshotDataUrl(screenshot.src) : null;
-  const font = await loadSwitzer();
+  const font = await loadFonts();
 
   return new ImageResponse(
     <div
@@ -19,7 +20,7 @@ export async function projectOgImage(project: Project | undefined) {
         flexDirection: "column",
         backgroundColor: "#f7f7f4",
         color: "#171715",
-        fontFamily: "Switzer",
+        fontFamily: FONT_FAMILY,
       }}
     >
       <div

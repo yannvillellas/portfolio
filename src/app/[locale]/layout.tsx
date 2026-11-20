@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations, getMessages, getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { buildOpenGraph } from "@/i18n/metadata";
+import { siteFont } from "@/lib/font";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -11,16 +11,6 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
 };
-
-const switzer = localFont({
-  src: [
-    { path: "../fonts/switzer-400.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/switzer-600.woff2", weight: "600", style: "normal" },
-  ],
-  display: "swap",
-  adjustFontFallback: "Arial",
-  variable: "--font-switzer",
-});
 
 import Footer from "@/components/layout/Footer";
 import Navigation from "@/components/layout/Navigation";
@@ -64,7 +54,7 @@ export default async function LocaleLayout({
       lang={locale}
       data-theme="light"
       suppressHydrationWarning
-      className={switzer.variable}
+      className={siteFont.variable}
     >
       <head>
         <InlineScript html={themeInitScript} />
