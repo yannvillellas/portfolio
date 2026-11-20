@@ -57,7 +57,7 @@ export async function ogCard(title: string, subtitle: string, role: string) {
             display: "flex",
             fontSize: 84,
             lineHeight: 1.04,
-            fontWeight: 600,
+            fontWeight: 700,
             letterSpacing: "-0.04em",
             maxWidth: 940,
           }}

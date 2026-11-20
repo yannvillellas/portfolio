@@ -37,7 +37,7 @@ export async function projectOgImage(project: Project | undefined) {
             display: "flex",
             maxWidth: "72%",
             fontSize: 72,
-            fontWeight: 600,
+            fontWeight: 700,
             letterSpacing: "-0.04em",
           }}
         >

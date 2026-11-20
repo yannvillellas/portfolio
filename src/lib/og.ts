@@ -36,7 +36,7 @@ export function loadFonts(): Promise<OgFontData | null> {
 export interface OgFont {
   name: string;
   data: ArrayBuffer;
-  weight: 400 | 600;
+  weight: 400 | 700;
   style: "normal";
 }
 
