@@ -3,13 +3,12 @@ import { getTranslations } from "next-intl/server";
 import Container from "@/components/layout/Container";
 import SectionHeader from "@/components/layout/SectionHeader";
 import Prose from "@/components/ui/Prose";
+import Emphasis from "@/components/ui/Emphasis";
 
 export default async function AboutBlurb() {
   const t = await getTranslations("HomePage");
   const rich = {
-    b: (chunks: ReactNode) => (
-      <strong className="font-medium text-ink">{chunks}</strong>
-    ),
+    b: (chunks: ReactNode) => <Emphasis>{chunks}</Emphasis>,
   };
 
   return (

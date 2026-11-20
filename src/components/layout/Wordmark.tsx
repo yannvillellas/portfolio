@@ -5,7 +5,7 @@ export default function Wordmark() {
     <Link
       href="/"
       data-text="Yann Villellas"
-      className="wordmark text-base font-medium tracking-tight text-ink no-underline"
+      className="wordmark text-base font-medium text-ink no-underline"
     >
       Yann Villellas
     </Link>

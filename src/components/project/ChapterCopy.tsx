@@ -44,7 +44,7 @@ export default function ChapterCopy({
             <div
               key={chapter.title}
               style={{ opacity: isActive ? shown : undefined }}
-              className={`col-start-1 row-start-1 ${
+              className={`col-start-1 row-start-1 flex flex-col gap-4 ${
                 isActive
                   ? "motion-reduce:opacity-100!"
                   : "pointer-events-none opacity-0"

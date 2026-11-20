@@ -34,7 +34,7 @@ const data: Record<Locale, ExperienceEntry[]> = {
       highlights: [
         "Developed a cross-platform **Flutter** app (Android, iOS, Web) with flutter_map, sorting excursions by proximity.",
         "Implemented **Firebase** Auth, Firestore and App Check, with **3** user roles (Amateur, Student, Professor) plus admin moderation.",
-        "Delivered the app to Athabasca University, including field-trip upload (**QGIS2Web** ZIP, CSV POIs, images, PDF credits) and **7** filters.",
+        "Delivered the app to Athabasca University, including field-trip upload (QGIS2Web ZIP, CSV POIs, images, PDF credits) and **7** filters.",
       ],
     },
     {
@@ -46,9 +46,9 @@ const data: Record<Locale, ExperienceEntry[]> = {
       summary:
         "Replaced slow, noisy Excel-based dependency triage with automated scanning for the Direction de l'Information L\u00e9gale et Administrative.",
       highlights: [
-        "Integrated **OWASP Dependency-Check**, eliminating manual checks of direct and transitive dependencies and saving 15\u201330 min per day.",
+        "Integrated OWASP Dependency-Check, eliminating manual checks of direct and transitive dependencies and saving 15\u201330 min per day.",
         "Tuned the scanner with **8** XML rules, removing **8** recurring false positives so the team could focus on real vulnerabilities.",
-        "Configured **3** **SEKOIA.IO** CTI profiles, with sector filtering and **150+** collected IOCs for targeted DILA monitoring.",
+        "Configured **3** SEKOIA.IO CTI profiles, with sector filtering and **150+** collected IOCs for targeted DILA monitoring.",
       ],
     },
   ],
@@ -61,9 +61,9 @@ const data: Record<Locale, ExperienceEntry[]> = {
       summary:
         "Cr\u00e9ation d'Endurance Lab pour unifier les donn\u00e9es fragment\u00e9es de multiples fournisseurs de wearables pour athl\u00e8tes et chercheurs.",
       highlights: [
-        "Livraison d'un client **Flutter** ind\u00e9pendant des appareils (MVVM) avec **6** indicateurs, cartes GPS et 2 int\u00e9grations OAuth 2.0.",
-        "Validation d'une b\u00eata de 3,5 mois (8 athl\u00e8tes, 1\u202f001 activit\u00e9s, 2,7 M GPS, 1,6 M \u00e9chantillons), socle de recherche.",
-        "Automatisation des tests, de la signature et de la publication Play b\u00eata avec **GitHub Actions** et Fastlane, avec 0 \u00e9tape manuelle.",
+        "Livraison d'un client **Flutter** ind\u00e9pendant des appareils (MVVM) avec **6** indicateurs, cartes GPS et **2** int\u00e9grations OAuth 2.0.",
+        "Validation d'une b\u00eata de **3,5** mois (**8** athl\u00e8tes, **1\u202f001** activit\u00e9s, **2,7\u202fM** points GPS, **1,6\u202fM** \u00e9chantillons), socle de recherche.",
+        "Automatisation des tests, de la signature et de la publication Play b\u00eata avec **GitHub Actions** et Fastlane, avec **0** \u00e9tape manuelle.",
       ],
     },
     {
@@ -72,11 +72,11 @@ const data: Record<Locale, ExperienceEntry[]> = {
       location: "Edmonton, Canada",
       period: "avr. 2024\u2013juil. 2024",
       summary:
-        "Cr\u00e9ation de mFieldTrip en \u00e9quipe pour les 40\u202f000 \u00e9tudiants \u00e0 distance, avec des excursions SIG en autonomie, guid\u00e9es par GPS sur le terrain.",
+        "Cr\u00e9ation de mFieldTrip en \u00e9quipe pour les **40\u202f000** \u00e9tudiants \u00e0 distance, avec des excursions SIG en autonomie, guid\u00e9es par GPS sur le terrain.",
       highlights: [
         "D\u00e9veloppement d'une application **Flutter** multiplateforme (Android, iOS, Web) avec tri des excursions par proximit\u00e9.",
-        "Mise en place de **Firebase** Auth, Firestore et App Check, avec 3 r\u00f4les (Amateur, Student, Professor) et mod\u00e9ration admin.",
-        "Livraison de l'application \u00e0 Athabasca University, avec l'import de ZIP **QGIS2Web**, POIs CSV, images et cr\u00e9dits PDF, et **7** filtres.",
+        "Mise en place de **Firebase** Auth, Firestore et App Check, avec **3** r\u00f4les (Amateur, Student, Professor) et mod\u00e9ration admin.",
+        "Livraison de l'application \u00e0 Athabasca University, avec l'import de ZIP QGIS2Web, POIs CSV, images et cr\u00e9dits PDF, et **7** filtres.",
       ],
     },
     {
@@ -88,9 +88,9 @@ const data: Record<Locale, ExperienceEntry[]> = {
       summary:
         "Remplacement d'un triage Excel lent et bruyant par un scan automatis\u00e9 pour la Direction de l'Information L\u00e9gale et Administrative.",
       highlights: [
-        "Int\u00e9gration d'**OWASP Dependency-Check**, sans v\u00e9rifications manuelles des d\u00e9pendances directes et transitives, 15\u201330 min par jour.",
-        "R\u00e9glage du scanner avec 8 r\u00e8gles XML, supprimant 8 faux positifs r\u00e9currents pour recentrer l'\u00e9quipe sur les vraies vuln\u00e9rabilit\u00e9s.",
-        "Configuration de **3** profils **SEKOIA.IO** CTI, filtrage sectoriel et collecte de **150+** IOC pour une surveillance DILA cibl\u00e9e.",
+        "Int\u00e9gration d'OWASP Dependency-Check, sans v\u00e9rifications manuelles des d\u00e9pendances directes et transitives, 15\u201330 min par jour.",
+        "R\u00e9glage du scanner avec **8** r\u00e8gles XML, supprimant **8** faux positifs r\u00e9currents pour recentrer l'\u00e9quipe sur les vraies vuln\u00e9rabilit\u00e9s.",
+        "Configuration de **3** profils SEKOIA.IO CTI, filtrage sectoriel et collecte de **150+** IOC pour une surveillance DILA cibl\u00e9e.",
       ],
     },
   ],
