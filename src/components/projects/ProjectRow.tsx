@@ -34,7 +34,7 @@ export default function ProjectRow({
           </Heading>
           <ProjectMetaLine project={project} statusLabel={statusLabel} />
         </div>
-        <p className="max-w-xl text-sm leading-normal text-mut">
+        <p className="max-w-xl text-sm leading-relaxed text-mut">
           {project.summary ?? project.description}
         </p>
       </div>
