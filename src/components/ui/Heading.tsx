@@ -18,12 +18,12 @@ interface HeadingProps {
 }
 
 const STYLE: Record<HeadingVariant, string> = {
-  hero: "mb-4 text-5xl lg:text-6xl font-bold",
-  page: "mb-4 text-4xl lg:text-5xl font-bold",
-  heading: "mb-4 text-2xl lg:text-3xl font-bold",
-  block: "mb-4 text-2xl lg:text-3xl font-semibold",
-  card: "mb-1.5 text-xl font-semibold",
-  section: "mb-0 text-lg font-medium",
+  hero: "text-5xl lg:text-6xl font-bold",
+  page: "text-4xl lg:text-5xl font-bold",
+  heading: "text-2xl lg:text-3xl font-bold",
+  block: "text-2xl lg:text-3xl font-semibold",
+  card: "text-xl font-semibold",
+  section: "text-lg font-medium",
 };
 
 const VARIANT_BY_LEVEL: Record<Level, HeadingVariant> = {

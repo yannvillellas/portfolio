@@ -24,7 +24,7 @@ export default function ProjectRow({
       className="group flex items-center gap-6 border-b border-line py-5 transition-transform duration-250 last:border-b-0 last:pb-0 hover:translate-x-2"
     >
       <div className="flex min-w-0 flex-1 flex-col gap-2">
-        <div>
+        <div className="flex flex-col gap-1.5">
           <Heading
             level={headingLevel}
             variant="card"

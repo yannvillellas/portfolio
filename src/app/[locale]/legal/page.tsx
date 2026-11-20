@@ -50,7 +50,7 @@ export default async function LegalPage() {
 
       <div className="mt-16 flex max-w-prose flex-col gap-16">
         {sections.map((section) => (
-          <section key={section.title}>
+          <section key={section.title} className="flex flex-col gap-4">
             <Heading level="h2" variant="block">
               {section.title}
             </Heading>
