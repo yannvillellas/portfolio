@@ -10,10 +10,9 @@
     "skip": "Skip to content"
   },
   "HomePage": {
-    "eyebrow": "Software engineer",
     "role": "Software Engineer",
-    "title": "Code in production.",
-    "heroSubtitle": "Building web, mobile, and backend applications.",
+    "title": "Software engineer.",
+    "heroSubtitle": "I build web and mobile, write the backend, and run it all in production.",
     "projectsTitle": "Projects",
     "inProgress": "in progress",
     "pathTitle": "Background",

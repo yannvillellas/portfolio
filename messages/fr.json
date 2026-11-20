@@ -10,10 +10,9 @@
     "skip": "Aller au contenu"
   },
   "HomePage": {
-    "eyebrow": "Ingénieur logiciel",
     "role": "Ingénieur logiciel",
-    "title": "Du code en production.",
-    "heroSubtitle": "Conception d'applications web, mobiles et backend.",
+    "title": "Ingénieur logiciel.",
+    "heroSubtitle": "Je conçois le web et le mobile, j'écris le backend, et je l'exploite en production.",
     "projectsTitle": "Projets",
     "inProgress": "en cours",
     "pathTitle": "Parcours",

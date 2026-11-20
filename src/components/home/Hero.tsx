@@ -10,7 +10,6 @@ export default async function Hero() {
     <section className="pt-14">
       <Container>
         <div className="flex max-w-2xl flex-col gap-4">
-          <p className="text-sm text-mut">{t("eyebrow")}</p>
           <Heading level="h1" variant="hero">
             {t("title")}
           </Heading>
