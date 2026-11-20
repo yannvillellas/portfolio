@@ -2,7 +2,13 @@ import type { ReactNode } from "react";
 
 export type Level = "h1" | "h2" | "h3";
 
-export type HeadingVariant = "hero" | "page" | "block" | "card" | "section";
+export type HeadingVariant =
+  | "hero"
+  | "page"
+  | "heading"
+  | "block"
+  | "card"
+  | "section";
 
 interface HeadingProps {
   level: Level;
@@ -12,11 +18,12 @@ interface HeadingProps {
 }
 
 const STYLE: Record<HeadingVariant, string> = {
-  hero: "mb-4 text-5xl lg:text-6xl",
-  page: "mb-4 text-4xl lg:text-5xl",
-  block: "mb-4 text-2xl lg:text-3xl",
-  card: "mb-1.5 text-xl",
-  section: "mb-0 text-lg",
+  hero: "mb-4 text-5xl lg:text-6xl font-bold",
+  page: "mb-4 text-4xl lg:text-5xl font-bold",
+  heading: "mb-4 text-2xl lg:text-3xl font-bold",
+  block: "mb-4 text-2xl lg:text-3xl font-semibold",
+  card: "mb-1.5 text-xl font-semibold",
+  section: "mb-0 text-lg font-medium",
 };
 
 const VARIANT_BY_LEVEL: Record<Level, HeadingVariant> = {
@@ -35,11 +42,7 @@ export default function Heading({
 
   return (
     <Tag
-      className={[
-        "font-semibold text-balance",
-        STYLE[resolved],
-        className,
-      ]
+      className={["text-balance", STYLE[resolved], className]
         .filter(Boolean)
         .join(" ")}
     >

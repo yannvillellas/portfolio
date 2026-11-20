@@ -12,7 +12,7 @@ export default async function ContactBlock() {
     <section>
       <Container>
         <div className="flex flex-col gap-4 border-t border-line pt-6 md:flex-row md:items-baseline md:justify-between">
-          <Heading level="h2" variant="block">
+          <Heading level="h2" variant="heading">
             {t("contactAvailability")}
           </Heading>
           <TextLink href={`mailto:${email}`} tone="accent" size="base">
