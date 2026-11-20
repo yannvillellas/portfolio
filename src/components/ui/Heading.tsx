@@ -3,12 +3,7 @@ import type { ReactNode } from "react";
 export type Level = "h1" | "h2" | "h3";
 
 export type HeadingVariant =
-  | "hero"
-  | "page"
-  | "heading"
-  | "block"
-  | "card"
-  | "section";
+  "hero" | "page" | "heading" | "block" | "card" | "section";
 
 interface HeadingProps {
   level: Level;
