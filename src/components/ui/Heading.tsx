@@ -36,7 +36,7 @@ export default function Heading({
   return (
     <Tag
       className={[
-        "font-semibold tracking-tight text-balance",
+        "font-semibold text-balance",
         STYLE[resolved],
         className,
       ]
